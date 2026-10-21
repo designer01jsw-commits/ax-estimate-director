@@ -1,0 +1,583 @@
+# -*- coding: utf-8 -*-
+"""견적감독관 (Estimate Auditor) — 동일 시트명 자동 비교 및 전천후 실전 감리 엔진"""
+
+import traceback
+from pathlib import Path
+import streamlit as st
+import pandas as pd
+import openpyxl
+
+from auditor.projects import load_projects
+from auditor.errors import ValidationError
+from auditor.loader import (
+    load_workbook_safe,
+    resolve_sheet,
+    read_estimate_sheet,
+    read_labor_sheet,
+    read_approval_sheet,
+    get_common_sheet_names
+)
+from auditor.matching import match_items
+from auditor.analysis import (
+    analyze_estimates,
+    analyze_labor,
+    build_review_items,
+    calculate_summary
+)
+from auditor.export import export_to_csv_bytes, generate_csv_filename
+from auditor.presentation_modules import (
+    explain_cost_difference,
+    get_traffic_light_status,
+    check_labor_over_allocation,
+    get_faq_question_templates,
+    generate_automated_response
+)
+from auditor.diagnostics import (
+    OFFICIAL_BENCHMARKS,
+    get_all_benchmark_details,
+    normalize_baseline,
+    diagnose_estimate_item,
+    diagnose_labor_item,
+    generate_audit_judgment_report
+)
+from auditor.vision_ui import render_vision_estimator_ui
+from auditor.learning_ui import render_learning_studio_ui
+from auditor.schema import (
+    MATCH_CONFIRMED,
+    MATCH_NEEDS_CONFIRM,
+    APPROVAL_APPROVED,
+    APPROVAL_REJECTED,
+    APPROVAL_UNCONFIRMED
+)
+
+# 페이지 설정
+st.set_page_config(
+    page_title="제일기획 AX 견적감독관 — 동일 시트명 자동 대조 감리",
+    page_icon="⚖️",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# CSS 스타일링
+st.markdown("""
+<style>
+    .main-title { font-size: 1.85rem; font-weight: 800; color: #0F172A; margin-bottom: 0.1rem; }
+    .sub-title { font-size: 0.95rem; color: #475569; margin-bottom: 1.2rem; }
+    .sheet-badge { background-color: #E0E7FF; color: #3730A3; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; }
+</style>
+""", unsafe_allow_html=True)
+
+def format_currency(val: float, currency: str = "KRW") -> str:
+    if val is None:
+        return "-"
+    if currency == "USD":
+        return f"${val:,.2f}"
+    return f"₩{val:,.0f}"
+
+@st.cache_data(show_spinner=False)
+def get_workbook_sheet_names(file_path: str):
+    """엑셀 파일의 시트명 목록을 빠르게 추출합니다."""
+    try:
+        wb = openpyxl.load_workbook(file_path, read_only=True)
+        names = list(wb.sheetnames)
+        wb.close()
+        return names
+    except Exception:
+        return []
+
+def main():
+    st.markdown('<div class="main-title">⚖️ 제일기획 AX대회 — 「견적감독관」</div>', unsafe_allow_html=True)
+    st.info("🌐 **팀원 공유용 오픈 도메인 주소:** [https://deposit-ceiling-loving-homework.trycloudflare.com](https://deposit-ceiling-loving-homework.trycloudflare.com) (비밀번호 없음, 모바일/PC 즉시 접속 가능)")
+
+    # 1. 프로젝트 목록 로드
+    projects, prj_warnings = load_projects()
+    for w in prj_warnings:
+        st.warning(w)
+
+    # 모드 선택
+    st.sidebar.header("🚀 메인 실행 모드")
+    app_mode = st.sidebar.radio(
+        "기능 모드 선택",
+        [
+            "⚖️ 기준 견적서 정밀 감리 & 진단",
+            "📷 비전 AI 이미지 예상견적 산출기",
+            "🧠 과거 실적 자산화 & AI 학습 스튜디오"
+        ],
+        index=0,
+        key="app_main_mode"
+    )
+
+    if app_mode == "📷 비전 AI 이미지 예상견적 산출기":
+        render_vision_estimator_ui(currency="KRW")
+        return
+    elif app_mode == "🧠 과거 실적 자산화 & AI 학습 스튜디오":
+        render_learning_studio_ui(currency="KRW")
+        return
+
+    # 2. 사이드바 프로젝트 선택
+    st.sidebar.header("📁 기준 견적 프로젝트 선택")
+    if not projects:
+        st.sidebar.error("등록된 프로젝트가 없습니다.")
+        return
+
+    proj_labels = [f"[{p['project_id']}] {p['name']}" for p in projects]
+    selected_idx = st.sidebar.selectbox(
+        "기준 견적 데이터셋 선택",
+        range(len(proj_labels)),
+        format_func=lambda x: proj_labels[x],
+        index=3 if len(proj_labels) > 3 else 0  # 기준견적서4 기본 포커스 지원
+    )
+    selected_proj = projects[selected_idx]
+
+    currency = selected_proj.get("currency", "KRW")
+    proj_id = selected_proj.get("project_id", "PROJ")
+
+    with st.sidebar.expander("📌 프로젝트 메타데이터", expanded=True):
+        st.write(f"**프로젝트 ID:** {proj_id}")
+        st.write(f"**발주처:** {selected_proj.get('client', '-')}")
+        st.write(f"**현장/베뉴:** {selected_proj.get('site', '-')}")
+        st.write(f"**통화:** {currency}")
+        st.write(f"**상태:** {selected_proj.get('status', '-')}")
+
+    # 3. 데이터 소스 선택
+    st.sidebar.markdown("---")
+    st.sidebar.header("📂 데이터 파일 공급 모드")
+    has_samples = bool(selected_proj.get("sample_estimate"))
+    
+    if has_samples:
+        data_source_mode = st.sidebar.radio(
+            "입력 모드 선택",
+            ["광고주 컨펌 기준견적서 사용", "직접 파일 업로드"],
+            index=0
+        )
+    else:
+        data_source_mode = "직접 파일 업로드"
+        st.sidebar.info("파일 직접 업로드 전용 프로젝트입니다.")
+
+    orig_file_input = None
+    rev_file_input = None
+    orig_file_name = ""
+    rev_file_name = ""
+
+    root_dir = Path(__file__).resolve().parent
+
+    if data_source_mode == "광고주 컨펌 기준견적서 사용":
+        sample_est_str = selected_proj["sample_estimate"]
+        orig_path = Path(sample_est_str) if Path(sample_est_str).is_absolute() else (root_dir / "data" / sample_est_str)
+
+        sample_chg_str = selected_proj.get("sample_change")
+        if sample_chg_str:
+            rev_path = Path(sample_chg_str) if Path(sample_chg_str).is_absolute() else (root_dir / "data" / sample_chg_str)
+        else:
+            # 변경견적서가 지정되지 않은 경우 기준견적서를 자체 대조 기준으로 연결
+            rev_path = orig_path
+
+        if orig_path.exists():
+            orig_file_input = str(orig_path)
+            orig_file_name = orig_path.name
+            if rev_path.exists():
+                rev_file_input = str(rev_path)
+                rev_file_name = rev_path.name
+        else:
+            st.sidebar.error(f"파일을 찾을 수 없습니다: {orig_path}")
+    else:
+        st.sidebar.subheader("파일 업로드")
+        orig_uploaded = st.sidebar.file_uploader("1. 최초/기준 견적서 (.xlsx)", type=["xlsx"], key="u_orig")
+        rev_uploaded = st.sidebar.file_uploader("2. 변경 내역서 (.xlsx)", type=["xlsx"], key="u_rev")
+        if orig_uploaded:
+            orig_file_input = orig_uploaded
+            orig_file_name = orig_uploaded.name
+        if rev_uploaded:
+            rev_file_input = rev_uploaded
+            rev_file_name = rev_uploaded.name
+
+    if not orig_file_input or not rev_file_input:
+        st.info("💡 사이드바에서 기준견적서 프로젝트를 선택하거나 최초 및 변경 견적서 XLSX를 올려 주세요.")
+        return
+
+    # 워크북 안전 로드
+    try:
+        wb_orig = load_workbook_safe(orig_file_input, orig_file_name)
+        wb_rev = load_workbook_safe(rev_file_input, rev_file_name)
+    except Exception as e:
+        st.error(f"❌ 엑셀 파일 로드 실패: {str(e)}")
+        return
+
+    # 4. 동일 시트명 자동 감지 및 시트 매칭 UI (핵심 해결책)
+    st.sidebar.markdown("---")
+    st.sidebar.header("📑 비교 시트 매칭 (동일 시트명 자동 대조)")
+
+    orig_sheets = list(wb_orig.sheetnames)
+    rev_sheets = list(wb_rev.sheetnames)
+    common_sheets = [s for s in orig_sheets if s in rev_sheets]
+
+    sheet_orig_selected = None
+    sheet_rev_selected = None
+
+    if common_sheets:
+        st.sidebar.success(f"양쪽 파일에서 공통 시트 {len(common_sheets)}개 자동 감지됨")
+        
+        # 기본 시트 우선 추천 (예: 수원 사업장, 원형 개발, 홍대점, 또는 공통시트 1번)
+        default_idx = 0
+        preferred_default = selected_proj.get("default_sheet")
+        if preferred_default and preferred_default in common_sheets:
+            default_idx = common_sheets.index(preferred_default)
+        else:
+            for idx, s in enumerate(common_sheets):
+                if any(k in s for k in ["수원", "홍대", "원형", "견적", "1."]):
+                    default_idx = idx
+                    break
+
+        match_mode = st.sidebar.radio(
+            "시트 매칭 방식",
+            ["동일 시트명 1:1 자동 대조", "서로 다른 시트 수동 매칭"],
+            index=0
+        )
+
+        if match_mode == "동일 시트명 1:1 자동 대조":
+            selected_common = st.sidebar.selectbox(
+                "대조할 동일 시트 선택",
+                common_sheets,
+                index=default_idx
+            )
+            sheet_orig_selected = selected_common
+            sheet_rev_selected = selected_common
+            st.sidebar.caption(f"기준: `{sheet_orig_selected}` ⟷ 변경: `{sheet_rev_selected}`")
+        else:
+            sheet_orig_selected = st.sidebar.selectbox("최초 견적서 시트 선택", orig_sheets, index=0)
+            sheet_rev_selected = st.sidebar.selectbox("변경 내역서 시트 선택", rev_sheets, index=0)
+    else:
+        st.sidebar.warning("양쪽 파일에 동일한 이름의 시트가 없습니다. 비교할 시트를 각각 선택해 주세요.")
+        sheet_orig_selected = st.sidebar.selectbox("최초 견적서 시트 선택", orig_sheets, index=0)
+        sheet_rev_selected = st.sidebar.selectbox("변경 내역서 시트 선택", rev_sheets, index=0)
+
+    # 세션 상태 사용자 매칭 결정 맵
+    decision_key = f"decisions_{proj_id}_{sheet_orig_selected}_{sheet_rev_selected}"
+    if decision_key not in st.session_state:
+        st.session_state[decision_key] = {}
+
+    try:
+        # 시트 가져오기
+        ws_orig_est = wb_orig[sheet_orig_selected]
+        ws_rev_est = wb_rev[sheet_rev_selected]
+
+        # 파싱 실행
+        orig_items, mismatches_orig, orig_dup, orig_warn = read_estimate_sheet(ws_orig_est, orig_file_name, sheet_orig_selected)
+        rev_items, mismatches_rev, rev_dup, rev_warn = read_estimate_sheet(ws_rev_est, rev_file_name, sheet_rev_selected)
+
+        # 인력 시트 스마트 탐색
+        orig_labor, orig_lab_warn = [], []
+        rev_labor, rev_lab_warn = [], []
+        
+        labor_sheet_candidates_orig = [s for s in orig_sheets if any(k in s for k in ["인력", "투입률", "공통"])]
+        labor_sheet_candidates_rev = [s for s in rev_sheets if any(k in s for k in ["인력", "투입률", "공통"])]
+
+        if labor_sheet_candidates_orig and labor_sheet_candidates_rev:
+            l_orig_sname = labor_sheet_candidates_orig[0]
+            l_rev_sname = labor_sheet_candidates_rev[0]
+            try:
+                orig_labor, _, orig_lab_warn = read_labor_sheet(wb_orig[l_orig_sname], orig_file_name, l_orig_sname)
+                rev_labor, _, rev_lab_warn = read_labor_sheet(wb_rev[l_rev_sname], rev_file_name, l_rev_sname)
+            except Exception:
+                orig_labor, rev_labor = [], []
+
+        # 변경 승인 시트 스마트 탐색
+        approval_records, appr_warn = [], []
+        appr_sheet_candidates = [s for s in rev_sheets if any(k in s for k in ["승인", "CR", "변경승인"])]
+        if appr_sheet_candidates:
+            appr_sname = appr_sheet_candidates[0]
+            try:
+                approval_records, appr_warn = read_approval_sheet(wb_rev[appr_sname], rev_file_name, appr_sname)
+            except Exception:
+                approval_records = []
+        elif "변경승인" in wb_rev.sheetnames:
+            approval_records, appr_warn = read_approval_sheet(wb_rev["변경승인"], rev_file_name, "변경승인")
+        else:
+            st.info("ℹ️ ‘변경승인’ 시트가 감지되지 않아 변경 항목의 승인 여부가 기본 '미확인'으로 표시됩니다.")
+
+        # 매칭 및 분석 실행
+        user_decisions = st.session_state[decision_key]
+        matches = match_items(orig_items, rev_items, orig_dup, rev_dup, user_decisions)
+        
+        labor_matches = match_items(orig_labor, rev_labor) if (orig_labor or rev_labor) else []
+        analyzed_estimates, orphan_approvals = analyze_estimates(matches, orig_items, rev_items, approval_records)
+        analyzed_labor, used_lab_apprs = analyze_labor(labor_matches, approval_records)
+        orphan_approvals = [a for a in orphan_approvals if a["row_key"] not in used_lab_apprs]
+
+        all_warnings = orig_warn + rev_warn + orig_lab_warn + rev_lab_warn + appr_warn
+        formula_mismatches = mismatches_orig + mismatches_rev
+        review_items = build_review_items(
+            analyzed_estimates, analyzed_labor, orphan_approvals, formula_mismatches, all_warnings
+        )
+        summary = calculate_summary(
+            orig_items, rev_items, analyzed_estimates, analyzed_labor, review_items
+        )
+
+        # 신호등 태그 및 설명 주입
+        for it in analyzed_estimates:
+            tl_status, tl_desc = get_traffic_light_status(it)
+            it["신호등"] = tl_status
+            it["판정근거"] = tl_desc
+            it["비싼이유_설명"] = explain_cost_difference(it, currency)
+
+        # 현재 대조 중인 시트 안내
+        st.markdown(f"**현재 대조 시트:** `{orig_file_name}` [`{sheet_orig_selected}`] ⟷ `{rev_file_name}` [`{sheet_rev_selected}`]")
+
+        # 메트릭 카드
+        st.subheader("📊 핵심 감리 지표 요약")
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("최초(기준) 시트 합계", format_currency(summary["orig_total"], currency))
+        diff_label = f"{summary['diff_rate']:+.1f}%" if summary["orig_total"] > 0 else "-"
+        c2.metric("변경 시트 합계", format_currency(summary["rev_total"], currency), f"{format_currency(summary['diff_total'], currency)} ({diff_label})")
+        c3.metric("승인 확인된 증감액", format_currency(summary["approved_diff_sum"], currency))
+        c4.metric("🚨 미승인·반려 증감액", format_currency(summary["unapproved_diff_sum"], currency), delta_color="inverse")
+
+        c5, c6, c7, c8 = st.columns(4)
+        c5.metric("🚨 고위험 소명 필요", f"{summary['high_count']}건")
+        c6.metric("⚠️ 중·저위험 검토", f"{summary['med_count'] + summary['low_count']}건")
+        c7.metric("🔗 항목 연결 확인 필요", f"{summary['needs_confirm_count']}건")
+        c8.metric("👷 인력 M/D 변동", f"{summary['diff_md_sum']:+.1f} M/D", format_currency(summary["diff_labor_cost"], currency))
+
+        st.markdown("---")
+
+        # 정밀 감리 진단 (자체 기준 정규화 및 적합/비적합 공공기준 소명)
+        baseline_norms = normalize_baseline(orig_items, orig_labor)
+        diagnosed_estimates = [diagnose_estimate_item(it, baseline_norms) for it in analyzed_estimates]
+        diagnosed_labor = [diagnose_labor_item(it, baseline_norms) for it in analyzed_labor]
+        all_diagnosed = diagnosed_estimates + diagnosed_labor
+
+        unfit_count = len([d for d in all_diagnosed if d["판정"] == "비적합"])
+        cond_count = len([d for d in all_diagnosed if d["판정"] == "조건부 적합"])
+        fit_count = len([d for d in all_diagnosed if d["판정"] == "적합"])
+
+        # 9대 감리 및 비전/학습 탭
+        tab_diagnostics, tab_vision, tab_learning, tab_traffic, tab_decompose, tab_labor, tab_inquiry, tab_confirm, tab_raw = st.tabs([
+            f"⚖️ 견적 진단·감리실 (적합 {fit_count} / 비적합 {unfit_count})",
+            "📷 비전 AI 이미지 예상견적",
+            "🧠 과거 실적 학습 스튜디오",
+            f"🚦 신호등 감리 리포트 ({len(review_items)})",
+            "🧩 제작비 요인 분해 (비싼 이유)",
+            "👷 설치/철거 투입률 100% 검토",
+            "💬 광고주 질의 대응 (소명서 생성)",
+            f"🔗 연결 확인 ({summary['needs_confirm_count']})",
+            "📄 원본 대조 & CSV 내보내기"
+        ])
+
+        # 0. 견적 진단·감리실 (적합/비적합 & 공공기준 소명)
+        with tab_diagnostics:
+            st.subheader("⚖️ 견적 진단사 & 감독관 정밀 감리실")
+            st.markdown(
+                "기준 견적서의 데이터를 분해하여 자체 정규화 기준을 수립한 뒤, 신규 견적서를 "
+                "**[인력비 / 인력 투입률 / 단가 / 제작비 / 승인절차]** 5대 축으로 분해하여 적합/비적합을 판정하고 공신력 있는 공공 기준(KIDP, KOSA, KENCA, KBIZ, 근로기준법, 나라장터)을 연계합니다."
+            )
+
+            # 6대 공공 기준 상세 요강 해설 표
+            with st.expander("📚 적용 공공·정부 기준 상세 요강 및 법정 품셈 해설 (KIDP, KOSA, KENCA, KBIZ, 근로기준법, 나라장터)", expanded=False):
+                st.markdown("본 감독관 에이전트는 국가 법령 및 공공기관 공시 기준에 기반하여 견적의 타당성을 진단합니다.")
+                benchmarks_df = pd.DataFrame(get_all_benchmark_details())
+                st.dataframe(benchmarks_df, use_container_width=True)
+
+            unfit_list = [d for d in all_diagnosed if d["판정"] == "비적합"]
+            cond_list = [d for d in all_diagnosed if d["판정"] == "조건부 적합"]
+            fit_list = [d for d in all_diagnosed if d["판정"] == "적합"]
+            total_cut_demand = sum(abs(d.get("변동금액", 0.0)) for d in unfit_list)
+
+            dm1, dm2, dm3, dm4 = st.columns(4)
+            dm1.metric("🟢 적합 (Pass)", f"{len(fit_list)}건")
+            dm2.metric("🟡 조건부 적합 (Review)", f"{len(cond_list)}건")
+            dm3.metric("🔴 비적합 (Fail/Cut)", f"{len(unfit_list)}건", delta_color="inverse")
+            dm4.metric("🚨 시정/삭감 요구 규모", format_currency(total_cut_demand, currency), delta_color="inverse")
+
+            st.markdown("---")
+            diag_filter = st.radio("판정 필터", ["전체", "🔴 비적합만 보기", "🟡 조건부 적합만 보기", "🟢 적합만 보기"], horizontal=True)
+            
+            target_diag = all_diagnosed
+            if diag_filter == "🔴 비적합만 보기":
+                target_diag = unfit_list
+            elif diag_filter == "🟡 조건부 적합만 보기":
+                target_diag = cond_list
+            elif diag_filter == "🟢 적합만 보기":
+                target_diag = fit_list
+
+            if target_diag:
+                diag_table_data = []
+                for d in target_diag:
+                    cites_text = ", ".join([f"{c['기관']} ({c.get('법령', '')})" for c in d.get("공공기준_근거", [])])
+                    diag_table_data.append({
+                        "판정": d["판정"],
+                        "분해축": d["분해축"],
+                        "항목명": d["항목명"],
+                        "변동금액": format_currency(d["변동금액"], currency),
+                        "진단 사유": d["상세사유"],
+                        "공공/정부 기준 근거": cites_text or "공인 기준 부합",
+                        "감독관 시정조치 요구": d["조치사항"]
+                    })
+                st.dataframe(pd.DataFrame(diag_table_data), use_container_width=True)
+
+                problem_items = [d for d in target_diag if d["판정"] in ["비적합", "조건부 적합"]]
+                if problem_items:
+                    st.markdown("##### 🔍 비적합 / 조건부 적합 항목별 공공 기준 상세 분석 및 산출식")
+                    for p_idx, it in enumerate(problem_items):
+                        badge_color = "🔴" if it["판정"] == "비적합" else "🟡"
+                        with st.container():
+                            st.markdown(f"**{badge_color} [{it['판정']}] {it['항목명']}** (분해축: `{it['분해축']}` | 변동액: `{format_currency(it['변동금액'], currency)}`)")
+                            st.markdown(f"- **진단 사유:** {it['상세사유']}")
+                            if it.get("공공기준_근거"):
+                                st.markdown("- **공신력 있는 정부/공공 기준 적용 상세:**")
+                                for cite in it["공공기준_근거"]:
+                                    url_md = f" [[공식 사이트 바로가기]({cite['URL']})]" if cite.get("URL") else ""
+                                    st.markdown(f"  * 🏛️ **{cite['기관']}** / `{cite.get('법령', '')}`{url_md}")
+                                    if "적용기준" in cite:
+                                        st.markdown(f"    - **적용 고시 기준:** {cite['적용기준']}")
+                                    if "산출공식" in cite:
+                                        st.markdown(f"    - **정밀 산출 공식:** `{cite['산출공식']}`")
+                                    st.markdown(f"    - **법령/기준 요약:** {cite['내용']}")
+                            st.markdown(f"- **👉 감독관 시정 조치:** :red[**{it['조치사항']}**]")
+                            st.divider()
+            else:
+                st.success("해당 조건의 항목이 없습니다.")
+
+            st.markdown("---")
+            st.subheader("📑 공식 감리 진단서 및 시정 요구서 발행")
+            if st.button("🏛️ 공문형 정식 감리 진단서 생성하기", type="primary", key="btn_gen_audit_report"):
+                audit_report_doc = generate_audit_judgment_report(
+                    diagnosed_estimates, diagnosed_labor, summary, selected_proj.get("name", "프로젝트")
+                )
+                st.markdown(audit_report_doc)
+                st.download_button(
+                    "📥 공식 감리 진단서 마크다운 다운로드",
+                    data=audit_report_doc.encode("utf-8"),
+                    file_name=f"견적감리진단서_{proj_id}_{sheet_orig_selected}.md",
+                    mime="text/markdown"
+                )
+
+        # 0.5 비전 AI 이미지 예상 견적 산출기
+        with tab_vision:
+            render_vision_estimator_ui(currency)
+
+        # 0.6 과거 실적 자산화 & AI 학습 스튜디오
+        with tab_learning:
+            render_learning_studio_ui(currency)
+
+        # 1. 신호등 감리 리포트
+        with tab_traffic:
+            st.subheader("신호등 판정 및 감리 결과표")
+            tl_filter = st.radio("신호등 필터", ["전체", "🔴 반려 반영", "🔴 승인 미확인", "🟡 확인 필요", "🟢 적정"], horizontal=True)
+            filtered_tl = [it for it in analyzed_estimates if tl_filter == "전체" or tl_filter in it.get("신호등", "")]
+
+            if filtered_tl:
+                df_tl = pd.DataFrame(filtered_tl)[[
+                    "신호등", "판정근거", "항목명", "수량_최초", "단가_최초", "수량_변경", "단가_변경",
+                    "차이금액", "승인상태", "승인근거", "원본_최초", "원본_변경"
+                ]]
+                st.dataframe(df_tl, use_container_width=True)
+            else:
+                st.success("해당 신호등 조건의 항목이 없습니다.")
+
+            st.markdown("##### 🚨 주요 검토 사유 목록")
+            if review_items:
+                st.dataframe(pd.DataFrame(review_items), use_container_width=True)
+
+        # 2. 제작비 요인 분해
+        with tab_decompose:
+            st.subheader("모듈 ①: 제작비 차이 요인별(수량/단가) 분해")
+            changed_items = [it for it in analyzed_estimates if it["변경유형"] != "변동없음"]
+            if changed_items:
+                for it in changed_items:
+                    with st.container():
+                        st.markdown(f"**📌 {it['항목명']}** (`{it['변경유형']}` | 총 차이: `{format_currency(it['차이금액'], currency)}`)")
+                        st.info(f"💡 **AI 자동 소명 분석:** {it['비싼이유_설명']}")
+                        col_a, col_b, col_c = st.columns(3)
+                        col_a.metric("수량 효과", format_currency(it["수량효과"], currency))
+                        col_b.metric("단가 효과", format_currency(it["단가효과"], currency))
+                        col_c.metric("합계 검산", f"{format_currency(it['수량효과'] + it['단가효과'], currency)} (일치)")
+                        st.divider()
+            else:
+                st.success("대조된 두 시트 간에 변동된 항목이 없거나 동일합니다.")
+
+        # 3. 설치/철거 투입률 검토
+        with tab_labor:
+            st.subheader("모듈 ②: 설치/철거 투입률 100% 초과 자동 탐지")
+            labor_alerts = check_labor_over_allocation(analyzed_labor)
+            if labor_alerts:
+                st.warning(f"⚠️ 투입률 100% 초과 공정 {len(labor_alerts)}건 탐지됨")
+                st.dataframe(pd.DataFrame(labor_alerts), use_container_width=True)
+            else:
+                st.success("🎉 투입률 100% 초과 공정이 없으며 전원 적정 일수 내 배정되었습니다.")
+
+            if analyzed_labor:
+                st.markdown("##### 전체 인력 M/D 및 인건비 대조표")
+                st.dataframe(pd.DataFrame(analyzed_labor), use_container_width=True)
+
+        # 4. 광고주 질의 대응 (91건 FAQ 소명서 자동완성)
+        with tab_inquiry:
+            st.subheader("모듈 ③ & ④: 클라이언트 질의 대응 (소명 답변서 자동 생성)")
+            faq_templates = get_faq_question_templates()
+            faq_choice = st.selectbox("자주 묻는 질의 유형(FAQ) 선택", list(faq_templates.keys()))
+            selected_faq_data = faq_templates[faq_choice]
+            
+            st.text_area("광고주 질의서 원문", value=selected_faq_data["query"], height=70)
+            
+            item_names = [it["항목명"] for it in analyzed_estimates]
+            target_item_selected = st.selectbox("질의 대상 항목 선택", item_names if item_names else ["전체"])
+            target_obj = next((it for it in analyzed_estimates if it["항목명"] == target_item_selected), None)
+
+            if st.button("🚀 정식 소명 답변서 생성하기", type="primary"):
+                response_doc = generate_automated_response(faq_choice, target_obj, currency)
+                st.markdown("---")
+                st.markdown(response_doc)
+                st.download_button(
+                    "📥 소명 답변서 마크다운 저장",
+                    data=response_doc.encode("utf-8"),
+                    file_name=f"소명서_{target_item_selected}.md",
+                    mime="text/markdown"
+                )
+
+        # 5. 연결 확인
+        with tab_confirm:
+            st.subheader("항목 연결 수동 확인 및 확정")
+            needs_confirm_items = [it for it in analyzed_estimates if it["연결상태"] == MATCH_NEEDS_CONFIRM]
+            if needs_confirm_items:
+                for idx, it in enumerate(needs_confirm_items):
+                    pair_key = (it["orig_row_key"], it["rev_row_key"])
+                    curr_val = st.session_state[decision_key].get(pair_key, "확인 대기")
+                    with st.container():
+                        st.markdown(f"**후보 #{idx+1}: {it['항목명']}** (유사도: `{it['유사도']:.2f}`)")
+                        col_o, col_r, col_act = st.columns([2.5, 2.5, 2])
+                        col_o.caption(f"기준 견적: {it['원본_최초']}")
+                        col_r.caption(f"변경 견적: {it['원본_변경']}")
+                        choice = col_act.radio(
+                            f"판정 #{idx+1}",
+                            ["확인 대기", "같은 항목", "다른 항목"],
+                            index=["확인 대기", "같은 항목", "다른 항목"].index(curr_val),
+                            key=f"r_{proj_id}_{idx}"
+                        )
+                        if choice != curr_val:
+                            st.session_state[decision_key][pair_key] = choice
+                            st.rerun()
+                        st.divider()
+            else:
+                st.success("모든 항목이 확정 연결되었습니다.")
+
+        # 6. 원본 데이터 및 CSV
+        with tab_raw:
+            st.subheader("원본 데이터 대조 및 증빙 CSV 내보내기")
+            csv_review = export_to_csv_bytes(review_items)
+            csv_est = export_to_csv_bytes(analyzed_estimates)
+            
+            c_d1, c_d2 = st.columns(2)
+            c_d1.download_button("📥 검토 필요 목록 CSV 다운로드", data=csv_review, file_name=generate_csv_filename(proj_id, f"{sheet_orig_selected}_검토목록"), mime="text/csv")
+            c_d2.download_button("📥 전체 비교표 CSV 다운로드", data=csv_est, file_name=generate_csv_filename(proj_id, f"{sheet_orig_selected}_전체비교"), mime="text/csv")
+
+            st.markdown(f"##### 기준 견적 데이터 (`{sheet_orig_selected}` 시트 - {len(orig_items)}건)")
+            st.dataframe(pd.DataFrame(orig_items), use_container_width=True)
+
+    except ValidationError as ve:
+        st.error(f"❌ {ve.message}")
+    except Exception as e:
+        st.error("🚨 분석 중 예상하지 못한 문제가 생겼습니다.")
+        with st.expander("오류 상세 내용"):
+            st.code(traceback.format_exc())
+
+if __name__ == "__main__":
+    main()

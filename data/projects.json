@@ -1,0 +1,77 @@
+[
+  {
+    "project_id": "P_BASE_KIT_MAIN",
+    "name": "S26 Miracle 키트/컨텐츠 메인 기준견적서 (260511)",
+    "client": "삼성전자 / 제일기획",
+    "site": "삼성 강남 / 홍대 / KT",
+    "currency": "KRW",
+    "status": "광고주 컨펌 완료",
+    "sample_estimate": "기준견적서_키트컨텐츠_광고주컨펌_260511.xlsx",
+    "sample_change": null,
+    "default_sheet": "1-1. 개발 상세"
+  },
+  {
+    "project_id": "P_BASE_KIT_V2",
+    "name": "키트/컨텐츠 원형개발 및 제작설치 기준견적서 v2",
+    "client": "삼성전자 / 제일기획",
+    "site": "원형 개발 / 강남 / 홍대 / KT",
+    "currency": "KRW",
+    "status": "광고주 컨펌 완료",
+    "sample_estimate": "기준견적서2_키트컨텐츠_광고주컨펌.xlsx",
+    "sample_change": null,
+    "default_sheet": "1-2) 원형 개발"
+  },
+  {
+    "project_id": "P_BASE_KIT_BASEBALL",
+    "name": "프로야구 베뉴 키트제작 및 설치/철거 기준견적서 v3",
+    "client": "삼성전자 / KBO 프로야구",
+    "site": "올스타 / 수원 / 잠실 / 대구 베뉴",
+    "currency": "KRW",
+    "status": "광고주 컨펌 완료",
+    "sample_estimate": "기준견적서3_키트컨텐츠_광고주컨펌.xlsx",
+    "sample_change": null,
+    "default_sheet": "1-1) 키트 및 컨텐츠 원형 개발(야구)"
+  },
+  {
+    "project_id": "P_BASE_EXHIBIT_CAMPUS",
+    "name": "삼성 사업장 전시 및 공통 인건비 증빙 기준견적서 v4",
+    "client": "삼성전자 DS부문",
+    "site": "수원 / 기흥 / 화성 사업장",
+    "currency": "KRW",
+    "status": "광고주 컨펌 완료",
+    "sample_estimate": "기준견적서4_전시_광고주컨펌.xlsx",
+    "sample_change": null,
+    "default_sheet": "1. 수원 사업장"
+  },
+  {
+    "project_id": "P_EXHIBIT_HONGDAE",
+    "name": "갤럭시 스튜디오 홍대점 집기제작 및 전시공사",
+    "client": "삼성전자 / 제일기획",
+    "site": "홍대점 (한국)",
+    "currency": "KRW",
+    "status": "광고주 컨펌 완료",
+    "sample_estimate": "전시 광고주컨펌완료 견적서 (1).xlsx",
+    "sample_change": "전시_홍대점_변경내역.xlsx",
+    "default_sheet": "● 홍대점_거래명세서"
+  },
+  {
+    "project_id": "P001",
+    "name": "국립과학관 체험전시 키트 제작 (샘플 데모)",
+    "client": "[가상] 국립과학관",
+    "site": "한국",
+    "currency": "KRW",
+    "status": "진행 중",
+    "sample_estimate": "P001_최초견적.xlsx",
+    "sample_change": "P001_변경내역.xlsx"
+  },
+  {
+    "project_id": "P002",
+    "name": "글로벌 과학 엑스포 전시관 구축 (북미 USD)",
+    "client": "[가상] Global Science Expo",
+    "site": "북미",
+    "currency": "USD",
+    "status": "진행 중",
+    "sample_estimate": "P002_최초견적.xlsx",
+    "sample_change": "P002_변경내역.xlsx"
+  }
+]

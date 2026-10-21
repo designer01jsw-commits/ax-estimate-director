@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+.pytest_cache/
+
+# Cloudflare tunnel binary
+cloudflared.exe
+*.log
+
+# Large local raw Excel source archives (>30MB)
+data/기준견적서*
+data/*.xlsx
+!data/samples/*.xlsx
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.gemini/

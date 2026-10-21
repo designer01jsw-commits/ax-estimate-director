@@ -1,0 +1,5909 @@
+[
+  {
+    "case_id": "CASE_619F92E5",
+    "name": "테스트 전시 부스 프로젝트 2026",
+    "client": "제일기획 테스트",
+    "project_type": "팝업스토어 / 전시 부스",
+    "settled_amount": 50000000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 10,
+    "unit_cost": 5000000,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "목재 가벽",
+      "도장 마감"
+    ],
+    "labor_md": 12.0,
+    "key_specs": "MDF 가벽 및 목공 시공",
+    "benchmark_cites": "KBIZ 시중노임 준용",
+    "preset_img_key": "GALAXY_POPUP",
+    "image_file": null,
+    "created_at": "최근 학습"
+  },
+  {
+    "case_id": "CASE_C1304C0B",
+    "name": "테스트 전시 부스 프로젝트 2026",
+    "client": "제일기획 테스트",
+    "project_type": "팝업스토어 / 전시 부스",
+    "settled_amount": 50000000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 10,
+    "unit_cost": 5000000,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "목재 가벽",
+      "도장 마감"
+    ],
+    "labor_md": 12.0,
+    "key_specs": "MDF 가벽 및 목공 시공",
+    "benchmark_cites": "KBIZ 시중노임 준용",
+    "preset_img_key": "GALAXY_POPUP",
+    "image_file": null,
+    "created_at": "최근 학습"
+  },
+  {
+    "case_id": "CASE_DA2119BA",
+    "name": "테스트 전시 부스 프로젝트 2026",
+    "client": "제일기획 테스트",
+    "project_type": "팝업스토어 / 전시 부스",
+    "settled_amount": 50000000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 10,
+    "unit_cost": 5000000,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "목재 가벽",
+      "도장 마감"
+    ],
+    "labor_md": 12.0,
+    "key_specs": "MDF 가벽 및 목공 시공",
+    "benchmark_cites": "KBIZ 시중노임 준용",
+    "preset_img_key": "GALAXY_POPUP",
+    "image_file": null,
+    "created_at": "최근 학습"
+  },
+  {
+    "case_id": "CASE_9A12EC25",
+    "name": "테스트 전시 부스 프로젝트 2026",
+    "client": "제일기획 테스트",
+    "project_type": "팝업스토어 / 전시 부스",
+    "settled_amount": 50000000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 10,
+    "unit_cost": 5000000,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "목재 가벽",
+      "도장 마감"
+    ],
+    "labor_md": 12.0,
+    "key_specs": "MDF 가벽 및 목공 시공",
+    "benchmark_cites": "KBIZ 시중노임 준용",
+    "preset_img_key": "GALAXY_POPUP",
+    "image_file": null,
+    "created_at": "최근 학습"
+  },
+  {
+    "case_id": "CASE_2026_S26_KIT",
+    "kit_id": "SEED_S26",
+    "name": "S26 Miracle 키트/컨텐츠 메인 원형개발 (260511)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 32500000,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 3,
+    "unit_cost": 10833333,
+    "unit_label": "대당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "2축 서보 구동부",
+      "15W 무선충전 패드",
+      "도난방지 무선시건",
+      "조광아크릴"
+    ],
+    "labor_md": 9.2,
+    "key_specs": "Rhino 3D 1:1 서피스 모델링, 우레탄 2색 조색도장, 2축 서보모터 턴테이블 구동, 무선시건장치 일체형",
+    "benchmark_cites": "KIDP 5단계 표준품셈(5.0 M/D) + KOSA SW기술자 대가 + KBIZ",
+    "preset_img_key": "S26_KIT",
+    "image_file": null,
+    "image_path": null,
+    "prototype_cost": 22000000,
+    "fabrication_cost": 10500000,
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_2026_HONGDAE_POPUP",
+    "kit_id": "SEED_POPUP",
+    "name": "갤럭시 스튜디오 홍대점 집기제작 및 팝업스토어 공사",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "팝업스토어 / 전시 부스",
+    "settled_amount": 48200000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 12,
+    "unit_cost": 4016667,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "MDF 목재 가벽",
+      "바닥 데코타일",
+      "43인치 사이니지 2대",
+      "상부 LED 트러스",
+      "조명 배선"
+    ],
+    "labor_md": 14.5,
+    "key_specs": "현장 맞춤 목공 가벽 시공, 43인치 상업용 디스플레이 2대 매립, 상부 트러스 스폿 조명, 야간 집중시공",
+    "benchmark_cites": "KBIZ 전시목공/전기공 시중노임 + 근로기준법 야간할증 50% + 조달청 G2B",
+    "preset_img_key": "GALAXY_POPUP",
+    "image_file": null,
+    "image_path": null,
+    "prototype_cost": 18000000,
+    "fabrication_cost": 30200000,
+    "created_at": "2026-06-15"
+  },
+  {
+    "case_id": "CASE_2026_KBO_BASEBALL",
+    "kit_id": "SEED_KBO",
+    "name": "프로야구 KBO 올스타 베뉴 키트제작 및 현장설치 (야구)",
+    "client": "삼성전자 / KBO 프로야구",
+    "project_type": "대형 행사 / 베뉴 전시",
+    "settled_amount": 74000000,
+    "scale": "대형 (20평 이상 / 다중 키트 8대 이상)",
+    "unit_count": 25,
+    "unit_cost": 2960000,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "야외 알루미늄 트러스",
+      "방수 우레탄 도장",
+      "대형 LED 스크린",
+      "배전 분전함",
+      "안전 펜스"
+    ],
+    "labor_md": 22.0,
+    "key_specs": "야외 베뉴 대형 구조물, 방수/내후성 마감, 다중 키트 현장 조립, 4개 협력사 분산 시공, 안전감리원 배치",
+    "benchmark_cites": "KBIZ 구조용접/목공/전기 노임 + 화물운송 표준요율 + KENCA 제경비 공식",
+    "preset_img_key": "KBO_BASEBALL",
+    "image_file": null,
+    "image_path": null,
+    "prototype_cost": 24000000,
+    "fabrication_cost": 50000000,
+    "created_at": "2026-07-20"
+  },
+  {
+    "case_id": "CASE_2026_DS_CAMPUS",
+    "kit_id": "SEED_DS",
+    "name": "삼성 사업장 상설 쇼케이스 및 공통 인건비 증빙 v4",
+    "client": "삼성전자 DS부문",
+    "project_type": "상설 쇼케이스 / 체험 테이블",
+    "settled_amount": 39800000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 9950000,
+    "unit_label": "대당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 분체도장",
+      "배면 실크인쇄 아크릴",
+      "도난방지 무선시건",
+      "SMPS 정전압 전원"
+    ],
+    "labor_md": 11.0,
+    "key_specs": "사무동 로비 상설 체험 테이블 4대, 무선 시건장치 매립, 전원 배선 일체화, 1회차 무수정 승인",
+    "benchmark_cites": "KIDP CMF 가이드 + KOSA 키오스크 대가 + 조달청 표준거래가격",
+    "preset_img_key": "DS_CAMPUS",
+    "image_file": null,
+    "image_path": null,
+    "prototype_cost": 15000000,
+    "fabrication_cost": 24800000,
+    "created_at": "2026-08-05"
+  },
+  {
+    "case_id": "CASE_M01",
+    "kit_id": "M01",
+    "name": "[미라클(S26)] 스페이셜 사이니지",
+    "project_name": "미라클(S26)",
+    "kit_name": "스페이셜 사이니지",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "디지털 사이니지",
+    "settled_amount": 79900452,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 5824400,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 109.0,
+    "key_specs": "투명 디스플레이 속 AI 가상모델이 센서로 고객 거리 인식 후 매장 안내. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M01",
+    "image_file": "M01_스페이셜_사이니지.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M01_스페이셜_사이니지.png",
+    "prototype_cost": 62427252,
+    "fabrication_cost": 17473200,
+    "unit_fabrication_cost": 5824400,
+    "prototype_breakdown": {
+      "기획설계": 2987833,
+      "SW개발": 27227282,
+      "그래픽UI": 28992499,
+      "하우징HW설계": 0,
+      "영상네트워크": 3219638,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인 *센서 하우징 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 7.0,
+        "cost": 2987833
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 6.0,
+        "cost": 5668289
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 1,
+        "daily_rate": 646399,
+        "days": 12.0,
+        "cost": 7756785
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 1,
+        "daily_rate": 726432,
+        "days": 19.0,
+        "cost": 13802208
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 20.0,
+        "cost": 28992499
+      },
+      {
+        "category": "인프라·네트워크",
+        "sub_item": "인프라/네트워크 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 5.0,
+        "cost": 3219638
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "[ASUS] NUC14 Performance NUC14SRKU7 + Win11pro \n용도 : 콘텐츠 player PC",
+        "unit": "EA",
+        "unit_price": 3492000,
+        "qty": 1,
+        "cost": 3492000
+      },
+      {
+        "store": "삼성강남",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "orbbec femto bolt \n용도 : 사람인식을 위한 센서",
+        "unit": "EA",
+        "unit_price": 1200000,
+        "qty": 1,
+        "cost": 1200000
+      },
+      {
+        "store": "삼성강남",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "센서 하우징 (TD 제작) \n용도 : 센서 하우징, 센서를 그대로 노출시키지 않고 하우징",
+        "unit": "EA",
+        "unit_price": 300000,
+        "qty": 1,
+        "cost": 300000
+      },
+      {
+        "store": "삼성강남",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "USB 3.0 리피터 \n용도 : 센서와 PC와의 거리가 멀어 연장선을 통해 데이터 전송. 올백 및 키넥트 센서등에서 실시간 대용량 데이터 전송을 위한 케이블",
+        "unit": "EA",
+        "unit_price": 48000,
+        "qty": 2,
+        "cost": 96000
+      },
+      {
+        "store": "삼성강남",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "풋프린트 프린터\n용도 : 센서 인식을 위해 체험객에게 위치 유도",
+        "unit": "EA",
+        "unit_price": 141600,
+        "qty": 1,
+        "cost": 141600
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "[ASUS] NUC14 Performance NUC14SRKU7 + Win11pro \n용도 : 콘텐츠 player PC",
+        "unit": "EA",
+        "unit_price": 3492000,
+        "qty": 2,
+        "cost": 6984000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "orbbec femto bolt \n용도 : 사람인식을 위한 센서",
+        "unit": "EA",
+        "unit_price": 2160000,
+        "qty": 2,
+        "cost": 4320000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "센서 하우징 (TD 제작) \n용도 : 센서 하우징, 센서를 그대로 노출시키지 않고 하우징",
+        "unit": "EA",
+        "unit_price": 300000,
+        "qty": 2,
+        "cost": 600000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "USB 3.0 리피터 \n용도 : 센서와 PC와의 거리가 멀어 연장선을 통해 데이터 전송. 올백 및 키넥트 센서등에서 실시간 대용량 데이터 전송을 위한 케이블",
+        "unit": "EA",
+        "unit_price": 48000,
+        "qty": 4,
+        "cost": 192000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페이셜 사이니지",
+        "sub_item": "스페이셜 사이니지 (부품, 하드웨어)",
+        "spec_work": "풋프린트 프린터\n용도 : 센서 인식을 위해 체험객에게 위치 유도",
+        "unit": "EA",
+        "unit_price": 147600,
+        "qty": 1,
+        "cost": 147600
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M02",
+    "kit_id": "M02",
+    "name": "[미라클(S26)] 퍼포먼스 비교 키트 (CXP 비교 키트)",
+    "project_name": "미라클(S26)",
+    "kit_name": "퍼포먼스 비교 키트 (CXP 비교 키트)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 214924059,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 32400000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 127.2,
+    "key_specs": "고객폰 QR 스캔·포디움 거치 시 기종 인식 → 43인치 화면에 S26U 성능 비교/체험 추천. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M02",
+    "image_file": "M02_퍼포먼스_비교_키트__CXP_비교_키트_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M02_퍼포먼스_비교_키트__CXP_비교_키트_.png",
+    "prototype_cost": 117724059,
+    "fabrication_cost": 97200000,
+    "unit_fabrication_cost": 32400000,
+    "prototype_breakdown": {
+      "기획설계": 6095318,
+      "SW개발": 76188205,
+      "그래픽UI": 0,
+      "하우징HW설계": 4940536,
+      "영상네트워크": 0,
+      "기타외주": 30500000
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 5.0,
+        "cost": 2134166
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 5.0,
+        "cost": 2106230
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 5.0,
+        "cost": 1854922
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 15.0,
+        "cost": 14170723
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 3,
+        "daily_rate": 1939196,
+        "days": 20.0,
+        "cost": 27148746
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 20.0,
+        "cost": 34868736
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 2.0,
+        "cost": 1849683
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 2,
+        "daily_rate": 1287855,
+        "days": 2.0,
+        "cost": 3090853
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "퍼포먼스 비교키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 30500000,
+        "days": 0.0,
+        "cost": 30500000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "비교 키트",
+        "sub_item": "비교 키트 (양산)",
+        "spec_work": "○ 비교 키트 (양산)\n* 43인치 디스플레이 포함\n-제품 가공/조립/도색/포장/보관\n-메탈 프레임(프로파일) 제작 및 안정성 검증\n-라이팅 회로 제작 및 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 32000000,
+        "qty": 1,
+        "cost": 32000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "비교 키트",
+        "sub_item": "비교 키트 (양산)",
+        "spec_work": "○ 부품, 하드웨어\n'- LTE 라우터 및 외부 서버 사용료 \n- PC 및 공유기 (재사용) \n- 컨트롤 회로 및 케이블류 \n- HDMI, 멀티탭",
+        "unit": "EA",
+        "unit_price": 400000,
+        "qty": 1,
+        "cost": 400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "비교 키트",
+        "sub_item": "비교 키트 (양산)",
+        "spec_work": "○ 비교 키트 (양산)\n* 43인치 디스플레이 포함\n-제품 가공/조립/도색/포장/보관\n-메탈 프레임(프로파일) 제작 및 안정성 검증\n-라이팅 회로 제작 및 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 32000000,
+        "qty": 2,
+        "cost": 64000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "비교 키트",
+        "sub_item": "비교 키트 (양산)",
+        "spec_work": "○ 부품, 하드웨어\n'- LTE 라우터 및 외부 서버 사용료 \n- PC 및 공유기 (재사용) \n- 컨트롤 회로 및 케이블류 \n- HDMI, 멀티탭",
+        "unit": "EA",
+        "unit_price": 400000,
+        "qty": 2,
+        "cost": 800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M03",
+    "kit_id": "M03",
+    "name": "[미라클(S26)] 2억화소 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "2억화소 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 65964681,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 12500000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "암실 하우징 및 조도센서"
+    ],
+    "labor_md": 49.8,
+    "key_specs": "쇼케이스 속 오브제를 2억화소 카메라로 촬영해 디테일 비교. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M03",
+    "image_file": "M03_2억화소_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M03_2억화소_키트.png",
+    "prototype_cost": 28464681,
+    "fabrication_cost": 37500000,
+    "unit_fabrication_cost": 12500000,
+    "prototype_breakdown": {
+      "기획설계": 4652859,
+      "SW개발": 14383354,
+      "그래픽UI": 6958200,
+      "하우징HW설계": 2470268,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 4.0,
+        "cost": 1684984
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 2,
+        "daily_rate": 741969,
+        "days": 4.0,
+        "cost": 2967875
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 6.0,
+        "cost": 14383354
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 4.0,
+        "cost": 6958200
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 1.0,
+        "cost": 924842
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 2.0,
+        "cost": 1545426
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "2억화소 키트",
+        "sub_item": "2억 화소 키트",
+        "spec_work": "○ 2억화소 키트\n-제품 가공/조립/도색/포장/보관\n-원단 현장 검수 및 셀렉 (샘플 구매 등)\n-스웨이드 원단 제품 커버링 작업\n-비녀 거치 부 러버 몰드 제작 및 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n'신규 스탠드 긴급 발주 제작 포함",
+        "unit": "EA",
+        "unit_price": 12500000,
+        "qty": 1,
+        "cost": 12500000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "2억화소 키트",
+        "sub_item": "2억 화소 키트",
+        "spec_work": "○ 2억화소 키트\n-제품 가공/조립/도색/포장/보관\n-원단 현장 검수 및 셀렉 (샘플 구매 등)\n-스웨이드 원단 제품 커버링 작업\n-비녀 거치 부 러버 몰드 제작 및 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n'신규 스탠드 긴급 발주 제작 포함",
+        "unit": "EA",
+        "unit_price": 12500000,
+        "qty": 2,
+        "cost": 25000000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M04",
+    "kit_id": "M04",
+    "name": "[미라클(S26)] 크리에이티브 스튜디오 & 프린터 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "크리에이티브 스튜디오 & 프린터 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 83610203,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 10475000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 68.8,
+    "key_specs": "내 사진으로 AI 스티커 생성 → 퀵쉐어/QR 전송 및 스티커 프린터 출력. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M04",
+    "image_file": "M04_크리에이티브_스튜디오___프린터_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M04_크리에이티브_스튜디오___프린터_키트.png",
+    "prototype_cost": 41710203,
+    "fabrication_cost": 41900000,
+    "unit_fabrication_cost": 10475000,
+    "prototype_breakdown": {
+      "기획설계": 6337843,
+      "SW개발": 19177805,
+      "그래픽UI": 11597000,
+      "하우징HW설계": 1697555,
+      "영상네트워크": 0,
+      "기타외주": 2900000
+    },
+    "quantities": {
+      "삼성강남": 2,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 2,
+        "daily_rate": 842492,
+        "days": 4.0,
+        "cost": 3369969
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 2,
+        "daily_rate": 741969,
+        "days": 4.0,
+        "cost": 2967875
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 8.0,
+        "cost": 19177805
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 10.0,
+        "cost": 11597000
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 1.0,
+        "cost": 924842
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 1.0,
+        "cost": 772713
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "크리에이티브 스튜디오 키트 샘플 (프린터 키트 제외)",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 2900000,
+        "days": 0.0,
+        "cost": 2900000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "2억화소 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "○ 크리에이티브 스튜디오 키트 (양산)\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 1개 포함",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 2,
+        "cost": 5400000
+      },
+      {
+        "store": "삼성강남",
+        "item": "2억화소 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "○ 프린터 키트\n*버퍼 1개 포함\n-제품 가공/조립/도색/포장/보관\n-출력부 개선 / 프린트용지 교체 용이하도록 커버 탈부착 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 5400000,
+        "qty": 2,
+        "cost": 10800000
+      },
+      {
+        "store": "삼성강남",
+        "item": "2억화소 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "포토용지",
+        "unit": "BOX",
+        "unit_price": 120000,
+        "qty": 15,
+        "cost": 1800000
+      },
+      {
+        "store": "삼성강남",
+        "item": "2억화소 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "라우터 통신 (월단위 계약)",
+        "unit": "월",
+        "unit_price": 250000,
+        "qty": 1,
+        "cost": 250000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "크리에이티브 스튜디오 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "○ 크리에이티브 스튜디오 키트 (양산)\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 1개 포함",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 4,
+        "cost": 10800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "크리에이티브 스튜디오 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "○ 크리에이티브 스튜디오 키트 (프린터 키트)\n-제품 가공/조립/도색/포장/보관\n-출력부 개선 / 프린트용지 교체 용이하도록 커버 탈부착 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 5400000,
+        "qty": 2,
+        "cost": 10800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "크리에이티브 스튜디오 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "포토용지",
+        "unit": "BOX",
+        "unit_price": 120000,
+        "qty": 15,
+        "cost": 1800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "크리에이티브 스튜디오 키트",
+        "sub_item": "크리에이티브 스튜디오 키트 (양산)",
+        "spec_work": "라우터 통신 (월단위 계약)",
+        "unit": "월",
+        "unit_price": 250000,
+        "qty": 1,
+        "cost": 250000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M05",
+    "kit_id": "M05",
+    "name": "[미라클(S26)] 포토 어시스트 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "포토 어시스트 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 55759688,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 8,
+    "unit_cost": 2700000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 52.4,
+    "key_specs": "탭에서 이미지 선택 → 폰에서 생성형 편집 체험, QR로 내 폰 다운로드. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M05",
+    "image_file": "M05_포토_어시스트_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M05_포토_어시스트_키트.png",
+    "prototype_cost": 34159688,
+    "fabrication_cost": 21600000,
+    "unit_fabrication_cost": 2700000,
+    "prototype_breakdown": {
+      "기획설계": 3191270,
+      "SW개발": 19177805,
+      "그래픽UI": 8117900,
+      "하우징HW설계": 772713,
+      "영상네트워크": 0,
+      "기타외주": 2900000
+    },
+    "quantities": {
+      "삼성강남": 4,
+      "삼성홍대": 4,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 4.0,
+        "cost": 1707333
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 4.0,
+        "cost": 1483937
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 8.0,
+        "cost": 19177805
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 7.0,
+        "cost": 8117900
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 1.0,
+        "cost": 772713
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "포토 어시스트 키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 2900000,
+        "days": 0.0,
+        "cost": 2900000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "2억화소 키트",
+        "sub_item": "포토 어시스트 키트 (양산)",
+        "spec_work": "○ 포토 어시스트 키트 (양산)\n* 버퍼 2개 포함\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 2개 포함",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 4,
+        "cost": 10800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "포토 어시스트 키트",
+        "sub_item": "포토 어시스트 키트 (양산)",
+        "spec_work": "○ 포토 어시스트 키트 (양산)\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 2개 포함",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 4,
+        "cost": 10800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M06",
+    "kit_id": "M06",
+    "name": "[미라클(S26)] 프라이버시 디스플레이 비교 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "프라이버시 디스플레이 비교 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 61762618,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 5,
+    "unit_cost": 5800000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 48.2,
+    "key_specs": "고객폰과 S26U를 모터로 동시 회전시켜 측면 시야 차단 비교. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M06",
+    "image_file": "M06_프라이버시_디스플레이_비교_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M06_프라이버시_디스플레이_비교_키트.png",
+    "prototype_cost": 32762618,
+    "fabrication_cost": 29000000,
+    "unit_fabrication_cost": 5800000,
+    "prototype_breakdown": {
+      "기획설계": 4898604,
+      "SW개발": 7990752,
+      "그래픽UI": 6958200,
+      "하우징HW설계": 7715062,
+      "영상네트워크": 0,
+      "기타외주": 5200000
+    },
+    "quantities": {
+      "삼성강남": 3,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 2,
+        "daily_rate": 853667,
+        "days": 4.0,
+        "cost": 3414666
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 4.0,
+        "cost": 1483937
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 5.0,
+        "cost": 7990752
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 4.0,
+        "cost": 6958200
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 4624209
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 4.0,
+        "cost": 3090853
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "프디 비교키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 5200000,
+        "days": 0.0,
+        "cost": 5200000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "프라이버시 디스플레이 비교 키트",
+        "sub_item": "프라이버시 디스플레이 비교 키트 (양산)",
+        "spec_work": "○ 프라이버시 디스플레이 비교 키트 (양산)a\n* 버퍼 1개 포함\n-제품 가공/조립/도색/포장/보관\n-모터 및 기어 설계 / 회전 시퀀스 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 5800000,
+        "qty": 3,
+        "cost": 17400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "프라이버시 디스플레이 비교 키트",
+        "sub_item": "프라이버시 디스플레이 비교 키트 (양산)",
+        "spec_work": "○ 프라이버시 디스플레이 비교 키트 (양산)\n-제품 가공/조립/도색/포장/보관\n-모터 및 기어 설계 / 회전 시퀀스 적용\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 5800000,
+        "qty": 2,
+        "cost": 11600000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M07",
+    "kit_id": "M07",
+    "name": "[미라클(S26)] 프라이버시 디스플레이 설정 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "프라이버시 디스플레이 설정 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 97396963,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 5,
+    "unit_cost": 4320000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 109.2,
+    "key_specs": "물리 버튼(비밀번호/앱/알림) 누르면 폰 시나리오 앱 실행. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M07",
+    "image_file": "M07_프라이버시_디스플레이_설정_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M07_프라이버시_디스플레이_설정_키트.png",
+    "prototype_cost": 75796963,
+    "fabrication_cost": 21600000,
+    "unit_fabrication_cost": 4320000,
+    "prototype_breakdown": {
+      "기획설계": 3191270,
+      "SW개발": 62252383,
+      "그래픽UI": 6958200,
+      "하우징HW설계": 3395110,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 3,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 4.0,
+        "cost": 1707333
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 4.0,
+        "cost": 1483937
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발 (모바일)",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 20.0,
+        "cost": 18894298
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발 (모바일)",
+        "role": "UIUX 기획자",
+        "headcount": 2,
+        "daily_rate": 1292797,
+        "days": 15.0,
+        "cost": 13574373
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발 (모바일)",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 15.0,
+        "cost": 21792960
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발 (태블릿)",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 5.0,
+        "cost": 7990752
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI (태블릿)",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 4.0,
+        "cost": 6958200
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 2.0,
+        "cost": 1849683
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 2.0,
+        "cost": 1545426
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "프라이버시 디스플레이 설정 키트",
+        "spec_work": "○ 프라이버시 디스플레이 설정 키트\n* 버퍼 1개 포함\n○프디 설정 키트\n-제품 가공/조립/도색/포장/보관\n-타사 협업을 위한 버튼 부 회로연결선 마련\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 4000000,
+        "qty": 3,
+        "cost": 12000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "프라이버시 디스플레이 설정 키트",
+        "spec_work": "○ 부품, 하드웨어\n'- LTE 라우터 \n- PC 및 공유기(재사용) \n- 컨트롤 회로 및 케이블류 \n- 멀티탭 등 소모품",
+        "unit": "EA",
+        "unit_price": 400000,
+        "qty": 2,
+        "cost": 800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "프라이버시 디스플레이 설정 키트",
+        "spec_work": "○ 프라이버시 디스플레이 설정 키트\n○프디 설정 키트\n-제품 가공/조립/도색/포장/보관\n-타사 협업을 위한 버튼 부 회로연결선 마련\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 1개 포함",
+        "unit": "EA",
+        "unit_price": 4000000,
+        "qty": 2,
+        "cost": 8000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "프라이버시 디스플레이 설정 키트",
+        "spec_work": "○ 부품, 하드웨어\n'- LTE 라우터 \n- PC 및 공유기(재사용) \n- 컨트롤 회로 및 케이블류 \n- 멀티탭 등 소모품",
+        "unit": "EA",
+        "unit_price": 400000,
+        "qty": 2,
+        "cost": 800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M08",
+    "kit_id": "M08",
+    "name": "[미라클(S26)] 프라이버시 디스플레이 쇼케이스",
+    "project_name": "미라클(S26)",
+    "kit_name": "프라이버시 디스플레이 쇼케이스",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "상설 쇼케이스 / 체험 테이블",
+    "settled_amount": 61826878,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 12200000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 25.8,
+    "key_specs": "쇼케이스 내 폰 360° 회전, 각도별 화면 어두워짐 시연. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M08",
+    "image_file": "M08_프라이버시_디스플레이_쇼케이스.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M08_프라이버시_디스플레이_쇼케이스.png",
+    "prototype_cost": 25226878,
+    "fabrication_cost": 36600000,
+    "unit_fabrication_cost": 12200000,
+    "prototype_breakdown": {
+      "기획설계": 5816074,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 7410804,
+      "영상네트워크": 0,
+      "기타외주": 12000000
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 5.0,
+        "cost": 2106230
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 2,
+        "daily_rate": 741969,
+        "days": 5.0,
+        "cost": 3709843
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 3.0,
+        "cost": 2774525
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 2,
+        "daily_rate": 1287855,
+        "days": 3.0,
+        "cost": 4636279
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "프디 쇼케이스 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 12000000,
+        "days": 0.0,
+        "cost": 12000000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "프라이버시 디스플레이 쇼케이스 (양산)",
+        "spec_work": "○ 프라이버시 디스플레이 쇼케이스 (양산)\n* 배터리팩 및 부자재 (2ea) 포함\n-제품 가공/조립/도색/포장/보관\n-라이팅 회로 개발 및 적용\n-모터 및 기어 설계 및 적용\n-POP 제작 / 삼각태그 제작\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 12200000,
+        "qty": 1,
+        "cost": 12200000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "프라이버시 디스플레이 쇼케이스",
+        "sub_item": "프라이버시 디스플레이 쇼케이스 (양산)",
+        "spec_work": "○ 프라이버시 디스플레이 쇼케이스 (양산)\n*'배터리팩 및 부자재 (4ea) 포함\n-제품 가공/조립/도색/포장/보관\n-라이팅 회로 개발 및 적용\n-모터 및 기어 설계 및 적용\n-POP 제작 / 삼각태그 제작\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 배터리팩 및 부자재 포함 (2ea)",
+        "unit": "EA",
+        "unit_price": 12200000,
+        "qty": 2,
+        "cost": 24400000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M09",
+    "kit_id": "M09",
+    "name": "[미라클(S26)] AI 보이스피싱 차단 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "AI 보이스피싱 차단 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 78593778,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 5,
+    "unit_cost": 2980000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 86.2,
+    "key_specs": "탭 버튼 → 실제 회선으로 S26U에 전화 발신, AI 보이스피싱 탐지 체험. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M09",
+    "image_file": "M09_AI_보이스피싱_차단_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M09_AI_보이스피싱_차단_키트.png",
+    "prototype_cost": 63693778,
+    "fabrication_cost": 14900000,
+    "unit_fabrication_cost": 2980000,
+    "prototype_breakdown": {
+      "기획설계": 3168922,
+      "SW개발": 56852143,
+      "그래픽UI": 0,
+      "하우징HW설계": 772713,
+      "영상네트워크": 0,
+      "기타외주": 2900000
+    },
+    "quantities": {
+      "삼성강남": 3,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 4.0,
+        "cost": 1684984
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 4.0,
+        "cost": 1483937
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 13.0,
+        "cost": 12281293
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 2,
+        "daily_rate": 1292797,
+        "days": 15.0,
+        "cost": 15513569
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 20.0,
+        "cost": 29057280
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 1.0,
+        "cost": 772713
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "보이스피싱 차단 체험 키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 2900000,
+        "days": 0.0,
+        "cost": 2900000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "보이스피싱 키트 (양산)",
+        "spec_work": "○ AI 보이스 피싱 키트 (양산)\n* 버퍼 1개 포함\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 3,
+        "cost": 8100000
+      },
+      {
+        "store": "삼성강남",
+        "item": "프라이버시 디스플레이 설정 키트",
+        "sub_item": "보이스피싱 키트 (양산)",
+        "spec_work": "○ 부품, 하드웨어\n'- LTE 라우터 \n- 보이스피싱 KT 망 사용료\n- PC 및 공유기(재사용) \n- 멀티탭 등 소모품",
+        "unit": "EA",
+        "unit_price": 350000,
+        "qty": 2,
+        "cost": 700000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "AI 보이스 피싱 키트",
+        "sub_item": "AI 보이스 피싱 키트 (양산)",
+        "spec_work": "○ AI 보이스 피싱 키트 (양산)\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 1개 포함",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 2,
+        "cost": 5400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "AI 보이스 피싱 키트",
+        "sub_item": "AI 보이스 피싱 키트 (양산)",
+        "spec_work": "○ 부품, 하드웨어\n'- LTE 라우터 \n- 보이스피싱 KT 망 사용료\n- PC 및 공유기(재사용) \n- 멀티탭 등 소모품",
+        "unit": "EA",
+        "unit_price": 350000,
+        "qty": 2,
+        "cost": 700000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M10",
+    "kit_id": "M10",
+    "name": "[미라클(S26)] AI 퍼포먼스(NPU) 키트",
+    "project_name": "미라클(S26)",
+    "kit_name": "AI 퍼포먼스(NPU) 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 35148437,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 5,
+    "unit_cost": 2700000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 39.2,
+    "key_specs": "S26U vs 고객폰 AI 지우개 처리속도 타이머 비교. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M10",
+    "image_file": "M10_AI_퍼포먼스_NPU__키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M10_AI_퍼포먼스_NPU__키트.png",
+    "prototype_cost": 21648437,
+    "fabrication_cost": 13500000,
+    "unit_fabrication_cost": 2700000,
+    "prototype_breakdown": {
+      "기획설계": 3168922,
+      "SW개발": 9588902,
+      "그래픽UI": 8117900,
+      "하우징HW설계": 772713,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 3,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 4.0,
+        "cost": 1684984
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 4.0,
+        "cost": 1483937
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 4.0,
+        "cost": 9588902
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 7.0,
+        "cost": 8117900
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 1.0,
+        "cost": 772713
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "NPU 키트",
+        "sub_item": "NPU 키트",
+        "spec_work": "○ AI 퍼포먼스 키트\n* 버퍼 1개 포함\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 3,
+        "cost": 8100000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "AI 퍼포먼스 키트",
+        "sub_item": "AI 퍼포먼스 키트",
+        "spec_work": "○ AI 퍼포먼스 키트\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 1개 포함",
+        "unit": "EA",
+        "unit_price": 2700000,
+        "qty": 2,
+        "cost": 5400000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M11",
+    "kit_id": "M11",
+    "name": "[미라클(S26)] 갤럭시 스토어 키트 (서베이 탭 스탠드 포함)",
+    "project_name": "미라클(S26)",
+    "kit_name": "갤럭시 스토어 키트 (서베이 탭 스탠드 포함)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 39608137,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 5,
+    "unit_cost": 3360000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 41.6,
+    "key_specs": "NFC 태깅 → 갤럭시 스토어 쿠폰·게임테마 다운로드. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M11",
+    "image_file": "M11_갤럭시_스토어_키트__서베이_탭_스탠드_포함_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M11_갤럭시_스토어_키트__서베이_탭_스탠드_포함_.png",
+    "prototype_cost": 22808137,
+    "fabrication_cost": 16800000,
+    "unit_fabrication_cost": 3360000,
+    "prototype_breakdown": {
+      "기획설계": 3168922,
+      "SW개발": 9588902,
+      "그래픽UI": 9277600,
+      "하우징HW설계": 772713,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 4,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 4.0,
+        "cost": 1684984
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 4.0,
+        "cost": 1483937
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 6.0,
+        "cost": 9588902
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 8.0,
+        "cost": 9277600
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 1.0,
+        "cost": 772713
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "서베이용 탭 스탠드",
+        "sub_item": "서베이용 탭 스탠드",
+        "spec_work": "○ 서베이용 탭 스탠드\n* 버퍼1개 포함\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 1600000,
+        "qty": 1,
+        "cost": 1600000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "서베이용 탭 스탠드",
+        "sub_item": "서베이용 탭 스탠드",
+        "spec_work": "○ 서베이용 탭 스탠드\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n* 버퍼 1개 포함",
+        "unit": "EA",
+        "unit_price": 1600000,
+        "qty": 2,
+        "cost": 3200000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "갤럭시스토어 키트",
+        "sub_item": "갤럭시스토어 키트",
+        "spec_work": "○ 갤럭시 스토어 키트\n-제품 가공/조립/도색/포장/보관\n-충전 안정성 테스트\n*세부 작업 사항\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사 (전문 도색사 2인 이상)\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "EA",
+        "unit_price": 3000000,
+        "qty": 4,
+        "cost": 12000000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M12",
+    "kit_id": "M12",
+    "name": "[미라클(S26)] 수평 고정 슈퍼스테디 키트 v1",
+    "project_name": "미라클(S26)",
+    "kit_name": "수평 고정 슈퍼스테디 키트 v1",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 77348865,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 6,
+    "unit_cost": 4314166,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 70.4,
+    "key_specs": "회전 키트에 S26U·고객폰 거치, 모터로 45° 회전시키며 촬영 비교. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M12",
+    "image_file": "M12_수평_고정_슈퍼스테디_키트_v1.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M12_수평_고정_슈퍼스테디_키트_v1.png",
+    "prototype_cost": 51463865,
+    "fabrication_cost": 25885000,
+    "unit_fabrication_cost": 4314166,
+    "prototype_breakdown": {
+      "기획설계": 7487570,
+      "SW개발": 13947494,
+      "그래픽UI": 7731333,
+      "하우징HW설계": 14797468,
+      "영상네트워크": 0,
+      "기타외주": 7500000
+    },
+    "quantities": {
+      "삼성강남": 2,
+      "삼성홍대": 4,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 8.0,
+        "cost": 4072904
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 8.0,
+        "cost": 3414666
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 8.0,
+        "cost": 13947494
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 8.0,
+        "cost": 7731333
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 8.0,
+        "cost": 14797468
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "A키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 7500000,
+        "days": 0.0,
+        "cost": 7500000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "서베이용 탭 스탠드",
+        "sub_item": "수평 고정 슈퍼스테디 키트 1차 (양산)",
+        "spec_work": "○ 수평 고정 슈퍼스테디 키트 1차 (양산)\n* 버퍼 1개 포함\n(1) 하우징 가공 및 마감 공정\n- 소재 적용: 두께별,파츠별 ABS 패널 적용(1t, 5t, 8t, 10t 혼용) / 고탄성 실리콘 패드, 고밀도 EVA 폼 소재 적용\n- 1차 가공 : 3D 설계 데이터 기반 CNC가공, 정밀 V-컷팅, MCT(머시닝센터) 및 선반 가공을 통한 형상 구현\n- 2차 가공 및 표면 처리 : 정밀 접합 공정 및 도장 퀄리티를 위한 표면 사상 작업\n- 마감 및 인쇄 : '악조노벨' 지정 컬러 페인트 상도 도장 및 스크래치 방지용 고경도 클리어 코팅 마감, 1도 실크인쇄 진행\n(2) 동력 구동부 파츠 가공 및 어셈블리 공정\n- 구동계 및 하드웨어 구성 : 정밀 제어용 스테핑 모터 및 전용 컨트롤러, 타이밍 벨트 및 풀리 세트, 고하중 베어링 및 부싱, 내마찰/내마모 특수 엔지니어링 플라스틱  \n(POM) 알루미늄 샤프트 및 규격화된 정밀 조립용 조인트/볼트류 적용\n- 가공 및 조립 : MCT 및 선반 가공을 통한 동력 전달 핵심 부품 커스텀 제작, 숙련된 엔지니어의 정밀 결합 및 구동 밸런스 튜닝 작업\n(3) 추가 기구물 제작 및 보강 파트\n- 안전 구동을 위한 스토퍼 파츠 제작 : 이탈 방지 및 충격 한계점 제어를 위한 ABS 10t 소재 기반 스토퍼 정밀 가공 및 부착",
+        "unit": "EA",
+        "unit_price": 4000000,
+        "qty": 2,
+        "cost": 8000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "서베이용 탭 스탠드",
+        "sub_item": "제작 구매품",
+        "spec_work": "○ 더무빙스타일 27인치",
+        "unit": "EA",
+        "unit_price": 1885000,
+        "qty": 1,
+        "cost": 1885000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "갤럭시스토어 키트",
+        "sub_item": "수평 고정 슈퍼스테디 키트 1차 (양산)",
+        "spec_work": "○ 수평 고정 슈퍼스테디 키트 1차 (양산)\n* 버퍼 2개 포함\n(1) 하우징 가공 및 마감 공정\n- 소재 적용: 두께별,파츠별 ABS 패널 적용(1t, 5t, 8t, 10t 혼용) / 고탄성 실리콘 패드, 고밀도 EVA 폼 소재 적용\n- 1차 가공 : 3D 설계 데이터 기반 CNC가공, 정밀 V-컷팅, MCT(머시닝센터) 및 선반 가공을 통한 형상 구현\n- 2차 가공 및 표면 처리 : 정밀 접합 공정 및 도장 퀄리티를 위한 표면 사상 작업\n- 마감 및 인쇄 : '악조노벨' 지정 컬러 페인트 상도 도장 및 스크래치 방지용 고경도 클리어 코팅 마감, 1도 실크인쇄 진행\n(2) 동력 구동부 파츠 가공 및 어셈블리 공정\n- 구동계 및 하드웨어 구성 : 정밀 제어용 스테핑 모터 및 전용 컨트롤러, 타이밍 벨트 및 풀리 세트, 고하중 베어링 및 부싱, 내마찰/내마모 특수 엔지니어링 플라스틱  \n(POM) 알루미늄 샤프트 및 규격화된 정밀 조립용 조인트/볼트류 적용\n- 가공 및 조립 : MCT 및 선반 가공을 통한 동력 전달 핵심 부품 커스텀 제작, 숙련된 엔지니어의 정밀 결합 및 구동 밸런스 튜닝 작업\n(3) 추가 기구물 제작 및 보강 파트\n- 안전 구동을 위한 스토퍼 파츠 제작 : 이탈 방지 및 충격 한계점 제어를 위한 ABS 10t 소재 기반 스토퍼 정밀 가공 및 부착",
+        "unit": "EA",
+        "unit_price": 4000000,
+        "qty": 4,
+        "cost": 16000000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M13",
+    "kit_id": "M13",
+    "name": "[미라클(S26)] 수평 고정 슈퍼스테디 키트 v2",
+    "project_name": "미라클(S26)",
+    "kit_name": "수평 고정 슈퍼스테디 키트 v2",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 81560348,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 7500000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 89.1,
+    "key_specs": "v1 개선 버전 (동일 체험). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M13",
+    "image_file": "M13_수평_고정_슈퍼스테디_키트_v2.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M13_수평_고정_슈퍼스테디_키트_v2.png",
+    "prototype_cost": 66560348,
+    "fabrication_cost": 15000000,
+    "unit_fabrication_cost": 7500000,
+    "prototype_breakdown": {
+      "기획설계": 12354490,
+      "SW개발": 11986128,
+      "그래픽UI": 6378350,
+      "하우징HW설계": 23341380,
+      "영상네트워크": 0,
+      "기타외주": 12500000
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 11.0,
+        "cost": 6720291
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 11.0,
+        "cost": 5634199
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 1,
+        "daily_rate": 726432,
+        "days": 11.0,
+        "cost": 11986128
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 11.0,
+        "cost": 6378350
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 11.0,
+        "cost": 12716574
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 11.0,
+        "cost": 10624807
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 12500000,
+        "days": 0.0,
+        "cost": 12500000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "서베이용 탭 스탠드",
+        "sub_item": "수평 고정 슈퍼스테디 키트 2차 (양산)",
+        "spec_work": "○ 수평 고정 슈퍼스테디 키트 2차 (양산)\n(1) 하우징 가공 및 마감 공정\n- 소재 적용: 두께별,파츠별 ABS 패널 적용(1t, 5t, 8t, 10t 혼용) /  고탄성 실리콘 패드, 고밀도 EVA 폼 소재 적용\n- 1차 가공 : 3D 설계 데이터 기반의 CNC가공, 정밀 V-컷팅, MCT(머시닝센터) 및 선반가공을 통한 형상 구현\n- 2차 가공 및 표면 처리: 견고한 구조 결합을 위한 정밀 접합공정 및 도장 퀄리티를 위한 표면 사상 작업\n- 마감 및 인쇄 : '악조노벨' 지정 컬러 페인트상도 도장 및 스크래치 방지용 고경도 클리어 코팅 마감, 1도 실크인쇄 진행\n(2) 동력 구동부 파츠 가공 및 어셈블리 공정\n- 구동계 및 특수 하드웨어 구성 : 스테핑 모터 및 전용 컨트롤러, 타이밍 벨트 및 풀리 세트, 베어링 및 부싱, 내마찰/내마모 특수 엔지니어링 플라스틱 / (POM) 알루미늄 샤프트 및 규격화된 정밀 조립용 조인트/볼트류 적용\n- 가공 및 조립 : MCT 및 선반 가공을 통한 동력 전달 핵심 부품 커스텀 제작, 숙련된 엔지니어의 정밀 결합 및 구동 밸런스 튜닝 작업",
+        "unit": "SET",
+        "unit_price": 7500000,
+        "qty": 1,
+        "cost": 7500000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "갤럭시스토어 키트",
+        "sub_item": "수평 고정 슈퍼스테디 키트 2차 (양산)",
+        "spec_work": "\"○ 수평 고정 슈퍼스테디 키트 2차 (양산)\n(1) 하우징 가공 및 마감 공정\n- 소재 적용: 두께별,파츠별 ABS 패널 적용(1t, 5t, 8t, 10t 혼용) /  고탄성 실리콘 패드, 고밀도 EVA 폼 소재 적용\n- 1차 가공 : 3D 설계 데이터 기반의 CNC가공, 정밀 V-컷팅, MCT(머시닝센터) 및 선반가공을 통한 형상 구현\n- 2차 가공 및 표면 처리: 견고한 구조 결합을 위한 정밀 접합공정 및 도장 퀄리티를 위한 표면 사상 작업\n- 마감 및 인쇄 : '악조노벨' 지정 컬러 페인트상도 도장 및 스크래치 방지용 고경도 클리어 코팅 마감, 1도 실크인쇄 진행\n(2) 동력 구동부 파츠 가공 및 어셈블리 공정\n- 구동계 및 특수 하드웨어 구성 : 스테핑 모터 및 전용 컨트롤러, 타이밍 벨트 및 풀리 세트, 베어링 및 부싱, 내마찰/내마모 특수 엔지니어링 플라스틱 / (POM) 알루미늄 샤프트 및 규격화된 정밀 조립용 조인트/볼트류 적용\n- 가공 및 조립 : MCT 및 선반 가공을 통한 동력 전달 핵심 부품 커스텀 제작, 숙련된 엔지니어의 정밀 결합 및 구동 밸런스 튜닝 작업\"",
+        "unit": "SET",
+        "unit_price": 7500000,
+        "qty": 1,
+        "cost": 7500000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M14",
+    "kit_id": "M14",
+    "name": "[미라클(S26)] 퍼포먼스월",
+    "project_name": "미라클(S26)",
+    "kit_name": "퍼포먼스월",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 47646960,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 8027120,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 47.6,
+    "key_specs": "베이퍼챔버 월 + LED 라이팅 + 열화상 카메라 실시간 미러링. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M14",
+    "image_file": "M14_퍼포먼스월.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M14_퍼포먼스월.png",
+    "prototype_cost": 31592720,
+    "fabrication_cost": 16054240,
+    "unit_fabrication_cost": 8027120,
+    "prototype_breakdown": {
+      "기획설계": 8781439,
+      "SW개발": 6973747,
+      "그래픽UI": 4638800,
+      "하우징HW설계": 7398734,
+      "영상네트워크": 0,
+      "기타외주": 3800000
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 8.0,
+        "cost": 4683839
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 8.0,
+        "cost": 4097599
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 1,
+        "daily_rate": 726432,
+        "days": 8.0,
+        "cost": 6973747
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 8.0,
+        "cost": 4638800
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 8.0,
+        "cost": 7398734
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "키트 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 3800000,
+        "days": 0.0,
+        "cost": 3800000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "퍼포먼스월",
+        "sub_item": "퍼포먼스월 (양산)",
+        "spec_work": "○ 퍼포먼스월 (양산)\n(1) 챔버 전용 라이팅 거치대 및 전작 챔버 거치대 제작 공정\n- LED 조명 특화 소재 구성 : 10T 투명 아크릴 및 광원 유도용 5Ø 투명 아크릴 환봉, 빛샘 방지용 차폐 시트, 기구 강성을 위한 3T ABS 패널. SMPS 및 밝기 제어용 LED 칩셋/디머/컨트롤러 모듈 세팅\n- 1차 기계 및 레이저 가공 : 아크릴 및 ABS 소재의 특성을 고려한 CNC 가공 및 레이저 컷팅 공정\n- 2차 마감 및 차폐 : 투명 아크릴 질감을 위한 무기포 접합 및 표면 광택 사상 작업, 발광 영역 외의 빛 간섭을 최소화 하는 차폐 작업 적용\n(2) 열화상 카메라 및 모바일 거치대 제작 공정\n- 하드웨어 및 구조 세팅 : 8T, 10T ABS 패널 적용, 실시간 열화상 데이터 처리를 위한 하드웨어(열화상 카메라, 제어용 미니 PC, 통신용 라우터) 빌트인 구성\n- 3D프린팅/정밀 가공 및 사상 : 산업용 3D 프린팅 및 CNC 1차 가공 적용, 파츠 간 정밀 접합 및 사상작업\n- 우레탄 도장 마감 : 우레탄 페인트 도장 적용 및 30% 반광 클리어 코팅 마감 처리\n(3) 브랜드 VMD 시각화를 위한 시트 인쇄 공정\n- 실사출력 및 돔보 컷팅 : 시인성을 위한 고해상도 유포지 실사 출력 진행 및 외곽선을 오차 없이 재단하는 정밀 돔보 컷팅 적용",
+        "unit": "EA",
+        "unit_price": 7224500,
+        "qty": 1,
+        "cost": 7224500
+      },
+      {
+        "store": "삼성강남",
+        "item": "퍼포먼스월",
+        "sub_item": "제작 구매품",
+        "spec_work": "○ 제작구매품 - S22U",
+        "unit": "EA",
+        "unit_price": 484120,
+        "qty": 1,
+        "cost": 484120
+      },
+      {
+        "store": "삼성강남",
+        "item": "퍼포먼스월",
+        "sub_item": "제작 구매품",
+        "spec_work": "○ 제작구매품 - S23U",
+        "unit": "EA",
+        "unit_price": 637000,
+        "qty": 1,
+        "cost": 637000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "퍼포먼스월",
+        "sub_item": "퍼포먼스월 (양산)",
+        "spec_work": "\"○ 퍼포먼스월 (양산)\n(1) 챔버 전용 라이팅 거치대 및 전작 챔버 거치대 제작 공정\n- LED 조명 특화 소재 구성 : 10T 투명 아크릴 및 광원 유도용 5Ø 투명 아크릴 환봉, 빛샘 방지용 차폐 시트, 기구 강성을 위한 3T ABS 패널. SMPS 및 밝기 제어용 LED 칩셋/디머/컨트롤러 모듈 세팅\n- 1차 기계 및 레이저 가공 : 아크릴 및 ABS 소재의 특성을 고려한 CNC 가공 및 레이저 컷팅 공정\n- 2차 마감 및 차폐 : 투명 아크릴 질감을 위한 무기포 접합 및 표면 광택 사상 작업, 발광 영역 외의 빛 간섭을 최소화 하는 차폐 작업 적용\n(2) 열화상 카메라 및 모바일 거치대 제작 공정\n- 하드웨어 및 구조 세팅 : 8T, 10T ABS 패널 적용, 실시간 열화상 데이터 처리를 위한 하드웨어(열화상 카메라, 제어용 미니 PC, 통신용 라우터) 빌트인 구성\n- 3D프린팅/정밀 가공 및 사상 : 산업용 3D 프린팅 및 CNC 1차 가공 적용, 파츠 간 정밀 접합 및 사상작업\n- 우레탄 도장 마감 : 우레탄 페인트 도장 적용 및 30% 반광 클리어 코팅 마감 처리\n(3) 브랜드 VMD 시각화를 위한 시트 인쇄 공정\n- 실사출력 및 돔보 컷팅 : 시인성을 위한 고해상도 유포지 실사 출력 진행 및 외곽선을 오차 없이 재단하는 정밀 돔보 컷팅 적용",
+        "unit": "EA",
+        "unit_price": 7224500,
+        "qty": 1,
+        "cost": 7224500
+      },
+      {
+        "store": "삼성홍대",
+        "item": "퍼포먼스월",
+        "sub_item": "제작 구매품",
+        "spec_work": "○ 제작구매품 - S22U",
+        "unit": "EA",
+        "unit_price": 484120,
+        "qty": 1,
+        "cost": 484120
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M15",
+    "kit_id": "M15",
+    "name": "[미라클(S26)] 핸즈온 (모바일 세로)",
+    "project_name": "미라클(S26)",
+    "kit_name": "핸즈온 (모바일 세로)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "상설 쇼케이스 / 체험 테이블",
+    "settled_amount": 16639072,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 21,
+    "unit_cost": 468571,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 10.0,
+    "key_specs": "기존 핸즈온 재활용 + 네임플레이트 신규. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M15",
+    "image_file": "M15_핸즈온__모바일_세로_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M15_핸즈온__모바일_세로_.png",
+    "prototype_cost": 6799072,
+    "fabrication_cost": 9840000,
+    "unit_fabrication_cost": 468571,
+    "prototype_breakdown": {
+      "기획설계": 2545565,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 3853507,
+      "영상네트워크": 0,
+      "기타외주": 400000
+    },
+    "quantities": {
+      "삼성강남": 10,
+      "삼성홍대": 11,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 5.0,
+        "cost": 2545565
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 3853507
+      },
+      {
+        "category": "샘플 제작",
+        "sub_item": "핸즈온 가로형 샘플",
+        "role": "샘플 제작(외주)",
+        "headcount": 1,
+        "daily_rate": 400000,
+        "days": 0.0,
+        "cost": 400000
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "모바일 핸즈온 (세로)",
+        "sub_item": "핸즈온 키트 (모바일)",
+        "spec_work": "○ 핸즈온 키트 (모바일)\n*버퍼 3개 포함\n(1) 베이스 - 재활용\n- 기존 핸즈온 몸체의 손상 없는 네임플레이트 정밀 탈거 및 부착면 본딩,양면 제거, 표면 평활화등 최적의 도장을 위한 기초 표면 처리\n- 반투명 화이트 컬러의 특수 조색 진행 및 전체 하우징 도장/코팅 마감 처리를 통한 신규 제품 수준의 퀄리티 제작\n(2) 네임플레이트 - 신규제작 ( Galaxy S26 Ultra )\n- 투명 아크릴 CNC 머시닝 : 투명 아크릴 소재를 활용하여 오차 범위를 최소화한 지정 규격 정밀 CNC 절삭 및 외곽 가공\n- 반투명 S26 히어로 컬러의 특수 조색 진행 및 네임플레이트 도장/코팅 마감 처리, 신규 로고 화이트 1도 실크인쇄 마감",
+        "unit": "EA",
+        "unit_price": 400000,
+        "qty": 10,
+        "cost": 4000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "모바일 핸즈온 (세로)",
+        "sub_item": "핸즈온 키트 - 네임플레이트 (Galaxy S26 / Galaxy S26+)",
+        "spec_work": "○ 네임플레이트 -  Galaxy S26 / Galaxy S26+ \n- 투명 아크릴 CNC 머시닝 : 투명 아크릴 소재를 활용하여 오차 범위를 최소화한 지정 규격 정밀 CNC 절삭 및 외곽 가공\n- 반투명 S26 시리즈 컬러의 특수 조색 진행 및 네임플레이트 도장/코팅 마감 처리, 신규 로고 화이트 1도 실크인쇄 마감",
+        "unit": "EA",
+        "unit_price": 120000,
+        "qty": 4,
+        "cost": 480000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "모바일 핸즈온 (세로)",
+        "sub_item": "핸즈온 키트 (모바일)",
+        "spec_work": "○ 핸즈온 키트 (모바일)\n*버퍼 3개 포함\n(1) 베이스 - 재활용\n- 기존 핸즈온 몸체의 손상 없는 네임플레이트 정밀 탈거 및 부착면 본딩,양면 제거, 표면 평활화등 최적의 도장을 위한 기초 표면 처리\n- 반투명 화이트 컬러의 특수 조색 진행 및 전체 하우징 도장/코팅 마감 처리를 통한 신규 제품 수준의 퀄리티 제작\n(2) 네임플레이트 - 신규제작 ( Galaxy S26 Ultra )\n- 투명 아크릴 CNC 머시닝 : 투명 아크릴 소재를 활용하여 오차 범위를 최소화한 지정 규격 정밀 CNC 절삭 및 외곽 가공\n- 반투명 S26 히어로 컬러의 특수 조색 진행 및 네임플레이트 도장/코팅 마감 처리, 신규 로고 화이트 1도 실크인쇄 마감",
+        "unit": "EA",
+        "unit_price": 400000,
+        "qty": 11,
+        "cost": 4400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "모바일 핸즈온 (세로)",
+        "sub_item": "핸즈온 키트 - 네임플레이트 (Galaxy S26 / Galaxy S26+)",
+        "spec_work": "○ 네임플레이트 -  Galaxy S26 / Galaxy S26+ \n- 투명 아크릴 CNC 머시닝 : 투명 아크릴 소재를 활용하여 오차 범위를 최소화한 지정 규격 정밀 CNC 절삭 및 외곽 가공\n- 반투명 S26 시리즈 컬러의 특수 조색 진행 및 네임플레이트 도장/코팅 마감 처리, 신규 로고 화이트 1도 실크인쇄 마감",
+        "unit": "EA",
+        "unit_price": 120000,
+        "qty": 8,
+        "cost": 960000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M16",
+    "kit_id": "M16",
+    "name": "[미라클(S26)] 핸즈온 (Buds)",
+    "project_name": "미라클(S26)",
+    "kit_name": "핸즈온 (Buds)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "상설 쇼케이스 / 체험 테이블",
+    "settled_amount": 20799072,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 16,
+    "unit_cost": 900000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 10.0,
+    "key_specs": "버즈 시건장치 적용 신규 핸즈온 거치대. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M16",
+    "image_file": "M16_핸즈온__Buds_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M16_핸즈온__Buds_.png",
+    "prototype_cost": 6399072,
+    "fabrication_cost": 14400000,
+    "unit_fabrication_cost": 900000,
+    "prototype_breakdown": {
+      "기획설계": 2545565,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 3853507,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 8,
+      "삼성홍대": 8,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 5.0,
+        "cost": 2545565
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 3853507
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "버즈 핸즈온",
+        "sub_item": "핸즈온 키트 (버즈)",
+        "spec_work": "○ 핸즈온 키트 (버즈)\n* 버퍼 2개 포함\n(1) 하우징 가공 및 마감 공정\n- 소재 적용: 내구성과 가공성을 고려한 두께별,파츠별 ABS 패널(1t, 5t, 8t 혼용)\n- 1차 가공 : 3D 설계 데이터 기반의 CNC가공, 정밀 V-컷팅, MCT(머시닝센터) 및 선반 가공을 통한 부품 형상 구현\n- 2차 가공 및 표면 처리 : 결합을 위한 정밀 접합 공정 및 도장 퀄리티를 위한 표면 사상 작업\n- 마감 및 인쇄 : '악조노벨' 지정 컬러 페인트 상도 도장 및 스크래치 방지용 고경도 클리어 코팅 마감, 1도 실크인쇄 진행\n- 기성 버즈거치대 분해 및 와이어 구조 적용",
+        "unit": "EA",
+        "unit_price": 900000,
+        "qty": 8,
+        "cost": 7200000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "버즈 핸즈온",
+        "sub_item": "핸즈온 키트 (버즈)",
+        "spec_work": "\"○ 핸즈온 키트 (버즈)\n* 버퍼 2개 포함\n(1) 하우징 가공 및 마감 공정\n- 소재 적용: 내구성과 가공성을 고려한 두께별,파츠별 ABS 패널(1t, 5t, 8t 혼용)\n- 1차 가공 : 3D 설계 데이터 기반의 CNC가공, 정밀 V-컷팅, MCT(머시닝센터) 및 선반 가공을 통한 부품 형상 구현\n- 2차 가공 및 표면 처리 : 결합을 위한 정밀 접합 공정 및 도장 퀄리티를 위한 표면 사상 작업\n- 마감 및 인쇄 : '악조노벨' 지정 컬러 페인트 상도 도장 및 스크래치 방지용 고경도 클리어 코팅 마감, 1도 실크인쇄 진행\n- 기성 버즈거치대 분해 및 와이어 구조 적용\"",
+        "unit": "EA",
+        "unit_price": 900000,
+        "qty": 8,
+        "cost": 7200000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M17",
+    "kit_id": "M17",
+    "name": "[미라클(S26)] 쇼룸 인터랙티브 (LED 갤러리)",
+    "project_name": "미라클(S26)",
+    "kit_name": "쇼룸 인터랙티브 (LED 갤러리)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 86989967,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 5162208,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 112.0,
+    "key_specs": "LED 월 갤러리 액자에 고객 생성 이미지가 실시간 노출·아카이빙. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M17",
+    "image_file": "M17_쇼룸_인터랙티브__LED_갤러리_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M17_쇼룸_인터랙티브__LED_갤러리_.png",
+    "prototype_cost": 76665551,
+    "fabrication_cost": 10324416,
+    "unit_fabrication_cost": 5162208,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 63781747,
+      "그래픽UI": 9664166,
+      "하우징HW설계": 0,
+      "영상네트워크": 3219638,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 10.0,
+        "cost": 9447149
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 2,
+        "daily_rate": 1292797,
+        "days": 10.0,
+        "cost": 12927974
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 19.0,
+        "cost": 41406624
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 10.0,
+        "cost": 9664166
+      },
+      {
+        "category": "인프라·네트워크",
+        "sub_item": "인프라/네트워크 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 5.0,
+        "cost": 3219638
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "쇼룸",
+        "sub_item": "쇼룸 인터랙티브 (부품, 하드웨어)",
+        "spec_work": "RAM 32GB / RTX 5070Ti",
+        "unit": "EA",
+        "unit_price": 5162208,
+        "qty": 1,
+        "cost": 5162208
+      },
+      {
+        "store": "삼성홍대",
+        "item": "쇼룸",
+        "sub_item": "쇼룸 인터랙티브 (부품, 하드웨어)",
+        "spec_work": "RAM 32GB / RTX 5070Ti",
+        "unit": "EA",
+        "unit_price": 5162208,
+        "qty": 1,
+        "cost": 5162208
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M18",
+    "kit_id": "M18",
+    "name": "[미라클(S26)] 쇼룸-포토 어시스트 연동",
+    "project_name": "미라클(S26)",
+    "kit_name": "쇼룸-포토 어시스트 연동",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 39730634,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 1,
+    "unit_cost": 0,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 58.0,
+    "key_specs": "포토 어시스트 결과물을 폰 앱으로 쇼룸 LED에 전송. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M18",
+    "image_file": "M18_쇼룸-포토_어시스트_연동.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M18_쇼룸-포토_어시스트_연동.png",
+    "prototype_cost": 39730634,
+    "fabrication_cost": 0,
+    "unit_fabrication_cost": 0,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 32980522,
+      "그래픽UI": 3865667,
+      "하우징HW설계": 0,
+      "영상네트워크": 2884445,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 0,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 5.0,
+        "cost": 4723574
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 1,
+        "daily_rate": 646399,
+        "days": 10.0,
+        "cost": 6463987
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 15.0,
+        "cost": 21792960
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 8.0,
+        "cost": 3865667
+      },
+      {
+        "category": "인프라·네트워크",
+        "sub_item": "인프라/네트워크 설계",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 576889,
+        "days": 5.0,
+        "cost": 2884445
+      }
+    ],
+    "fabrication_details": [],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M19",
+    "kit_id": "M19",
+    "name": "[미라클(S26)] 쇼룸 미러링",
+    "project_name": "미라클(S26)",
+    "kit_name": "쇼룸 미러링",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 19923496,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 1,
+    "unit_cost": 0,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 26.5,
+    "key_specs": "운영폰 화면을 쇼룸 대형 화면에 미러링 (팬큐 제어앱). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M19",
+    "image_file": null,
+    "image_path": null,
+    "prototype_cost": 19923496,
+    "fabrication_cost": 0,
+    "unit_fabrication_cost": 0,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 19923496,
+      "그래픽UI": 0,
+      "하우징HW설계": 0,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 0,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 8.0,
+        "cost": 3778860
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 1,
+        "daily_rate": 646399,
+        "days": 5.0,
+        "cost": 1615997
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 10.0,
+        "cost": 14528640
+      }
+    ],
+    "fabrication_details": [],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M20",
+    "kit_id": "M20",
+    "name": "[미라클(S26)] 존 사이니지 솔루션 (CMS)",
+    "project_name": "미라클(S26)",
+    "kit_name": "존 사이니지 솔루션 (CMS)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "디지털 사이니지",
+    "settled_amount": 25412056,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 1,
+    "unit_cost": 0,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 37.0,
+    "key_specs": "존별 사이니지 운영앱 + CMS (예약재생·원격배포). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M20",
+    "image_file": "M20_존_사이니지_솔루션__CMS_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M20_존_사이니지_솔루션__CMS_.png",
+    "prototype_cost": 25412056,
+    "fabrication_cost": 0,
+    "unit_fabrication_cost": 0,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 20594778,
+      "그래픽UI": 1932833,
+      "하우징HW설계": 0,
+      "영상네트워크": 2884445,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 0,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 3.0,
+        "cost": 2834145
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "UIUX 기획자",
+        "headcount": 1,
+        "daily_rate": 646399,
+        "days": 5.0,
+        "cost": 3231994
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 1,
+        "daily_rate": 726432,
+        "days": 20.0,
+        "cost": 14528640
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 4.0,
+        "cost": 1932833
+      },
+      {
+        "category": "인프라·네트워크",
+        "sub_item": "인프라/네트워크 설계",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 576889,
+        "days": 5.0,
+        "cost": 2884445
+      }
+    ],
+    "fabrication_details": [],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_M21",
+    "kit_id": "M21",
+    "name": "[미라클(S26)] 존 사이니지 영상",
+    "project_name": "미라클(S26)",
+    "kit_name": "존 사이니지 영상",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "디지털 사이니지",
+    "settled_amount": 17395500,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 1,
+    "unit_cost": 0,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 36.0,
+    "key_specs": "존별 사이니지 영상 그래픽 제작. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "M21",
+    "image_file": "M21_존_사이니지_영상.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/M21_존_사이니지_영상.png",
+    "prototype_cost": 17395500,
+    "fabrication_cost": 0,
+    "unit_fabrication_cost": 0,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 0,
+      "그래픽UI": 17395500,
+      "하우징HW설계": 0,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 0,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽",
+        "role": "그래픽 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 10.0,
+        "cost": 17395500
+      }
+    ],
+    "fabrication_details": [],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F01",
+    "kit_id": "F01",
+    "name": "[폴더블(Q8B8H8)] H8 모뉴먼트",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "H8 모뉴먼트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "대형 행사 / 베뉴 전시",
+    "settled_amount": 85570000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 5,
+    "unit_cost": 13180000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 36.0,
+    "key_specs": "대형 반투명 조형물 + H8 단독 전시. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F01",
+    "image_file": "F01_H8_모뉴먼트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F01_H8_모뉴먼트.png",
+    "prototype_cost": 19670000,
+    "fabrication_cost": 65900000,
+    "unit_fabrication_cost": 13180000,
+    "prototype_breakdown": {
+      "기획설계": 7310000,
+      "SW개발": 0,
+      "그래픽UI": 1440000,
+      "하우징HW설계": 10920000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 2,
+      "삼성홍대": 2,
+      "청담": 1
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 6.0,
+        "cost": 2561000
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 6.0,
+        "cost": 2527476
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 6.0,
+        "cost": 2225906
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 3.0,
+        "cost": 1449625
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 5.0,
+        "cost": 7707014
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 5.0,
+        "cost": 3219638
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "H8 모뉴먼트",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 대형 제작품\n- 반투명 소재 표현을 위한 스프레잉 기술 별도 적용\n- 삼강 2F 수량 포함\n- 네임플레이트 제작\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 13180000,
+        "qty": 2,
+        "cost": 26360000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "H8 모뉴먼트",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 대형 제작품\n- 반투명 소재 표현을 위한 스프레잉 기술 별도 적용\n- 네임플레이트 제작\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 13180000,
+        "qty": 2,
+        "cost": 26360000
+      },
+      {
+        "store": "청담",
+        "item": "H8 모뉴먼트",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 대형 제작품\n- 반투명 소재 표현을 위한 스프레잉 기술 별도 적용\n- 네임플레이트 제작\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 13180000,
+        "qty": 1,
+        "cost": 13180000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F02",
+    "kit_id": "F02",
+    "name": "[폴더블(Q8B8H8)] H8 저울 키트",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "H8 저울 키트",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 16000000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 3180000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 7.0,
+    "key_specs": "저울로 H8 무게(201g) 비교 체험 (본체 재활용, 무게추 신규). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F02",
+    "image_file": "F02_H8_저울_키트.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F02_H8_저울_키트.png",
+    "prototype_cost": 3280000,
+    "fabrication_cost": 12720000,
+    "unit_fabrication_cost": 3180000,
+    "prototype_breakdown": {
+      "기획설계": 2000000,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 1280000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 3,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 3.0,
+        "cost": 1263738
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 2.0,
+        "cost": 741969
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 2.0,
+        "cost": 1287855
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "H8 저울 (무게추 포함)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 본체 재활용\n- 신규 가공 품목 : 무게 변경에 따른 무게추 SET, 컬러링 들어간 트레이 파트 전량\n- 네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3180000,
+        "qty": 1,
+        "cost": 3180000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "H8 저울 (무게추 포함)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 본체 재활용\n- 신규 가공 품목 : 무게 변경에 따른 무게추 SET, 컬러링 들어간 트레이 파트 전량\n- 네임플레이트 제작\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3180000,
+        "qty": 3,
+        "cost": 9540000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F03",
+    "kit_id": "F03",
+    "name": "[폴더블(Q8B8H8)] B8 교자상 (플립샷)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "B8 교자상 (플립샷)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 46830000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 3680000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 60.0,
+    "key_specs": "자개 교자상 거치, 폴딩 감지 시 플립샷 자동 실행. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F03",
+    "image_file": "F03_B8_교자상__플립샷_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F03_B8_교자상__플립샷_.png",
+    "prototype_cost": 35790000,
+    "fabrication_cost": 11040000,
+    "unit_fabrication_cost": 3680000,
+    "prototype_breakdown": {
+      "기획설계": 5540000,
+      "SW개발": 17360000,
+      "그래픽UI": 7240000,
+      "하우징HW설계": 5650000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 7.0,
+        "cost": 2948723
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 7.0,
+        "cost": 2596890
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 3.0,
+        "cost": 2834145
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 10.0,
+        "cost": 14528640
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 5.0,
+        "cost": 7248125
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 4.0,
+        "cost": 3082806
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 4.0,
+        "cost": 2575711
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "B8 교자상(플립샷)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 실제 수작업 전복 자개 커팅 기술 적용\n- 부착 시, 로스 최소화 방안 마련 / 부착 제작 (수작업)\n- 네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3680000,
+        "qty": 1,
+        "cost": 3680000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "B8 교자상(플립샷)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 실제 수작업 전복 자개 커팅 기술 적용\n- 부착 시, 로스 최소화 방안 마련 / 부착 제작 (수작업)\n- 네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3680000,
+        "qty": 2,
+        "cost": 7360000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F04",
+    "kit_id": "F04",
+    "name": "[폴더블(Q8B8H8)] B8 경대 (미러뷰)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "B8 경대 (미러뷰)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 53300000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 4175000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 57.0,
+    "key_specs": "자개 경대, 미러뷰 상시 실행 앱. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F04",
+    "image_file": "F04_B8_경대__미러뷰_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F04_B8_경대__미러뷰_.png",
+    "prototype_cost": 36600000,
+    "fabrication_cost": 16700000,
+    "unit_fabrication_cost": 4175000,
+    "prototype_breakdown": {
+      "기획설계": 6330000,
+      "SW개발": 24620000,
+      "그래픽UI": 0,
+      "하우징HW설계": 5650000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 2,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 8.0,
+        "cost": 3369969
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 8.0,
+        "cost": 2967875
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발 (손거울과 SW 동일)",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 3.0,
+        "cost": 2834145
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발 (손거울과 SW 동일)",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 10.0,
+        "cost": 21792960
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 4.0,
+        "cost": 3082806
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 4.0,
+        "cost": 2575711
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "B8 경대",
+        "sub_item": "양산 제작 (하우징) _B8 핸즈온",
+        "spec_work": "- 실제 수작업 전복 자개 커팅 기술 적용\n- 부착 시, 로스 최소화 방안 마련 / 부착 제작 (수작업)\n- 라이브용 추가발주 수량 포함\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3500000,
+        "qty": 2,
+        "cost": 7000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "B8 경대",
+        "sub_item": "교체용 버퍼 (폰 하우징 부분)",
+        "spec_work": "폰 하우징 부분만 별도 제작 (자석 내장)",
+        "unit": "개",
+        "unit_price": 900000,
+        "qty": 1,
+        "cost": 900000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "B8 경대",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 실제 수작업 전복 자개 커팅 기술 적용\n- 부착 시, 로스 최소화 방안 마련 / 부착 제작 (수작업)\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3500000,
+        "qty": 2,
+        "cost": 7000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "B8 경대",
+        "sub_item": "교체용 버퍼 (폰 하우징 부분)",
+        "spec_work": "폰 하우징 부분만 별도 제작 (자석 내장)",
+        "unit": "개",
+        "unit_price": 900000,
+        "qty": 2,
+        "cost": 1800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F05",
+    "kit_id": "F05",
+    "name": "[폴더블(Q8B8H8)] B8 손거울 (미러뷰)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "B8 손거울 (미러뷰)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 35640000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 7,
+    "unit_cost": 3380000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 24.0,
+    "key_specs": "손에 드는 자개 손거울형 키트 (SW는 경대와 공용). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F05",
+    "image_file": "F05_B8_손거울__미러뷰_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F05_B8_손거울__미러뷰_.png",
+    "prototype_cost": 11980000,
+    "fabrication_cost": 23660000,
+    "unit_fabrication_cost": 3380000,
+    "prototype_breakdown": {
+      "기획설계": 6330000,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 5650000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 3,
+      "삼성홍대": 4,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 8.0,
+        "cost": 3369969
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 8.0,
+        "cost": 2967875
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 4.0,
+        "cost": 3082806
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 4.0,
+        "cost": 2575711
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "B8 손거울",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 실제 수작업 전복 자개 커팅 기술 적용\n- 부착 시, 로스 최소화 방안 마련 / 부착 제작 (수작업)\n- 교체용 버퍼/라이브용 추가발주 수량 포함\n- 네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3380000,
+        "qty": 3,
+        "cost": 10140000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "B8 손거울",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 실제 수작업 전복 자개 커팅 기술 적용\n- 부착 시, 로스 최소화 방안 마련 / 부착 제작 (수작업)\n- 네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3380000,
+        "qty": 4,
+        "cost": 13520000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F06",
+    "kit_id": "F06",
+    "name": "[폴더블(Q8B8H8)] B8 미러 (대형 목업)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "B8 미러 (대형 목업)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 57360000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 11966666,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 44.0,
+    "key_specs": "대형 B8 목업 미러, 후면 소나무 자개 인쇄. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F06",
+    "image_file": "F06_B8_미러__대형_목업_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F06_B8_미러__대형_목업_.png",
+    "prototype_cost": 21460000,
+    "fabrication_cost": 35900000,
+    "unit_fabrication_cost": 11966666,
+    "prototype_breakdown": {
+      "기획설계": 12720000,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 8740000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 8.0,
+        "cost": 3414666
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 8.0,
+        "cost": 3369969
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 2,
+        "daily_rate": 741969,
+        "days": 8.0,
+        "cost": 5935749
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 4.0,
+        "cost": 6165612
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 4.0,
+        "cost": 2575711
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "B8 미러",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 대형 실크스크린 인쇄 (후면부 자개 표현 감도 향상)\n- 대형 목업 제작품\n- 하중 지지를 위해 금속 가공 일부 적용\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 9500000,
+        "qty": 1,
+        "cost": 9500000
+      },
+      {
+        "store": "삼성강남",
+        "item": "B8 미러",
+        "sub_item": "양산 제작 발주 후 홀드",
+        "spec_work": "최초 발주 분 / 이후 홀드",
+        "unit": "개",
+        "unit_price": 4600000,
+        "qty": 1,
+        "cost": 4600000
+      },
+      {
+        "store": "삼성강남",
+        "item": "B8 미러",
+        "sub_item": "B8 핸즈온 단독 (추가 긴급)",
+        "spec_work": "(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 1400000,
+        "qty": 2,
+        "cost": 2800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "B8 미러",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 대형 실크스크린 인쇄 (후면부 자개 표현 감도 향상)\n- 대형 목업 제작품\n- 하중 지지를 위해 금속 가공 일부 적용\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 9500000,
+        "qty": 2,
+        "cost": 19000000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F07",
+    "kit_id": "F07",
+    "name": "[폴더블(Q8B8H8)] B8 케이스 (수트케이스·마그넷)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "B8 케이스 (수트케이스·마그넷)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 14300000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 2980000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 10.0,
+    "key_specs": "플립 수트케이스·마그넷 케이스 스타일링 체험. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F07",
+    "image_file": "F07_B8_케이스__수트케이스_마그넷_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F07_B8_케이스__수트케이스_마그넷_.png",
+    "prototype_cost": 5360000,
+    "fabrication_cost": 8940000,
+    "unit_fabrication_cost": 2980000,
+    "prototype_breakdown": {
+      "기획설계": 2540000,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 2820000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 3.0,
+        "cost": 1280500
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 3.0,
+        "cost": 1263738
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 2.0,
+        "cost": 1541403
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 2.0,
+        "cost": 1287855
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "B8 케이스",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 2980000,
+        "qty": 1,
+        "cost": 2980000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "B8 케이스",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "-네임플레이트 제작\n(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 2980000,
+        "qty": 2,
+        "cost": 5960000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F08",
+    "kit_id": "F08",
+    "name": "[폴더블(Q8B8H8)] Q8 밝기",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "Q8 밝기",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 40100000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 6480000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 29.0,
+    "key_specs": "고조도 조명 아래 3,000nit 화면 시인성 체험 (LED 회로). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F08",
+    "image_file": "F08_Q8_밝기.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F08_Q8_밝기.png",
+    "prototype_cost": 14180000,
+    "fabrication_cost": 25920000,
+    "unit_fabrication_cost": 6480000,
+    "prototype_breakdown": {
+      "기획설계": 8530000,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 5650000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 3,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 7.0,
+        "cost": 2987833
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 7.0,
+        "cost": 2948723
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 7.0,
+        "cost": 2596890
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 4.0,
+        "cost": 3082806
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 4.0,
+        "cost": 2575711
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "Q8 밝기",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 한지 부 라이팅 회로 제작\n- 폰 투사 부 라이팅 회로 제작\n- 럭스 수치 확인 / 밝기 조절 기능 내장\n- 네임플레이트 제작\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 5680000,
+        "qty": 1,
+        "cost": 5680000
+      },
+      {
+        "store": "삼성강남",
+        "item": "Q8 밝기",
+        "sub_item": "양산 제작 발주 후 홀드",
+        "spec_work": "(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 3200000,
+        "qty": 1,
+        "cost": 3200000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "Q8 밝기",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "- 한지 부 라이팅 회로 제작\n- 폰 투사 부 라이팅 회로 제작\n- 럭스 수치 확인 / 밝기 조절 기능 내장\n- 네임플레이트 제작\n'(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 5680000,
+        "qty": 3,
+        "cost": 17040000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F09",
+    "kit_id": "F09",
+    "name": "[폴더블(Q8B8H8)] HOW-TO 탭",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "HOW-TO 탭",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 33280000,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 1,
+    "unit_cost": 0,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 55.0,
+    "key_specs": "체험별 하우투 탭 앱 4종 (멀티윈도우 2·마이팬캠·플립샷). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F09",
+    "image_file": "F09_HOW-TO_탭.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F09_HOW-TO_탭.png",
+    "prototype_cost": 33280000,
+    "fabrication_cost": 0,
+    "unit_fabrication_cost": 0,
+    "prototype_breakdown": {
+      "기획설계": 1260000,
+      "SW개발": 16190000,
+      "그래픽UI": 11590000,
+      "하우징HW설계": 4240000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 0,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 3.0,
+        "cost": 1263738
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 1.0,
+        "cost": 944715
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 3,
+        "daily_rate": 2179296,
+        "days": 7.0,
+        "cost": 15255072
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 8.0,
+        "cost": 11597000
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 3.0,
+        "cost": 2312104
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 3.0,
+        "cost": 1931783
+      }
+    ],
+    "fabrication_details": [],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F10",
+    "kit_id": "F10",
+    "name": "[폴더블(Q8B8H8)] Q8 멀티태스킹 & 마이팬캠",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "Q8 멀티태스킹 & 마이팬캠",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 45020000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 6033333,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 44.0,
+    "key_specs": "Q8 3분할 멀티태스킹·마이팬캠 체험앱. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F10",
+    "image_file": "F10_Q8_멀티태스킹___마이팬캠.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F10_Q8_멀티태스킹___마이팬캠.png",
+    "prototype_cost": 26920000,
+    "fabrication_cost": 18100000,
+    "unit_fabrication_cost": 6033333,
+    "prototype_breakdown": {
+      "기획설계": 2370000,
+      "SW개발": 14520000,
+      "그래픽UI": 5790000,
+      "하우징HW설계": 4240000,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "중급 기술자",
+        "headcount": 1,
+        "daily_rate": 421246,
+        "days": 3.0,
+        "cost": 1263738
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "초급 기술자",
+        "headcount": 1,
+        "daily_rate": 370984,
+        "days": 3.0,
+        "cost": 1112953
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 10.0,
+        "cost": 14528640
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 6.0,
+        "cost": 5798500
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 3.0,
+        "cost": 2312104
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 3.0,
+        "cost": 1931783
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "Q8 멀티태스킹&마이팬캠 (탭거치대)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 1700000,
+        "qty": 1,
+        "cost": 1700000
+      },
+      {
+        "store": "삼성강남",
+        "item": "Q8 멀티태스킹&마이팬캠 (폰 핸즈온)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 1300000,
+        "qty": 2,
+        "cost": 2600000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "Q8 멀티태스킹&마이팬캠/ B8 플립샷 HOW TO (탭거치대)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달",
+        "unit": "개",
+        "unit_price": 1700000,
+        "qty": 2,
+        "cost": 3400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "Q8 멀티태스킹&마이팬캠 (폰 핸즈온)",
+        "sub_item": "양산 제작 (하우징)",
+        "spec_work": "(1) CNC 머시닝을 활용한 가공\n- 3차원 형상 정밀 가공 (황삭, 중삭, 정삭)\n- 황삭 : 대략적인 형상을 빠르게 깎아냄\n- 중삭 : 황삭 후 남은 여유분을 제거하고, 형상의 정확도를 높이는 작업 수행\n- 정삭 : 최종 치수 및 표면 거칠기를 만족시키는 정밀 가공 수행\n(2)형합 및 사상\n- CNC 가공 부품들을 기획 형상대로 조립하고 표면을 다듬는 작업(수공정)\n- 부품 조립 검증 및 테스트\n- 표면 연마 수행 / 표면 거칠기 확인\n(3)스프레이 (컬러 개발)\n- 우레탄 페인트를 신너 등과 혼합하여 목표 색상에 도달\n- 제품 표면에 균일하게 분사\n(4)인쇄\n- 잉크, 아농 등을 혼합하여 목표 색상에 도달\n- DP 프린터 등을 활용하여 디자인을 제품 표면에 인쇄\n- 실크 프린팅을 활용한 인쇄\n(5)조립\n- 후가공 완료 부품들 및 내부 HW 조립 / 최종 제품 완성\n- HW 지정 위치 체결\n(6)배송 및 포장\n- 부자재 포장 / 배송 용달\n+갤럭시스토어 1EA 사용\n+버퍼 1EA 포함",
+        "unit": "개",
+        "unit_price": 1300000,
+        "qty": 8,
+        "cost": 10400000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F11",
+    "kit_id": "F11",
+    "name": "[폴더블(Q8B8H8)] 존 사이니지",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "존 사이니지",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "디지털 사이니지",
+    "settled_amount": 11590000,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 1,
+    "unit_cost": 0,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 24.0,
+    "key_specs": "존별 사이니지 디자인·모션그래픽. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F11",
+    "image_file": "F11_존_사이니지.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F11_존_사이니지.png",
+    "prototype_cost": 11590000,
+    "fabrication_cost": 0,
+    "unit_fabrication_cost": 0,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 0,
+      "그래픽UI": 11590000,
+      "하우징HW설계": 0,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 0,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 3,
+        "daily_rate": 1449625,
+        "days": 8.0,
+        "cost": 11597000
+      }
+    ],
+    "fabrication_details": [],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F12",
+    "kit_id": "F12",
+    "name": "[폴더블(Q8B8H8)] QBH 크리즈 제로 (2구)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "QBH 크리즈 제로 (2구)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 51261777,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 7200000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 36.0,
+    "key_specs": "족자형 키트에 Q/B/H 거치, 주름·두께 비교 + 폰 영상. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F12",
+    "image_file": "F12_QBH_크리즈_제로__2구_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F12_QBH_크리즈_제로__2구_.png",
+    "prototype_cost": 22461777,
+    "fabrication_cost": 28800000,
+    "unit_fabrication_cost": 7200000,
+    "prototype_breakdown": {
+      "기획설계": 4679731,
+      "SW개발": 8717184,
+      "그래픽UI": 2899250,
+      "하우징HW설계": 6165612,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 1
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 5.0,
+        "cost": 2545565
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 5.0,
+        "cost": 2134166
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 6.0,
+        "cost": 8717184
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 3.0,
+        "cost": 2899250
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 4.0,
+        "cost": 6165612
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "[Q] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2500000,
+        "qty": 1,
+        "cost": 2500000
+      },
+      {
+        "store": "삼성강남",
+        "item": "[B] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2400000,
+        "qty": 1,
+        "cost": 2400000
+      },
+      {
+        "store": "삼성강남",
+        "item": "[H] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 1,
+        "cost": 2300000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "[Q] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2500000,
+        "qty": 2,
+        "cost": 5000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "[B] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2400000,
+        "qty": 2,
+        "cost": 4800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "[H] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 2,
+        "cost": 4600000
+      },
+      {
+        "store": "청담",
+        "item": "[Q] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2500000,
+        "qty": 1,
+        "cost": 2500000
+      },
+      {
+        "store": "청담",
+        "item": "[B] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2400000,
+        "qty": 1,
+        "cost": 2400000
+      },
+      {
+        "store": "청담",
+        "item": "[H] 크리즈 제로 키트 2구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 1,
+        "cost": 2300000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F13",
+    "kit_id": "F13",
+    "name": "[폴더블(Q8B8H8)] QBH 크리즈 제로 (1구)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "QBH 크리즈 제로 (1구)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 36591748,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 7000000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 14.4,
+    "key_specs": "1구 리사이징 버전. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F13",
+    "image_file": "F13_QBH_크리즈_제로__1구_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F13_QBH_크리즈_제로__1구_.png",
+    "prototype_cost": 8591748,
+    "fabrication_cost": 28000000,
+    "unit_fabrication_cost": 7000000,
+    "prototype_breakdown": {
+      "기획설계": 2807839,
+      "SW개발": 0,
+      "그래픽UI": 1159700,
+      "하우징HW설계": 4624209,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 1
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 2.0,
+        "cost": 1527339
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 2.0,
+        "cost": 1280500
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 2.0,
+        "cost": 1159700
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 2.0,
+        "cost": 4624209
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "[Q] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2400000,
+        "qty": 1,
+        "cost": 2400000
+      },
+      {
+        "store": "삼성강남",
+        "item": "[B] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 1,
+        "cost": 2300000
+      },
+      {
+        "store": "삼성강남",
+        "item": "[H] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 1,
+        "cost": 2300000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "[Q] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2400000,
+        "qty": 2,
+        "cost": 4800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "[B] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 2,
+        "cost": 4600000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "[H] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 2,
+        "cost": 4600000
+      },
+      {
+        "store": "청담",
+        "item": "[Q] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2400000,
+        "qty": 1,
+        "cost": 2400000
+      },
+      {
+        "store": "청담",
+        "item": "[B] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 1,
+        "cost": 2300000
+      },
+      {
+        "store": "청담",
+        "item": "[H] 크리즈 제로 키트 1구",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 UV인쇄\n- 모바일 컨텐츠 색상에 맞춘 그래픽 백판 UV인쇄 컬러 명도 세부 조정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 에어샌딩 작업\n-1차 조립(도장 전 같은 파츠 부분) \n-자석 삽입작업\n-DTP 미마키 UV 인쇄 작업\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 1,
+        "cost": 2300000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F14",
+    "kit_id": "F14",
+    "name": "[폴더블(Q8B8H8)] H8 콘텐츠 뷰잉",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "H8 콘텐츠 뷰잉",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 50111177,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 8,
+    "unit_cost": 5175000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 13.0,
+    "key_specs": "E-book/게임/OTT 등 콘텐츠 비율별 뷰잉 거치대. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F14",
+    "image_file": "F14_H8_콘텐츠_뷰잉.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F14_H8_콘텐츠_뷰잉.png",
+    "prototype_cost": 8711177,
+    "fabrication_cost": 41400000,
+    "unit_fabrication_cost": 5175000,
+    "prototype_breakdown": {
+      "기획설계": 2545565,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 6165612,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 2,
+      "삼성홍대": 5,
+      "청담": 1
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 5.0,
+        "cost": 2545565
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 8.0,
+        "cost": 6165612
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "H8 콘텐츠 뷰잉 [E-BOOK]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n- 네임플레이트 제작\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결)\n※ 전체 제작 수량: 총 21EA (청담 수량 미포함)\n1. 최초 제작 19EA (삼성 6/홍대 10/버퍼 3)\n- 세로+세로(이북): 4EA\n- 세로+가로(넷플릭스/SNS): 7EA\n- 세로+가로(웹툰): 3EA\n- 가로+가로(게임): 2EA\n- 버퍼: 3EA (유형별 1EA, 홍대 견적에 반영)\n2. 추가 제작 2EA\n- 웹툰 버전 변경(세로+가로 → 세로+세로)\n- 기존 버퍼 1EA 활용 + 부족분 2EA 추가 제작",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 2,
+        "cost": 3600000
+      },
+      {
+        "store": "삼성강남",
+        "item": "H8 콘텐츠 뷰잉 [SNS/웹툰/OTT]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n- 네임플레이트 제작\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결)\n※ 전체 제작 수량: 총 21EA (청담 수량 미포함)\n1. 최초 제작 19EA (삼성 6/홍대 10/버퍼 3)\n- 세로+세로(이북): 4EA\n- 세로+가로(넷플릭스/SNS): 7EA\n- 세로+가로(웹툰): 3EA\n- 가로+가로(게임): 2EA\n- 버퍼: 3EA (유형별 1EA, 홍대 견적 반영)\n2. 추가 제작 2EA\n- 웹툰 버전 변경(세로+가로 → 세로+세로)\n- 기존 버퍼 1EA 활용 + 부족분 2EA 추가 제작",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 4,
+        "cost": 7200000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "H8 콘텐츠 뷰잉 [E-BOOK]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n- 네임플레이트 제작\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결\n※ 전체 제작 수량: 총 21EA (청담 수량 미포함)\n1. 최초 제작 19EA (삼성 6/홍대 10/버퍼 3)\n- 세로+세로(이북): 4EA\n- 세로+가로(넷플릭스/SNS): 7EA\n- 세로+가로(웹툰): 3EA\n- 가로+가로(게임): 2EA\n- 버퍼: 3EA (유형별 1EA, 홍대 견적 반영)\n2. 추가 제작 2EA\n- 웹툰 버전 변경(세로+가로 → 세로+세로)\n- 기존 버퍼 1EA 활용 + 부족분 2EA 추가 제작",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 5,
+        "cost": 9000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "H8 콘텐츠 뷰잉 [GAME]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n- 네임플레이트 제작\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결)\n※ 전체 제작 수량: 총 21EA (청담 수량 미포함)\n1. 최초 제작 19EA (삼성 6/홍대 10/버퍼 3)\n- 세로+세로(이북): 4EA\n- 세로+가로(넷플릭스/SNS): 7EA\n- 세로+가로(웹툰): 3EA\n- 가로+가로(게임): 2EA\n- 버퍼: 3EA (유형별 1EA, 홍대 견적 반영)\n2. 추가 제작 2EA\n- 웹툰 버전 변경(세로+가로 → 세로+세로)\n- 기존 버퍼 1EA 활용 + 부족분 2EA 추가 제작",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 3,
+        "cost": 5400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "H8 콘텐츠 뷰잉 [SNS/웹툰/OTT]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n- 네임플레이트 제작\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결)\n※ 전체 제작 수량: 총 21EA (청담 수량 미포함)\n1. 최초 제작 19EA (삼성 6/홍대 10/버퍼 3)\n- 세로+세로(이북): 4EA\n- 세로+가로(넷플릭스/SNS): 7EA\n- 세로+가로(웹툰): 3EA\n- 가로+가로(게임): 2EA\n- 버퍼: 3EA (유형별 1EA, 홍대 견적 반영)\n2. 추가 제작 2EA\n- 웹툰 버전 변경(세로+가로 → 세로+세로)\n- 기존 버퍼 1EA 활용 + 부족분 2EA 추가 제작",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 7,
+        "cost": 12600000
+      },
+      {
+        "store": "청담",
+        "item": "H8 콘텐츠 뷰잉 [E-BOOK]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 1,
+        "cost": 1800000
+      },
+      {
+        "store": "청담",
+        "item": "H8 콘텐츠 뷰잉 [SNS/웹툰/OTT]",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC,MCT 정밀 단차 가공 \n-앞뒤 사용 가능하도록 캡 별도 제작\n-철물판 부, 탈거\n2. 후공정\n- 7파츠가공용 전용 지그 제작\n   개별 에어샌딩 작업\n   두깨판, 카메라 공간을 위한 판 단차 가공후 \n   마이너스 부분 수작업(샌딩)\n-1차 조립(도장 전 같은 파츠 부분) \n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n-1T 실리콘 패드+ 실리콘용 양면테잎부착\n-부분 탈거 \n-ㄷ귿자 젠더부, 유격조정 작업\n   앞뒤판 양면+ 피스 고정\n-빗각 실크인쇄 \n           1도-쿨그레이 6C-10C-6C-10C로 변경 작업\n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 1800000,
+        "qty": 1,
+        "cost": 1800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F15",
+    "kit_id": "F15",
+    "name": "[폴더블(Q8B8H8)] 워치존",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "워치존",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 142602017,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 38000000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 104.0,
+    "key_specs": "병풍형 워치존: 워치·폰 앱 + 원형 디스플레이 + 미니PC 연동. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F15",
+    "image_file": "F15_워치존.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F15_워치존.png",
+    "prototype_cost": 66602017,
+    "fabrication_cost": 76000000,
+    "unit_fabrication_cost": 38000000,
+    "prototype_breakdown": {
+      "기획설계": 9774969,
+      "SW개발": 23245824,
+      "그래픽UI": 8117900,
+      "하우징HW설계": 25463324,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1018226,
+        "days": 8.0,
+        "cost": 9774969
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 4,
+        "daily_rate": 2905728,
+        "days": 8.0,
+        "cost": 23245824
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 2,
+        "daily_rate": 966417,
+        "days": 7.0,
+        "cost": 8117900
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 9.0,
+        "cost": 13872626
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 2,
+        "daily_rate": 1287855,
+        "days": 9.0,
+        "cost": 11590698
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "워치존",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 3.5M PC 상판 하우징 설계 \n- 도장 및 실크인쇄, 그래픽 인쇄\n- 백월 아크릴 가공 및 UV인쇄\n- 병풍 모바일 크래들 제작\n- 병풍 그래픽 이미지 실사출력\n1. 가공\n  -월-\n * 투명아크릴 - UV 그라데이션 인쇄\n * 삼성 로고 추가 인쇄 \n * 테이블 고정용 브라켓 MTC 가공- 검정 무광 우레탄 도장\n -상판-\n* 자재 ABS -CNC가공\n* 에어센딩작업\n* 지정컬러 우레탄 무광 도장\n* 시트커팅-음각맵핑- 백색 도장(차선, 도로 데코표현) \n2. 부속, 목업설치\n*목업 도장 지정색 변경\n*버튼부 헤어라인 작업\n*워치 거치대부 철거 작업- 센딩 - 백색 도장 작업\n*베이스판 도장\n*조명기구 길이 커스텀(컷팅), 디머준비",
+        "unit": "개",
+        "unit_price": 38000000,
+        "qty": 1,
+        "cost": 38000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "워치존",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 3.5M PC 상판 하우징 설계 \n- 도장 및 실크인쇄, 그래픽 인쇄\n- 백월 아크릴 가공 및 UV인쇄\n- 병풍 모바일 크래들 제작\n- 병풍 그래픽 이미지 실사출력\n1. 가공\n  -월-\n * 투명아크릴 - UV 그라데이션 인쇄\n * 삼성 로고 추가 인쇄 \n * 테이블 고정용 브라켓 MTC 가공- 검정 무광 우레탄 도장\n -상판-\n* 자재 ABS -CNC가공\n* 에어센딩작업\n* 지정컬러 우레탄 무광 도장\n* 시트커팅-음각맵핑- 백색 도장(차선, 도로 데코표현) \n2. 부속, 목업설치\n*목업 도장 지정색 변경\n*버튼부 헤어라인 작업\n*워치 거치대부 철거 작업- 센딩 - 백색 도장 작업\n*베이스판 도장\n*조명기구 길이 커스텀(컷팅), 디머준비",
+        "unit": "개",
+        "unit_price": 38000000,
+        "qty": 1,
+        "cost": 38000000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F16",
+    "kit_id": "F16",
+    "name": "[폴더블(Q8B8H8)] 헤리티지월 (히스토리 월)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "헤리티지월 (히스토리 월)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 91477834,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 35000000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 32.0,
+    "key_specs": "역대 폴더블 8년 전작 전시 월 (백라이팅). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F16",
+    "image_file": "F16_헤리티지월__히스토리_월_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F16_헤리티지월__히스토리_월_.png",
+    "prototype_cost": 21477834,
+    "fabrication_cost": 70000000,
+    "unit_fabrication_cost": 35000000,
+    "prototype_breakdown": {
+      "기획설계": 2545565,
+      "SW개발": 0,
+      "그래픽UI": 1449625,
+      "하우징HW설계": 17482644,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 5.0,
+        "cost": 2545565
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 1,
+        "daily_rate": 483208,
+        "days": 3.0,
+        "cost": 1449625
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1541403,
+        "days": 8.0,
+        "cost": 12331223
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 8.0,
+        "cost": 5151421
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "히스토리 월",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 인쇄\n- 그라데이션 백월 컬러 세부 조정 작업\n- 전작 모바일(폴드 전작) 사이즈에 맞춘 크래들 단차 및 사이즈 세부 조정 작업\n- 모바일 탈착 방지를 위한 3중 접착 방식 작업\n(맥세이프링 작업, 프라이머 본딩 작업, 금오 접착 시트)\n- 모바일 뒤틀림 방지를 위한 후면 고정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 3D 데이터 기반 재작후, 실폰 실측후 다시 가공\n- 부분 마스킹, 백색 무광 도장 작업\n- 테두리 사각 커버 가공, 도장작업",
+        "unit": "개",
+        "unit_price": 35000000,
+        "qty": 1,
+        "cost": 35000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "헤리티지 월",
+        "sub_item": "양산 제작",
+        "spec_work": "- CNC 2D 가공\n- 후가공 (사상작업)\n- 도장 및 실크인쇄, 그래픽 인쇄\n- 그라데이션 백월 컬러 세부 조정 작업\n- 전작 모바일(폴드 전작) 사이즈에 맞춘 크래들 단차 및 사이즈 세부 조정 작업\n- 모바일 탈착 방지를 위한 3중 접착 방식 작업\n(맥세이프링 작업, 프라이머 본딩 작업, 금오 접착 시트)\n- 모바일 뒤틀림 방지를 위한 후면 고정 작업\n- 가공물 조립 작업 및 케이블 단자 및 단차 세부 조정 작업\n- 3D 데이터 기반 재작후, 실폰 실측후 다시 가공\n- 부분 마스킹, 백색 무광 도장 작업\n- 테두리 사각 커버 가공, 도장작업",
+        "unit": "개",
+        "unit_price": 35000000,
+        "qty": 1,
+        "cost": 35000000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F17",
+    "kit_id": "F17",
+    "name": "[폴더블(Q8B8H8)] 라인업 핸즈온 (QBH/QQQ/BBB/HHH)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "라인업 핸즈온 (QBH/QQQ/BBB/HHH)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "상설 쇼케이스 / 체험 테이블",
+    "settled_amount": 27046011,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 9,
+    "unit_cost": 2222222,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 10.5,
+    "key_specs": "라인업 핸즈온 거치대 4종 (QBH 2.3M·QQQ 2.3M·BBB 2.15M·HHH 2.1M, 홍대). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F17",
+    "image_file": "F17_라인업_핸즈온__QBH_QQQ_BBB_HHH_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F17_라인업_핸즈온__QBH_QQQ_BBB_HHH_.png",
+    "prototype_cost": 7046011,
+    "fabrication_cost": 20000000,
+    "unit_fabrication_cost": 2222222,
+    "prototype_breakdown": {
+      "기획설계": 2036452,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 5009559,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 0,
+      "삼성홍대": 9,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 4.0,
+        "cost": 2036452
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 5009559
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성홍대",
+        "item": "QBH 핸즈온 키트",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC, MCT가공 \n2. 후공정\n- 에어샌딩 작업\n-1차 조립\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 3,
+        "cost": 6900000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "QQQ 핸즈온 키트",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC, MCT가공 \n2. 후공정\n- 에어샌딩 작업\n-1차 조립\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2300000,
+        "qty": 2,
+        "cost": 4600000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "BBB 핸즈온 키트",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC, MCT가공 \n2. 후공정\n- 에어샌딩 작업\n-1차 조립\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2150000,
+        "qty": 2,
+        "cost": 4300000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "HHH 핸즈온 키트",
+        "sub_item": "양산 제작",
+        "spec_work": "1.가공\n재료:ABS\n-CNC, MCT가공 \n2. 후공정\n- 에어샌딩 작업\n-1차 조립\n- 지정칼라 우레탄 도장+ 코팅 클리어 도장(무광)\n- 1도 실크인쇄-쿨그레이 6C-10C-6C-10C로 (변경) \n- 2차 조립(전선부 연결)",
+        "unit": "개",
+        "unit_price": 2100000,
+        "qty": 2,
+        "cost": 4200000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F18",
+    "kit_id": "F18",
+    "name": "[폴더블(Q8B8H8)] 스페이셜 사이니지",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "스페이셜 사이니지",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "디지털 사이니지",
+    "settled_amount": 225872713,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 3,
+    "unit_cost": 52457481,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장",
+      "43인치 상업용 디스플레이"
+    ],
+    "labor_md": 116.0,
+    "key_specs": "대형 사이니지에서 H8 포즈 촬영 → QR로 내 폰 연동. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F18",
+    "image_file": "F18_스페이셜_사이니지.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F18_스페이셜_사이니지.png",
+    "prototype_cost": 68500270,
+    "fabrication_cost": 157372443,
+    "unit_fabrication_cost": 52457481,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 33709271,
+      "그래픽UI": 34790999,
+      "하우징HW설계": 0,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "IT PM",
+        "headcount": 1,
+        "daily_rate": 944715,
+        "days": 8.0,
+        "cost": 7557719
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "응용 SW 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 18.0,
+        "cost": 26151552
+      },
+      {
+        "category": "그래픽·UI",
+        "sub_item": "그래픽/UI",
+        "role": "UIUX 디자이너",
+        "headcount": 4,
+        "daily_rate": 1932833,
+        "days": 18.0,
+        "cost": 34790999
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "스페셜 사이니지 풋프린트물",
+        "sub_item": "양산 제작",
+        "spec_work": "- 켈지 인쇄\n- 바닥용 무광 코팅",
+        "unit": "개",
+        "unit_price": 80000,
+        "qty": 2,
+        "cost": 160000
+      },
+      {
+        "store": "삼성강남",
+        "item": "스페이셜 사이니지 하드웨어 구매 / 서버비",
+        "sub_item": "서버·서비스 사용 및 안정화",
+        "spec_work": "- 대상: 1대 / 총 48일 운영 기준 (기존 40일 + 추가 8일)\n- 서버/서비스 테스트 및 안정화 비용 포함",
+        "unit": "대",
+        "unit_price": 52297481,
+        "qty": 1,
+        "cost": 52297481
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페셜 사이니지 풋프린트물",
+        "sub_item": "양산 제작",
+        "spec_work": "- 켈지 인쇄\n- 바닥용 무광 코팅",
+        "unit": "개",
+        "unit_price": 80000,
+        "qty": 4,
+        "cost": 320000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "스페이셜 사이니지 하드웨어 구매 / 서버비",
+        "sub_item": "서버·서비스 사용 및 안정화",
+        "spec_work": "- 대상: 2대 / 총 48일 운영 기준 (기존 40일 + 추가 8일)\n- 서버/서비스 테스트 및 안정화 비용 포함",
+        "unit": "대",
+        "unit_price": 52297481,
+        "qty": 2,
+        "cost": 104594962
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_F19",
+    "kit_id": "F19",
+    "name": "[폴더블(Q8B8H8)] 슬림키트 (재활용)",
+    "project_name": "폴더블(Q8B8H8)",
+    "kit_name": "슬림키트 (재활용)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 4320000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 4,
+    "unit_cost": 1080000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 0.0,
+    "key_specs": "제작비만 있음 (부분 튜닝·도장). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "F19",
+    "image_file": "F19_슬림키트__재활용_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/F19_슬림키트__재활용_.png",
+    "prototype_cost": 0,
+    "fabrication_cost": 4320000,
+    "unit_fabrication_cost": 1080000,
+    "prototype_breakdown": {
+      "기획설계": 0,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 0,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 2,
+      "청담": 1
+    },
+    "features": [],
+    "labor_details": [],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "슬림키트",
+        "sub_item": "재활용(부분 튜닝 및 도장)",
+        "spec_work": "두께 튜닝 및 부분 수정\n스크래치 부 부분도장\n민음사 등 도서 구매비용 포함\n네임플레이트 제작",
+        "unit": "개",
+        "unit_price": 1080000,
+        "qty": 1,
+        "cost": 1080000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "슬림키트",
+        "sub_item": "재활용(부분 튜닝 및 도장)",
+        "spec_work": "두께 튜닝 및 부분 수정\n스크래치 부 부분도장\n민음사 등 도서 구매비용 포함\n네임플레이트 제작",
+        "unit": "개",
+        "unit_price": 1080000,
+        "qty": 2,
+        "cost": 2160000
+      },
+      {
+        "store": "청담",
+        "item": "슬림키트",
+        "sub_item": "재활용(부분 튜닝 및 도장)",
+        "spec_work": "두께 튜닝 및 부분 수정\n스크래치 부 부분도장\n민음사 등 도서 구매비용 포함\n네임플레이트 제작",
+        "unit": "개",
+        "unit_price": 1080000,
+        "qty": 1,
+        "cost": 1080000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_H01",
+    "kit_id": "H01",
+    "name": "[폴더블 헤리티지] 히스토리월 (폴드·플립)",
+    "project_name": "폴더블 헤리티지",
+    "kit_name": "히스토리월 (폴드·플립)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 77447082,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 24310000,
+    "unit_label": "1개소당 제작비",
+    "tier": "고급형 (Premium)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 45.0,
+    "key_specs": "역대 폴드·플립 실물 전시 월: 모바일·탭 크레들 + 라이팅 박스 VMD, 커버화면 상시 유지 SW. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "H01",
+    "image_file": "H01_히스토리월__폴드_플립_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/H01_히스토리월__폴드_플립_.png",
+    "prototype_cost": 28827082,
+    "fabrication_cost": 48620000,
+    "unit_fabrication_cost": 24310000,
+    "prototype_breakdown": {
+      "기획설계": 7225296,
+      "SW개발": 14528640,
+      "그래픽UI": 0,
+      "하우징HW설계": 7073146,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1018226,
+        "days": 5.0,
+        "cost": 5091130
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 5.0,
+        "cost": 2134166
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 3853507
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 5.0,
+        "cost": 3219638
+      },
+      {
+        "category": "SW개발",
+        "sub_item": "소프트웨어 개발",
+        "role": "소프트웨어 개발자",
+        "headcount": 2,
+        "daily_rate": 1452864,
+        "days": 10.0,
+        "cost": 14528640
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "히스토리월(폴드)",
+        "sub_item": "탭 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 금오시건",
+        "unit": "개",
+        "unit_price": 420000,
+        "qty": 4,
+        "cost": 1680000
+      },
+      {
+        "store": "삼성강남",
+        "item": "히스토리월(폴드)",
+        "sub_item": "모바일 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 480000,
+        "qty": 10,
+        "cost": 4800000
+      },
+      {
+        "store": "삼성강남",
+        "item": "히스토리월(폴드)",
+        "sub_item": "모바일 히스토리월(VMD)",
+        "spec_work": "· 재료 :ABS,위 지정 컬러, 라이팅 박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 6500000,
+        "qty": 1,
+        "cost": 6500000
+      },
+      {
+        "store": "삼성강남",
+        "item": "히스토리월(플립)",
+        "sub_item": "텝 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 금오시건",
+        "unit": "개",
+        "unit_price": 420000,
+        "qty": 4,
+        "cost": 1680000
+      },
+      {
+        "store": "삼성강남",
+        "item": "히스토리월(플립)",
+        "sub_item": "모바일 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 450000,
+        "qty": 7,
+        "cost": 3150000
+      },
+      {
+        "store": "삼성강남",
+        "item": "히스토리월(플립)",
+        "sub_item": "모바일 히스토리월(VMD)",
+        "spec_work": "· 재료 :ABS,위 지정 컬러, 라이팅 박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 6500000,
+        "qty": 1,
+        "cost": 6500000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "히스토리월(폴드)",
+        "sub_item": "탭 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 금오시건",
+        "unit": "개",
+        "unit_price": 420000,
+        "qty": 4,
+        "cost": 1680000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "히스토리월(폴드)",
+        "sub_item": "모바일 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 480000,
+        "qty": 10,
+        "cost": 4800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "히스토리월(폴드)",
+        "sub_item": "모바일 히스토리월(VMD)",
+        "spec_work": "· 재료 :ABS,위 지정 컬러, 라이팅 박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 6500000,
+        "qty": 1,
+        "cost": 6500000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "히스토리월(플립)",
+        "sub_item": "텝 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 금오시건",
+        "unit": "개",
+        "unit_price": 420000,
+        "qty": 4,
+        "cost": 1680000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "히스토리월(플립)",
+        "sub_item": "모바일 크레들",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 450000,
+        "qty": 7,
+        "cost": 3150000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "히스토리월(플립)",
+        "sub_item": "모바일 히스토리월(VMD)",
+        "spec_work": "· 재료 :ABS,위 지정 컬러, 라이팅 박스\n - CNC가공,V-컷팅  조립 및 기능 설계 \n- 충전 케이블,아답터",
+        "unit": "개",
+        "unit_price": 6500000,
+        "qty": 1,
+        "cost": 6500000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_H02",
+    "kit_id": "H02",
+    "name": "[폴더블 헤리티지] 디자인 스토리",
+    "project_name": "폴더블 헤리티지",
+    "kit_name": "디자인 스토리",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 56858442,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 21280000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 25.0,
+    "key_specs": "목업폰(완제품·둘레·비율·두께 스터디) + 월/테이블 그래픽 플레이트. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "H02",
+    "image_file": "H02_디자인_스토리.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/H02_디자인_스토리.png",
+    "prototype_cost": 14298442,
+    "fabrication_cost": 42560000,
+    "unit_fabrication_cost": 21280000,
+    "prototype_breakdown": {
+      "기획설계": 7225296,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 7073146,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1018226,
+        "days": 5.0,
+        "cost": 5091130
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 5.0,
+        "cost": 2134166
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 3853507
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 5.0,
+        "cost": 3219638
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "목업폰(완제품)",
+        "spec_work": "완제품(10종)\n3d 프린팅 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 500000,
+        "qty": 10,
+        "cost": 5000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "둘레 목업폰(프로토 타입)",
+        "spec_work": "목업 제작 \nRadius Study 타입(6종)\n3d 가공 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 350000,
+        "qty": 6,
+        "cost": 2100000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "둘레 목업폰(프로토 타입)",
+        "spec_work": "크레들\nabs, 시건장치\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 300000,
+        "qty": 1,
+        "cost": 300000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "비율 목업폰(프로토 타입)",
+        "spec_work": "목업 제작 \nRatio Study  타입(10종)\nABS 3d 가공 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 500000,
+        "qty": 10,
+        "cost": 5000000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "비율 목업폰(프로토 타입)",
+        "spec_work": "크레들\nabs, 시건장치\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 550000,
+        "qty": 1,
+        "cost": 550000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "두께 목업폰(프로토 타입)",
+        "spec_work": "목업 제작 \nEmotive Slim  타입(4종)\n알루미늄 3d 가공 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 950000,
+        "qty": 4,
+        "cost": 3800000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "두께 목업폰(프로토 타입)",
+        "spec_work": "크레들\nabs, 시건장치\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 480000,
+        "qty": 1,
+        "cost": 480000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "월 플레이트",
+        "spec_work": "플레이트\n5T 투명 아크릴 / 측면 샌딩 / 배면 실사 인쇄 / 전면 저반사 필름 / 로고 실크인쇄 + 10T 투명아크릴 / 측면 샌딩",
+        "unit": "개",
+        "unit_price": 250000,
+        "qty": 9,
+        "cost": 2250000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "테이블 플레이트",
+        "spec_work": "플레이트\n5T 투명 아크릴(모서리 0.5 격면) / 측면 샌딩 / 배면 실사 인쇄 / 전면 저반사 필름 /",
+        "unit": "개",
+        "unit_price": 150000,
+        "qty": 6,
+        "cost": 900000
+      },
+      {
+        "store": "삼성강남",
+        "item": "디자인 스토리",
+        "sub_item": "테이블 플레이트",
+        "spec_work": "플레이트\n로고 실크인쇄 + 20T 투명아크릴 / 측면 샌딩",
+        "unit": "개",
+        "unit_price": 180000,
+        "qty": 5,
+        "cost": 900000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "목업폰(완제품)",
+        "spec_work": "완제품(10종)\n3d 프린팅 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 500000,
+        "qty": 10,
+        "cost": 5000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "둘레 목업폰(프로토 타입)",
+        "spec_work": "목업 제작 \nRadius Study 타입(6종)\n3d 가공 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 350000,
+        "qty": 6,
+        "cost": 2100000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "둘레 목업폰(프로토 타입)",
+        "spec_work": "크레들\nabs, 시건장치\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 300000,
+        "qty": 1,
+        "cost": 300000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "비율 목업폰(프로토 타입)",
+        "spec_work": "목업 제작 \nRatio Study  타입(10종)\nABS 3d 가공 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 500000,
+        "qty": 10,
+        "cost": 5000000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "비율 목업폰(프로토 타입)",
+        "spec_work": "크레들\nabs, 시건장치\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 550000,
+        "qty": 1,
+        "cost": 550000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "두께 목업폰(프로토 타입)",
+        "spec_work": "목업 제작 \nEmotive Slim  타입(4종)\n알루미늄 3d 가공 위 지정 컬러 도색",
+        "unit": "개",
+        "unit_price": 950000,
+        "qty": 4,
+        "cost": 3800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "두께 목업폰(프로토 타입)",
+        "spec_work": "크레들\nabs, 시건장치\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 480000,
+        "qty": 1,
+        "cost": 480000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "월 플레이트",
+        "spec_work": "플레이트\n5T 투명 아크릴 / 측면 샌딩 / 배면 실사 인쇄 / 전면 저반사 필름 / 로고 실크인쇄 + 10T 투명아크릴 / 측면 샌딩",
+        "unit": "개",
+        "unit_price": 250000,
+        "qty": 9,
+        "cost": 2250000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "테이블 플레이트",
+        "spec_work": "플레이트\n5T 투명 아크릴(모서리 0.5 격면) / 측면 샌딩 / 배면 실사 인쇄 / 전면 저반사 필름 /",
+        "unit": "개",
+        "unit_price": 150000,
+        "qty": 6,
+        "cost": 900000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "디자인 스토리",
+        "sub_item": "테이블 플레이트",
+        "spec_work": "플레이트\n로고 실크인쇄 + 20T 투명아크릴 / 측면 샌딩",
+        "unit": "개",
+        "unit_price": 180000,
+        "qty": 5,
+        "cost": 900000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_H03",
+    "kit_id": "H03",
+    "name": "[폴더블 헤리티지] H8 분해도 쇼케이스",
+    "project_name": "폴더블 헤리티지",
+    "kit_name": "H8 분해도 쇼케이스",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "상설 쇼케이스 / 체험 테이블",
+    "settled_amount": 20523618,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 5800000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 16.0,
+    "key_specs": "H8 실제품 분해도 쇼케이스 (아크릴 커버·라이팅). 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "H03",
+    "image_file": "H03_H8_분해도_쇼케이스.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/H03_H8_분해도_쇼케이스.png",
+    "prototype_cost": 8923618,
+    "fabrication_cost": 11600000,
+    "unit_fabrication_cost": 5800000,
+    "prototype_breakdown": {
+      "기획설계": 4679731,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 4243887,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 509113,
+        "days": 5.0,
+        "cost": 2545565
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 5.0,
+        "cost": 2134166
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 3.0,
+        "cost": 2312104
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 3.0,
+        "cost": 1931783
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "H8 분해도 쇼케이스",
+        "sub_item": "제품 거치대",
+        "spec_work": "· 재료 :투명아크릴 알루미늄베이스,아크릴 커버,라이팅   \n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 5800000,
+        "qty": 1,
+        "cost": 5800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "H8 분해도 쇼케이스",
+        "sub_item": "제품 거치대",
+        "spec_work": "· 재료 :투명아크릴 알루미늄베이스,아크릴 커버,라이팅   \n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 5800000,
+        "qty": 1,
+        "cost": 5800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  },
+  {
+    "case_id": "CASE_H04",
+    "kit_id": "H04",
+    "name": "[폴더블 헤리티지] 테크 스토리 (R&D)",
+    "project_name": "폴더블 헤리티지",
+    "kit_name": "테크 스토리 (R&D)",
+    "client": "삼성전자 / 제일기획",
+    "project_type": "스마트 체험 키트 / 원형 개발",
+    "settled_amount": 28498442,
+    "scale": "소형 (1~3평 / 단일 키트 1~2대)",
+    "unit_count": 2,
+    "unit_cost": 7100000,
+    "unit_label": "1개소당 제작비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "갈바 EGI 프레임",
+      "CNC 머시닝",
+      "우레탄 분체도장"
+    ],
+    "labor_md": 25.0,
+    "key_specs": "힌지·Q8 분해도 쇼케이스, 기술력 디스플레이(Q1·Q8), 기술력 테스트 탭. 주요 구성: 표준 키트 구성",
+    "benchmark_cites": "KIDP 5단계 표준품셈 + KOSA SW기술자 대가 + KBIZ 시중노임",
+    "preset_img_key": "H04",
+    "image_file": "H04_테크_스토리__R_D_.png",
+    "image_path": "c:/Users/ws081/OneDrive/문서/테스트_안티그래비티/AX대회/data/learned_images/H04_테크_스토리__R_D_.png",
+    "prototype_cost": 14298442,
+    "fabrication_cost": 14200000,
+    "unit_fabrication_cost": 7100000,
+    "prototype_breakdown": {
+      "기획설계": 7225296,
+      "SW개발": 0,
+      "그래픽UI": 0,
+      "하우징HW설계": 7073146,
+      "영상네트워크": 0,
+      "기타외주": 0
+    },
+    "quantities": {
+      "삼성강남": 1,
+      "삼성홍대": 1,
+      "청담": 0
+    },
+    "features": [],
+    "labor_details": [
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "특급 기술자",
+        "headcount": 2,
+        "daily_rate": 1018226,
+        "days": 5.0,
+        "cost": 5091130
+      },
+      {
+        "category": "제품디자인",
+        "sub_item": "제품 디자인",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 426833,
+        "days": 5.0,
+        "cost": 2134166
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "특급 기술자",
+        "headcount": 1,
+        "daily_rate": 770701,
+        "days": 5.0,
+        "cost": 3853507
+      },
+      {
+        "category": "하우징·HW설계",
+        "sub_item": "하우징/하드웨어 설계",
+        "role": "고급 기술자",
+        "headcount": 1,
+        "daily_rate": 643928,
+        "days": 5.0,
+        "cost": 3219638
+      }
+    ],
+    "fabrication_details": [
+      {
+        "store": "삼성강남",
+        "item": "테크 스토리",
+        "sub_item": "힌지 쇼케이스",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n실크인쇄",
+        "unit": "개",
+        "unit_price": 480000,
+        "qty": 4,
+        "cost": 1920000
+      },
+      {
+        "store": "삼성강남",
+        "item": "테크 스토리",
+        "sub_item": "기술력 디스플레이(Q1, Q8)",
+        "spec_work": "투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n실크인쇄, 금오시건",
+        "unit": "개",
+        "unit_price": 540000,
+        "qty": 1,
+        "cost": 540000
+      },
+      {
+        "store": "삼성강남",
+        "item": "테크 스토리",
+        "sub_item": "기술력 테스트 (탭)",
+        "spec_work": "투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n 충전케이블,아답터",
+        "unit": "개",
+        "unit_price": 380000,
+        "qty": 5,
+        "cost": 1900000
+      },
+      {
+        "store": "삼성강남",
+        "item": "테크 스토리",
+        "sub_item": "Q8 분해도 쇼케이스",
+        "spec_work": "투명아크릴박스,라이팅박스,네임텍\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 2800000,
+        "qty": 1,
+        "cost": 2800000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "테크 스토리",
+        "sub_item": "힌지 쇼케이스",
+        "spec_work": "· 재료 :ABS,위 지정 컬러,투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n실크인쇄",
+        "unit": "개",
+        "unit_price": 480000,
+        "qty": 4,
+        "cost": 1920000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "테크 스토리",
+        "sub_item": "기술력 디스플레이(Q1, Q8)",
+        "spec_work": "투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n실크인쇄, 금오시건",
+        "unit": "개",
+        "unit_price": 540000,
+        "qty": 1,
+        "cost": 540000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "테크 스토리",
+        "sub_item": "기술력 테스트 (탭) *벽면형",
+        "spec_work": "투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n 충전케이블,아답터",
+        "unit": "개",
+        "unit_price": 350000,
+        "qty": 4,
+        "cost": 1400000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "테크 스토리",
+        "sub_item": "기술력 테스트 (탭)",
+        "spec_work": "\"투명아크릴박스,라이팅\n - CNC가공,V-컷팅  조립 및 기능 설계 \n 충전케이블,아답터\"",
+        "unit": "개",
+        "unit_price": 380000,
+        "qty": 1,
+        "cost": 380000
+      },
+      {
+        "store": "삼성홍대",
+        "item": "테크 스토리",
+        "sub_item": "Q8 분해도 쇼케이스",
+        "spec_work": "투명아크릴박스,라이팅박스,네임텍\n - CNC가공,V-컷팅  조립 및 기능 설계",
+        "unit": "개",
+        "unit_price": 2800000,
+        "qty": 1,
+        "cost": 2800000
+      }
+    ],
+    "created_at": "2026-05-11"
+  }
+]
