@@ -1,5 +1,6 @@
 @echo off
 chcp 65001 > nul
+cd /d "c:\Users\ws081\OneDrive\문서\테스트_안티그래비티\AX대회"
 echo ====================================================================
 echo  [제일기획 AX 견적감독관] 24시간 클라우드 영구 배포 원클릭 도구
 echo ====================================================================
@@ -9,7 +10,8 @@ echo [1단계] GitHub 계정 연결 상태 확인 중...
 if %errorlevel% neq 0 (
     echo.
     echo 🔑 GitHub 로그인이 필요합니다.
-    echo 엔터를 누르면 웹 브라우저와 인증 코드가 화면에 나타납니다.
+    echo 아래에서 엔터를 누르면 웹 브라우저가 열리고 화면에 일회용 인증 코드가 뜹니다.
+    echo 코드를 웹 브라우저에 붙여넣고 [Authorize]를 눌러주시면 자동으로 다음 단계로 넘어갑니다.
     echo.
     pause
     "C:\Users\ws081\AppData\Local\Microsoft\WinGet\Packages\GitHub.cli_Microsoft.Winget.Source_8wekyb3d8bbwe\bin\gh.exe" auth login --web -h github.com -p https -w
