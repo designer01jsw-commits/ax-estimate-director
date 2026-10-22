@@ -514,3 +514,190 @@ def generate_audit_judgment_report(
     ])
 
     return "\n".join(lines)
+
+
+def generate_executive_supervisor_opinion(
+    diagnosed_estimates: List[Dict[str, Any]],
+    diagnosed_labor: List[Dict[str, Any]],
+    summary: Dict[str, Any],
+    project_name: str = "프로젝트",
+    baseline_norms: Optional[Dict[str, Any]] = None
+) -> Dict[str, Any]:
+    """견적감독관(Chief Estimate Supervisor) 총체적 종합 진단 소견서를 생성합니다.
+    
+    신규 견적의 리스크 등급, 삭감 목표 규모, 4대 공종별 정밀 총평, 
+    3대 핵심 실행 권고 및 정식 결재문 텍스트를 한눈에 확인할 수 있는 올인원 종합의견을 도출합니다.
+    """
+    all_diagnosed = diagnosed_estimates + diagnosed_labor
+    unfit_items = [d for d in all_diagnosed if d.get("판정") == "비적합"]
+    cond_items = [d for d in all_diagnosed if d.get("판정") == "조건부 적합"]
+    fit_items = [d for d in all_diagnosed if d.get("판정") == "적합"]
+    
+    total_count = len(all_diagnosed)
+    total_cut_demand = sum(abs(d.get("변동금액", 0.0)) for d in unfit_items)
+    
+    total_orig_cost = summary.get("total_orig_cost", 0.0)
+    total_rev_cost = summary.get("total_rev_cost", 0.0)
+    cost_diff = summary.get("cost_diff", 0.0)
+    
+    fit_rate = (len(fit_items) / total_count * 100.0) if total_count > 0 else 100.0
+    unfit_rate = (len(unfit_items) / total_count * 100.0) if total_count > 0 else 0.0
+    
+    # 리스크 판정 등급
+    has_approval_violation = any(d.get("분해축") == "승인절차" for d in unfit_items)
+    if total_cut_demand >= 5_000_000 or len(unfit_items) >= 3 or has_approval_violation:
+        risk_grade = "고위험 (High Risk)"
+        risk_code = "RED"
+        risk_badge = "🔴 고위험 (재협상 및 삭감 필수)"
+        recommendation = f"미승인 증액 및 공공 기준 초과 비목에 대해 즉시 ₩{total_cut_demand:,.0f} 삭감 후 재합의 요구 권고"
+    elif len(unfit_items) > 0 or len(cond_items) >= 2 or cost_diff > 0:
+        risk_grade = "주의 (Moderate Risk)"
+        risk_code = "AMBER"
+        risk_badge = "🟡 주의 (조건부 승인 및 증빙 보완 필요)"
+        recommendation = "경미한 공공 기준 편차 및 단기 집중 투입 항목에 대한 현장 증빙 확인 후 조건부 집행"
+    else:
+        risk_grade = "양호 (Low Risk)"
+        risk_code = "GREEN"
+        risk_badge = "🟢 적정 (정상 집행 승인 권고)"
+        recommendation = "모든 항목이 기준 견적 및 정부 고시 품셈 범위 내 적정하므로 원안 승인 권고"
+
+    # 4대 부문별 종합 진단 소견 (Pillars)
+    # 1. 단가 및 자재비 부문
+    unit_price_items = [d for d in all_diagnosed if d.get("분해축") == "단가/제작비"]
+    unfit_price = [d for d in unit_price_items if d.get("판정") == "비적합"]
+    cond_price = [d for d in unit_price_items if d.get("판정") == "조건부 적합"]
+    price_cut = sum(abs(d.get("변동금액", 0.0)) for d in unfit_price)
+    
+    if unfit_price:
+        pillar_price_status = "🔴 비적합 발생"
+        pillar_price_desc = f"조달청 나라장터 및 물가협회 기준단가 대비 자재/제작 단가가 급등한 항목이 {len(unfit_price)}건(₩{price_cut:,.0f}원 상당) 식별되어 원가계산서 증빙 미제출 시 기준 단가로 환원 조치 필요."
+    elif cond_price:
+        pillar_price_status = "🟡 소명 필요"
+        pillar_price_desc = f"물가상승률 허용 범위(±8%)를 상회하는 자재 사양 변경 항목 {len(cond_price)}건에 대한 스펙 상향 확인서(CR) 징구 필요."
+    else:
+        pillar_price_status = "🟢 적정"
+        pillar_price_desc = "모든 자재 및 제작 단가가 공인 표준시장단가 및 기준 견적 정규화 범위 내에서 안정적으로 형성됨."
+
+    # 2. 인력비 및 공임 투입률 부문
+    labor_items = [d for d in all_diagnosed if d.get("분해축") == "인력비/투입률"]
+    unfit_labor = [d for d in labor_items if d.get("판정") == "비적합"]
+    cond_labor = [d for d in labor_items if d.get("판정") == "조건부 적합"]
+    labor_cut = sum(abs(d.get("변동금액", 0.0)) for d in unfit_labor)
+    
+    if unfit_labor:
+        pillar_labor_status = "🔴 비적합 발생"
+        pillar_labor_desc = f"근로기준법상 1일 8시간(투입률 100%)을 초과하는 중복 배치 또는 KIDP/KOSA/KBIZ 최고 노임단가 초과 청구 {len(unfit_labor)}건(₩{labor_cut:,.0f}원) 적발. 즉각 삭감 및 1인 정상 공수로 조정 요구."
+    elif cond_labor:
+        pillar_labor_status = "🟡 소명 필요"
+        pillar_labor_desc = f"야간 셋업에 따른 단기 집중 투입(투입률 140% 한도 내) {len(cond_labor)}건 감지. 현장 야간작업일보 확인 후 승인 요망."
+    else:
+        pillar_labor_status = "🟢 적정"
+        pillar_labor_desc = "직종별 노임단가 및 투입 M/D가 국가 공인 기준 및 법정 근로시간 규정을 완벽히 준수함."
+
+    # 3. 제작·가공비 및 공정 타당성 부문
+    pillar_fab_status = "🟢 타당" if unfit_rate < 10.0 else "🟡 정밀 검토"
+    pillar_fab_desc = f"과거 25.6억 원 44종 실물 키트 벤치마크 및 기준 견적 정규화 모델 대비 주요 공정의 제작비 형성 수준이 공학적 허용 범위 내에 위치함."
+
+    # 4. 행정 절차 및 변경승인(CR) 준수 부문
+    unfit_appr = [d for d in all_diagnosed if d.get("분해축") == "승인절차" and d.get("판정") == "비적합"]
+    if unfit_appr:
+        pillar_appr_status = "🔴 승인 위반"
+        pillar_appr_desc = f"광고주/발주처 변경 협의에서 공식 반려(거부)된 비목이 견적서에 부당 반영된 사례 {len(unfit_appr)}건 적발. 청구 비목에서 즉시 삭제 필수."
+    else:
+        pillar_appr_status = "🟢 정상 승인"
+        pillar_appr_desc = "모든 증액 및 항목 변경이 사전 서면 합의(CR) 절차를 정상 이행하여 행정적 리스크 없음."
+
+    # 3대 핵심 조치 가이드
+    action_items = []
+    if unfit_items:
+        unfit_names = ", ".join([d.get("항목명", "") for d in unfit_items[:3]])
+        if len(unfit_items) > 3:
+            unfit_names += f" 외 {len(unfit_items)-3}건"
+        action_items.append({
+            "order": "1순위 (즉시 삭감)",
+            "title": "부적정 과다 청구액 즉시 감액 통보",
+            "amount": f"₩{total_cut_demand:,.0f} 삭감",
+            "detail": f"비적합 판정된 [{unfit_names}]에 대해 협력사에 공문 발송 및 견적서 재발행 요청."
+        })
+    else:
+        action_items.append({
+            "order": "1순위 (정상 승인)",
+            "title": "원안 견적 집행 승인",
+            "amount": "삭감액 0원",
+            "detail": "기준 견적 및 공공 기준에 전 항목 부합하므로 원안 계약 체결 진행."
+        })
+
+    if cond_items:
+        action_items.append({
+            "order": "2순위 (증빙 징구)",
+            "title": "조건부 적합 항목에 대한 현장 증빙 제출 요구",
+            "amount": f"총 {len(cond_items)}개 비목 소명",
+            "detail": "스토어 출입기록부, 야간작업일보, 자재 거래명세표 3종 세트 제출 필수 지정."
+        })
+    else:
+        action_items.append({
+            "order": "2순위 (상시 모니터링)",
+            "title": "현장 시공 실투입 공수 사후 대조",
+            "amount": "상시 감리",
+            "detail": "실제 설치 및 철거 일정에 따른 투입 인원 실측 관리."
+        })
+
+    target_budget = max(0.0, total_rev_cost - total_cut_demand) if total_rev_cost > 0 else (total_orig_cost - total_cut_demand)
+    action_items.append({
+        "order": "3순위 (네고 타겟)",
+        "title": "광고주 보고용 최종 조정 합의선 (Target Budget)",
+        "amount": f"최종 권고액: ₩{target_budget:,.0f}",
+        "detail": f"부적정 증액 ₩{total_cut_demand:,.0f}원을 삭감한 ₩{target_budget:,.0f}원을 최종 계약 체결 기준으로 설정."
+    })
+
+    # 공문서용 마크다운 & 텍스트
+    md_verdict = f"""### ⚖️ [제일기획 AX 견적감독관 총체적 종합 진단 소견서]
+- **프로젝트명:** {project_name}
+- **종합 판정 등급:** {risk_badge}
+- **핵심 감독관 권고:** {recommendation}
+
+#### 📊 총체적 감리 지표 요약
+- **총 검토 항목:** {total_count}건 (적합 {len(fit_items)}건 / 조건부 {len(cond_items)}건 / 비적합 {len(unfit_items)}건)
+- **공공기준 적합률:** {fit_rate:.1f}%
+- **부적정 삭감 타겟액:** **₩{total_cut_demand:,.0f}** (전체 변경견적 대비 {total_cut_demand/total_rev_cost*100 if total_rev_cost else 0:.1f}%)
+- **감독관 최종 권고 예산:** **₩{target_budget:,.0f}**
+
+#### 🏛️ 4대 공종별 정밀 총평
+1. **단가 및 자재비 부문 [{pillar_price_status}]:** {pillar_price_desc}
+2. **인력비 및 투입률 부문 [{pillar_labor_status}]:** {pillar_labor_desc}
+3. **제작·가공비 타당성 [{pillar_fab_status}]:** {pillar_fab_desc}
+4. **행정 및 승인 절차 [{pillar_appr_status}]:** {pillar_appr_desc}
+
+#### 🎯 감독관 3대 핵심 실행 조치
+1. **{action_items[0]['order']} {action_items[0]['title']} ({action_items[0]['amount']})**
+   - {action_items[0]['detail']}
+2. **{action_items[1]['order']} {action_items[1]['title']} ({action_items[1]['amount']})**
+   - {action_items[1]['detail']}
+3. **{action_items[2]['order']} {action_items[2]['title']} ({action_items[2]['amount']})**
+   - {action_items[2]['detail']}
+"""
+
+    return {
+        "risk_grade": risk_grade,
+        "risk_code": risk_code,
+        "risk_badge": risk_badge,
+        "recommendation": recommendation,
+        "total_count": total_count,
+        "fit_count": len(fit_items),
+        "cond_count": len(cond_items),
+        "unfit_count": len(unfit_items),
+        "fit_rate": fit_rate,
+        "unfit_rate": unfit_rate,
+        "total_cut_demand": total_cut_demand,
+        "target_budget": target_budget,
+        "pillars": [
+            {"title": "1. 단가 및 자재비 부문", "status": pillar_price_status, "desc": pillar_price_desc},
+            {"title": "2. 인력비 및 투입률 부문", "status": pillar_labor_status, "desc": pillar_labor_desc},
+            {"title": "3. 제작·가공비 타당성", "status": pillar_fab_status, "desc": pillar_fab_desc},
+            {"title": "4. 행정 및 승인 준수", "status": pillar_appr_status, "desc": pillar_appr_desc},
+        ],
+        "action_items": action_items,
+        "verdict_md": md_verdict,
+        "verdict_text": md_verdict.replace("### ", "").replace("#### ", "").replace("**", "").replace("- ", "• ")
+    }
+

@@ -7,7 +7,8 @@ from auditor.diagnostics import (
     normalize_baseline,
     diagnose_estimate_item,
     diagnose_labor_item,
-    generate_audit_judgment_report
+    generate_audit_judgment_report,
+    generate_executive_supervisor_opinion
 )
 
 def test_normalize_baseline():
@@ -120,3 +121,61 @@ def test_generate_audit_judgment_report():
     assert "비적합" in report
     assert "조달청" in report
     assert "g2b.go.kr" in report
+
+
+def test_generate_executive_supervisor_opinion():
+    diag_est = [{
+        "항목명": "추가 패널",
+        "분해축": "승인절차",
+        "판정": "비적합",
+        "변동금액": 6000000,
+        "상세사유": "반려 항목 반영",
+        "공공기준_근거": [],
+        "조치사항": "전액 삭감"
+    }]
+    diag_lab = [{
+        "항목명": "설치/목공",
+        "분해축": "인력비/투입률",
+        "판정": "적합",
+        "변동금액": 0,
+        "상세사유": "정상 범위",
+        "공공기준_근거": [],
+        "조치사항": "승인"
+    }]
+    summary = {
+        "total_orig_cost": 50000000,
+        "total_rev_cost": 56000000,
+        "cost_diff": 6000000
+    }
+    opinion = generate_executive_supervisor_opinion(diag_est, diag_lab, summary, "갤럭시 스토어 홍대")
+    
+    assert opinion["risk_code"] == "RED"
+    assert "고위험" in opinion["risk_grade"]
+    assert opinion["total_cut_demand"] == 6000000
+    assert len(opinion["pillars"]) == 4
+    assert len(opinion["action_items"]) == 3
+    assert "갤럭시 스토어 홍대" in opinion["verdict_md"]
+    assert "삭감" in opinion["action_items"][0]["amount"]
+    assert opinion["target_budget"] == 50000000
+
+
+def test_generate_executive_supervisor_opinion_all_fit():
+    diag_est = [{
+        "항목명": "원형 테이블",
+        "분해축": "단가/제작비",
+        "판정": "적합",
+        "변동금액": 0,
+        "상세사유": "기준 단가 일치",
+        "공공기준_근거": [],
+        "조치사항": "정상 승인"
+    }]
+    diag_lab = []
+    summary = {"total_orig_cost": 10000000, "total_rev_cost": 10000000, "cost_diff": 0}
+    opinion = generate_executive_supervisor_opinion(diag_est, diag_lab, summary, "적합 프로젝트")
+    
+    assert opinion["risk_code"] == "GREEN"
+    assert "양호" in opinion["risk_grade"]
+    assert opinion["total_cut_demand"] == 0
+    assert opinion["fit_rate"] == 100.0
+    assert "승인" in opinion["action_items"][0]["title"]
+
