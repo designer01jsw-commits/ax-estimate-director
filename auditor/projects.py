@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """프로젝트 목록 관리 모듈"""
 
 import json
@@ -32,3 +32,19 @@ def load_projects(file_path: Path | str = DEFAULT_PROJECTS_FILE) -> Tuple[List[D
         warnings.append(f"프로젝트 목록을 읽는 중 문제가 발생했습니다: {str(e)}")
         return [], warnings
 
+def save_project(new_proj: Dict[str, Any], file_path: Path | str = DEFAULT_PROJECTS_FILE) -> bool:
+    """새로운 기준 견적 프로젝트를 projects.json에 저장(등록)합니다."""
+    path = Path(file_path)
+    projects, _ = load_projects(path)
+    
+    # 중복 ID 확인 후 업데이트 또는 추가
+    existing_idx = next((i for i, p in enumerate(projects) if p.get("project_id") == new_proj.get("project_id")), None)
+    if existing_idx is not None:
+        projects[existing_idx] = new_proj
+    else:
+        # 맨 앞에 추가하여 사용자가 방금 학습시킨 프로젝트가 즉시 1순위로 표시되도록 함
+        projects.insert(0, new_proj)
+        
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(projects, f, ensure_ascii=False, indent=2)
+    return True
