@@ -738,9 +738,11 @@ def main():
             key="u_target_rev_file",
             help="선택된 광고주 컨펌 기준가이드와 비교 감리할 견적서 엑셀 파일을 업로드하세요."
         )
-        if rev_uploaded:
-            rev_file_input = rev_uploaded
-            rev_file_name = rev_uploaded.name
+        main_uploaded = st.session_state.get("u_main_drag_drop_rev")
+        active_upload = rev_uploaded or main_uploaded
+        if active_upload:
+            rev_file_input = active_upload
+            rev_file_name = active_upload.name
     else:
         st.session_state["use_sample_change"] = True
         chosen_sample_idx = st.sidebar.selectbox(
@@ -804,15 +806,14 @@ def main():
         col_main_up, col_main_demo = st.columns([1.2, 1])
         with col_main_up:
             main_direct_upload = st.file_uploader(
-                "📥 대조·감리할 견적서 파일 바로 업로드 (.xlsx)",
+                "📥 진단받을 신규 견적서 파일 바로 업로드 (.xlsx)",
                 type=["xlsx"],
                 key="u_main_drag_drop_rev",
-                help="기준 가이드와 비교 감리할 엑셀 파일을 업로드하세요."
+                help="에이전트 기준 가이드와 비교 감리할 엑셀 파일을 업로드하세요."
             )
             if main_direct_upload:
                 rev_file_input = main_direct_upload
                 rev_file_name = main_direct_upload.name
-                st.rerun()
 
         with col_main_demo:
             st.markdown("""

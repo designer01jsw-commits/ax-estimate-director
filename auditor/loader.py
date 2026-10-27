@@ -45,7 +45,7 @@ def parse_number(val: Any) -> Optional[float]:
     except ValueError:
         return None
 
-def find_header_row(ws, required_cols: Optional[List[str]] = None, max_rows: int = 15) -> Tuple[Optional[int], Dict[str, int]]:
+def find_header_row(ws, required_cols: Optional[List[str]] = None, max_rows: int = 35) -> Tuple[Optional[int], Dict[str, int]]:
     """첫 max_rows 행 안에서 유효한 머리글 행을 찾아 (행번호, {정규화열이름: 열인덱스(0-based)})를 반환합니다.
     단가나 수량 열이 없더라도 항목명과 금액(또는 소항목/규격)이 있으면 유효 머리글로 인정합니다.
     """
@@ -178,11 +178,25 @@ def read_estimate_sheet(
     """
     header_row_idx, col_map = find_header_row(ws, required_cols)
     if header_row_idx is None or ("단가" not in col_map and "금액" not in col_map):
-        raise ValidationError(
-            f"‘{sheet_name}’ 시트에서 ‘단가’ 열을 찾지 못했습니다. 첫 10행 안에 머리글이 있는지 확인해 주세요.",
-            file_name=file_name,
-            sheet_name=sheet_name
-        )
+        # 다른 유효한 견적 시트 자동 탐색 (워크북 내 대체 시트 탐색)
+        wb = getattr(ws, "parent", None)
+        found_alt = False
+        if wb is not None:
+            for s in wb.sheetnames:
+                if s != sheet_name:
+                    alt_hdr, alt_map = find_header_row(wb[s], required_cols)
+                    if alt_hdr is not None and ("단가" in alt_map or "금액" in alt_map):
+                        ws = wb[s]
+                        sheet_name = s
+                        header_row_idx, col_map = alt_hdr, alt_map
+                        found_alt = True
+                        break
+        if not found_alt and (header_row_idx is None or ("단가" not in col_map and "금액" not in col_map)):
+            raise ValidationError(
+                f"‘{sheet_name}’ 시트에서 ‘단가’ 열을 찾지 못했습니다. 첫 35행 안에 머리글이 있는지 확인해 주세요.",
+                file_name=file_name,
+                sheet_name=sheet_name
+            )
 
     items = []
     mismatches = []
