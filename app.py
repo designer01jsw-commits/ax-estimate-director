@@ -63,7 +63,85 @@ st.set_page_config(
 # Mastercard Inspired Design System Styling
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,450;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;450;500;600;700&display=swap');
+    /* ==========================================================================
+       Samsung Typography System:
+       - English: Samsung Sharp Sans (Bold, Medium, Regular)
+       - Korean: Samsung SS Head KR (Bold, Medium, Regular, Light)
+       ========================================================================== */
+
+    /* 1. English Font: Samsung Sharp Sans */
+    @font-face {
+        font-family: 'SamsungSharpSans';
+        src: local('SamsungSharpSans-Regular'), local('Samsung Sharp Sans Regular'), local('Samsung Sharp Sans'),
+             url('/app/static/fonts/SamsungSharpSans-Regular.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSharpSans-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'SamsungSharpSans';
+        src: local('SamsungSharpSans-Medium'), local('Samsung Sharp Sans Medium'),
+             url('/app/static/fonts/SamsungSharpSans-Medium.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSharpSans-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'SamsungSharpSans';
+        src: local('SamsungSharpSans-Bold'), local('Samsung Sharp Sans Bold'),
+             url('/app/static/fonts/SamsungSharpSans-Bold.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSharpSans-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    /* 2. Korean Font: Samsung SS Head KR */
+    @font-face {
+        font-family: 'SamsungSSHeadKR';
+        src: local('SamsungSSHeadKR-Light'), local('Samsung SS Head KR Light'),
+             url('/app/static/fonts/SamsungSSHeadKR-Light.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSSHeadKR-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'SamsungSSHeadKR';
+        src: local('SamsungSSHeadKR-Regular'), local('Samsung SS Head KR Regular'), local('Samsung SS Head KR'),
+             url('/app/static/fonts/SamsungSSHeadKR-Regular.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSSHeadKR-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'SamsungSSHeadKR';
+        src: local('SamsungSSHeadKR-Medium'), local('Samsung SS Head KR Medium'),
+             url('/app/static/fonts/SamsungSSHeadKR-Medium.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSSHeadKR-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'SamsungSSHeadKR';
+        src: local('SamsungSSHeadKR-Bold'), local('Samsung SS Head KR Bold'),
+             url('/app/static/fonts/SamsungSSHeadKR-Bold.ttf') format('truetype'),
+             url('app/static/fonts/SamsungSSHeadKR-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+    }
 
     :root {
         --canvas-cream: #F3F0EE;
@@ -94,15 +172,14 @@ st.markdown("""
         --shadow-card: rgba(0, 0, 0, 0.03) 0px 6px 20px 0px;
     }
 
-    /* 1. Global Canvas Cream & Sofia Sans Typography */
+    /* 1. Global Font Stack: English (SamsungSharpSans) -> Korean (SamsungSSHeadKR) */
     html, body, [data-testid="stAppViewContainer"], .stApp {
         background-color: var(--canvas-cream) !important;
         color: var(--ink-black) !important;
-        font-family: 'Sofia Sans', 'Inter', Arial, sans-serif !important;
-        font-weight: 450 !important;
-        line-height: 1.4 !important;
+        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        font-weight: 400 !important;
+        line-height: 1.45 !important;
         -webkit-font-smoothing: antialiased !important;
-        letter-spacing: normal !important;
     }
 
     /* 2. Sidebar: Lifted Cream with Subtle Border */
@@ -113,7 +190,7 @@ st.markdown("""
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
         color: var(--slate-gray) !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-weight: 700 !important;
         letter-spacing: 0.04em !important;
         text-transform: uppercase !important;
@@ -123,18 +200,20 @@ st.markdown("""
 
     /* 3. Typography Headings: 500 weight with tight -2% letter spacing */
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Sofia Sans', sans-serif !important;
+        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', sans-serif !important;
         color: var(--ink-black) !important;
         font-weight: 500 !important;
         letter-spacing: -0.02em !important;
     }
     h2 {
-        font-size: 28px !important;
-        margin-top: 36px !important;
-        margin-bottom: 16px !important;
+        font-size: 22px !important;
+        font-weight: 600 !important;
+        margin-top: 32px !important;
+        margin-bottom: 14px !important;
     }
     h3 {
-        font-size: 22px !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
     }
 
     /* 4. Primary Button: Ink Black Pill (20px radius) with Canvas Cream text */
@@ -143,9 +222,9 @@ st.markdown("""
         color: var(--canvas-cream) !important;
         border-radius: var(--radius-button) !important;
         padding: 8px 24px !important;
-        font-size: 16px !important;
+        font-size: 14px !important;
         font-weight: 500 !important;
-        letter-spacing: -0.32px !important;
+        letter-spacing: -0.2px !important;
         border: 1.5px solid var(--ink-black) !important;
         box-shadow: 0 2px 6px rgba(20, 20, 19, 0.15) !important;
         transition: all 0.15s ease-in-out !important;
@@ -163,9 +242,9 @@ st.markdown("""
         color: var(--ink-black) !important;
         border-radius: var(--radius-button) !important;
         padding: 8px 24px !important;
-        font-size: 16px !important;
-        font-weight: 450 !important;
-        letter-spacing: -0.32px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.2px !important;
         border: 1.5px solid var(--ink-black) !important;
         transition: all 0.15s ease-in-out !important;
     }
@@ -189,7 +268,7 @@ st.markdown("""
         box-shadow: var(--shadow-cushion) !important;
     }
     div[data-testid="stMetricLabel"] {
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-weight: 700 !important;
         letter-spacing: 0.04em !important;
         color: var(--slate-gray) !important;
@@ -197,14 +276,14 @@ st.markdown("""
         margin-bottom: 6px !important;
     }
     div[data-testid="stMetricValue"] {
-        font-size: 32px !important;
+        font-size: 26px !important;
         font-weight: 500 !important;
         letter-spacing: -0.02em !important;
         color: var(--ink-black) !important;
         line-height: 1.15 !important;
     }
     div[data-testid="stMetricDelta"] {
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-weight: 500 !important;
     }
 
@@ -250,7 +329,7 @@ st.markdown("""
         border: 1.5px solid rgba(20, 20, 19, 0.15) !important;
         color: var(--ink-black) !important;
         border-radius: 20px !important;
-        font-size: 15px !important;
+        font-size: 14px !important;
     }
     div[data-baseweb="select"] > div:focus-within,
     div[data-baseweb="input"] > div:focus-within,
@@ -269,7 +348,7 @@ st.markdown("""
         margin-bottom: 16px !important;
     }
     div[data-testid="stExpander"] summary {
-        font-size: 15px !important;
+        font-size: 14px !important;
         font-weight: 500 !important;
         color: var(--ink-black) !important;
         padding: 16px 22px !important;
@@ -339,7 +418,7 @@ st.markdown("""
         pointer-events: none;
     }
     .mc-eyebrow {
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-weight: 700 !important;
         letter-spacing: 0.04em !important;
         text-transform: uppercase !important;
@@ -357,16 +436,16 @@ st.markdown("""
         display: inline-block;
     }
     .mc-hero-title {
-        font-family: 'Sofia Sans', sans-serif !important;
-        font-size: 52px !important;
-        font-weight: 500 !important;
-        line-height: 1.05 !important;
+        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', sans-serif !important;
+        font-size: 38px !important;
+        font-weight: 700 !important;
+        line-height: 1.15 !important;
         letter-spacing: -0.02em !important;
         color: var(--ink-black) !important;
-        margin: 0 0 14px 0 !important;
+        margin: 0 0 10px 0 !important;
     }
     .mc-hero-subhead {
-        font-size: 18px !important;
+        font-size: 15px !important;
         font-weight: 450 !important;
         line-height: 1.45 !important;
         color: var(--slate-gray) !important;
@@ -380,8 +459,8 @@ st.markdown("""
         gap: 12px;
         background-color: var(--white);
         border-radius: var(--radius-pill);
-        padding: 8px 22px;
-        font-size: 14px;
+        padding: 6px 18px;
+        font-size: 13px;
         color: var(--slate-gray);
         box-shadow: var(--shadow-nav);
         border: 1px solid rgba(20, 20, 19, 0.06);
@@ -419,8 +498,8 @@ st.markdown("""
         align-items: center;
         gap: 6px;
         border-radius: var(--radius-pill);
-        padding: 5px 16px;
-        font-size: 13px;
+        padding: 4px 14px;
+        font-size: 12px;
         font-weight: 500;
     }
     .mc-chip-ink {
@@ -448,10 +527,10 @@ st.markdown("""
         gap: 8px;
         background-color: var(--white);
         border-radius: var(--radius-pill);
-        padding: 6px 18px;
+        padding: 6px 16px;
         box-shadow: var(--shadow-card);
         border: 1px solid rgba(20, 20, 19, 0.08);
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
         color: var(--ink-black);
     }
@@ -476,8 +555,8 @@ st.markdown("""
         margin-top: 60px;
     }
     .mc-footer-title {
-        font-family: 'Sofia Sans', sans-serif !important;
-        font-size: 32px !important;
+        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', sans-serif !important;
+        font-size: 22px !important;
         font-weight: 500 !important;
         letter-spacing: -0.02em !important;
         color: var(--white) !important;
@@ -510,10 +589,10 @@ def main():
     <div class="mc-floating-nav">
         <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 18px;">⚖️</span>
-            <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink-black);">CHEIL AX · ESTIMATE SUPERVISOR</span>
+            <span style="font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-black);">CHEIL AX · ESTIMATE SUPERVISOR</span>
         </div>
         <div style="display: flex; align-items: center; gap: 16px;">
-            <span style="font-size: 13px; font-weight: 500; color: var(--slate-gray);">• 정밀 감리 엔진 v2.0</span>
+            <span style="font-size: 12px; font-weight: 500; color: var(--slate-gray);">• 정밀 감리 엔진 v2.0</span>
             <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px;">● PROD LIVE 24/7</span>
         </div>
     </div>
@@ -854,7 +933,7 @@ def main():
                             <span class="mc-eyebrow-dot"></span>
                             <span>EXECUTIVE DIAGNOSTIC VERDICT</span>
                         </div>
-                        <div style="font-size: 26px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink-black);">
+                        <div style="font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-black);">
                             🏛️ 견적감독관 총체적 종합 진단 소견
                         </div>
                     </div>
@@ -863,7 +942,7 @@ def main():
                         <span class="mc-satellite-arrow">→</span>
                     </div>
                 </div>
-                <div style="font-size: 16px; font-weight: 450; color: var(--ink-black); line-height: 1.55; background: var(--white); border: 1.5px solid rgba(20, 20, 19, 0.08); border-radius: 20px; padding: 20px 24px; box-shadow: var(--shadow-card);">
+                <div style="font-size: 15px; font-weight: 400; color: var(--ink-black); line-height: 1.5; background: var(--white); border: 1.5px solid rgba(20, 20, 19, 0.08); border-radius: 20px; padding: 20px 24px; box-shadow: var(--shadow-card);">
                     <strong style="color: var(--signal-orange);">👉 감독관 핵심 권고:</strong> {supervisor_opinion["recommendation"]}
                 </div>
             </div>
@@ -886,7 +965,7 @@ def main():
                 st.markdown(f"""
                 <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p1['title']}</div>
+                        <div style="font-size: 16px; font-weight: 600; color: var(--ink-black); letter-spacing: -0.01em;">{p1['title']}</div>
                         <span class="mc-pill-chip {chip1}">{p1['status']}</span>
                     </div>
                     <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p1['desc']}</div>
@@ -895,7 +974,7 @@ def main():
                 st.markdown(f"""
                 <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p2['title']}</div>
+                        <div style="font-size: 16px; font-weight: 600; color: var(--ink-black); letter-spacing: -0.01em;">{p2['title']}</div>
                         <span class="mc-pill-chip {chip2}">{p2['status']}</span>
                     </div>
                     <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p2['desc']}</div>
@@ -909,7 +988,7 @@ def main():
                 st.markdown(f"""
                 <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p3['title']}</div>
+                        <div style="font-size: 16px; font-weight: 600; color: var(--ink-black); letter-spacing: -0.01em;">{p3['title']}</div>
                         <span class="mc-pill-chip {chip3}">{p3['status']}</span>
                     </div>
                     <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p3['desc']}</div>
@@ -918,7 +997,7 @@ def main():
                 st.markdown(f"""
                 <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p4['title']}</div>
+                        <div style="font-size: 16px; font-weight: 600; color: var(--ink-black); letter-spacing: -0.01em;">{p4['title']}</div>
                         <span class="mc-pill-chip {chip4}">{p4['status']}</span>
                     </div>
                     <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p4['desc']}</div>
@@ -935,8 +1014,8 @@ def main():
                             <span class="mc-eyebrow-dot"></span>
                             <span>{act['order']}</span>
                         </div>
-                        <div style="font-size: 16px; font-weight: 500; color: var(--ink-black); margin-bottom: 6px; letter-spacing: -0.02em;">{act['title']}</div>
-                        <div style="font-size: 16px; font-weight: 700; color: var(--signal-orange); margin-bottom: 8px;">{act['amount']}</div>
+                        <div style="font-size: 15px; font-weight: 600; color: var(--ink-black); margin-bottom: 6px; letter-spacing: -0.01em;">{act['title']}</div>
+                        <div style="font-size: 15px; font-weight: 700; color: var(--signal-orange); margin-bottom: 6px;">{act['amount']}</div>
                         <div style="font-size: 13px; color: var(--slate-gray); line-height: 1.45;">{act['detail']}</div>
                     </div>
                     """, unsafe_allow_html=True)
@@ -1018,7 +1097,7 @@ def main():
                         st.markdown(f"""
                         <div class="mc-card-20" style="margin-bottom: 16px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-                                <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{it['항목명']}</div>
+                                <div style="font-size: 16px; font-weight: 600; color: var(--ink-black); letter-spacing: -0.01em;">{it['항목명']}</div>
                                 <div style="display: flex; gap: 6px; align-items: center;">
                                     <span class="mc-pill-chip mc-chip-gray">분해축: {it['분해축']}</span>
                                     <span class="mc-pill-chip mc-chip-gray">변동액: {format_currency(it['변동금액'], currency)}</span>
@@ -1192,7 +1271,7 @@ def main():
             </div>
             <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); padding: 8px 20px; border-radius: 999px;">
                 <span style="font-size: 16px;">🏛️</span>
-                <span style="font-size: 13px; font-weight: 500; color: #FFFFFF;">CHEIL AX ESTIMATE SUPERVISOR</span>
+                <span style="font-size: 12px; font-weight: 600; color: #FFFFFF;">CHEIL AX ESTIMATE SUPERVISOR</span>
             </div>
         </div>
         <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #888888;">
