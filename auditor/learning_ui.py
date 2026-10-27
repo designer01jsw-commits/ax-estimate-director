@@ -146,82 +146,82 @@ def render_learning_studio_ui(currency: str = "KRW"):
             )
 
             with st.form("form_learn_new_case", clear_on_submit=False):
-            f_col1, f_col2 = st.columns(2)
+                f_col1, f_col2 = st.columns(2)
 
-            with f_col1:
-                in_name = st.text_input("프로젝트명 *", placeholder="예: 갤럭시 S25 체험존 팝업스토어 집기제작", key="in_name")
-                in_client = st.text_input("발주처 / 광고주", value="삼성전자 / 제일기획", key="in_client")
-                in_type = st.selectbox(
-                    "프로젝트 유형 *",
-                    [
-                        "스마트 체험 키트 / 원형 개발",
-                        "팝업스토어 / 전시 부스",
-                        "상설 쇼케이스 / 체험 테이블",
-                        "대형 행사 / 베뉴 전시"
-                    ],
-                    key="in_type"
-                )
-                in_amount = st.number_input("최종 계약/정산 금액 (원, VAT별도) *", min_value=1000000, value=35000000, step=1000000, key="in_amount")
-                in_scale = st.selectbox(
-                    "규모 설정",
-                    [
-                        "소형 (1~3평 / 단일 키트 1~2대)",
-                        "중형 (5~15평 / 키트 3~5대)",
-                        "대형 (20평 이상 / 다중 키트 8대 이상)"
-                    ],
-                    key="in_scale"
-                )
+                with f_col1:
+                    in_name = st.text_input("프로젝트명 *", placeholder="예: 갤럭시 S25 체험존 팝업스토어 집기제작", key="in_name")
+                    in_client = st.text_input("발주처 / 광고주", value="삼성전자 / 제일기획", key="in_client")
+                    in_type = st.selectbox(
+                        "프로젝트 유형 *",
+                        [
+                            "스마트 체험 키트 / 원형 개발",
+                            "팝업스토어 / 전시 부스",
+                            "상설 쇼케이스 / 체험 테이블",
+                            "대형 행사 / 베뉴 전시"
+                        ],
+                        key="in_type"
+                    )
+                    in_amount = st.number_input("최종 계약/정산 금액 (원, VAT별도) *", min_value=1000000, value=35000000, step=1000000, key="in_amount")
+                    in_scale = st.selectbox(
+                        "규모 설정",
+                        [
+                            "소형 (1~3평 / 단일 키트 1~2대)",
+                            "중형 (5~15평 / 키트 3~5대)",
+                            "대형 (20평 이상 / 다중 키트 8대 이상)"
+                        ],
+                        key="in_scale"
+                    )
 
-            with f_col2:
-                in_count = st.number_input("수량 (평수 또는 키트 대수) *", min_value=1, value=3, step=1, key="in_count")
-                in_unit_lbl = st.selectbox("단위 레이블", ["대당 제작비", "평당 시공비", "SET당 단가", "부스당 단가"], key="in_unit_lbl")
-                in_tier = st.selectbox("사양 등급", ["표준형 (Standard)", "고급형 (Premium)", "실속형 (Budget)"], key="in_tier")
-                in_md = st.number_input("총 투입 인력 공수 (M/D)", min_value=1.0, value=10.5, step=0.5, key="in_md")
-                in_materials = st.text_input("주요 자재 (쉼표로 구분)", value="갈바 EGI 스틸, 우레탄 도장, 조광아크릴, LED 조명", key="in_materials")
+                with f_col2:
+                    in_count = st.number_input("수량 (평수 또는 키트 대수) *", min_value=1, value=3, step=1, key="in_count")
+                    in_unit_lbl = st.selectbox("단위 레이블", ["대당 제작비", "평당 시공비", "SET당 단가", "부스당 단가"], key="in_unit_lbl")
+                    in_tier = st.selectbox("사양 등급", ["표준형 (Standard)", "고급형 (Premium)", "실속형 (Budget)"], key="in_tier")
+                    in_md = st.number_input("총 투입 인력 공수 (M/D)", min_value=1.0, value=10.5, step=0.5, key="in_md")
+                    in_materials = st.text_input("주요 자재 (쉼표로 구분)", value="갈바 EGI 스틸, 우레탄 도장, 조광아크릴, LED 조명", key="in_materials")
 
-            in_specs = st.text_area(
-                "핵심 사양 및 특이사항 요약 (FAQ 소명용)",
-                value="현장 1:1 맞춤 제작, 레이저 가공 갈바 프레임, 15W 무선충전기 매립, 야간 시공 포함",
-                key="in_specs"
-            )
-
-            in_uploaded_img = st.file_uploader(
-                "프로젝트 현장 사진 또는 3D 렌더링 이미지 업로드",
-                type=["png", "jpg", "jpeg", "webp"],
-                key="in_uploaded_img"
-            )
-
-            btn_submit_learn = st.form_submit_button("🚀 AI 에이전트에 실적 학습 및 지식베이스 업데이트", type="primary")
-
-        if btn_submit_learn:
-            if not in_name:
-                st.error("프로젝트명을 입력해 주세요.")
-            else:
-                mats_list = [m.strip() for m in in_materials.split(",") if m.strip()]
-                img_bytes = in_uploaded_img.getvalue() if in_uploaded_img else None
-                preset_key = "S26_KIT" if "키트" in in_type else "GALAXY_POPUP"
-
-                saved = save_new_learned_case(
-                    image_bytes=img_bytes,
-                    name=in_name,
-                    client=in_client,
-                    project_type=in_type,
-                    settled_amount=in_amount,
-                    scale=in_scale,
-                    unit_count=in_count,
-                    unit_label=in_unit_lbl,
-                    tier=in_tier,
-                    materials=mats_list,
-                    labor_md=in_md,
-                    key_specs=in_specs,
-                    benchmark_cites="KIDP·KOSA·KBIZ 기준 및 사내 실적 정합",
-                    preset_img_key=preset_key
+                in_specs = st.text_area(
+                    "핵심 사양 및 특이사항 요약 (FAQ 소명용)",
+                    value="현장 1:1 맞춤 제작, 레이저 가공 갈바 프레임, 15W 무선충전기 매립, 야간 시공 포함",
+                    key="in_specs"
                 )
 
-                st.success(
-                    f"🎉 **학습 성공!** 「{in_name}」 실적이 AI 견적감독관의 영구 지식베이스에 안전하게 등록되었습니다!\n\n"
-                    f"- **등록 ID:** `{saved['case_id']}`\n"
-                    f"- **단위당 산출 단가:** `₩{saved['unit_cost']:,d} ({saved['unit_label']})`\n"
-                    f"- **효과:** 앞으로 신규 이미지 견적 산출 및 감리 시, 본 프로젝트가 '유사 실적 벤치마크'로 자동 인용됩니다."
+                in_uploaded_img = st.file_uploader(
+                    "프로젝트 현장 사진 또는 3D 렌더링 이미지 업로드",
+                    type=["png", "jpg", "jpeg", "webp"],
+                    key="in_uploaded_img"
                 )
-                st.rerun()
+
+                btn_submit_learn = st.form_submit_button("🚀 AI 에이전트에 실적 학습 및 지식베이스 업데이트", type="primary")
+
+            if btn_submit_learn:
+                if not in_name:
+                    st.error("프로젝트명을 입력해 주세요.")
+                else:
+                    mats_list = [m.strip() for m in in_materials.split(",") if m.strip()]
+                    img_bytes = in_uploaded_img.getvalue() if in_uploaded_img else None
+                    preset_key = "S26_KIT" if "키트" in in_type else "GALAXY_POPUP"
+
+                    saved = save_new_learned_case(
+                        image_bytes=img_bytes,
+                        name=in_name,
+                        client=in_client,
+                        project_type=in_type,
+                        settled_amount=in_amount,
+                        scale=in_scale,
+                        unit_count=in_count,
+                        unit_label=in_unit_lbl,
+                        tier=in_tier,
+                        materials=mats_list,
+                        labor_md=in_md,
+                        key_specs=in_specs,
+                        benchmark_cites="KIDP·KOSA·KBIZ 기준 및 사내 실적 정합",
+                        preset_img_key=preset_key
+                    )
+
+                    st.success(
+                        f"🎉 **학습 성공!** 「{in_name}」 실적이 AI 견적감독관의 영구 지식베이스에 안전하게 등록되었습니다!\n\n"
+                        f"- **등록 ID:** `{saved['case_id']}`\n"
+                        f"- **단위당 산출 단가:** `₩{saved['unit_cost']:,d} ({saved['unit_label']})`\n"
+                        f"- **효과:** 앞으로 신규 이미지 견적 산출 및 감리 시, 본 프로젝트가 '유사 실적 벤치마크'로 자동 인용됩니다."
+                    )
+                    st.rerun()
