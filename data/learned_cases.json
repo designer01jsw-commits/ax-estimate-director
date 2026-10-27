@@ -1,5 +1,27 @@
 [
   {
+    "case_id": "CASE_84D92389",
+    "name": "테스트 전시 부스 프로젝트 2026",
+    "client": "제일기획 테스트",
+    "project_type": "팝업스토어 / 전시 부스",
+    "settled_amount": 50000000,
+    "scale": "중형 (5~15평 / 키트 3~5대)",
+    "unit_count": 10,
+    "unit_cost": 5000000,
+    "unit_label": "평당 시공비",
+    "tier": "표준형 (Standard)",
+    "materials": [
+      "목재 가벽",
+      "도장 마감"
+    ],
+    "labor_md": 12.0,
+    "key_specs": "MDF 가벽 및 목공 시공",
+    "benchmark_cites": "KBIZ 시중노임 준용",
+    "preset_img_key": "GALAXY_POPUP",
+    "image_file": null,
+    "created_at": "최근 학습"
+  },
+  {
     "case_id": "CASE_0B1D15AB",
     "name": "테스트 전시 부스 프로젝트 2026",
     "client": "제일기획 테스트",

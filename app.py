@@ -608,10 +608,8 @@ def main():
             총체적 견적 진단 소견 · 6대 공공기준 소명 · 25.6억 44종 키트 벤치마크 · 비전 AI 실시간 감리 시스템
         </div>
         <div class="mc-domain-pill">
-            <span style="color: var(--ink-black); font-weight: 500;">🌐 배포 도메인:</span>
-            <span>신규 견적감독관: <a href="https://ax-estimate-supervisor.onrender.com" target="_blank">ax-estimate-supervisor.onrender.com</a></span>
-            <span style="color: #D1CDC7;">|</span>
-            <span>기존 견적감리관: <a href="https://ax-estimate-director.onrender.com" target="_blank">ax-estimate-director.onrender.com</a></span>
+            <span style="color: var(--ink-black); font-weight: 500;">🌐 공식 서비스 도메인:</span>
+            <a href="https://ax-estimate-director.onrender.com" target="_blank">https://ax-estimate-director.onrender.com</a>
             <span class="mc-satellite-arrow" style="margin-left: 6px;">↗</span>
         </div>
     </div>
@@ -1276,9 +1274,8 @@ def main():
         </div>
         <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #888888;">
             <div>© 2026 CHEIL WORLDWIDE AX ESTIMATE GOVERNANCE. ALL RIGHTS RESERVED.</div>
-            <div style="display: flex; gap: 20px;">
-                <a href="https://ax-estimate-supervisor.onrender.com" target="_blank" style="color: #BBBBBB;">신규 감독관 도메인 ↗</a>
-                <a href="https://ax-estimate-director.onrender.com" target="_blank" style="color: #BBBBBB;">기존 감리관 도메인 ↗</a>
+            <div>
+                <a href="https://ax-estimate-director.onrender.com" target="_blank" style="color: #BBBBBB;">공식 도메인 (24/7 무중단 가동) ↗</a>
             </div>
         </div>
     </div>
