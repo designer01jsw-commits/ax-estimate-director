@@ -509,7 +509,7 @@ st.markdown("""
         font-size: 12px;
         font-weight: 500;
     }
-    .mc-chip-ink {
+    .mc-chip-ink, .mc-chip-black {
         background-color: var(--ink-black);
         color: var(--canvas-cream);
     }
@@ -603,7 +603,6 @@ def main():
             <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px;">● PROD LIVE 24/7</span>
         </div>
     </div>
-
     <div class="mc-hero-stadium">
         <div class="mc-orbital-arc"></div>
         <div class="mc-eyebrow">
@@ -702,16 +701,16 @@ def main():
 
     # 3. 사이드바 - [2단계] 대조·진단받을 견적서 공급 (사용자 업로드)
     st.sidebar.markdown("---")
-    st.sidebar.header("📤 [2단계] 진단받을 견적서 공급 (Target)")
+    st.sidebar.header("📤 [2단계] 진단받을 신규 견적서 업로드")
 
     if "use_sample_change" not in st.session_state:
         st.session_state["use_sample_change"] = False
 
-    target_mode_options = ["📁 진단받을 견적서 직접 업로드 (기본)", "📋 내장 샘플 견적서로 빠른 체험"]
+    target_mode_options = ["📁 신규 견적서 직접 업로드 (.xlsx)", "⚡ 준비된 실적 샘플로 빠른 체험"]
     default_target_mode_idx = 1 if st.session_state.get("use_sample_change", False) else 0
 
     target_supply_mode = st.sidebar.radio(
-        "견적서 공급 방식",
+        "신규 견적서 공급 방식",
         target_mode_options,
         index=default_target_mode_idx,
         key="target_supply_mode_radio"
@@ -730,7 +729,7 @@ def main():
         if not any(s[0] == sc_name for s in sample_options):
             sample_options.insert(0, (sc_name, f"{selected_proj.get('name')} 전용 변경내역서"))
 
-    if target_supply_mode == "📁 진단받을 견적서 직접 업로드 (기본)":
+    if target_supply_mode == "📁 신규 견적서 직접 업로드 (.xlsx)":
         st.session_state["use_sample_change"] = False
         rev_uploaded = st.sidebar.file_uploader(
             "진단받을 신규 견적서 파일 (.xlsx) *",
@@ -738,15 +737,14 @@ def main():
             key="u_target_rev_file",
             help="선택된 광고주 컨펌 기준가이드와 비교 감리할 견적서 엑셀 파일을 업로드하세요."
         )
-        main_uploaded = st.session_state.get("u_main_drag_drop_rev")
-        active_upload = rev_uploaded or main_uploaded
-        if active_upload:
-            rev_file_input = active_upload
-            rev_file_name = active_upload.name
+        if rev_uploaded:
+            rev_file_input = rev_uploaded
+            rev_file_name = rev_uploaded.name
+            st.sidebar.success(f"신규 파일 공급됨: {rev_file_name}")
     else:
         st.session_state["use_sample_change"] = True
         chosen_sample_idx = st.sidebar.selectbox(
-            "체험할 샘플 변경 내역서 선택",
+            "체험할 실적 샘플 내역서 선택",
             range(len(sample_options)),
             format_func=lambda i: sample_options[i][1],
             key="chosen_sample_selectbox"
@@ -768,67 +766,123 @@ def main():
         st.info("💡 사이드바 [1단계]에서 기준견적서 프로젝트를 선택하거나 기준 견적서 XLSX를 업로드해 주세요.")
         return
 
-    # 대조 파일 미공급 시 메인 가이드 카드 안내
+    # 대조 파일 미공급 시 메인 화면: 대조 방법 및 3단계 프로세스 디자인화 연출 (중앙화면 업로더 배제)
     if not rev_file_input:
-        st.markdown(f"""
-        <div class="mc-card" style="padding: 32px 36px; margin: 24px 0; border: 2px dashed var(--signal-orange); background: var(--surface-lifted); box-shadow: 0 4px 24px rgba(0,0,0,0.03);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="font-size: 26px;">⚖️</span>
-                    <div>
-                        <h3 style="margin: 0; font-size: 18px; font-weight: 700; color: var(--ink-black);">
-                            광고주 컨펌 기준가이드 준비 완료
-                        </h3>
-                        <div style="font-size: 13px; color: var(--slate-gray); margin-top: 2px;">
-                            대조·감리할 견적서를 공급하시면 실시간 9대 정밀 진단실 및 단가·인건비 대조가 즉시 시작됩니다.
-                        </div>
-                    </div>
-                </div>
-                <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px; font-weight: 600;">● 기준가이드 장착됨</span>
-            </div>
+        st.markdown(f"""<div class="mc-stadium-card" style="padding: 32px 36px; margin: 18px 0 28px 0; border: 1.5px solid rgba(207, 69, 0, 0.3); background: var(--surface-lifted); box-shadow: var(--shadow-cushion);">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+<div style="display: flex; align-items: center; gap: 14px;">
+<span style="font-size: 30px;">⚖️</span>
+<div>
+<div class="mc-eyebrow" style="margin-bottom: 4px;"><span class="mc-eyebrow-dot"></span><span>ACTIVE BASELINE DATASET</span></div>
+<h3 style="margin: 0; font-size: 20px; font-weight: 700; color: var(--ink-black);">광고주 컨펌 기준가이드 준비 완료</h3>
+<div style="font-size: 13.5px; color: var(--slate-gray); margin-top: 3px;">대조할 신규 견적서를 공급하시면 7대 공종 양식초월 정규화 및 실시간 단가·인건비 대조가 즉시 시작됩니다.</div>
+</div>
+</div>
+<span class="mc-pill-chip mc-chip-orange" style="font-size: 12px; font-weight: 600;">● 기준가이드 장착됨</span>
+</div>
+<div style="background: var(--white); border: 1.5px solid var(--border-stone); border-radius: 20px; padding: 18px 24px; box-shadow: var(--shadow-card);">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; font-size: 13.5px;">
+<div><span style="color: var(--slate-gray);">기준 프로젝트:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{selected_proj.get('name', '기준견적서')}</strong></div>
+<div><span style="color: var(--slate-gray);">기준 파일명:</span> <code style="background: var(--canvas-stone); padding: 3px 8px; border-radius: 6px; color: var(--ink-black); margin-left: 6px;">{orig_file_name}</code></div>
+<div><span style="color: var(--slate-gray);">발주처 / 베뉴:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{selected_proj.get('client', '-')} / {selected_proj.get('site', '-')}</strong></div>
+<div><span style="color: var(--slate-gray);">통화 / 상태:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{currency}</strong> · <span style="color: #0E7C57; font-weight: 700;">광고주 컨펌 완료 ✅</span></div>
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
 
-            <div style="background: var(--canvas-stone); border: 1px solid var(--border-stone); border-radius: 16px; padding: 16px 20px; margin-bottom: 24px;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 13px;">
-                    <div><span style="color: var(--slate-gray);">기준 프로젝트:</span> <strong style="color: var(--ink-black);">{selected_proj.get('name', '기준견적서')}</strong></div>
-                    <div><span style="color: var(--slate-gray);">기준 파일명:</span> <code style="background: var(--surface-lifted); padding: 2px 6px; border-radius: 6px; color: var(--ink-black);">{orig_file_name}</code></div>
-                    <div><span style="color: var(--slate-gray);">발주처 / 베뉴:</span> <strong style="color: var(--ink-black);">{selected_proj.get('client', '-')} / {selected_proj.get('site', '-')}</strong></div>
-                    <div><span style="color: var(--slate-gray);">통화 / 상태:</span> <strong style="color: var(--ink-black);">{currency}</strong> · <span style="color: #2E7D32; font-weight: 700;">광고주 컨펌 완료 ✅</span></div>
-                </div>
-            </div>
+        # 3단계 프로세스 안내 카드
+        st.markdown("""<div style="margin-bottom: 28px;">
+<div class="mc-eyebrow" style="margin-bottom: 6px;"><span class="mc-eyebrow-dot"></span><span>AUDIT EXECUTION WORKFLOW</span></div>
+<h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 700; color: var(--ink-black);">🚀 견적감독관 3단계 정밀 감리 프로세스</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+<span class="mc-pill-chip mc-chip-black" style="font-size: 11px; font-weight: 700;">STEP 01</span>
+<span class="mc-pill-chip mc-chip-green" style="font-size: 11px;">장착 완료 ✅</span>
+</div>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black); margin-bottom: 6px;">기준 가이드 확정</div>
+<div style="font-size: 12px; color: var(--signal-orange); font-weight: 600; margin-bottom: 8px;">📍 좌측 사이드바 [1단계]</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.5;">에이전트 DB에 등록된 광고주 승인 프로젝트 또는 실적 자산화 데이터를 대조의 표준 잣대로 선택합니다.</div>
+</div>
+<div class="mc-card-20" style="background: var(--surface-lifted); border: 2px solid var(--signal-orange); box-shadow: 0 4px 18px rgba(207, 69, 0, 0.08);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+<span class="mc-pill-chip mc-chip-orange" style="font-size: 11px; font-weight: 700;">STEP 02</span>
+<span class="mc-pill-chip mc-chip-orange" style="font-size: 11px;">좌측 바 업로드 대기 👈</span>
+</div>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black); margin-bottom: 6px;">신규 견적서 공급</div>
+<div style="font-size: 12px; color: var(--signal-orange); font-weight: 600; margin-bottom: 8px;">📍 좌측 사이드바 [2단계]</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.5;">진단받을 신규 견적서(.xlsx)를 좌측 바에서 업로드하거나, 준비된 실적 샘플로 즉시 체험할 수 있습니다.</div>
+</div>
+<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+<span class="mc-pill-chip mc-chip-black" style="font-size: 11px; font-weight: 700;">STEP 03</span>
+<span class="mc-pill-chip mc-chip-gray" style="font-size: 11px;">자동 가동 대기 ⚡</span>
+</div>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black); margin-bottom: 6px;">AI 양식초월 정밀 감리</div>
+<div style="font-size: 12px; color: var(--signal-orange); font-weight: 600; margin-bottom: 8px;">📍 중앙 메인 화면</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.5;">7대 공종 자동 분해, 6대 공공 기준 단가 대조, 신호등 적정성 진단 및 과다 청구액 소견 리포트가 즉시 도출됩니다.</div>
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
 
-            <div style="font-size: 14px; color: var(--ink-black); line-height: 1.6; margin-bottom: 20px;">
-                <strong>💡 대조 방법 안내:</strong> 좌측 사이드바 <strong>[2단계]</strong> 또는 아래 영역에서 감리하고자 하는 견적서(<strong>.xlsx</strong>)를 업로드해 주세요.<br>
-                양쪽 파일의 시트명을 1:1 자동 감지하여 동일 시트 간 단가·수량·인건비 정밀 대조 및 6대 공공기준 소명 진단을 수행합니다.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        # 핵심 감리 방법론 및 대조 원리 카드
+        st.markdown("""<div style="margin-bottom: 28px;">
+<div class="mc-eyebrow" style="margin-bottom: 6px;"><span class="mc-eyebrow-dot"></span><span>CORE AUDIT METHODOLOGY</span></div>
+<h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 700; color: var(--ink-black);">🔬 견적 대조 원리 및 핵심 감리 방법론</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="font-size: 22px;">🧩</span>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">1. 7대 공종 양식초월 정규화</div>
+</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.55; margin-bottom: 12px;">
+프로젝트마다 상이한 시트 구조와 계정 과목을 <strong>[목공사, 금속·유리, 전기·조명, 도장·필름, 사인·그래픽, 집기·설치, 현장경비·이윤]</strong>의 7대 표준 체계로 지능형 재분류하여 1:1 비교를 실현합니다.
+</div>
+<div style="background: var(--canvas-stone); padding: 8px 12px; border-radius: 12px; font-size: 12px; color: var(--ink-black); font-weight: 500;">
+💡 양식이 달라도 공종별 비중(%)과 투입 단가를 정밀 대조
+</div>
+</div>
+<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="font-size: 22px;">🏛️</span>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">2. 6대 공공 기준 벤치마킹</div>
+</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.55; margin-bottom: 12px;">
+산업통상자원부 산업디자인(<strong>KIDP</strong>), 한국SW산업협회(<strong>KOSA</strong>), 엔지니어링(<strong>KENCA</strong>), 중기중앙회 시중노임(<strong>KBIZ</strong>), 조달청(<strong>G2B</strong>) 가격정보 및 에이전트 실적 빅데이터와 실시간 교차 검증합니다.
+</div>
+<div style="background: var(--canvas-stone); padding: 8px 12px; border-radius: 12px; font-size: 12px; color: var(--ink-black); font-weight: 500;">
+💡 정부 공인 노임 및 물가정보 기반 법적 소명력 확보
+</div>
+</div>
+<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="font-size: 22px;">🚦</span>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">3. 3단계 신호등 판정 & 삭감 산출</div>
+</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.55; margin-bottom: 12px;">
+기준 단가 대비 변동폭과 공공 기준 부합성을 검증하여 <strong>🟢 적정 (인정)</strong>, <strong>🟡 주의 (소명 요청)</strong>, <strong>🔴 비적합 (과다 청구)</strong>으로 명확히 구분하고 삭감 권고액을 계산합니다.
+</div>
+<div style="background: var(--canvas-stone); padding: 8px 12px; border-radius: 12px; font-size: 12px; color: var(--ink-black); font-weight: 500;">
+💡 단가 25% 이상 초과 항목 즉시 감액 청구액 자동 산출
+</div>
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
 
-        col_main_up, col_main_demo = st.columns([1.2, 1])
-        with col_main_up:
-            main_direct_upload = st.file_uploader(
-                "📥 진단받을 신규 견적서 파일 바로 업로드 (.xlsx)",
-                type=["xlsx"],
-                key="u_main_drag_drop_rev",
-                help="에이전트 기준 가이드와 비교 감리할 엑셀 파일을 업로드하세요."
-            )
-            if main_direct_upload:
-                rev_file_input = main_direct_upload
-                rev_file_name = main_direct_upload.name
+        # 빠른 샘플 체험 가이드 카드
+        st.markdown("""<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone); padding: 24px 28px; margin-bottom: 20px;">
+<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+<div>
+<div class="mc-eyebrow" style="margin-bottom: 4px;"><span class="mc-eyebrow-dot"></span><span>QUICK START EXPERIENCE</span></div>
+<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">📋 테스트용 신규 견적서 파일이 없으신가요?</div>
+<div style="font-size: 13.5px; color: var(--slate-gray); margin-top: 4px;">사전에 준비된 실제 홍대점 전시 변경 내역서 샘플을 즉시 불러와 9대 정밀 진단실과 신호등 감리를 1초 만에 체험해 보세요.</div>
+</div>
+</div>
+</div>""", unsafe_allow_html=True)
 
-        with col_main_demo:
-            st.markdown("""
-            <div style="padding: 16px 20px; border-radius: 16px; background: var(--canvas-stone); border: 1px solid var(--border-stone); height: 100%;">
-                <div style="font-size: 13px; font-weight: 600; color: var(--ink-black); margin-bottom: 6px;">
-                    📋 테스트용 견적서 파일이 없으신가요?
-                </div>
-                <div style="font-size: 12px; color: var(--slate-gray); margin-bottom: 14px;">
-                    사전에 준비된 실제 홍대점 전시 변경 내역서 샘플을 즉시 불러와 9대 진단실과 신호등 감리를 체험해 보세요.
-                </div>
-            """, unsafe_allow_html=True)
-            if st.button("⚡ 샘플 견적서로 지금 즉시 감리 체험하기", use_container_width=True, type="primary"):
-                st.session_state["use_sample_change"] = True
-                st.rerun()
-            st.markdown("</div>", unsafe_allow_html=True)
+        if st.button("⚡ 홍대점 전시 샘플 견적서로 지금 즉시 감리 체험하기", type="primary", use_container_width=True, key="btn_quick_sample_experience"):
+            st.session_state["use_sample_change"] = True
+            st.rerun()
 
         if not rev_file_input:
             return
@@ -963,21 +1017,18 @@ def main():
             it["비싼이유_설명"] = explain_cost_difference(it, currency)
 
         # 현재 대조 중인 시트 안내
-        st.markdown(f"""
-        <div style="display: flex; align-items: center; justify-content: space-between; background: var(--surface-lifted); border: 1px solid var(--border-stone); border-radius: 20px; padding: 12px 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); flex-wrap: wrap; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <span style="font-size: 16px;">📑</span>
-                <span style="font-size: 13px; font-weight: 700; color: var(--ink-black);">대조 감리 매칭</span>
-                <span class="mc-pill-chip mc-chip-black" style="font-size: 12px;">기준 가이드: {orig_file_name} ❯ <strong>{sheet_orig_selected}</strong></span>
-                <span style="color: var(--signal-orange); font-weight: 700; font-size: 14px;">⟷</span>
-                <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px;">대조 대상: {rev_file_name} ❯ <strong>{sheet_rev_selected}</strong></span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 12px; color: var(--slate-gray);">실시간 1:1 대조 감리 중</span>
-                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2E7D32;"></span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(f"""<div style="display: flex; align-items: center; justify-content: space-between; background: var(--surface-lifted); border: 1.5px solid var(--border-stone); border-radius: 20px; padding: 14px 24px; margin-bottom: 24px; box-shadow: var(--shadow-card); flex-wrap: wrap; gap: 12px;">
+<div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+<span style="font-size: 18px;">⚖️</span>
+<span style="font-size: 14px; font-weight: 700; color: var(--ink-black);">대조 감리 매칭</span>
+<span class="mc-pill-chip mc-chip-black" style="font-size: 12px;">기준 가이드: {orig_file_name} ❯ <strong>{sheet_orig_selected}</strong></span>
+<span style="color: var(--signal-orange); font-weight: 700; font-size: 14px;">⟷</span>
+<span class="mc-pill-chip mc-chip-orange" style="font-size: 12px;">대조 대상: {rev_file_name} ❯ <strong>{sheet_rev_selected}</strong></span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px;">
+<span class="mc-pill-chip mc-chip-green" style="font-size: 12px;">● 7대 공종 양식초월 정규화 감리 가동 중</span>
+</div>
+</div>""", unsafe_allow_html=True)
 
         # 메트릭 카드
         st.subheader("📊 핵심 감리 지표 요약")
