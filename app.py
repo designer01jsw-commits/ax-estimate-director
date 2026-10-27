@@ -60,354 +60,447 @@ st.set_page_config(
 )
 
 
-# Framer Dark Canvas Design System Styling
+# Mastercard Inspired Design System Styling
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,400;0,450;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;450;500;600;700&display=swap');
 
     :root {
-        --canvas: #0A0A0A;
-        --surface-1: #141414;
-        --surface-2: #1E1E1E;
-        --surface-hover: #222222;
-        --hairline: #262626;
-        --hairline-soft: #1C1C1C;
-        --ink: #FFFFFF;
-        --ink-muted: #999999;
-        --ink-faint: #666666;
-        --accent-blue: #0099FF;
-        --accent-glow: rgba(0, 153, 255, 0.28);
+        --canvas-cream: #F3F0EE;
+        --lifted-cream: #FCFBFA;
+        --white: #FFFFFF;
+        --soft-bone: #F4F4F4;
+        --ink-black: #141413;
+        --charcoal: #262627;
+        --slate-gray: #696969;
+        --granite: #555555;
+        --dust-taupe: #D1CDC7;
+        --signal-orange: #CF4500;
+        --light-signal-orange: #F37338;
+        --clay-brown: #9A3A0A;
+        --link-blue: #3860BE;
         --semantic-success: #10B981;
-        --semantic-danger: #FF4D4D;
-        --semantic-warning: #F59E0B;
-        --radius-sm: 4px;
-        --radius-md: 12px;
-        --radius-lg: 20px;
-        --radius-xl: 30px;
-        --radius-pill: 100px;
+        --semantic-danger: #CF4500;
+        --semantic-warning: #F79E1B;
+        
+        --radius-pill: 999px;
+        --radius-stadium: 40px;
+        --radius-card: 20px;
+        --radius-button: 20px;
+        --radius-circle: 50%;
+        
+        --shadow-nav: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
+        --shadow-cushion: rgba(0, 0, 0, 0.06) 0px 18px 40px 0px;
+        --shadow-card: rgba(0, 0, 0, 0.03) 0px 6px 20px 0px;
     }
 
-    /* 1. Global Dark Canvas & Typographic Voice */
+    /* 1. Global Canvas Cream & Sofia Sans Typography */
     html, body, [data-testid="stAppViewContainer"], .stApp {
-        background-color: var(--canvas) !important;
-        color: var(--ink) !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-        font-feature-settings: 'cv01', 'cv05', 'cv09', 'cv11', 'ss03', 'ss07', 'tnum', 'dlig' !important;
+        background-color: var(--canvas-cream) !important;
+        color: var(--ink-black) !important;
+        font-family: 'Sofia Sans', 'Inter', Arial, sans-serif !important;
+        font-weight: 450 !important;
+        line-height: 1.4 !important;
         -webkit-font-smoothing: antialiased !important;
-        letter-spacing: -0.15px !important;
+        letter-spacing: normal !important;
     }
 
-    /* 2. Sidebar Dark Canvas */
+    /* 2. Sidebar: Lifted Cream with Subtle Border */
     [data-testid="stSidebar"] {
-        background-color: #0A0A0A !important;
-        border-right: 1px solid var(--hairline-soft) !important;
+        background-color: var(--lifted-cream) !important;
+        border-right: 1.5px solid rgba(20, 20, 19, 0.08) !important;
     }
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
-        color: var(--ink-muted) !important;
+        color: var(--slate-gray) !important;
         font-size: 13px !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.5px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.04em !important;
         text-transform: uppercase !important;
         margin-top: 18px !important;
         margin-bottom: 8px !important;
     }
 
-    /* 3. Framer Buttons */
-    /* Primary CTA: Pure White Pill */
-    button[kind="primary"], .stButton > button[kind="primary"], div[data-testid="stButton"] > button[kind="primary"] {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        border-radius: var(--radius-pill) !important;
-        padding: 10px 22px !important;
-        font-size: 14px !important;
+    /* 3. Typography Headings: 500 weight with tight -2% letter spacing */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Sofia Sans', sans-serif !important;
+        color: var(--ink-black) !important;
         font-weight: 500 !important;
-        letter-spacing: -0.14px !important;
-        border: none !important;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+        letter-spacing: -0.02em !important;
+    }
+    h2 {
+        font-size: 28px !important;
+        margin-top: 36px !important;
+        margin-bottom: 16px !important;
+    }
+    h3 {
+        font-size: 22px !important;
+    }
+
+    /* 4. Primary Button: Ink Black Pill (20px radius) with Canvas Cream text */
+    button[kind="primary"], .stButton > button[kind="primary"], div[data-testid="stButton"] > button[kind="primary"] {
+        background-color: var(--ink-black) !important;
+        color: var(--canvas-cream) !important;
+        border-radius: var(--radius-button) !important;
+        padding: 8px 24px !important;
+        font-size: 16px !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.32px !important;
+        border: 1.5px solid var(--ink-black) !important;
+        box-shadow: 0 2px 6px rgba(20, 20, 19, 0.15) !important;
         transition: all 0.15s ease-in-out !important;
     }
     button[kind="primary"]:hover, .stButton > button[kind="primary"]:hover {
-        background-color: #EAEAEA !important;
-        color: #000000 !important;
+        background-color: var(--charcoal) !important;
+        color: var(--canvas-cream) !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18) !important;
+        box-shadow: 0 4px 12px rgba(20, 20, 19, 0.25) !important;
     }
 
-    /* Secondary CTA: Charcoal Pill */
+    /* 5. Secondary Button: White Pill with Ink Black outline & text */
     button[kind="secondary"], .stButton > button, div[data-testid="stButton"] > button, .stDownloadButton > button {
-        background-color: var(--surface-1) !important;
-        color: var(--ink) !important;
-        border-radius: var(--radius-pill) !important;
-        padding: 10px 20px !important;
-        font-size: 14px !important;
-        font-weight: 500 !important;
-        letter-spacing: -0.14px !important;
-        border: 1px solid var(--hairline) !important;
+        background-color: var(--white) !important;
+        color: var(--ink-black) !important;
+        border-radius: var(--radius-button) !important;
+        padding: 8px 24px !important;
+        font-size: 16px !important;
+        font-weight: 450 !important;
+        letter-spacing: -0.32px !important;
+        border: 1.5px solid var(--ink-black) !important;
         transition: all 0.15s ease-in-out !important;
     }
     button[kind="secondary"]:hover, .stButton > button:hover, .stDownloadButton > button:hover {
-        background-color: var(--surface-2) !important;
-        border-color: #383838 !important;
-        color: #FFFFFF !important;
+        background-color: var(--soft-bone) !important;
+        color: var(--ink-black) !important;
         transform: translateY(-1px) !important;
     }
 
-    /* 4. Metric Blocks (Surface 1 with 20px radius) */
+    /* 6. Metric Blocks (Lifted Cream with 20px radius) */
     div[data-testid="stMetric"] {
-        background-color: var(--surface-1) !important;
-        border: 1px solid var(--hairline) !important;
-        border-radius: var(--radius-lg) !important;
-        padding: 20px 22px !important;
-        transition: border-color 0.2s ease, transform 0.2s ease !important;
+        background-color: var(--lifted-cream) !important;
+        border: 1.5px solid rgba(20, 20, 19, 0.08) !important;
+        border-radius: var(--radius-card) !important;
+        padding: 22px 24px !important;
+        box-shadow: var(--shadow-card) !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
     }
     div[data-testid="stMetric"]:hover {
-        border-color: #383838 !important;
         transform: translateY(-2px) !important;
+        box-shadow: var(--shadow-cushion) !important;
     }
     div[data-testid="stMetricLabel"] {
         font-size: 13px !important;
-        font-weight: 500 !important;
-        letter-spacing: -0.13px !important;
-        color: var(--ink-muted) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.04em !important;
+        color: var(--slate-gray) !important;
         text-transform: uppercase !important;
         margin-bottom: 6px !important;
     }
     div[data-testid="stMetricValue"] {
-        font-size: 30px !important;
+        font-size: 32px !important;
         font-weight: 500 !important;
-        letter-spacing: -1.0px !important;
-        color: var(--ink) !important;
+        letter-spacing: -0.02em !important;
+        color: var(--ink-black) !important;
         line-height: 1.15 !important;
-        font-feature-settings: 'tnum' on !important;
     }
     div[data-testid="stMetricDelta"] {
         font-size: 13px !important;
         font-weight: 500 !important;
-        letter-spacing: -0.13px !important;
     }
 
-    /* 5. Framer Tabs Navigation (Pill Switcher) */
+    /* 7. Tabs Navigation: Pill Switcher (999px radius) */
     .stTabs [data-baseweb="tab-list"] {
-        background-color: var(--surface-1) !important;
-        border: 1px solid var(--hairline) !important;
+        background-color: var(--lifted-cream) !important;
+        border: 1.5px solid rgba(20, 20, 19, 0.08) !important;
         border-radius: var(--radius-pill) !important;
-        padding: 5px !important;
+        padding: 6px !important;
         gap: 4px !important;
         display: inline-flex !important;
+        box-shadow: var(--shadow-card) !important;
         max-width: 100% !important;
         overflow-x: auto !important;
     }
     .stTabs [data-baseweb="tab"] {
         border-radius: var(--radius-pill) !important;
-        padding: 8px 18px !important;
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        letter-spacing: -0.13px !important;
-        color: var(--ink-muted) !important;
+        padding: 8px 20px !important;
+        font-size: 14px !important;
+        font-weight: 450 !important;
+        color: var(--slate-gray) !important;
         background-color: transparent !important;
         border: none !important;
         transition: all 0.15s ease-in-out !important;
         white-space: nowrap !important;
     }
     .stTabs [aria-selected="true"] {
-        background-color: var(--surface-2) !important;
-        color: var(--ink) !important;
-        border: 1px solid #333333 !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+        background-color: var(--ink-black) !important;
+        color: var(--canvas-cream) !important;
+        font-weight: 500 !important;
+        box-shadow: 0 4px 14px rgba(20, 20, 19, 0.2) !important;
     }
     .stTabs [data-baseweb="tab-border"], .stTabs [data-baseweb="tab-highlight"] {
         display: none !important;
     }
 
-    /* 6. Inputs & Selectboxes with Sky Blue Focus Ring */
+    /* 8. Inputs, Selectboxes, Textareas (20px radius & White fill) */
     div[data-baseweb="select"] > div,
     div[data-baseweb="input"] > div,
     div[data-baseweb="textarea"] > div,
     input, textarea {
-        background-color: var(--surface-1) !important;
-        border: 1px solid var(--hairline) !important;
-        color: var(--ink) !important;
-        border-radius: var(--radius-md) !important;
-        font-size: 14px !important;
-        letter-spacing: -0.14px !important;
+        background-color: var(--white) !important;
+        border: 1.5px solid rgba(20, 20, 19, 0.15) !important;
+        color: var(--ink-black) !important;
+        border-radius: 20px !important;
+        font-size: 15px !important;
     }
     div[data-baseweb="select"] > div:focus-within,
     div[data-baseweb="input"] > div:focus-within,
     div[data-baseweb="textarea"] > div:focus-within,
     input:focus, textarea:focus {
-        border-color: var(--accent-blue) !important;
-        box-shadow: 0 0 0 2px var(--accent-glow) !important;
+        border-color: var(--ink-black) !important;
+        box-shadow: 0 0 0 2px rgba(20, 20, 19, 0.15) !important;
     }
 
-    /* 7. Expanders & Containers */
+    /* 9. Expanders with 20px radius */
     div[data-testid="stExpander"] {
-        background-color: var(--surface-1) !important;
-        border: 1px solid var(--hairline) !important;
-        border-radius: 18px !important;
-        margin-bottom: 14px !important;
+        background-color: var(--lifted-cream) !important;
+        border: 1.5px solid rgba(20, 20, 19, 0.08) !important;
+        border-radius: var(--radius-card) !important;
+        box-shadow: var(--shadow-card) !important;
+        margin-bottom: 16px !important;
     }
     div[data-testid="stExpander"] summary {
-        font-size: 14px !important;
+        font-size: 15px !important;
         font-weight: 500 !important;
-        color: var(--ink) !important;
-        padding: 14px 20px !important;
+        color: var(--ink-black) !important;
+        padding: 16px 22px !important;
     }
 
-    /* 8. Streamlit Alert & Info Overrides */
-    div[data-testid="stAlert"] {
-        background-color: var(--surface-1) !important;
-        border: 1px solid var(--hairline) !important;
-        border-left: 3px solid var(--accent-blue) !important;
-        border-radius: 16px !important;
-        color: var(--ink) !important;
-    }
-
-    /* 9. Dataframe Table Dark Styling */
+    /* 10. Dataframe Tables */
     [data-testid="stDataFrame"] {
-        border: 1px solid var(--hairline) !important;
-        border-radius: 16px !important;
-        background-color: var(--surface-1) !important;
+        border: 1.5px solid rgba(20, 20, 19, 0.08) !important;
+        border-radius: var(--radius-card) !important;
+        background-color: var(--white) !important;
+        box-shadow: var(--shadow-card) !important;
         overflow: hidden !important;
     }
 
-    /* 10. Links: Sky Blue Accent Only */
+    /* 11. Alerts & Info: Lifted Cream with Signal Orange left border */
+    div[data-testid="stAlert"] {
+        background-color: var(--lifted-cream) !important;
+        border: 1.5px solid rgba(20, 20, 19, 0.08) !important;
+        border-left: 4px solid var(--signal-orange) !important;
+        border-radius: var(--radius-card) !important;
+        color: var(--ink-black) !important;
+    }
+
+    /* 12. Links: Dusty Link Blue */
     a {
-        color: var(--accent-blue) !important;
+        color: var(--link-blue) !important;
         text-decoration: none !important;
-        transition: opacity 0.15s ease !important;
     }
     a:hover {
-        opacity: 0.8 !important;
         text-decoration: underline !important;
     }
 
-    /* 11. Custom Framer Component Classes */
-    .framer-hero-eyebrow {
+    /* 13. Mastercard Floating Nav Pill */
+    .mc-floating-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--white);
+        border-radius: var(--radius-pill);
+        padding: 12px 32px;
+        margin: 6px 0 24px 0;
+        box-shadow: var(--shadow-nav);
+        border: 1px solid rgba(20, 20, 19, 0.05);
+    }
+    .mc-brand-mark {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        background-color: var(--surface-1);
-        border: 1px solid var(--hairline);
-        border-radius: var(--radius-pill);
-        padding: 6px 16px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--ink-muted);
-        letter-spacing: -0.13px;
-        margin-bottom: 16px;
     }
-    .framer-hero-eyebrow .live-dot {
-        width: 7px;
-        height: 7px;
+    .mc-circle-red {
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
-        background-color: var(--semantic-success);
-        box-shadow: 0 0 8px var(--semantic-success);
+        background-color: #EB001B;
+        display: inline-block;
     }
-    .framer-hero-title {
-        font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
-        font-size: 46px !important;
-        font-weight: 600 !important;
-        letter-spacing: -2.8px !important;
+    .mc-circle-yellow {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: #F79E1B;
+        display: inline-block;
+        margin-left: -9px;
+        opacity: 0.92;
+    }
+
+    /* 14. Mastercard Hero Stadium Frame (40px radius) */
+    .mc-hero-stadium {
+        background-color: var(--lifted-cream);
+        border-radius: var(--radius-stadium);
+        padding: 40px 48px;
+        margin-bottom: 28px;
+        position: relative;
+        border: 1.5px solid rgba(20, 20, 19, 0.08);
+        box-shadow: var(--shadow-cushion);
+        overflow: hidden;
+    }
+    .mc-orbital-arc {
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 280px;
+        height: 280px;
+        border: 1.5px solid var(--light-signal-orange);
+        border-radius: 50%;
+        opacity: 0.35;
+        pointer-events: none;
+    }
+    .mc-eyebrow {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.04em !important;
+        text-transform: uppercase !important;
+        color: var(--slate-gray) !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+    .mc-eyebrow-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--signal-orange);
+        display: inline-block;
+    }
+    .mc-hero-title {
+        font-family: 'Sofia Sans', sans-serif !important;
+        font-size: 52px !important;
+        font-weight: 500 !important;
         line-height: 1.05 !important;
-        color: var(--ink) !important;
-        margin: 0 0 12px 0 !important;
+        letter-spacing: -0.02em !important;
+        color: var(--ink-black) !important;
+        margin: 0 0 14px 0 !important;
     }
-    .framer-hero-subhead {
-        font-size: 17px !important;
-        font-weight: 400 !important;
+    .mc-hero-subhead {
+        font-size: 18px !important;
+        font-weight: 450 !important;
         line-height: 1.45 !important;
-        color: var(--ink-muted) !important;
-        letter-spacing: -0.18px !important;
-        margin-bottom: 18px !important;
+        color: var(--slate-gray) !important;
+        margin-bottom: 22px !important;
+        max-width: 860px;
     }
-    .framer-domain-strip {
+    .mc-domain-pill {
         display: inline-flex;
         align-items: center;
         flex-wrap: wrap;
         gap: 12px;
-        background-color: var(--surface-1);
-        border: 1px solid var(--hairline);
+        background-color: var(--white);
         border-radius: var(--radius-pill);
-        padding: 8px 20px;
-        font-size: 13px;
-        letter-spacing: -0.13px;
-        color: var(--ink-muted);
-        margin-bottom: 28px;
+        padding: 8px 22px;
+        font-size: 14px;
+        color: var(--slate-gray);
+        box-shadow: var(--shadow-nav);
+        border: 1px solid rgba(20, 20, 19, 0.06);
     }
-    .framer-domain-strip a {
-        color: var(--accent-blue) !important;
+    .mc-domain-pill a {
+        color: var(--link-blue) !important;
         font-weight: 500;
     }
 
-    /* Framer Signature Spotlight Card (30px radius) */
-    .framer-spotlight-card {
-        border-radius: var(--radius-xl);
-        padding: 30px 34px;
-        margin-bottom: 26px;
+    /* 15. Mastercard Stadium Card (40px) & Card 20 (20px) */
+    .mc-stadium-card {
+        background-color: var(--lifted-cream);
+        border-radius: var(--radius-stadium);
+        padding: 34px 40px;
+        margin-bottom: 28px;
+        border: 1.5px solid rgba(20, 20, 19, 0.08);
+        box-shadow: var(--shadow-cushion);
         position: relative;
         overflow: hidden;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .framer-spotlight-card:hover {
+    .mc-card-20 {
+        background-color: var(--lifted-cream);
+        border-radius: var(--radius-card);
+        padding: 22px 26px;
+        border: 1.5px solid rgba(20, 20, 19, 0.08);
+        box-shadow: var(--shadow-card);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .mc-card-20:hover {
         transform: translateY(-2px);
+        box-shadow: var(--shadow-cushion);
     }
-    .framer-spotlight-red {
-        background: radial-gradient(120% 120% at 50% 0%, #4A1224 0%, #20070F 55%, #141414 100%);
-        border: 1px solid rgba(255, 77, 77, 0.45);
-        box-shadow: 0 16px 48px rgba(74, 18, 36, 0.35);
-    }
-    .framer-spotlight-amber {
-        background: radial-gradient(120% 120% at 50% 0%, #4A2B0E 0%, #241405 55%, #141414 100%);
-        border: 1px solid rgba(245, 158, 11, 0.45);
-        box-shadow: 0 16px 48px rgba(74, 43, 14, 0.35);
-    }
-    .framer-spotlight-green {
-        background: radial-gradient(120% 120% at 50% 0%, #0E3E2B 0%, #051A12 55%, #141414 100%);
-        border: 1px solid rgba(16, 185, 129, 0.45);
-        box-shadow: 0 16px 48px rgba(14, 62, 43, 0.35);
-    }
-
-    /* Framer Surface 1 Card (20px radius) */
-    .framer-surface-card {
-        background-color: var(--surface-1);
-        border: 1px solid var(--hairline);
-        border-radius: var(--radius-lg);
-        padding: 22px 24px;
-        transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .framer-surface-card:hover {
-        border-color: #383838;
-        transform: translateY(-2px);
-    }
-    .framer-pill-badge {
+    .mc-pill-chip {
         display: inline-flex;
         align-items: center;
+        gap: 6px;
         border-radius: var(--radius-pill);
-        padding: 4px 12px;
-        font-size: 12px;
+        padding: 5px 16px;
+        font-size: 13px;
         font-weight: 500;
-        letter-spacing: -0.12px;
     }
-    .framer-badge-green {
-        background-color: rgba(16, 185, 129, 0.15);
-        color: #10B981;
-        border: 1px solid rgba(16, 185, 129, 0.3);
+    .mc-chip-ink {
+        background-color: var(--ink-black);
+        color: var(--canvas-cream);
     }
-    .framer-badge-red {
-        background-color: rgba(239, 68, 68, 0.15);
-        color: #FF6B6B;
-        border: 1px solid rgba(239, 68, 68, 0.3);
+    .mc-chip-orange {
+        background-color: rgba(207, 69, 0, 0.1);
+        color: var(--signal-orange);
+        border: 1px solid rgba(207, 69, 0, 0.25);
     }
-    .framer-badge-amber {
-        background-color: rgba(245, 158, 11, 0.15);
-        color: #FBBF24;
-        border: 1px solid rgba(245, 158, 11, 0.3);
+    .mc-chip-green {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: #0E7C57;
+        border: 1px solid rgba(16, 185, 129, 0.25);
     }
-    .framer-badge-gray {
-        background-color: rgba(255, 255, 255, 0.08);
-        color: var(--ink-muted);
-        border: 1px solid var(--hairline);
+    .mc-chip-gray {
+        background-color: var(--white);
+        color: var(--slate-gray);
+        border: 1px solid rgba(20, 20, 19, 0.1);
+    }
+    .mc-satellite-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--white);
+        border-radius: var(--radius-pill);
+        padding: 6px 18px;
+        box-shadow: var(--shadow-card);
+        border: 1px solid rgba(20, 20, 19, 0.08);
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-black);
+    }
+    .mc-satellite-arrow {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: var(--ink-black);
+        color: var(--canvas-cream);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    /* 16. Mastercard Warm Dark Footer */
+    .mc-footer {
+        background-color: var(--ink-black);
+        color: var(--white);
+        border-radius: 40px 40px 0 0;
+        padding: 52px 60px 40px 60px;
+        margin-top: 60px;
+    }
+    .mc-footer-title {
+        font-family: 'Sofia Sans', sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.02em !important;
+        color: var(--white) !important;
+        margin-bottom: 14px !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -433,23 +526,36 @@ def get_workbook_sheet_names(file_path: str):
 
 def main():
     st.markdown("""
-    <div style="margin-top: 8px; margin-bottom: 24px;">
-        <div class="framer-hero-eyebrow">
-            <span class="live-dot"></span>
-            <span>CHEIL AX ESTIMATE SUPERVISOR 2.0</span>
-            <span style="color: #404040;">|</span>
-            <span style="color: var(--accent-blue);">PROD LIVE</span>
+    <div class="mc-floating-nav">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="mc-brand-mark">
+                <span class="mc-circle-red"></span>
+                <span class="mc-circle-yellow"></span>
+            </div>
+            <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink-black);">CHEIL AX · ESTIMATE SUPERVISOR</span>
         </div>
-        <h1 class="framer-hero-title">제일기획 AX 견적감독관</h1>
-        <div class="framer-hero-subhead">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-size: 13px; font-weight: 500; color: var(--slate-gray);">• 정밀 감리 엔진 v2.0</span>
+            <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px;">● PROD LIVE 24/7</span>
+        </div>
+    </div>
+
+    <div class="mc-hero-stadium">
+        <div class="mc-orbital-arc"></div>
+        <div class="mc-eyebrow">
+            <span class="mc-eyebrow-dot"></span>
+            <span>EDITORIAL AUDIT INTELLIGENCE</span>
+        </div>
+        <h1 class="mc-hero-title">제일기획 AX 견적감독관</h1>
+        <div class="mc-hero-subhead">
             총체적 견적 진단 소견 · 6대 공공기준 소명 · 25.6억 44종 키트 벤치마크 · 비전 AI 실시간 감리 시스템
         </div>
-        <div class="framer-domain-strip">
-            <span style="color: #FFFFFF; font-weight: 500;">🌐 배포 도메인:</span>
+        <div class="mc-domain-pill">
+            <span style="color: var(--ink-black); font-weight: 500;">🌐 배포 도메인:</span>
             <span>신규 견적감독관: <a href="https://ax-estimate-supervisor.onrender.com" target="_blank">ax-estimate-supervisor.onrender.com</a></span>
-            <span style="color: #404040;">·</span>
+            <span style="color: #D1CDC7;">|</span>
             <span>기존 견적감리관: <a href="https://ax-estimate-director.onrender.com" target="_blank">ax-estimate-director.onrender.com</a></span>
-            <span style="color: #10B981; font-size: 12px; margin-left: 4px;">● 24/7 가동중</span>
+            <span class="mc-satellite-arrow" style="margin-left: 6px;">↗</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -761,32 +867,26 @@ def main():
         with tab_diagnostics:
             st.subheader("⚖️ 견적감독관 종합진단실 — 총체적 종합의견")
 
-            # [견적감독관 총체적 종합 진단 소견 란 (Framer Signature Gradient Spotlight Card)]
-            spotlight_class = (
-                "framer-spotlight-red" if supervisor_opinion["risk_code"] == "RED"
-                else ("framer-spotlight-amber" if supervisor_opinion["risk_code"] == "AMBER" else "framer-spotlight-green")
-            )
-            badge_class = (
-                "framer-badge-red" if supervisor_opinion["risk_code"] == "RED"
-                else ("framer-badge-amber" if supervisor_opinion["risk_code"] == "AMBER" else "framer-badge-green")
-            )
-
+            # [견적감독관 총체적 종합 진단 소견 란 (Mastercard Stadium Card)]
             st.markdown(f"""
-            <div class="framer-spotlight-card {spotlight_class}">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <span style="font-size: 26px;">🏛️</span>
-                        <div>
-                            <div style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.2px; color: var(--ink-muted);">EXECUTIVE DIAGNOSTIC VERDICT</div>
-                            <div style="font-size: 24px; font-weight: 600; letter-spacing: -0.8px; color: #FFFFFF; margin-top: 2px;">견적감독관 총체적 종합 진단 소견</div>
+            <div class="mc-stadium-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <div class="mc-eyebrow" style="margin-bottom: 6px;">
+                            <span class="mc-eyebrow-dot"></span>
+                            <span>EXECUTIVE DIAGNOSTIC VERDICT</span>
+                        </div>
+                        <div style="font-size: 26px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink-black);">
+                            🏛️ 견적감독관 총체적 종합 진단 소견
                         </div>
                     </div>
-                    <div class="framer-pill-badge {badge_class}" style="padding: 6px 18px; font-size: 13px; font-weight: 600;">
-                        {supervisor_opinion["risk_badge"]}
+                    <div class="mc-satellite-badge">
+                        <span>{supervisor_opinion["risk_badge"]}</span>
+                        <span class="mc-satellite-arrow">→</span>
                     </div>
                 </div>
-                <div style="font-size: 16px; font-weight: 400; color: #E8E8E8; line-height: 1.55; letter-spacing: -0.17px; background: rgba(0,0,0,0.38); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 18px 22px;">
-                    <strong style="color: #FFFFFF;">👉 감독관 핵심 권고:</strong> {supervisor_opinion["recommendation"]}
+                <div style="font-size: 16px; font-weight: 450; color: var(--ink-black); line-height: 1.55; background: var(--white); border: 1.5px solid rgba(20, 20, 19, 0.08); border-radius: 20px; padding: 20px 24px; box-shadow: var(--shadow-card);">
+                    <strong style="color: var(--signal-orange);">👉 감독관 핵심 권고:</strong> {supervisor_opinion["recommendation"]}
                 </div>
             </div>
             """, unsafe_allow_html=True)
@@ -803,47 +903,47 @@ def main():
             with p_col1:
                 p1 = supervisor_opinion["pillars"][0]
                 p2 = supervisor_opinion["pillars"][1]
-                b1_cls = "framer-badge-red" if "비적합" in p1['status'] else ("framer-badge-amber" if any(k in p1['status'] for k in ["검토", "주의", "조건부"]) else "framer-badge-green")
-                b2_cls = "framer-badge-red" if "비적합" in p2['status'] else ("framer-badge-amber" if any(k in p2['status'] for k in ["검토", "주의", "조건부"]) else "framer-badge-green")
+                chip1 = "mc-chip-orange" if "비적합" in p1['status'] else ("mc-chip-orange" if any(k in p1['status'] for k in ["검토", "주의", "조건부"]) else "mc-chip-green")
+                chip2 = "mc-chip-orange" if "비적합" in p2['status'] else ("mc-chip-orange" if any(k in p2['status'] for k in ["검토", "주의", "조건부"]) else "mc-chip-green")
                 st.markdown(f"""
-                <div class="framer-surface-card" style="margin-bottom: 16px;">
+                <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px;">{p1['title']}</div>
-                        <span class="framer-pill-badge {b1_cls}">{p1['status']}</span>
+                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p1['title']}</div>
+                        <span class="mc-pill-chip {chip1}">{p1['status']}</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5; letter-spacing: -0.14px;">{p1['desc']}</div>
+                    <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p1['desc']}</div>
                 </div>
                 """, unsafe_allow_html=True)
                 st.markdown(f"""
-                <div class="framer-surface-card" style="margin-bottom: 16px;">
+                <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px;">{p2['title']}</div>
-                        <span class="framer-pill-badge {b2_cls}">{p2['status']}</span>
+                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p2['title']}</div>
+                        <span class="mc-pill-chip {chip2}">{p2['status']}</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5; letter-spacing: -0.14px;">{p2['desc']}</div>
+                    <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p2['desc']}</div>
                 </div>
                 """, unsafe_allow_html=True)
             with p_col2:
                 p3 = supervisor_opinion["pillars"][2]
                 p4 = supervisor_opinion["pillars"][3]
-                b3_cls = "framer-badge-red" if "비적합" in p3['status'] else ("framer-badge-amber" if any(k in p3['status'] for k in ["검토", "주의", "조건부"]) else "framer-badge-green")
-                b4_cls = "framer-badge-red" if "비적합" in p4['status'] else ("framer-badge-amber" if any(k in p4['status'] for k in ["검토", "주의", "조건부"]) else "framer-badge-green")
+                chip3 = "mc-chip-orange" if "비적합" in p3['status'] else ("mc-chip-orange" if any(k in p3['status'] for k in ["검토", "주의", "조건부"]) else "mc-chip-green")
+                chip4 = "mc-chip-orange" if "비적합" in p4['status'] else ("mc-chip-orange" if any(k in p4['status'] for k in ["검토", "주의", "조건부"]) else "mc-chip-green")
                 st.markdown(f"""
-                <div class="framer-surface-card" style="margin-bottom: 16px;">
+                <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px;">{p3['title']}</div>
-                        <span class="framer-pill-badge {b3_cls}">{p3['status']}</span>
+                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p3['title']}</div>
+                        <span class="mc-pill-chip {chip3}">{p3['status']}</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5; letter-spacing: -0.14px;">{p3['desc']}</div>
+                    <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p3['desc']}</div>
                 </div>
                 """, unsafe_allow_html=True)
                 st.markdown(f"""
-                <div class="framer-surface-card" style="margin-bottom: 16px;">
+                <div class="mc-card-20" style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <div style="font-size: 16px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px;">{p4['title']}</div>
-                        <span class="framer-pill-badge {b4_cls}">{p4['status']}</span>
+                        <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{p4['title']}</div>
+                        <span class="mc-pill-chip {chip4}">{p4['status']}</span>
                     </div>
-                    <div style="font-size: 14px; color: var(--ink-muted); line-height: 1.5; letter-spacing: -0.14px;">{p4['desc']}</div>
+                    <div style="font-size: 14px; color: var(--slate-gray); line-height: 1.5;">{p4['desc']}</div>
                 </div>
                 """, unsafe_allow_html=True)
 
@@ -852,11 +952,14 @@ def main():
             for idx, act in enumerate(supervisor_opinion["action_items"]):
                 with act_cols[idx]:
                     st.markdown(f"""
-                    <div class="framer-surface-card" style="min-height: 150px; padding: 18px 20px;">
-                        <div style="font-size: 12px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.5px;">{act['order']}</div>
-                        <div style="font-size: 16px; font-weight: 600; color: #FFFFFF; margin: 6px 0 8px 0; letter-spacing: -0.2px;">{act['title']}</div>
-                        <div style="font-size: 16px; font-weight: 600; color: #FF6B6B; margin-bottom: 8px; letter-spacing: -0.2px;">{act['amount']}</div>
-                        <div style="font-size: 13px; color: var(--ink-muted); line-height: 1.45; letter-spacing: -0.13px;">{act['detail']}</div>
+                    <div class="mc-card-20" style="min-height: 155px; background: var(--white);">
+                        <div class="mc-eyebrow" style="margin-bottom: 4px;">
+                            <span class="mc-eyebrow-dot"></span>
+                            <span>{act['order']}</span>
+                        </div>
+                        <div style="font-size: 16px; font-weight: 500; color: var(--ink-black); margin-bottom: 6px; letter-spacing: -0.02em;">{act['title']}</div>
+                        <div style="font-size: 16px; font-weight: 700; color: var(--signal-orange); margin-bottom: 8px;">{act['amount']}</div>
+                        <div style="font-size: 13px; color: var(--slate-gray); line-height: 1.45;">{act['detail']}</div>
                     </div>
                     """, unsafe_allow_html=True)
 
@@ -919,37 +1022,37 @@ def main():
                 if problem_items:
                     st.markdown("##### 🔍 비적합 / 조건부 적합 항목별 공공 기준 상세 분석 및 산출식")
                     for p_idx, it in enumerate(problem_items):
-                        b_cls = "framer-badge-red" if it["판정"] == "비적합" else "framer-badge-amber"
+                        b_cls = "mc-chip-orange" if it["판정"] == "비적합" else "mc-chip-gray"
                         cites_html = ""
                         if it.get("공공기준_근거"):
-                            cites_html = '<div style="margin-top: 10px; padding: 12px 14px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid var(--hairline-soft);">'
-                            cites_html += '<div style="font-size: 12px; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px;">공신력 있는 정부/공공 기준 적용 상세</div>'
+                            cites_html = '<div style="margin-top: 10px; padding: 12px 16px; background: var(--soft-bone); border-radius: 16px; border: 1px solid rgba(20, 20, 19, 0.06);">'
+                            cites_html += '<div class="mc-eyebrow" style="margin-bottom: 4px;"><span class="mc-eyebrow-dot"></span><span>공신력 있는 정부/공공 기준 적용 상세</span></div>'
                             for cite in it["공공기준_근거"]:
-                                url_str = f' &nbsp;·&nbsp; <a href="{cite["URL"]}" target="_blank" style="color: var(--accent-blue); font-size: 12px;">공식 고시 링크 ↗</a>' if cite.get("URL") else ""
-                                cites_html += f'<div style="font-size: 13px; color: #FFFFFF; font-weight: 500; margin-top: 4px;">🏛️ {cite["기관"]} &nbsp;·&nbsp; <code style="color: var(--ink-muted); background: var(--surface-2); padding: 2px 6px; border-radius: 4px;">{cite.get("법령", "")}</code>{url_str}</div>'
+                                url_str = f' &nbsp;·&nbsp; <a href="{cite["URL"]}" target="_blank" style="color: var(--link-blue); font-size: 12px;">공식 고시 링크 ↗</a>' if cite.get("URL") else ""
+                                cites_html += f'<div style="font-size: 14px; color: var(--ink-black); font-weight: 500; margin-top: 4px;">🏛️ {cite["기관"]} &nbsp;·&nbsp; <code style="color: var(--slate-gray); background: var(--white); padding: 2px 6px; border-radius: 4px;">{cite.get("법령", "")}</code>{url_str}</div>'
                                 if "적용기준" in cite:
-                                    cites_html += f'<div style="font-size: 12px; color: var(--ink-muted); margin-left: 18px; margin-top: 2px;">• <strong>적용 고시 기준:</strong> {cite["적용기준"]}</div>'
+                                    cites_html += f'<div style="font-size: 12px; color: var(--slate-gray); margin-left: 18px; margin-top: 2px;">• <strong>적용 고시 기준:</strong> {cite["적용기준"]}</div>'
                                 if "산출공식" in cite:
-                                    cites_html += f'<div style="font-size: 12px; color: var(--ink-muted); margin-left: 18px; margin-top: 2px;">• <strong>정밀 산출 공식:</strong> <code style="color: var(--accent-blue); background: var(--surface-2); padding: 1px 4px; border-radius: 4px;">{cite["산출공식"]}</code></div>'
-                                cites_html += f'<div style="font-size: 12px; color: #888888; margin-left: 18px; margin-top: 2px;">{cite["내용"]}</div>'
+                                    cites_html += f'<div style="font-size: 12px; color: var(--slate-gray); margin-left: 18px; margin-top: 2px;">• <strong>정밀 산출 공식:</strong> <code style="color: var(--signal-orange); background: var(--white); padding: 1px 4px; border-radius: 4px;">{cite["산출공식"]}</code></div>'
+                                cites_html += f'<div style="font-size: 12px; color: #555555; margin-left: 18px; margin-top: 2px;">{cite["내용"]}</div>'
                             cites_html += '</div>'
 
                         st.markdown(f"""
-                        <div class="framer-surface-card" style="margin-bottom: 16px;">
+                        <div class="mc-card-20" style="margin-bottom: 16px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-                                <div style="font-size: 17px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.3px;">{it['항목명']}</div>
+                                <div style="font-size: 17px; font-weight: 500; color: var(--ink-black); letter-spacing: -0.02em;">{it['항목명']}</div>
                                 <div style="display: flex; gap: 6px; align-items: center;">
-                                    <span class="framer-pill-badge framer-badge-gray">분해축: {it['분해축']}</span>
-                                    <span class="framer-pill-badge framer-badge-gray">변동액: {format_currency(it['변동금액'], currency)}</span>
-                                    <span class="framer-pill-badge {b_cls}">{it['판정']}</span>
+                                    <span class="mc-pill-chip mc-chip-gray">분해축: {it['분해축']}</span>
+                                    <span class="mc-pill-chip mc-chip-gray">변동액: {format_currency(it['변동금액'], currency)}</span>
+                                    <span class="mc-pill-chip {b_cls}">{it['판정']}</span>
                                 </div>
                             </div>
-                            <div style="font-size: 14px; color: #CCCCCC; line-height: 1.5; margin-bottom: 8px;">
-                                <strong style="color: #FFFFFF;">진단 사유:</strong> {it['상세사유']}
+                            <div style="font-size: 14px; color: var(--ink-black); line-height: 1.5; margin-bottom: 8px;">
+                                <strong>진단 사유:</strong> {it['상세사유']}
                             </div>
                             {cites_html}
-                            <div style="margin-top: 12px; padding: 10px 14px; background: rgba(255, 77, 77, 0.08); border-radius: 10px; border-left: 3px solid #FF4D4D; font-size: 13px; color: #FFAAAA; line-height: 1.45;">
-                                <strong style="color: #FF6B6B;">👉 감독관 시정 조치:</strong> {it['조치사항']}
+                            <div style="margin-top: 12px; padding: 12px 18px; background: rgba(207, 69, 0, 0.08); border-radius: 20px; border-left: 4px solid var(--signal-orange); font-size: 13px; color: var(--signal-orange); line-height: 1.45;">
+                                <strong>👉 감독관 시정 조치:</strong> {it['조치사항']}
                             </div>
                         </div>
                         """, unsafe_allow_html=True)
@@ -1097,6 +1200,35 @@ def main():
         st.error("🚨 분석 중 예상하지 못한 문제가 생겼습니다.")
         with st.expander("오류 상세 내용"):
             st.code(traceback.format_exc())
+
+
+    # Mastercard Warm Dark Footer
+    st.markdown("""
+    <div class="mc-footer">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 32px;">
+            <div>
+                <div class="mc-footer-title">We're always here when you need rigorous estimate governance.</div>
+                <div style="color: #999999; font-size: 14px; max-width: 620px; line-height: 1.5;">
+                    제일기획 AX 견적감독관은 6대 공공기준(KIDP, KOSA, KENCA, KBIZ, 근로기준법, 나라장터) 및 25.6억 44종 키트 빅데이터를 기반으로 최상의 객관적 감리 소견을 제공합니다.
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.08); padding: 8px 20px; border-radius: 999px;">
+                <div class="mc-brand-mark">
+                    <span class="mc-circle-red"></span>
+                    <span class="mc-circle-yellow"></span>
+                </div>
+                <span style="font-size: 13px; font-weight: 500; color: #FFFFFF;">CHEIL AX ESTIMATE SUPERVISOR</span>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #888888;">
+            <div>© 2026 CHEIL WORLDWIDE AX ESTIMATE GOVERNANCE. ALL RIGHTS RESERVED.</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="https://ax-estimate-supervisor.onrender.com" target="_blank" style="color: #BBBBBB;">신규 감독관 도메인 ↗</a>
+                <a href="https://ax-estimate-director.onrender.com" target="_blank" style="color: #BBBBBB;">기존 감리관 도메인 ↗</a>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
