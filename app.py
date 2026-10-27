@@ -314,26 +314,7 @@ st.markdown("""
         box-shadow: var(--shadow-nav);
         border: 1px solid rgba(20, 20, 19, 0.05);
     }
-    .mc-brand-mark {
-        display: inline-flex;
-        align-items: center;
-    }
-    .mc-circle-red {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background-color: #EB001B;
-        display: inline-block;
-    }
-    .mc-circle-yellow {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background-color: #F79E1B;
-        display: inline-block;
-        margin-left: -9px;
-        opacity: 0.92;
-    }
+
 
     /* 14. Mastercard Hero Stadium Frame (40px radius) */
     .mc-hero-stadium {
@@ -527,11 +508,8 @@ def get_workbook_sheet_names(file_path: str):
 def main():
     st.markdown("""
     <div class="mc-floating-nav">
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="mc-brand-mark">
-                <span class="mc-circle-red"></span>
-                <span class="mc-circle-yellow"></span>
-            </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 18px;">⚖️</span>
             <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink-black);">CHEIL AX · ESTIMATE SUPERVISOR</span>
         </div>
         <div style="display: flex; align-items: center; gap: 16px;">
@@ -1212,11 +1190,8 @@ def main():
                     제일기획 AX 견적감독관은 6대 공공기준(KIDP, KOSA, KENCA, KBIZ, 근로기준법, 나라장터) 및 25.6억 44종 키트 빅데이터를 기반으로 최상의 객관적 감리 소견을 제공합니다.
                 </div>
             </div>
-            <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.08); padding: 8px 20px; border-radius: 999px;">
-                <div class="mc-brand-mark">
-                    <span class="mc-circle-red"></span>
-                    <span class="mc-circle-yellow"></span>
-                </div>
+            <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); padding: 8px 20px; border-radius: 999px;">
+                <span style="font-size: 16px;">🏛️</span>
                 <span style="font-size: 13px; font-weight: 500; color: #FFFFFF;">CHEIL AX ESTIMATE SUPERVISOR</span>
             </div>
         </div>
