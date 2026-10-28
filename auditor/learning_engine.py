@@ -7,8 +7,10 @@
 
 import os
 import io
+import re
 import json
 import uuid
+import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 from PIL import Image
@@ -116,6 +118,210 @@ def load_learned_cases() -> List[Dict[str, Any]]:
         pass
     return INITIAL_SEED_CASES
 
+
+def create_synthetic_confirmed_workbook(
+    name: str,
+    client: str,
+    settled_amount: int,
+    materials: List[str],
+    labor_md: float,
+    key_specs: str,
+    target_path: Path
+) -> str:
+    """수동 등록된 실적 데이터를 바탕으로 비교 감리 가능한 공인 기준 견적서 엑셀 파일을 생성합니다."""
+    import openpyxl
+    from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "1. 확정견적내역"
+
+    header_font = Font(name="Malgun Gothic", size=10, bold=True, color="FFFFFF")
+    header_fill = PatternFill(start_color="1F497D", end_color="1F497D", fill_type="solid")
+    center_align = Alignment(horizontal="center", vertical="center")
+    right_align = Alignment(horizontal="right", vertical="center")
+    left_align = Alignment(horizontal="left", vertical="center")
+    border = Border(
+        left=Side(style='thin', color='D9D9D9'),
+        right=Side(style='thin', color='D9D9D9'),
+        top=Side(style='thin', color='D9D9D9'),
+        bottom=Side(style='thin', color='D9D9D9')
+    )
+
+    ws["B2"] = f"공사/제작명: {name}"
+    ws["B2"].font = Font(name="Malgun Gothic", size=13, bold=True)
+    ws["B3"] = f"발주처: {client} | 최종 정산금액: ₩{settled_amount:,d} (광고주 컨펌 완료)"
+    ws["B3"].font = Font(name="Malgun Gothic", size=10, italic=True)
+
+    headers = ["순번", "공종구분", "항목명", "규격", "수량", "단위", "단가", "금액", "비고"]
+    for col_idx, h in enumerate(headers, start=2):
+        cell = ws.cell(row=5, column=col_idx, value=h)
+        cell.font = header_font
+        cell.fill = header_fill
+        cell.alignment = center_align
+
+    # 금액 분배 (재료비 50%, 노무비 35%, 일반경비/이윤 15%)
+    mat_total = int(settled_amount * 0.50)
+    labor_total = int(settled_amount * 0.35)
+    overhead_total = settled_amount - mat_total - labor_total
+
+    curr_row = 6
+    idx = 1
+
+    # 1. 자재 품목들
+    mat_list = materials or ["주요 맞춤 제작 집기", "우레탄 분체 도장 마감", "아크릴 및 조광판"]
+    sub_mat_amt = mat_total // max(len(mat_list), 1)
+    for m in mat_list:
+        ws.cell(row=curr_row, column=2, value=idx).alignment = center_align
+        ws.cell(row=curr_row, column=3, value="금속/목공/자재").alignment = center_align
+        ws.cell(row=curr_row, column=4, value=f"{m} 제작 및 가공").alignment = left_align
+        ws.cell(row=curr_row, column=5, value="1:1 현장 맞춤 규격").alignment = left_align
+        ws.cell(row=curr_row, column=6, value=1).alignment = center_align
+        ws.cell(row=curr_row, column=7, value="식").alignment = center_align
+        ws.cell(row=curr_row, column=8, value=sub_mat_amt).alignment = right_align
+        ws.cell(row=curr_row, column=9, value=sub_mat_amt).alignment = right_align
+        ws.cell(row=curr_row, column=10, value="광고주 컨펌").alignment = center_align
+        for col_idx in range(2, 11):
+            ws.cell(row=curr_row, column=col_idx).border = border
+        curr_row += 1
+        idx += 1
+
+    # 2. 투입 인력 공수
+    labor_rate = int(labor_total / max(labor_md, 1.0))
+    ws.cell(row=curr_row, column=2, value=idx).alignment = center_align
+    ws.cell(row=curr_row, column=3, value="노무비").alignment = center_align
+    ws.cell(row=curr_row, column=4, value="제작/설치 기술인력 공수").alignment = left_align
+    ws.cell(row=curr_row, column=5, value=f"특급/고급기술자 {labor_md} M/D").alignment = left_align
+    ws.cell(row=curr_row, column=6, value=labor_md).alignment = center_align
+    ws.cell(row=curr_row, column=7, value="인").alignment = center_align
+    ws.cell(row=curr_row, column=8, value=labor_rate).alignment = right_align
+    ws.cell(row=curr_row, column=9, value=labor_total).alignment = right_align
+    ws.cell(row=curr_row, column=10, value="KOSA/KBIZ 기준").alignment = center_align
+    for col_idx in range(2, 11):
+        ws.cell(row=curr_row, column=col_idx).border = border
+    curr_row += 1
+    idx += 1
+
+    # 3. 제경비 / 안전관리비 / 일반관리비
+    ws.cell(row=curr_row, column=2, value=idx).alignment = center_align
+    ws.cell(row=curr_row, column=3, value="경비").alignment = center_align
+    ws.cell(row=curr_row, column=4, value="현장 운반 및 설치 경비 / 안전관리비").alignment = left_align
+    ws.cell(row=curr_row, column=5, value=key_specs[:30] if key_specs else "현장 설치 일체").alignment = left_align
+    ws.cell(row=curr_row, column=6, value=1).alignment = center_align
+    ws.cell(row=curr_row, column=7, value="식").alignment = center_align
+    ws.cell(row=curr_row, column=8, value=overhead_total).alignment = right_align
+    ws.cell(row=curr_row, column=9, value=overhead_total).alignment = right_align
+    ws.cell(row=curr_row, column=10, value="실비 정산").alignment = center_align
+    for col_idx in range(2, 11):
+        ws.cell(row=curr_row, column=col_idx).border = border
+    curr_row += 1
+
+    # 합계 행
+    total_fill = PatternFill(start_color="F2F2F2", end_color="F2F2F2", fill_type="solid")
+    ws.cell(row=curr_row, column=2, value="합계").alignment = center_align
+    ws.cell(row=curr_row, column=4, value="총 공급가액 (VAT 별도)").alignment = left_align
+    ws.cell(row=curr_row, column=9, value=settled_amount).alignment = right_align
+    for col_idx in range(2, 11):
+        c = ws.cell(row=curr_row, column=col_idx)
+        c.font = Font(name="Malgun Gothic", size=10, bold=True)
+        c.fill = total_fill
+        c.border = border
+
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    wb.save(target_path)
+    return ws.title
+
+
+def extract_raw_items_from_sheet(ws) -> List[Dict[str, Any]]:
+    """헤더가 표준 형식이 아닐 때도 셀을 탐색하여 품목과 금액을 최대한 복원합니다."""
+    from auditor.loader import parse_number
+    items = []
+    for r in range(1, min(ws.max_row + 1, 300)):
+        row_vals = [ws.cell(r, c).value for c in range(1, min(ws.max_column + 1, 20))]
+        texts = [str(v).strip() for v in row_vals if isinstance(v, str) and len(str(v).strip()) > 1]
+        nums = [parse_number(v) for v in row_vals if parse_number(v) is not None and parse_number(v) > 0]
+        if texts and nums:
+            name = texts[0]
+            amount = int(nums[-1])
+            if amount >= 1000:
+                items.append({
+                    "항목명": name,
+                    "규격": texts[1] if len(texts) > 1 else "-",
+                    "수량": 1,
+                    "단위": "식",
+                    "단가": amount,
+                    "금액": amount,
+                    "공종구분": "일반공사"
+                })
+    return items
+
+
+def preview_excel_estimate(
+    excel_bytes: bytes,
+    file_name: str,
+    sheet_name: Optional[str] = None
+) -> Dict[str, Any]:
+    """업로드된 엑셀 견적서를 사전 파싱하여 시트 목록, 품목 수, 총 예산, 주요 공종 비중을 추출합니다."""
+    import io
+    from auditor.loader import load_workbook_safe, find_best_estimate_sheet, read_estimate_sheet
+    from auditor.categorizer import decompose_estimate_by_category
+
+    file_obj = io.BytesIO(excel_bytes)
+    wb = load_workbook_safe(file_obj, file_name)
+    sheets = list(wb.sheetnames)
+
+    target_sheet = sheet_name if (sheet_name and sheet_name in sheets) else None
+    if not target_sheet:
+        target_sheet, _ = find_best_estimate_sheet(wb)
+
+    items = []
+    try:
+        items, _, _, _ = read_estimate_sheet(wb[target_sheet], file_name, target_sheet)
+    except Exception:
+        for s in sheets:
+            if s != target_sheet:
+                try:
+                    c_items, _, _, _ = read_estimate_sheet(wb[s], file_name, s)
+                    if c_items:
+                        items = c_items
+                        target_sheet = s
+                        break
+                except Exception:
+                    continue
+        if not items:
+            items = extract_raw_items_from_sheet(wb[target_sheet])
+
+    decomp = decompose_estimate_by_category(items)
+    total_budget = int(decomp.get("total_amount", 0))
+    if total_budget <= 0:
+        total_budget = sum(int(it.get("금액") or 0) for it in items)
+
+    mats = set()
+    for it in items:
+        name = str(it.get("항목명") or "")
+        spec = str(it.get("규격") or "")
+        for m in ["갈바", "EGI", "스틸", "MDF", "아크릴", "LED", "실사", "포맥스", "조명", "NC가공", "도장"]:
+            if m.lower() in (name + spec).lower():
+                mats.add(m)
+    mats_list = list(mats)[:5] or ["제작 자재", "우레탄 도장", "아크릴"]
+
+    cat_breakdown = {}
+    for cat, data in decomp.get("categories", {}).items():
+        amt = data.get("amount", 0)
+        if amt > 0:
+            cat_breakdown[cat] = amt
+
+    return {
+        "sheets": sheets,
+        "selected_sheet": target_sheet,
+        "item_count": len(items),
+        "total_budget": total_budget,
+        "categories": cat_breakdown,
+        "materials": mats_list,
+        "items_sample": items[:5]
+    }
+
+
 def save_new_learned_case(
     image_bytes: Optional[bytes],
     name: str,
@@ -130,9 +336,11 @@ def save_new_learned_case(
     labor_md: float,
     key_specs: str,
     benchmark_cites: str,
-    preset_img_key: Optional[str] = None
+    preset_img_key: Optional[str] = None,
+    register_to_projects: bool = True,
+    existing_project_id: Optional[str] = None
 ) -> Dict[str, Any]:
-    """새로운 과거 제작 실적(이미지+금액+스펙)을 AI 에이전트에 영구 학습시킵니다."""
+    """새로운 과거 제작 실적(이미지+금액+스펙)을 AI 에이전트에 영구 학습시키고 기준 프로젝트 DB에 동기화합니다."""
     ensure_storage_ready()
     cases = load_learned_cases()
 
@@ -157,8 +365,48 @@ def save_new_learned_case(
 
     unit_cost = round(settled_amount / unit_count) if unit_count > 0 else settled_amount
 
+    # 엑셀 파일이 없는 경우, 자동 비교 감리가 가능하도록 표준 기준 견적서 엑셀 생성 및 projects.json 등록
+    proj_id = existing_project_id
+    if register_to_projects and not proj_id:
+        excel_fname = f"CONFIRMED_{case_id}.xlsx"
+        excel_sample_path = DATA_DIR / "samples" / excel_fname
+        excel_data_path = DATA_DIR / excel_fname
+        try:
+            from auditor.projects import save_project
+            sheet_title = create_synthetic_confirmed_workbook(
+                name=name,
+                client=client or "삼성전자 / 제일기획",
+                settled_amount=int(settled_amount),
+                materials=materials,
+                labor_md=float(labor_md),
+                key_specs=key_specs,
+                target_path=excel_sample_path
+            )
+            excel_data_path.write_bytes(excel_sample_path.read_bytes())
+
+            proj_id = f"P_{case_id}"
+            proj_record = {
+                "project_id": proj_id,
+                "name": f"⭐ [공인실적] {name}",
+                "client": client or "삼성전자 / 제일기획",
+                "site": scale or "지정 베뉴",
+                "currency": "KRW",
+                "status": "광고주 컨펌 완료",
+                "sample_estimate": excel_fname,
+                "sample_change": None,
+                "default_sheet": sheet_title,
+                "total_budget": int(settled_amount),
+                "item_count": max(len(materials) + 2, unit_count),
+                "studied_at": "최근 학습",
+                "is_studied_asset": True
+            }
+            save_project(proj_record)
+        except Exception as e:
+            print(f"Warning: could not register synthetic baseline project: {e}")
+
     new_case = {
         "case_id": case_id,
+        "project_id": proj_id,
         "name": name,
         "client": client or "제일기획 / 주요 광고주",
         "project_type": project_type,
@@ -251,16 +499,21 @@ def study_and_assetize_excel_estimate(
     project_name: str,
     client: str = "삼성전자 / 제일기획",
     venue: str = "베뉴 미정",
-    currency: str = "KRW"
+    currency: str = "KRW",
+    sheet_name: Optional[str] = None,
+    image_bytes: Optional[bytes] = None
 ) -> Tuple[Dict[str, Any], Dict[str, Any], List[Dict[str, Any]]]:
     """클라이언트가 확정한 엑셀 견적서를 심층 스터디(자산화)하여 에이전트 기준 데이터베이스에 영구 등록합니다."""
-    import datetime
     from auditor.loader import load_workbook_safe, find_best_estimate_sheet, read_estimate_sheet
     from auditor.categorizer import decompose_estimate_by_category
     from auditor.projects import save_project
 
     # 1. 파일 안전 저장
-    safe_fname = file_name.replace(" ", "_")
+    clean_name = re.sub(r'[^a-zA-Z0-9_\-\.\uac00-\ud7a3]', '_', file_name)
+    if not clean_name.lower().endswith(".xlsx"):
+        clean_name += ".xlsx"
+    safe_fname = clean_name
+
     target_path = DATA_DIR / safe_fname
     target_sample_path = DATA_DIR / "samples" / safe_fname
 
@@ -268,20 +521,44 @@ def study_and_assetize_excel_estimate(
     DATA_DIR.joinpath("samples").mkdir(parents=True, exist_ok=True)
     target_sample_path.write_bytes(excel_bytes)
 
-    # 2. 워크북 및 최적 시트 로드
+    # 2. 워크북 및 대상 시트 로드
     wb = load_workbook_safe(target_sample_path, safe_fname)
-    best_sheet, _ = find_best_estimate_sheet(wb)
-    items, _, _, _ = read_estimate_sheet(wb[best_sheet], safe_fname, best_sheet)
+    sheets = list(wb.sheetnames)
+    target_sheet = sheet_name if (sheet_name and sheet_name in sheets) else None
+    if not target_sheet:
+        target_sheet, _ = find_best_estimate_sheet(wb)
+
+    items = []
+    try:
+        items, _, _, _ = read_estimate_sheet(wb[target_sheet], safe_fname, target_sheet)
+    except Exception:
+        # Fallback to other sheets
+        for s in sheets:
+            if s != target_sheet:
+                try:
+                    c_items, _, _, _ = read_estimate_sheet(wb[s], safe_fname, s)
+                    if c_items:
+                        items = c_items
+                        target_sheet = s
+                        break
+                except Exception:
+                    continue
+        if not items:
+            items = extract_raw_items_from_sheet(wb[target_sheet])
 
     # 3. 7대 공종 분해 및 원가 구조 스터디
     decomp = decompose_estimate_by_category(items)
     total_budget = int(decomp.get("total_amount", 0))
+    if total_budget <= 0:
+        total_budget = sum(int(it.get("금액") or 0) for it in items)
+    if total_budget <= 0:
+        total_budget = 30000000
 
     # 주요 자재 및 키워드 추출
     mats = set()
     for it in items:
-        name = it.get("항목명", "")
-        spec = it.get("규격", "")
+        name = str(it.get("항목명") or "")
+        spec = str(it.get("규격") or "")
         for m in ["갈바", "EGI", "스틸", "MDF", "아크릴", "LED", "실사", "포맥스", "조명", "NC가공", "도장"]:
             if m.lower() in (name + spec).lower():
                 mats.add(m)
@@ -293,14 +570,14 @@ def study_and_assetize_excel_estimate(
 
     proj_record = {
         "project_id": proj_id,
-        "name": f"⭐ [자산화] {project_name}",
-        "client": client,
-        "site": venue,
-        "currency": currency,
+        "name": f"⭐ [공인기준] {project_name}",
+        "client": client or "삼성전자 / 제일기획",
+        "site": venue or "지정 베뉴",
+        "currency": currency or "KRW",
         "status": "광고주 컨펌 완료",
         "sample_estimate": safe_fname,
         "sample_change": None,
-        "default_sheet": best_sheet,
+        "default_sheet": target_sheet,
         "total_budget": total_budget,
         "item_count": len(items),
         "studied_at": today_str,
@@ -310,20 +587,22 @@ def study_and_assetize_excel_estimate(
 
     # 5. learned_cases.json에도 학습 실적으로 동기화 등록
     save_new_learned_case(
-        image_bytes=None,
+        image_bytes=image_bytes,
         name=project_name,
         client=client,
         project_type="클라이언트 확정 기준 견적서",
-        settled_amount=total_budget or 30000000,
+        settled_amount=total_budget,
         scale="실적 확정 규모",
         unit_count=max(len(items), 1),
         unit_label="품목수",
         tier="광고주 컨펌 완료 (Standard/Premium)",
         materials=materials_list,
-        labor_md=10.0,
-        key_specs=f"시트: {best_sheet} | 총 {len(items)}개 품목 정산 완료 | 7대 공종 원가 정규화 완료",
+        labor_md=round(len(items) * 0.4, 1) or 10.0,
+        key_specs=f"시트: {target_sheet} | 총 {len(items)}개 품목 정산 완료 | 7대 공종 원가 정규화 완료",
         benchmark_cites="광고주 최종 컨펌 기준 및 공공 표준 단가",
-        preset_img_key="DS_CAMPUS"
+        preset_img_key="DS_CAMPUS",
+        register_to_projects=False,
+        existing_project_id=proj_id
     )
 
     return proj_record, decomp, items

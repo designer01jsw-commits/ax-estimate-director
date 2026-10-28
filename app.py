@@ -655,14 +655,32 @@ def main():
         st.sidebar.error("등록된 프로젝트가 없습니다.")
         return
 
+    # 1단계: 기준 견적 프로젝트 인덱스 결정
+    target_idx = 0
+    if "selected_proj_id" in st.session_state:
+        for idx, p in enumerate(projects):
+            if p.get("project_id") == st.session_state["selected_proj_id"]:
+                target_idx = idx
+                break
+    else:
+        has_studied = any(p.get("is_studied_asset") for p in projects)
+        if has_studied:
+            target_idx = 0
+        else:
+            target_idx = 3 if len(projects) > 3 else 0
+
+    target_idx = max(0, min(target_idx, len(projects) - 1))
+
     proj_labels = [f"[{p['project_id']}] {p['name']}" for p in projects]
     selected_idx = st.sidebar.selectbox(
         "기준 견적 데이터셋 선택 (광고주 컨펌 완료)",
         range(len(proj_labels)),
         format_func=lambda x: proj_labels[x],
-        index=3 if len(proj_labels) > 3 else 0  # 기준견적서4 기본 포커스 지원
+        index=target_idx,
+        key=f"sb_baseline_proj_select_{len(proj_labels)}"
     )
     selected_proj = projects[selected_idx]
+    st.session_state["selected_proj_id"] = selected_proj.get("project_id")
 
     currency = selected_proj.get("currency", "KRW")
     proj_id = selected_proj.get("project_id", "PROJ")

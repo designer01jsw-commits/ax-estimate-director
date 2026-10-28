@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
+import json
+from pathlib import Path
 import pytest
+from auditor.projects import load_projects, DEFAULT_PROJECTS_FILE
 from auditor.learning_engine import (
     load_learned_cases,
     save_new_learned_case,
     find_similar_learned_cases,
-    get_learning_statistics
+    get_learning_statistics,
+    CASES_FILE
 )
 
 def test_load_learned_cases():
@@ -48,7 +52,8 @@ def test_save_new_learned_case_and_stats():
         labor_md=12.0,
         key_specs="MDF 가벽 및 목공 시공",
         benchmark_cites="KBIZ 시중노임 준용",
-        preset_img_key="GALAXY_POPUP"
+        preset_img_key="GALAXY_POPUP",
+        register_to_projects=True
     )
 
     assert new_case["unit_cost"] == 5000000
@@ -57,3 +62,24 @@ def test_save_new_learned_case_and_stats():
     updated_stats = get_learning_statistics()
     assert updated_stats["total_cases"] == initial_count + 1
     assert updated_stats["total_learned_budget"] >= 50000000
+
+    # Clean up test entry from learned_cases.json
+    cases = load_learned_cases()
+    clean_cases = [c for c in cases if c.get("case_id") != new_case["case_id"]]
+    with open(CASES_FILE, "w", encoding="utf-8") as f:
+        json.dump(clean_cases, f, ensure_ascii=False, indent=2)
+
+    # Clean up test entry from projects.json
+    projects, _ = load_projects()
+    clean_projects = [p for p in projects if p.get("project_id") != new_case.get("project_id")]
+    with open(DEFAULT_PROJECTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(clean_projects, f, ensure_ascii=False, indent=2)
+
+    # Clean up any test excel and image file
+    for p in [Path(f"data/CONFIRMED_{new_case['case_id']}.xlsx"), Path(f"data/samples/CONFIRMED_{new_case['case_id']}.xlsx")]:
+        if p.exists():
+            p.unlink(missing_ok=True)
+    if new_case.get("image_file"):
+        (Path("data/learned_images") / new_case["image_file"]).unlink(missing_ok=True)
+    for p in Path("data/learned_images").glob(f"{new_case['case_id']}*"):
+        p.unlink(missing_ok=True)
