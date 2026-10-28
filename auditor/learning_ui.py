@@ -109,12 +109,21 @@ def render_learning_studio_ui(currency: str = "KRW"):
             selected_sheet_override = None
 
             if ex_file is not None:
-                try:
-                    file_bytes = ex_file.getvalue()
-                    preview_data = preview_excel_estimate(file_bytes, ex_file.name)
-                    clean_title = ex_file.name.replace(".xlsx", "").replace(".xls", "").replace("_", " ")
-                    default_proj_name = f"{clean_title}"
+                cache_key = f"prev_cache_{ex_file.name}_{ex_file.size}"
+                if cache_key not in st.session_state:
+                    with st.spinner("AI가 확정 견적서를 정밀 분석 중입니다..."):
+                        try:
+                            file_bytes = ex_file.getvalue()
+                            st.session_state[cache_key] = preview_excel_estimate(file_bytes, ex_file.name)
+                        except Exception as ex_prev:
+                            st.warning(f"견적서 사전 분석 중 참고 알림: {str(ex_prev)}")
+                            st.session_state[cache_key] = None
 
+                preview_data = st.session_state.get(cache_key)
+                clean_title = ex_file.name.replace(".xlsx", "").replace(".xls", "").replace("_", " ")
+                default_proj_name = f"{clean_title}"
+
+                if preview_data:
                     # AI 실시간 분석 리포트 카드 (Mastercard Editorial Stadium Card)
                     st.markdown(f"""<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone); padding: 20px 24px; margin: 16px 0;">
 <div class="mc-eyebrow" style="margin-bottom: 6px;"><span class="mc-eyebrow-dot"></span><span>AI ESTIMATE AUTO-ANALYSIS REPORT</span></div>
@@ -147,10 +156,6 @@ def render_learning_studio_ui(currency: str = "KRW"):
                         )
                     else:
                         selected_sheet_override = preview_data["selected_sheet"]
-
-                except Exception as ex_prev:
-                    st.warning(f"견적서 사전 분석 중 참고 알림: {str(ex_prev)}")
-                    default_proj_name = ex_file.name.replace(".xlsx", "").replace(".xls", "").replace("_", " ")
 
             with st.form("form_study_client_confirmed_excel", clear_on_submit=False):
                 fx1, fx2 = st.columns(2)

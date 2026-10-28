@@ -236,8 +236,10 @@ def extract_raw_items_from_sheet(ws) -> List[Dict[str, Any]]:
     """헤더가 표준 형식이 아닐 때도 셀을 탐색하여 품목과 금액을 최대한 복원합니다."""
     from auditor.loader import parse_number
     items = []
-    for r in range(1, min(ws.max_row + 1, 300)):
-        row_vals = [ws.cell(r, c).value for c in range(1, min(ws.max_column + 1, 20))]
+    max_r = min(getattr(ws, "max_row", 50) or 50, 150)
+    max_c = min(getattr(ws, "max_column", 15) or 15, 15)
+    for r in range(1, max_r + 1):
+        row_vals = [ws.cell(r, c).value for c in range(1, max_c + 1)]
         texts = [str(v).strip() for v in row_vals if isinstance(v, str) and len(str(v).strip()) > 1]
         nums = [parse_number(v) for v in row_vals if parse_number(v) is not None and parse_number(v) > 0]
         if texts and nums:
@@ -263,6 +265,7 @@ def preview_excel_estimate(
 ) -> Dict[str, Any]:
     """업로드된 엑셀 견적서를 사전 파싱하여 시트 목록, 품목 수, 총 예산, 주요 공종 비중을 추출합니다."""
     import io
+    import gc
     from auditor.loader import load_workbook_safe, find_best_estimate_sheet, read_estimate_sheet
     from auditor.categorizer import decompose_estimate_by_category
 
@@ -310,6 +313,9 @@ def preview_excel_estimate(
         amt = data.get("amount", 0)
         if amt > 0:
             cat_breakdown[cat] = amt
+
+    del wb
+    gc.collect()
 
     return {
         "sheets": sheets,
@@ -509,10 +515,9 @@ def study_and_assetize_excel_estimate(
     from auditor.projects import save_project
 
     # 1. 파일 안전 저장
-    clean_name = re.sub(r'[^a-zA-Z0-9_\-\.\uac00-\ud7a3]', '_', file_name)
-    if not clean_name.lower().endswith(".xlsx"):
-        clean_name += ".xlsx"
-    safe_fname = clean_name
+    base_stem = Path(file_name).stem
+    clean_stem = re.sub(r'[^a-zA-Z0-9_\-\uac00-\ud7a3]', '_', base_stem)
+    safe_fname = f"{clean_stem}.xlsx"
 
     target_path = DATA_DIR / safe_fname
     target_sample_path = DATA_DIR / "samples" / safe_fname
@@ -553,6 +558,11 @@ def study_and_assetize_excel_estimate(
         total_budget = sum(int(it.get("금액") or 0) for it in items)
     if total_budget <= 0:
         total_budget = 30000000
+
+    # 메모리 해제
+    del wb
+    import gc
+    gc.collect()
 
     # 주요 자재 및 키워드 추출
     mats = set()

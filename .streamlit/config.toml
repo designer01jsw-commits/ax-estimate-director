@@ -4,6 +4,10 @@ enableCORS = false
 enableXsrfProtection = false
 maxUploadSize = 200
 enableStaticServing = true
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
 
 [theme]
 primaryColor = '#CF4500'
