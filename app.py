@@ -923,42 +923,83 @@ def main():
         match_mode = st.sidebar.radio(
             "시트 매칭 방식",
             ["동일 시트명 1:1 자동 대조", "서로 다른 시트 수동 매칭"],
-            index=0
+            index=0,
+            key=f"radio_match_mode_{rev_file_name}"
         )
 
+        safe_default_idx = max(0, min(default_idx, len(common_sheets) - 1))
         if match_mode == "동일 시트명 1:1 자동 대조":
             selected_common = st.sidebar.selectbox(
                 "대조할 동일 시트 선택",
                 common_sheets,
-                index=default_idx
+                index=safe_default_idx,
+                key=f"sb_common_sheet_{rev_file_name}"
             )
             sheet_orig_selected = selected_common
             sheet_rev_selected = selected_common
             st.sidebar.caption(f"기준: `{sheet_orig_selected}` ⟷ 변경: `{sheet_rev_selected}`")
         else:
-            sheet_orig_selected = st.sidebar.selectbox("최초 견적서 시트 선택", orig_sheets, index=0)
-            sheet_rev_selected = st.sidebar.selectbox("변경 내역서 시트 선택", rev_sheets, index=0)
+            sheet_orig_selected = st.sidebar.selectbox("최초 견적서 시트 선택", orig_sheets, index=0, key=f"sb_orig_m_{proj_id}")
+            sheet_rev_selected = st.sidebar.selectbox("변경 내역서 시트 선택", rev_sheets, index=0, key=f"sb_rev_m_{rev_file_name}")
     else:
         best_orig_sheet, best_orig_idx = find_best_estimate_sheet(wb_orig, selected_proj.get("default_sheet"))
         best_rev_sheet, best_rev_idx = find_best_estimate_sheet(wb_rev)
         
+        safe_orig_idx = max(0, min(best_orig_idx, len(orig_sheets) - 1))
+        safe_rev_idx = max(0, min(best_rev_idx, len(rev_sheets) - 1))
+        
         st.sidebar.info(f"💡 양쪽 파일의 시트명이 다릅니다.\n추천 견적 시트: 기준 [{best_orig_sheet}] ⟷ 대조 [{best_rev_sheet}]")
-        sheet_orig_selected = st.sidebar.selectbox("기준 견적서 시트 선택", orig_sheets, index=best_orig_idx)
-        sheet_rev_selected = st.sidebar.selectbox("대조 견적서 시트 선택", rev_sheets, index=best_rev_idx)
+        sheet_orig_selected = st.sidebar.selectbox("기준 견적서 시트 선택", orig_sheets, index=safe_orig_idx, key=f"sb_orig_diff_{proj_id}")
+        sheet_rev_selected = st.sidebar.selectbox("대조 견적서 시트 선택", rev_sheets, index=safe_rev_idx, key=f"sb_rev_diff_{rev_file_name}")
 
     # 세션 상태 사용자 매칭 결정 맵
     decision_key = f"decisions_{proj_id}_{sheet_orig_selected}_{sheet_rev_selected}"
     if decision_key not in st.session_state:
         st.session_state[decision_key] = {}
 
+    # 1. 기준 견적 시트 로드 & 검증
     try:
-        # 시트 가져오기
         ws_orig_est = wb_orig[sheet_orig_selected]
-        ws_rev_est = wb_rev[sheet_rev_selected]
-
-        # 파싱 실행
         orig_items, mismatches_orig, orig_dup, orig_warn = read_estimate_sheet(ws_orig_est, orig_file_name, sheet_orig_selected)
+    except Exception as e:
+        st.error(f"❌ 기준 견적서 시트(‘{sheet_orig_selected}’) 로드 실패: {str(e)}")
+        st.info("💡 좌측 사이드바 [1단계]에서 다른 기준 프로젝트를 선택해 주세요.")
+        return
+
+    # 2. 신규 견적 시트 로드 & 자동 폴백 검증
+    try:
+        ws_rev_est = wb_rev[sheet_rev_selected]
         rev_items, mismatches_rev, rev_dup, rev_warn = read_estimate_sheet(ws_rev_est, rev_file_name, sheet_rev_selected)
+    except Exception as e:
+        found_working_sheet = False
+        for alt_s in rev_sheets:
+            if alt_s != sheet_rev_selected:
+                try:
+                    alt_items, alt_mismatches, alt_dup, alt_warn = read_estimate_sheet(wb_rev[alt_s], rev_file_name, alt_s)
+                    if alt_items:
+                        rev_items = alt_items
+                        mismatches_rev = alt_mismatches
+                        rev_dup = alt_dup
+                        rev_warn = alt_warn + [f"선택된 ‘{sheet_rev_selected}’ 시트에 견적 항목이 없어, 데이터가 확인된 ‘{alt_s}’ 시트로 자동 전환했습니다."]
+                        sheet_rev_selected = alt_s
+                        found_working_sheet = True
+                        st.sidebar.info(f"💡 견적 데이터가 감지된 ‘{alt_s}’ 시트로 자동 전환되었습니다.")
+                        break
+                except Exception:
+                    continue
+        if not found_working_sheet:
+            st.error(f"❌ 업로드하신 신규 견적서 파일({rev_file_name})의 ‘{sheet_rev_selected}’ 시트에서 유효한 견적 데이터를 읽지 못했습니다.")
+            st.warning(f"상세 사유: {str(e)}")
+            st.info(f"💡 업로드 파일 내 전체 시트 목록: **{', '.join(rev_sheets)}**\n\n좌측 사이드바의 **[대조 견적서 시트 선택]**에서 실제 견적 내역(품목명, 단가/금액)이 포함된 시트를 직접 선택해 주세요.")
+            return
+
+    # 실제 파싱된 시트명으로 동기화
+    if rev_items and rev_items[0].get("원본시트"):
+        sheet_rev_selected = rev_items[0]["원본시트"]
+    if orig_items and orig_items[0].get("원본시트"):
+        sheet_orig_selected = orig_items[0]["원본시트"]
+
+    try:
 
         # 인력 시트 스마트 탐색
         orig_labor, orig_lab_warn = [], []

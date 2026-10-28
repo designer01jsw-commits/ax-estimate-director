@@ -21,31 +21,57 @@ from auditor.schema import (
 )
 
 def clean_col_name(name: Any) -> str:
-    """열 이름의 공백 및 특수문자를 정규화하고 별칭 맵을 적용합니다."""
+    """열 이름의 공백 및 특수문자를 정규화하고 별칭 맵 및 지능형 키워드를 적용합니다."""
     if name is None:
         return ""
     text = str(name).strip().replace(" ", "").replace("\n", "").replace("\r", "")
     lowered = text.lower()
-    return COLUMN_ALIASES.get(lowered, COLUMN_ALIASES.get(text, text))
+    if lowered in COLUMN_ALIASES:
+        return COLUMN_ALIASES[lowered]
+    if text in COLUMN_ALIASES:
+        return COLUMN_ALIASES[text]
+    
+    # 지능형 키워드 매칭
+    if "단가" in text and not any(k in text for k in ["합계", "총", "소계"]):
+        return "단가"
+    if any(k in text for k in ["금액", "공급가", "합계", "총액", "비용", "청구액", "정산액"]) and "단가" not in text:
+        return "금액"
+    if any(k in text for k in ["수량", "소요량"]) or text in ["qty", "cnt"]:
+        return "수량"
+    if any(k in text for k in ["품명", "품목", "항목", "공종명", "작업명", "내역명"]) and not any(k in text for k in ["코드", "단가", "금액"]):
+        return "항목명"
+    return text
 
 def parse_number(val: Any) -> Optional[float]:
-    """통화 기호, 쉼표, 한글 단위 등을 제거하고 숫자로 변환합니다. 실패 시 None 반환."""
+    """통화 기호, 쉼표, 한글 단위, VAT별도 표기 등을 지능적으로 추출하여 숫자로 변환합니다."""
     if val is None or val == "":
         return None
     if isinstance(val, (int, float)):
         return float(val)
     
     s = str(val).strip()
-    if not s:
+    if not s or s in ["-", "0", "0.0", "별도", "협의", "무료", "포함", "N/A", "nan", "none"]:
+        if s == "0" or s == "0.0":
+            return 0.0
         return None
     
-    cleaned = re.sub(r"[₩$€원,\s]", "", s)
+    # 1. 1차 통화 기호 및 쉼표 정제
+    cleaned = re.sub(r"[₩$€원\s]", "", s)
     try:
-        return float(cleaned)
+        return float(cleaned.replace(",", ""))
     except ValueError:
-        return None
+        pass
+        
+    # 2. 텍스트가 섞여 있는 경우 (예: '1,500,000(VAT별도)', '₩ 200,000원') 정규식 숫자 추출
+    m = re.search(r"[-+]?\d[\d,]*\.?\d*", s)
+    if m:
+        try:
+            return float(m.group(0).replace(",", ""))
+        except ValueError:
+            return None
+    return None
 
-def find_header_row(ws, required_cols: Optional[List[str]] = None, max_rows: int = 35) -> Tuple[Optional[int], Dict[str, int]]:
+def find_header_row(ws, required_cols: Optional[List[str]] = None, max_rows: int = 50) -> Tuple[Optional[int], Dict[str, int]]:
     """첫 max_rows 행 안에서 유효한 머리글 행을 찾아 (행번호, {정규화열이름: 열인덱스(0-based)})를 반환합니다.
     단가나 수량 열이 없더라도 항목명과 금액(또는 소항목/규격)이 있으면 유효 머리글로 인정합니다.
     """
@@ -85,11 +111,24 @@ def find_header_row(ws, required_cols: Optional[List[str]] = None, max_rows: int
     return None, {}
 
 def load_workbook_safe(file_input: Union[str, Path, Any], file_name: str) -> openpyxl.Workbook:
-    """엑셀 워크북을 안전하게 로드합니다."""
+    """엑셀 워크북을 안전하게 로드합니다. (Streamlit UploadedFile 및 스트림 재탐색 지원)"""
     try:
+        if hasattr(file_input, "seek"):
+            file_input.seek(0)
         wb = openpyxl.load_workbook(file_input, data_only=True)
         return wb
     except (InvalidFileException, Exception) as e:
+        # 스트림 재시도 및 BytesIO 변환 복구
+        if hasattr(file_input, "seek"):
+            file_input.seek(0)
+        try:
+            import io
+            if hasattr(file_input, "read"):
+                b_data = file_input.read()
+                wb = openpyxl.load_workbook(io.BytesIO(b_data), data_only=True)
+                return wb
+        except Exception:
+            pass
         raise ValidationError(
             f"‘{file_name}’는 엑셀(.xlsx) 파일이 아닙니다. .xlsx로 저장한 뒤 다시 올려 주세요.",
             file_name=file_name
@@ -338,6 +377,22 @@ def read_estimate_sheet(
         })
 
     if not items:
+        # 워크북 내 다른 시트 자동 탐색 (표지/갑지 등 무효 시트 제외하고 실제 내역이 있는 시트 탐색)
+        wb = getattr(ws, "parent", None)
+        if wb is not None:
+            for s in wb.sheetnames:
+                if s != sheet_name:
+                    try:
+                        alt_hdr, alt_map = find_header_row(wb[s], required_cols)
+                        if alt_hdr is not None and ("단가" in alt_map or "금액" in alt_map):
+                            # 다른 시트 파싱 재시도
+                            alt_items, alt_mismatches, alt_dup, alt_warn = read_estimate_sheet(wb[s], file_name, s, required_cols)
+                            if alt_items:
+                                return alt_items, alt_mismatches, alt_dup, alt_warn + [
+                                    f"‘{sheet_name}’ 시트 대신 유효 견적 항목({len(alt_items)}건)이 확인된 ‘{s}’ 시트로 자동 대체했습니다."
+                                ]
+                    except Exception:
+                        continue
         raise ValidationError(
             f"‘{sheet_name}’ 시트에 계산할 수 있는 항목이 없습니다.",
             file_name=file_name,
