@@ -140,9 +140,10 @@ def analyze_image_features(image_file, hints: Optional[str] = None) -> Dict[str,
 def find_ground_truth_kit(
     hints: str = "",
     project_type: str = "",
-    preset_key: Optional[str] = None
+    preset_key: Optional[str] = None,
+    scale: str = ""
 ) -> Optional[Dict[str, Any]]:
-    """실제 44개 키트 백데이터(키트_견적산출_백데이터_v2.xlsx)에서 가장 유사한 실제 프로젝트를 찾아 지상진실(Ground Truth) 벤치마크로 반환합니다."""
+    """실제 44개 키트 백데이터 및 3대 대형 전시 공인 실적에서 가장 유사한 실제 프로젝트를 찾아 지상진실(Ground Truth) 벤치마크로 반환합니다."""
     if not CASES_FILE.exists():
         return None
     try:
@@ -151,11 +152,42 @@ def find_ground_truth_kit(
     except Exception:
         return None
 
-    # 1. Preset Key 직접 매칭 (M02_CXP -> M02)
+    # 1. Preset Key 직접 매칭 (M02_CXP -> M02, KES_2025 -> CASE_2025_KES_MEGA 등)
     if preset_key:
+        if preset_key in ("KES_2025", "WIS_2026", "GALAXY_AUG"):
+            target_cid = {
+                "KES_2025": "CASE_2025_KES_MEGA",
+                "WIS_2026": "CASE_2026_WIS_COEX",
+                "GALAXY_AUG": "CASE_2026_GALAXY_AUG"
+            }[preset_key]
+            for c in cases:
+                if c.get("case_id") == target_cid or c.get("preset_img_key") == preset_key:
+                    tot_amt = c.get("settled_amount", 0)
+                    proto_c = c.get("prototype_cost", round(tot_amt * 0.15))
+                    fab_c = c.get("fabrication_cost", round(tot_amt * 0.75))
+                    u_fab = c.get("unit_cost", round(fab_c / max(c.get("unit_count", 1), 1)))
+                    return {
+                        "matched": True,
+                        "kit_id": preset_key,
+                        "case_id": c.get("case_id"),
+                        "name": c.get("name"),
+                        "project_name": c.get("name"),
+                        "settled_amount": tot_amt,
+                        "prototype_cost": proto_c,
+                        "fabrication_cost": fab_c,
+                        "unit_fabrication_cost": u_fab,
+                        "labor_md": c.get("labor_md", 0),
+                        "image_file": c.get("image_file"),
+                        "image_path": str(IMAGES_DIR / c.get("image_file")) if c.get("image_file") else None,
+                        "key_specs": c.get("key_specs", ""),
+                        "features": c.get("materials", []),
+                        "similarity_score": 98.5,
+                        "materials": c.get("materials", [])
+                    }
+
         kid = preset_key.split("_")[0]
         for c in cases:
-            if c.get("kit_id") == kid:
+            if c.get("kit_id") == kid or c.get("case_id") == preset_key:
                 return {
                     "matched": True,
                     "kit_id": c.get("kit_id"),
@@ -249,22 +281,39 @@ def estimate_costs_from_vision(
     gt_match = find_ground_truth_kit(
         hints=hints or features.get("hints_applied", ""),
         project_type=project_type,
-        preset_key=preset_key
+        preset_key=preset_key,
+        scale=scale
     )
 
-    # 2. 규모 계수 (Scale Multiplier)
-    if "소형" in scale:
-        scale_qty = 1.0
-        kit_units = 1
-        area_m2 = 12.0
-    elif "대형" in scale:
+    # 2. 규모 계수 (Scale Multiplier) 및 대형 전시 규모 판정
+    is_mega_expo_300 = "초대형 엑스포" in scale or "300평" in scale
+    is_mega_exhibit_200 = "초대형 메가" in scale or "200평" in scale
+    is_large_exhibit_100 = "대형 전시" in scale or "50~100평" in scale or "100평" in scale
+
+    if is_mega_expo_300:
+        scale_qty = 15.0
+        kit_units = 32
+        area_m2 = 990.0  # 300평 이상 (KES급 코엑스 메가 전시장)
+    elif is_mega_exhibit_200:
+        scale_qty = 10.0
+        kit_units = 22
+        area_m2 = 660.0  # 200평 이상 (WIS급 코엑스 메인 전시관)
+    elif is_large_exhibit_100:
+        scale_qty = 6.0
+        kit_units = 14
+        area_m2 = 250.0  # 50~100평 (갤럭시스튜디오 멀티 베뉴 팝업)
+    elif "대형" in scale or "20평" in scale:
         scale_qty = 2.5
         kit_units = 8
         area_m2 = 66.0
-    else:  # 중형
+    elif "중형" in scale or "5~15평" in scale:
         scale_qty = 1.5
         kit_units = 3
         area_m2 = 30.0
+    else:  # 소형
+        scale_qty = 1.0
+        kit_units = 1
+        area_m2 = 12.0
 
     if has_buffer:
         kit_units += 1  # FAQ 08: 예비 버퍼 1대 추가 반영
@@ -393,6 +442,34 @@ def estimate_costs_from_vision(
             "비고": "FAQ 07: 보안 및 충전 일체형"
         })
 
+    # 대형 전시관(100평, 200평, 300평) 상부 트러스 및 대형 비주얼 구조물 (KES/WIS/갤럭시스튜디오 실적 연동)
+    if is_mega_expo_300 or is_mega_exhibit_200 or is_large_exhibit_100:
+        truss_rate = 9000000
+        items.append({
+            "구분": "II. 기구제작·자재비",
+            "항목명": "상부 대형 조명 트러스 및 전시장 리깅 시스템",
+            "규격사양": "코엑스 전시장 상부 바텐 와이어 리깅 및 알루미늄 조명 트러스 일체",
+            "수량": 1,
+            "단위": "식",
+            "단가": round(truss_rate * scale_qty),
+            "금액": round(truss_rate * scale_qty),
+            "공공기준_근거": "2025 KES 한국전자전 / 2026 WIS 코엑스 전시제작 공인실적 기준",
+            "비고": "대형 베뉴 상부 조명 및 천장 구조물 고정"
+        })
+
+        led_wall_rate = 7500000
+        items.append({
+            "구분": "II. 기구제작·자재비",
+            "항목명": "대형 비주얼 LED 디스플레이 파사드 및 맞춤 벽장",
+            "규격사양": "75인치 상업용 디스플레이 매립 벽장 및 고해상도 LED 미디어 월",
+            "수량": 1,
+            "단위": "식",
+            "단가": round(led_wall_rate * scale_qty),
+            "금액": round(led_wall_rate * scale_qty),
+            "공공기준_근거": "조달청 대형 멀티비전 등록단가 및 KES 실적(80개 항목) 준용",
+            "비고": "AI HOME Living Room 및 브랜드 메가 비주얼"
+        })
+
     # -------------------------------------------------------------
     # III. 디지털 SW 및 하드웨어 연동비 (KOSA SW사업 대가산정 기준)
     # -------------------------------------------------------------
@@ -474,6 +551,20 @@ def estimate_costs_from_vision(
         "공공기준_근거": "화물운송 표준요율 및 감리품셈",
         "비고": "키트 안전 상하차 포함"
     })
+
+    if is_mega_expo_300 or is_mega_exhibit_200 or is_large_exhibit_100:
+        insure_rate = 1500000
+        items.append({
+            "구분": "IV. 현장시공·설치/철거",
+            "항목명": "전시장 필수 법정보험료 및 안전관리자 상주",
+            "규격사양": "고용보험, 산재보험, 영업배상책임보험 및 법정 안전관리자 상주",
+            "수량": 1,
+            "단위": "식",
+            "단가": round(insure_rate * scale_qty),
+            "금액": round(insure_rate * scale_qty),
+            "공공기준_근거": "산업안전보건법 및 코엑스 전시장 안전관리 규정 (KES 3.-111 준용)",
+            "비고": "대형 전시장 의무 가입 항목 (공인실적 정합)"
+        })
 
     # -------------------------------------------------------------
     # V. 일반관리비 및 기업이윤 (KENCA 실비정액가산방식 공식)
@@ -693,6 +784,52 @@ def convert_vision_estimate_to_auditor_items(estimate_data: Dict[str, Any]) -> L
 
 # 2. 비전 데모용 실전 샘플 프리셋 (실제 키트 백데이터 8종 + 전시/베뉴 4종)
 SAMPLE_PRESETS = {
+    # [3대 공인 대형 전시 실적 프리셋 (코엑스 및 멀티 베뉴)]
+    "KES_2025": {
+        "name": "[300평 이상 메가 엑스포] 2025 KES 한국전자전 코엑스 메인관 (공인실적 ₩572,898,438)",
+        "project_type": "대형 행사 / 베뉴 전시",
+        "scale": "초대형 엑스포 전시 (300평 이상 / KES급 메가 전시관)",
+        "tier": "고급형 (Premium - 코엑스 메가 전시)",
+        "hints": "코엑스 메인홀 300평 이상 메가 부스, AI HOME Living Room 및 75인치 TV 벽장, 상부 대형 조명 트러스, 필수보험료 및 안전관리자 상주",
+        "image_file": "2025_KES_MEGA.png",
+        "bg_color": (20, 25, 45),
+        "accent_color": (59, 130, 246),
+        "actual_total": 572898438,
+        "actual_proto": 85000000,
+        "actual_unit_fab": 7161230,
+        "actual_md": 128.5,
+        "case_id": "CASE_2025_KES_MEGA"
+    },
+    "WIS_2026": {
+        "name": "[200평 이상 초대형 전시] 2026 WIS 월드IT쇼 전시관 제작 (공인실적 ₩359,989,875)",
+        "project_type": "대형 행사 / 베뉴 전시",
+        "scale": "초대형 메가 전시 (200평 이상 / WIS급 코엑스 베뉴)",
+        "tier": "고급형 (Premium - 코엑스 대형 전시)",
+        "hints": "코엑스 B홀 200평 메인 전시관, Intro 스페이셜 사이니지 거치대 4대, 현장 시공 및 고용/산재/영업배상 보험료 반영",
+        "image_file": "2026_WIS_COEX.png",
+        "bg_color": (15, 35, 50),
+        "accent_color": (14, 165, 233),
+        "actual_total": 359989875,
+        "actual_proto": 65000000,
+        "actual_unit_fab": 5454392,
+        "actual_md": 86.0,
+        "case_id": "CASE_2026_WIS_COEX"
+    },
+    "GALAXY_AUG": {
+        "name": "[100평형 복합 팝업] 2026 8월 갤럭시 스튜디오 멀티 베뉴 (공인실적 ₩231,000,000)",
+        "project_type": "팝업스토어 / 전시 부스",
+        "scale": "대형 전시 (50~100평 / 메인 부스·단독관)",
+        "tier": "표준형 (Standard - 멀티 베뉴 팝업)",
+        "hints": "더현대서울(8,500만원), 홍대점(6,500만원), 삼성강남(6,600만원), 그래픽(1,500만원) 총 4대 사이트 복합 제작 및 설치",
+        "image_file": "GALAXY_AUG_HYUNDAI.jpg",
+        "bg_color": (30, 25, 40),
+        "accent_color": (245, 158, 11),
+        "actual_total": 231000000,
+        "actual_proto": 45000000,
+        "actual_unit_fab": 8250000,
+        "actual_md": 64.0,
+        "case_id": "CASE_2026_GALAXY_AUG"
+    },
     # [실제 키트 백데이터 연동]
     "M02_CXP": {
         "name": "[S26 미라클] 퍼포먼스 비교 키트 (CXP - 43인치 & CNC 정밀가공)",
