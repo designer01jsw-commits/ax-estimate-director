@@ -1,7 +1,7 @@
 {
   "version": 1,
   "admin_email": "feelingsoo@naver.com",
-  "updated_at": "2026-11-09 16:25:15 KST",
+  "updated_at": "2026-11-09 17:17:49 KST",
   "users": {
     "feelingsoo@naver.com": {
       "email": "feelingsoo@naver.com",
@@ -15,6 +15,21 @@
       "created_at": "2026-10-01 09:00:00 KST",
       "approved_at": "2026-10-01 09:00:00 KST",
       "approved_by": "SYSTEM_INIT"
+    },
+    "jeil.kim@cheil.com": {
+      "email": "jeil.kim@cheil.com",
+      "name": "김제일 프로 (가상신청 테스트)",
+      "department": "제일기획 BX익스피리언스팀",
+      "position": "선임프로",
+      "phone": "010-2026-7788",
+      "reason": "2026 삼성 갤럭시 언팩 전시 실행예산 및 44종 키트 단가 적정성 감리 검증 테스트",
+      "role": "member",
+      "status": "pending",
+      "password_hash": "fxTVG-4-Rr4PbF6zZdRWWzAoYOZlj9rEzxhF_Xrejz4=",
+      "salt": "2Eme_QlD7eDtKfVE8VVqfQ==",
+      "created_at": "2026-11-09 17:17:49 KST",
+      "approved_at": null,
+      "approved_by": null
     }
   }
 }
