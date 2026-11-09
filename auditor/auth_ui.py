@@ -104,11 +104,13 @@ def _render_email_action_screen(action: str, payload: str, sig: str) -> None:
         st.markdown(
             f"""
             <div style="background: var(--surface-lifted); border: 1.5px solid var(--border-stone); border-radius: 18px; padding: 20px 24px; margin-bottom: 24px;">
-                <div style="font-size: 13px; font-weight: 700; color: #CF4500; margin-bottom: 12px;">👤 처리된 회원 정보</div>
+                <div style="font-size: 13px; font-weight: 700; color: #CF4500; margin-bottom: 12px;">👤 처리된 가입 신청인 상세 정보</div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 14px;">
-                    <div><span style="color: var(--slate-gray);">성명:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('name', '-')}</strong></div>
+                    <div><span style="color: var(--slate-gray);">성명 / 직급:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('name', '-')} ({record.get('position', '프로')})</strong></div>
                     <div><span style="color: var(--slate-gray);">소속 부서/팀:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('department', '-')}</strong></div>
+                    <div><span style="color: var(--slate-gray);">연락처:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('phone', '-')}</strong></div>
                     <div><span style="color: var(--slate-gray);">이메일(ID):</span> <strong style="color: #0066CC; margin-left: 6px;">{record.get('email', '-')}</strong></div>
+                    <div><span style="color: var(--slate-gray);">신청 사유:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('reason', '-')}</strong></div>
                     <div><span style="color: var(--slate-gray);">최종 상태:</span> <strong style="color: {badge_color}; margin-left: 6px;">{record.get('status', '').upper()}</strong></div>
                 </div>
                 <div style="margin-top: 12px; font-size: 12.5px; color: var(--slate-gray);">
@@ -167,8 +169,8 @@ def render_sidebar_auth_Widget(user: Dict[str, Any]) -> None:
                     st.markdown(
                         f"""
                         <div style="background:#FFF9F5; border:1px solid #F7C4A5; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:12.5px;">
-                            <strong>{pm.get('name')}</strong> ({pm.get('department')})<br/>
-                            <span style="color:#0066CC;">{em}</span><br/>
+                            <strong>{pm.get('name')}</strong> ({pm.get('department')} / {pm.get('position', '프로')})<br/>
+                            <span style="color:#0066CC;">{em}</span> · 📞 {pm.get('phone', '-')}<br/>
                             <span style="color:#555;">사유: {pm.get('reason', '-')}</span><br/>
                             <span style="color:#888; font-size:11px;">신청: {pm.get('created_at', '-')}</span>
                         </div>
@@ -394,11 +396,13 @@ def enforce_authentication_gate() -> bool:
         with st.form("form_member_signup", clear_on_submit=False):
             c1, c2 = st.columns(2)
             with c1:
-                su_name = st.text_input("신청자 성명 *", placeholder="예: 홍길동 프로")
+                su_name = st.text_input("신청자 성명 *", placeholder="예: 김제일 프로")
+                su_pos = st.text_input("직급 / 직책 *", placeholder="예: 선임프로 / 팀장 / 매니저")
                 su_email = st.text_input("이메일 주소 (로그인 ID) *", placeholder="예: gildong.hong@cheil.com")
                 su_pw = st.text_input("사용할 비밀번호 (6자 이상) *", type="password", placeholder="6자 이상 비밀번호 입력")
             with c2:
                 su_dept = st.text_input("소속 회사 / 부서(팀) *", placeholder="예: 제일기획 BX익스피리언스팀 / 구매팀")
+                su_phone = st.text_input("연락처 (휴대폰 / 사내 내선) *", placeholder="예: 010-1234-5678")
                 su_reason = st.text_input("가입 신청 사유 및 담당 프로젝트 *", placeholder="예: 2026 갤럭시 언팩 전시 견적 감리 및 단가 검증")
                 su_pw_confirm = st.text_input("비밀번호 재확인 *", type="password", placeholder="비밀번호를 한 번 더 입력하세요")
 
@@ -421,6 +425,8 @@ def enforce_authentication_gate() -> bool:
                     email=su_email,
                     name=su_name,
                     department=su_dept,
+                    position=su_pos,
+                    phone=su_phone,
                     password=su_pw,
                     password_confirm=su_pw_confirm,
                     reason=su_reason,
@@ -446,16 +452,20 @@ def enforce_authentication_gate() -> bool:
             approve_url_sup = action_urls["approve_secondary"]
 
             mail_subj = urllib.parse.quote(
-                f"[AX 견적감독관] 신규 회원가입 승인 요청 — {user_rec.get('name')} ({user_rec.get('department')})"
+                f"[AX 견적감독관] 신규 회원가입 승인 요청 — {user_rec.get('name')} ({user_rec.get('department')} / {user_rec.get('position', '프로')})"
             )
             mail_body = urllib.parse.quote(
                 f"관리자님 ({ADMIN_EMAIL}),\n\n"
                 f"제일기획 AX 견적감독관 신규 회원가입 승인 요청입니다.\n\n"
-                f"- 성명: {user_rec.get('name')}\n"
-                f"- 소속 부서/팀: {user_rec.get('department')}\n"
-                f"- 이메일(ID): {user_rec.get('email')}\n"
-                f"- 신청 사유: {user_rec.get('reason')}\n"
-                f"- 신청 일시: {user_rec.get('created_at')}\n\n"
+                f"[가입 신청인이 작성한 정보]\n"
+                f"1. 신청자 성명: {user_rec.get('name')}\n"
+                f"2. 소속 회사/부서: {user_rec.get('department')}\n"
+                f"3. 직급/직책: {user_rec.get('position', '-')}\n"
+                f"4. 연락처(휴대폰/내선): {user_rec.get('phone', '-')}\n"
+                f"5. 이메일(로그인 ID): {user_rec.get('email')}\n"
+                f"6. 가입 신청 사유 및 담당 프로젝트: {user_rec.get('reason')}\n"
+                f"7. 보안서약 동의: 동의 완료\n"
+                f"8. 신청 일시: {user_rec.get('created_at')}\n\n"
                 f"아래 [원클릭 가입 승인 링크]를 클릭하시면 즉시 가입이 승인되어 사이트 이용이 가능해집니다:\n\n"
                 f"▶ 승인 링크 (견적감독관): {approve_url_sup}\n"
                 f"▶ 승인 링크 (견적감리관): {approve_url_dir}\n"
@@ -465,13 +475,17 @@ def enforce_authentication_gate() -> bool:
             st.markdown(
                 f"""
                 <div style="background: #F4FBF7; border: 1.5px solid #0E7C57; border-radius: 18px; padding: 20px 24px; margin-top: 14px;">
-                    <div style="font-size: 15px; font-weight: 700; color: #0E7C57; margin-bottom: 6px;">
-                        ✅ 가입신청 접수 완료 — 관리자({ADMIN_EMAIL}) 승인 대기 중
+                    <div style="font-size: 15px; font-weight: 700; color: #0E7C57; margin-bottom: 8px;">
+                        ✅ 가입신청 접수 및 메일 발송 완료 — 관리자({ADMIN_EMAIL}) 승인 대기 중
                     </div>
-                    <div style="font-size: 13px; color: var(--ink-black); line-height: 1.6; margin-bottom: 12px;">
-                        • 신청자: <strong>{user_rec.get('name')}</strong> ({user_rec.get('department')}) · <code>{user_rec.get('email')}</code><br/>
-                        • 자동 메일 알림 상태: {last_su.get('email_status', '발송 요청됨')}<br/>
-                        • 관리자가 수신한 이메일에서 <strong>[✅ 가입 즉시 승인]</strong> 버튼을 클릭하면 즉시 로그인하실 수 있습니다.
+                    <div style="font-size: 13px; color: var(--ink-black); line-height: 1.7; margin-bottom: 12px; background: #FFFFFF; padding: 12px 16px; border-radius: 12px; border: 1px solid #D5EDE0;">
+                        <strong>[관리자 메일(<code>{ADMIN_EMAIL}</code>)로 전송된 신청인 작성 정보]</strong><br/>
+                        • <strong>성명 / 직급:</strong> {user_rec.get('name')} ({user_rec.get('position', '-')})<br/>
+                        • <strong>소속 부서/팀:</strong> {user_rec.get('department')}<br/>
+                        • <strong>연락처:</strong> {user_rec.get('phone', '-')}<br/>
+                        • <strong>이메일(로그인 ID):</strong> <code>{user_rec.get('email')}</code><br/>
+                        • <strong>가입 신청 사유:</strong> {user_rec.get('reason')}<br/>
+                        • <strong>신청 일시:</strong> {user_rec.get('created_at')}
                     </div>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                         <a href="{mailto_href}" style="display: inline-block; background: #03C75A; color: #FFFFFF; text-decoration: none; padding: 9px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 700;">

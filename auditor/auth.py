@@ -243,6 +243,8 @@ def create_signed_action_token(action: str, user_record: Dict[str, Any]) -> Tupl
         "e": user_record["email"],
         "n": user_record["name"],
         "d": user_record.get("department", ""),
+        "p": user_record.get("position", ""),
+        "c": user_record.get("phone", ""),
         "r": user_record.get("reason", ""),
         "h": user_record["password_hash"],
         "s": user_record["salt"],
@@ -289,6 +291,8 @@ def verify_and_process_email_action(
             "email": email,
             "name": data.get("n", ""),
             "department": data.get("d", ""),
+            "position": data.get("p", ""),
+            "phone": data.get("c", ""),
             "reason": data.get("r", ""),
             "role": "member",
             "password_hash": data["h"],
@@ -377,43 +381,58 @@ def send_signup_approval_email(
     name = user_record.get("name", "-")
     email = user_record.get("email", "-")
     dept = user_record.get("department", "-")
+    position = user_record.get("position", "-") or "-"
+    phone = user_record.get("phone", "-") or "-"
     reason = user_record.get("reason", "-")
     created_at = user_record.get("created_at", _now_kst_str())
 
-    subject = f"[AI 견적감독관 회원가입 승인요청] {name} ({dept}) 님의 가입 신청"
+    subject = f"[AI 견적감독관 회원가입 승인요청] {name} ({dept} / {position}) 님의 가입 신청서"
 
     html_body = f"""
-    <div style="font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; max-width: 620px; margin: 0 auto; padding: 28px; background-color: #F3F0EE; border-radius: 20px; border: 1px solid #D1CDC7;">
+    <div style="font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; max-width: 640px; margin: 0 auto; padding: 28px; background-color: #F3F0EE; border-radius: 20px; border: 1px solid #D1CDC7;">
         <div style="background-color: #141413; color: #FFFFFF; padding: 18px 24px; border-radius: 14px; margin-bottom: 20px;">
             <div style="font-size: 12px; color: #F37338; font-weight: 700; letter-spacing: 0.05em;">CHEIL AX ESTIMATE SUPERVISOR · SECURITY GATE</div>
-            <h2 style="margin: 6px 0 0 0; font-size: 20px; color: #FFFFFF;">신규 회원가입 및 사이트 접근 승인 요청</h2>
+            <h2 style="margin: 6px 0 0 0; font-size: 20px; color: #FFFFFF;">신규 회원가입 신청서 및 사이트 접근 승인 요청</h2>
         </div>
 
         <div style="background-color: #FFFFFF; padding: 22px 24px; border-radius: 14px; margin-bottom: 22px; border: 1px solid #E5E2DC;">
             <p style="margin-top: 0; font-size: 14px; color: #262627; line-height: 1.6;">
-                관리자(<strong>{ADMIN_EMAIL}</strong>)님, <strong>제일기획 AI 견적감독관</strong> 웹 서비스에 아래와 같이 신규 회원가입 신청이 접수되었습니다.<br/>
-                아래 <strong>[✅ 가입 승인하기]</strong> 버튼을 클릭하시면 해당 회원의 사이트 접근 권한이 즉시 활성화됩니다.
+                관리자(<strong>{ADMIN_EMAIL}</strong>)님, <strong>제일기획 AI 견적감독관</strong> 웹 서비스에 아래와 같이 신규 회원가입 신청인이 직접 작성한 가입신청 정보가 접수되었습니다.<br/>
+                신청인 정보를 확인하신 후 아래 <strong>[✅ 가입 승인하기]</strong> 버튼을 클릭하시면 해당 회원의 사이트 접근 권한이 즉시 활성화됩니다.
             </p>
-            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 14px;">
+            <div style="font-size: 13px; font-weight: 700; color: #CF4500; margin: 14px 0 8px 0;">📋 가입 신청인이 작성한 상세 정보</div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
                 <tr>
-                    <td style="padding: 9px 12px; background: #F8F7F5; font-weight: 700; width: 130px; border-bottom: 1px solid #EAE7E1;">신청자 성명</td>
-                    <td style="padding: 9px 12px; border-bottom: 1px solid #EAE7E1;">{name}</td>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; width: 145px; border-top: 1px solid #EAE7E1; border-bottom: 1px solid #EAE7E1;">1. 신청자 성명</td>
+                    <td style="padding: 10px 12px; border-top: 1px solid #EAE7E1; border-bottom: 1px solid #EAE7E1; font-weight: 700; color: #141413;">{name}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 9px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">소속 부서 / 팀</td>
-                    <td style="padding: 9px 12px; border-bottom: 1px solid #EAE7E1;">{dept}</td>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">2. 소속 회사 / 부서(팀)</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1;">{dept}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 9px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">이메일 (로그인 ID)</td>
-                    <td style="padding: 9px 12px; border-bottom: 1px solid #EAE7E1;">{email}</td>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">3. 직급 / 직책</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1;">{position}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 9px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">신청 사유 / 업무</td>
-                    <td style="padding: 9px 12px; border-bottom: 1px solid #EAE7E1;">{reason}</td>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">4. 연락처 (휴대폰/내선)</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1;">{phone}</td>
                 </tr>
                 <tr>
-                    <td style="padding: 9px 12px; background: #F8F7F5; font-weight: 700;">신청 일시</td>
-                    <td style="padding: 9px 12px;">{created_at}</td>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">5. 이메일 (로그인 ID)</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1; color: #0066CC; font-weight: 600;">{email}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">6. 가입 신청 사유 및 담당 프로젝트</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1; line-height: 1.5;">{reason}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">7. 대외비 보안서약</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1; color: #0E7C57; font-weight: 600;">동의 완료 (실행예산·단가 외부 유출 금지 서약)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 12px; background: #F8F7F5; font-weight: 700; border-bottom: 1px solid #EAE7E1;">8. 가입 신청 일시</td>
+                    <td style="padding: 10px 12px; border-bottom: 1px solid #EAE7E1;">{created_at}</td>
                 </tr>
             </table>
         </div>
@@ -467,15 +486,18 @@ def send_signup_approval_email(
             "_subject": subject,
             "_template": "table",
             "_captcha": "false",
-            "신청자_성명": name,
-            "소속_부서": dept,
-            "신청자_이메일_ID": email,
-            "신청_사유": reason,
-            "신청_일시": created_at,
-            "원클릭_가입승인_링크_1(Director)": urls["approve_primary"],
-            "원클릭_가입승인_링크_2(Supervisor)": urls["approve_secondary"],
-            "원클릭_가입반려_링크": urls["reject_primary"],
-            "안내": "위 [원클릭_가입승인_링크]를 클릭하시면 즉시 가입이 승인되어 신청자가 두 사이트 모두에 로그인할 수 있습니다.",
+            "1_신청자_성명": name,
+            "2_소속_회사_및_부서": dept,
+            "3_직급_및_직책": position,
+            "4_연락처_휴대폰": phone,
+            "5_신청자_이메일_로그인ID": email,
+            "6_가입신청_사유_및_담당프로젝트": reason,
+            "7_보안서약_동의여부": "동의 완료 (대외비 실행예산·단가 외부 유출 금지 서약)",
+            "8_신청_일시": created_at,
+            "9_원클릭_가입승인_링크_1(Director)": urls["approve_primary"],
+            "10_원클릭_가입승인_링크_2(Supervisor)": urls["approve_secondary"],
+            "11_원클릭_가입반려_링크": urls["reject_primary"],
+            "12_관리자_승인_안내": "위 [원클릭_가입승인_링크]를 클릭하시면 즉시 가입이 승인되어 신청자가 두 사이트 모두에 로그인할 수 있습니다.",
         }
         req = urllib.request.Request(
             relay_url,
@@ -505,6 +527,8 @@ def register_member_application(
     email: str,
     password: str,
     reason: str = "",
+    position: str = "",
+    phone: str = "",
     password_confirm: Optional[str] = None,
     send_email: bool = True,
     sync_remote: bool = True,
@@ -514,6 +538,8 @@ def register_member_application(
     """
     clean_name = (name or "").strip()
     clean_dept = (department or "").strip()
+    clean_pos = (position or "").strip()
+    clean_phone = (phone or "").strip()
     clean_email = (email or "").strip().lower()
     clean_reason = (reason or "").strip()
 
@@ -538,6 +564,8 @@ def register_member_application(
         "email": clean_email,
         "name": clean_name,
         "department": clean_dept,
+        "position": clean_pos or "프로",
+        "phone": clean_phone or "-",
         "reason": clean_reason or "전시·키트 견적 감리 및 정산 검증 업무",
         "role": "member",
         "status": "pending",
