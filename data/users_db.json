@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "admin_email": "feelingsoo@naver.com",
+  "updated_at": "2026-11-09 16:25:15 KST",
+  "users": {
+    "feelingsoo@naver.com": {
+      "email": "feelingsoo@naver.com",
+      "name": "관리자 (정승우)",
+      "department": "제일기획 BX 퍼포먼스 7팀 (관리자)",
+      "reason": "시스템 총괄 관리자",
+      "role": "admin",
+      "status": "approved",
+      "password_hash": "yw1ZxdDf91w_VMYsuh0hYhMH-zChkYs_GpLl3_smykc=",
+      "salt": "CHEIL_ADMIN_SALT_2026",
+      "created_at": "2026-10-01 09:00:00 KST",
+      "approved_at": "2026-10-01 09:00:00 KST",
+      "approved_by": "SYSTEM_INIT"
+    }
+  }
+}

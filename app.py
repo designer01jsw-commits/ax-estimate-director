@@ -50,6 +50,7 @@ from auditor.diagnostics import (
 )
 from auditor.vision_ui import render_vision_estimator_ui
 from auditor.learning_ui import render_learning_studio_ui
+from auditor.auth_ui import enforce_authentication_gate
 from auditor.schema import (
     MATCH_CONFIRMED,
     MATCH_NEEDS_CONFIRM,
@@ -611,7 +612,7 @@ def main():
         </div>
         <h1 class="mc-hero-title">제일기획 AX 견적감독관</h1>
         <div class="mc-hero-subhead">
-            총체적 견적 진단 소견 · 6대 공공기준 소명 · 25.6억 44종 키트 벤치마크 · 비전 AI 실시간 감리 시스템
+            총체적 견적 진단 소견 · 6대 공공기준 소명 · 표준 키트 벤치마크 · 비전 AI 실시간 감리 시스템 (회원전용 보안접속)
         </div>
         <div class="mc-domain-pill">
             <span style="color: var(--ink-black); font-weight: 500;">🌐 공식 서비스 도메인:</span>
@@ -621,6 +622,10 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
+    # 0. 보안 접근통제 게이트 (회원신청 > 가입신청 > 관리자 이메일 승인 후 사이트 이용 가능)
+    if not enforce_authentication_gate():
+        return
+
     # 1. 프로젝트 목록 로드
     projects, prj_warnings = load_projects()
     for w in prj_warnings:
