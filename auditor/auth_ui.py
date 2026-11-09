@@ -272,16 +272,20 @@ def enforce_authentication_gate() -> bool:
         render_sidebar_auth_Widget(auth_user)
         return True
 
-    # 3. 미인증 사용자: 사이드바에 보안 통제 안내만 노출
-    st.sidebar.markdown(
-        f"""
-        <div style="background: var(--white); border: 1.5px solid rgba(207, 69, 0, 0.35); border-radius: 18px; padding: 18px; margin-top: 8px;">
-            <div style="font-size: 12px; font-weight: 700; color: #CF4500; margin-bottom: 6px;">🔒 MEMBER-ONLY SECURITY GATE</div>
-            <div style="font-size: 14px; font-weight: 700; color: var(--ink-black); margin-bottom: 8px;">회원 전용 보안 시스템</div>
-            <div style="font-size: 12.5px; color: var(--slate-gray); line-height: 1.55;">
-                본 시스템은 대외비 실행예산 및 협력사 단가 보안을 위해 <strong>회원 가입신청 및 관리자(<code>{ADMIN_EMAIL}</code>) 승인</strong>을 거친 사용자만 접근할 수 있습니다.
-            </div>
-        </div>
+    # 3. 미인증 사용자: 좌측 사이드바 및 내부 UI를 완전히 숨기고 중앙 보안 로그인 게이트만 단독 노출
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebar"],
+            [data-testid="collapsedControl"],
+            [data-testid="stSidebarCollapseButton"] {
+                display: none !important;
+            }
+            .block-container {
+                max-width: 960px !important;
+                padding-top: 2.5rem !important;
+            }
+        </style>
         """,
         unsafe_allow_html=True,
     )
