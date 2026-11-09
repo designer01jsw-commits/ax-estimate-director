@@ -3,14 +3,14 @@
 제일기획 AX 견적감독관 — 회원가입·관리자 이메일 승인·접근통제 UI (auth_ui.py)
 
 워크플로우:
-1. [회원신청] 사용자 정보(성명, 소속 부서/팀, 이메일, 비밀번호, 신청사유) 입력 및 보안 서약 동의
-2. [가입신청] 제출 즉시 관리자(feelingsoo@naver.com)에게 가입신청 알림 및 원클릭 [가입 승인 / 반려] 링크 자동 메일 발송
-3. [관리자 인증] 관리자가 수신한 이메일에서 [✅ 가입 즉시 승인] 버튼 클릭 시 즉시 승인 처리 (또는 관리자 콘솔에서 승인)
+1. [회원신청] 사용자 정보(성명, 직급, 소속 부서/팀, 연락처, 이메일, 비밀번호, 신청사유) 입력 및 보안 서약 동의
+2. [가입신청] 제출 즉시 관리자(feelingsoo@naver.com)에게 신청인 작성 정보 표 및 원클릭 [가입 승인 / 반려] 링크 자동 메일 발송
+3. [관리자 인증] 관리자가 수신한 이메일에서 [✅ 가입 승인하기] 버튼 클릭 시 즉시 승인 처리 (또는 관리자 콘솔에서 승인)
 4. [사이트 이용] 승인 완료된 계정으로 로그인해야만 두 사이트 모두 내부 견적 데이터 및 AI 감리 기능 접근 가능
 """
 
 import urllib.parse
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 import streamlit as st
 
 from auditor.auth import (
@@ -27,6 +27,14 @@ from auditor.auth import (
     send_signup_approval_email,
     build_action_urls,
 )
+
+
+def _clean_html(raw: str) -> str:
+    """
+    Markdown 파서가 4칸 이상 들여쓰기된 HTML 줄을 코드 블록(<pre><code>)으로
+    오인하여 화면에 태그 문자열을 그대로 노출하는 현상을 원천 방지합니다.
+    """
+    return "\n".join(line.strip() for line in raw.splitlines() if line.strip())
 
 
 def _get_query_param(key: str) -> str:
@@ -60,7 +68,6 @@ def _render_email_action_screen(action: str, payload: str, sig: str) -> None:
     관리자(feelingsoo@naver.com)가 가입신청 이메일 내 [가입 즉시 승인] 또는 [가입 반려]
     링크를 클릭하여 접속했을 때 실행되는 원클릭 인증 처리 화면입니다.
     """
-    # 캐시된 처리 결과가 없으면 검증 및 상태 업데이트 수행
     cache_key = f"email_action_done_{sig[:16]}_{action}"
     if cache_key not in st.session_state:
         ok, msg, record = verify_and_process_email_action(action=action, payload_b64=payload, sig=sig)
@@ -78,52 +85,51 @@ def _render_email_action_screen(action: str, payload: str, sig: str) -> None:
         else ("관리자 이메일 원클릭 [가입 반려] 완료" if ok else "이메일 승인 링크 검증 실패")
     )
 
-    st.markdown(
-        f"""
-        <div class="mc-stadium-card" style="max-width: 760px; margin: 36px auto; padding: 40px 44px; border: 2px solid {badge_color}; background: var(--white); box-shadow: var(--shadow-cushion);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
-                <div class="mc-eyebrow">
-                    <span class="mc-eyebrow-dot"></span>
-                    <span>ADMIN EMAIL ONE-CLICK AUTHORIZATION</span>
-                </div>
-                <span style="background: {badge_bg}; color: {badge_color}; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 700;">
-                    {icon_str} {'승인 완료 (APPROVED)' if (ok and is_approve) else ('반려 처리됨 (REJECTED)' if ok else '검증 오류')}
-                </span>
+    detail_html = ""
+    if record:
+        detail_html = f"""
+        <div style="background: var(--surface-lifted); border: 1.5px solid var(--border-stone); border-radius: 18px; padding: 20px 24px; margin-bottom: 24px;">
+            <div style="font-size: 13px; font-weight: 800; color: #CF4500; margin-bottom: 12px;">👤 처리된 가입 신청인 상세 정보</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 14px;">
+                <div><span style="color: var(--slate-gray);">성명 / 직급:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('name', '-')} ({record.get('position', '프로')})</strong></div>
+                <div><span style="color: var(--slate-gray);">소속 부서/팀:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('department', '-')}</strong></div>
+                <div><span style="color: var(--slate-gray);">연락처:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('phone', '-')}</strong></div>
+                <div><span style="color: var(--slate-gray);">이메일(ID):</span> <strong style="color: #0066CC; margin-left: 6px;">{record.get('email', '-')}</strong></div>
+                <div><span style="color: var(--slate-gray);">신청 사유:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('reason', '-')}</strong></div>
+                <div><span style="color: var(--slate-gray);">최종 상태:</span> <strong style="color: {badge_color}; margin-left: 6px;">{record.get('status', '').upper()}</strong></div>
             </div>
-            <h2 style="margin: 0 0 12px 0; font-size: 26px; font-weight: 800; color: var(--ink-black);">
-                {icon_str} {title_str}
-            </h2>
-            <p style="font-size: 15px; color: var(--slate-gray); line-height: 1.6; margin-bottom: 24px;">
-                {msg}
-            </p>
-        """,
+            <div style="margin-top: 12px; font-size: 12.5px; color: var(--slate-gray);">
+                • 승인 시각: {record.get('approved_at') or '-'} (승인자: {record.get('approved_by') or ADMIN_EMAIL})<br/>
+                • 이제 해당 회원은 두 사이트(<strong>ax-estimate-director</strong> 및 <strong>ax-estimate-supervisor</strong>)에서 모두 로그인하여 시스템을 이용할 수 있습니다.
+            </div>
+        </div>
+        """
+
+    st.markdown(
+        _clean_html(
+            f"""
+            <div class="mc-stadium-card" style="max-width: 760px; margin: 36px auto; padding: 40px 44px; border: 2px solid {badge_color}; background: var(--white); box-shadow: var(--shadow-cushion);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+                    <div class="mc-eyebrow">
+                        <span class="mc-eyebrow-dot"></span>
+                        <span>ADMIN EMAIL ONE-CLICK AUTHORIZATION</span>
+                    </div>
+                    <span style="background: {badge_bg}; color: {badge_color}; padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 700;">
+                        {icon_str} {'승인 완료 (APPROVED)' if (ok and is_approve) else ('반려 처리됨 (REJECTED)' if ok else '검증 오류')}
+                    </span>
+                </div>
+                <h2 style="margin: 0 0 12px 0; font-size: 26px; font-weight: 800; color: var(--ink-black);">
+                    {icon_str} {title_str}
+                </h2>
+                <p style="font-size: 15px; color: var(--slate-gray); line-height: 1.6; margin-bottom: 24px;">
+                    {msg}
+                </p>
+                {detail_html}
+            </div>
+            """
+        ),
         unsafe_allow_html=True,
     )
-
-    if record:
-        st.markdown(
-            f"""
-            <div style="background: var(--surface-lifted); border: 1.5px solid var(--border-stone); border-radius: 18px; padding: 20px 24px; margin-bottom: 24px;">
-                <div style="font-size: 13px; font-weight: 700; color: #CF4500; margin-bottom: 12px;">👤 처리된 가입 신청인 상세 정보</div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 14px;">
-                    <div><span style="color: var(--slate-gray);">성명 / 직급:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('name', '-')} ({record.get('position', '프로')})</strong></div>
-                    <div><span style="color: var(--slate-gray);">소속 부서/팀:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('department', '-')}</strong></div>
-                    <div><span style="color: var(--slate-gray);">연락처:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('phone', '-')}</strong></div>
-                    <div><span style="color: var(--slate-gray);">이메일(ID):</span> <strong style="color: #0066CC; margin-left: 6px;">{record.get('email', '-')}</strong></div>
-                    <div><span style="color: var(--slate-gray);">신청 사유:</span> <strong style="color: var(--ink-black); margin-left: 6px;">{record.get('reason', '-')}</strong></div>
-                    <div><span style="color: var(--slate-gray);">최종 상태:</span> <strong style="color: {badge_color}; margin-left: 6px;">{record.get('status', '').upper()}</strong></div>
-                </div>
-                <div style="margin-top: 12px; font-size: 12.5px; color: var(--slate-gray);">
-                    • 승인 시각: {record.get('approved_at') or '-'} (승인자: {record.get('approved_by') or ADMIN_EMAIL})<br/>
-                    • 이제 해당 회원은 두 사이트(<strong>ax-estimate-director</strong> 및 <strong>ax-estimate-supervisor</strong>)에서 모두 로그인하여 시스템을 이용할 수 있습니다.
-                </div>
-            </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    else:
-        st.markdown("</div>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -138,16 +144,18 @@ def render_sidebar_auth_Widget(user: Dict[str, Any]) -> None:
     role_badge = "🛡️ 총괄 관리자" if is_admin else "✅ 승인 정회원"
 
     st.sidebar.markdown(
-        f"""
-        <div style="background: var(--white); border: 1.5px solid var(--border-stone); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <span style="font-size: 11px; font-weight: 700; color: #0E7C57; background: rgba(14,124,87,0.1); padding: 3px 9px; border-radius: 999px;">{role_badge}</span>
-                <span style="font-size: 11px; color: var(--slate-gray);">보안 인증됨 🔒</span>
+        _clean_html(
+            f"""
+            <div style="background: var(--white); border: 1.5px solid var(--border-stone); border-radius: 16px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-size: 11px; font-weight: 700; color: #0E7C57; background: rgba(14,124,87,0.1); padding: 3px 9px; border-radius: 999px;">{role_badge}</span>
+                    <span style="font-size: 11px; color: var(--slate-gray);">보안 인증됨 🔒</span>
+                </div>
+                <div style="font-size: 14.5px; font-weight: 700; color: var(--ink-black);">{user.get('name', '회원')} <span style="font-size: 12px; font-weight: 500; color: var(--slate-gray);">({user.get('department', '-')})</span></div>
+                <div style="font-size: 12px; color: var(--slate-gray); margin-top: 2px;">{user.get('email', '')}</div>
             </div>
-            <div style="font-size: 14.5px; font-weight: 700; color: var(--ink-black);">{user.get('name', '회원')} <span style="font-size: 12px; font-weight: 500; color: var(--slate-gray);">({user.get('department', '-')})</span></div>
-            <div style="font-size: 12px; color: var(--slate-gray); margin-top: 2px;">{user.get('email', '')}</div>
-        </div>
-        """,
+            """
+        ),
         unsafe_allow_html=True,
     )
 
@@ -167,14 +175,16 @@ def render_sidebar_auth_Widget(user: Dict[str, Any]) -> None:
                 for pm in pending_list:
                     em = pm.get("email", "")
                     st.markdown(
-                        f"""
-                        <div style="background:#FFF9F5; border:1px solid #F7C4A5; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:12.5px;">
-                            <strong>{pm.get('name')}</strong> ({pm.get('department')} / {pm.get('position', '프로')})<br/>
-                            <span style="color:#0066CC;">{em}</span> · 📞 {pm.get('phone', '-')}<br/>
-                            <span style="color:#555;">사유: {pm.get('reason', '-')}</span><br/>
-                            <span style="color:#888; font-size:11px;">신청: {pm.get('created_at', '-')}</span>
-                        </div>
-                        """,
+                        _clean_html(
+                            f"""
+                            <div style="background:#FFF9F5; border:1px solid #F7C4A5; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:12.5px;">
+                                <strong>{pm.get('name')}</strong> ({pm.get('department')} / {pm.get('position', '프로')})<br/>
+                                <span style="color:#0066CC;">{em}</span> · 📞 {pm.get('phone', '-')}<br/>
+                                <span style="color:#555;">사유: {pm.get('reason', '-')}</span><br/>
+                                <span style="color:#888; font-size:11px;">신청: {pm.get('created_at', '-')}</span>
+                            </div>
+                            """
+                        ),
                         unsafe_allow_html=True,
                     )
                     c_app, c_rej = st.columns(2)
@@ -240,6 +250,8 @@ def render_sidebar_auth_Widget(user: Dict[str, Any]) -> None:
                         "email": "test_applicant@cheil.com",
                         "name": "홍길동 (테스트 신청자)",
                         "department": "제일기획 BX익스피리언스팀",
+                        "position": "선임프로",
+                        "phone": "010-1234-5678",
                         "reason": "관리자 승인 메일 발송 연동 테스트",
                         "password_hash": "test",
                         "salt": "test",
@@ -254,10 +266,10 @@ def render_sidebar_auth_Widget(user: Dict[str, Any]) -> None:
 
 def enforce_authentication_gate() -> bool:
     """
-    사이트 최상단 보안 게이트 함수.
+    사이트 최상단 보안 게이트 및 공식 홈페이지 소개 화면.
     - URL 쿼리에 관리자 이메일 승인/반려 토큰(`auth_action`, `payload`, `sig`)이 있으면 즉시 처리 화면을 렌더링합니다.
     - 세션에 승인된 로그인 사용자가 있으면 사이드바 프로필을 표시하고 `True`를 반환합니다.
-    - 미인증 상태면 내부 데이터를 일절 노출하지 않고 [로그인 / 회원신청·가입신청] 화면을 렌더링한 뒤 `False`를 반환합니다.
+    - 미인증 상태면 내부 데이터를 노출하지 않고 [사이트 소개 홈페이지 + 로그인 / 회원가입 승인 신청] 화면을 렌더링한 뒤 `False`를 반환합니다.
     """
     # 1. 이메일 내 원클릭 [승인 / 반려] 링크 접속 여부 확인
     auth_action = _get_query_param("auth_action")
@@ -274,68 +286,108 @@ def enforce_authentication_gate() -> bool:
         render_sidebar_auth_Widget(auth_user)
         return True
 
-    # 3. 미인증 사용자: 좌측 사이드바 및 내부 UI를 완전히 숨기고 중앙 보안 로그인 게이트만 단독 노출
+    # 3. 미인증 사용자: 좌측 사이드바를 숨기고 중앙 랜딩 홈페이지 + 보안 로그인 게이트 노출
     st.markdown(
-        """
-        <style>
-            [data-testid="stSidebar"],
-            [data-testid="collapsedControl"],
-            [data-testid="stSidebarCollapseButton"] {
-                display: none !important;
-            }
-            .block-container {
-                max-width: 960px !important;
-                padding-top: 2.5rem !important;
-            }
-        </style>
-        """,
+        _clean_html(
+            """
+            <style>
+                [data-testid="stSidebar"],
+                [data-testid="collapsedControl"],
+                [data-testid="stSidebarCollapseButton"] {
+                    display: none !important;
+                }
+                .block-container {
+                    max-width: 1040px !important;
+                    padding-top: 2.2rem !important;
+                }
+            </style>
+            """
+        ),
         unsafe_allow_html=True,
     )
 
-    # 4. 중앙 메인 화면: 4단계 가입·승인 프로세스 배너 + 로그인 / 가입신청 탭
+    # 4. 중앙 메인 홈페이지: 볼드 타이틀 히어로 배너 + 3대 핵심 기능 소개 + 4단계 회원 승인 안내
     st.markdown(
-        f"""
-        <div class="mc-stadium-card" style="padding: 32px 38px; margin: 16px 0 24px 0; border: 1.5px solid rgba(207, 69, 0, 0.35); background: var(--surface-lifted); box-shadow: var(--shadow-cushion);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
-                <div>
-                    <div class="mc-eyebrow" style="margin-bottom: 4px;">
+        _clean_html(
+            f"""
+            <div class="mc-stadium-card" style="padding: 38px 42px; margin: 8px 0 26px 0; border: 1.5px solid rgba(207, 69, 0, 0.32); background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%); box-shadow: var(--shadow-cushion);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 12px;">
+                    <div class="mc-eyebrow">
                         <span class="mc-eyebrow-dot"></span>
-                        <span>ENTERPRISE ACCESS CONTROL & ADMIN EMAIL APPROVAL</span>
+                        <span style="font-weight: 800; letter-spacing: 0.06em;">CHEIL AX · AI ESTIMATE SUPERVISOR PLATFORM</span>
                     </div>
-                    <h2 style="margin: 0; font-size: 22px; font-weight: 800; color: var(--ink-black);">
-                        🔒 회원제 보안 인증 및 관리자 승인 게이트
-                    </h2>
-                    <div style="font-size: 13.5px; color: var(--slate-gray); margin-top: 4px;">
-                        두 공식 사이트(<a href="{SITE_DOMAINS[0]}" target="_blank" style="color:#0066CC; font-weight:600;">ax-estimate-director</a> · <a href="{SITE_DOMAINS[1]}" target="_blank" style="color:#0066CC; font-weight:600;">ax-estimate-supervisor</a>)는 통합 회원 인증 후 이용할 수 있습니다.
+                    <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px; font-weight: 800;">🔒 관리자 승인 회원 전용</span>
+                </div>
+                <h1 style="margin: 0 0 12px 0; font-size: 32px; font-weight: 900; letter-spacing: -0.03em; color: #141413; line-height: 1.22;">
+                    제일기획 AI 견적감독관 — 지능형 견적 감리 &amp; 단가 검증 플랫폼
+                </h1>
+                <p style="margin: 0 0 26px 0; font-size: 15px; color: #4A4A4A; line-height: 1.68; font-weight: 400;">
+                    프로젝트마다 상이한 엑셀 실행예산서와 협력사 견적서를 <strong>7대 표준 공종</strong>으로 자동 정규화하고, <strong>정부 공인 6대 물가·노임 기준(KIDP·KOSA·시중노임·조달청 등)</strong> 및 과거 광고주 컨펌 실적 자산과 실시간 교차 검증하여 과다 청구 리스크와 협상 소명 리포트를 도출하는 엔터프라이즈 AI 감리 시스템입니다.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                    <div style="background: #FFFFFF; border: 1.5px solid #E5E1DA; border-radius: 20px; padding: 22px 22px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <span style="font-size: 24px;">⚖️</span>
+                            <div style="font-size: 17px; font-weight: 800; color: #141413; letter-spacing: -0.02em;">양식초월 정밀 견적 감리</div>
+                        </div>
+                        <div style="font-size: 13.5px; color: #555555; line-height: 1.58;">
+                            서로 다른 시트 구조와 품목명을 <strong>7대 표준 공종</strong>으로 자동 분류하고, 기준 견적 대비 수량·단가·인건비 편차를 신호등(🟢·🟡·🔴)으로 정밀 진단합니다.
+                        </div>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid #E5E1DA; border-radius: 20px; padding: 22px 22px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <span style="font-size: 24px;">📷</span>
+                            <div style="font-size: 17px; font-weight: 800; color: #141413; letter-spacing: -0.02em;">비전 AI 공간 예상견적 산출</div>
+                        </div>
+                        <div style="font-size: 13.5px; color: #555555; line-height: 1.58;">
+                            전시 부스·팝업스토어 <strong>3D 투시도 또는 현장 사진</strong>만 업로드하면 비전 AI가 구조물·마감재·조명 물량을 식별하여 즉시 예상 실행예산을 산출합니다.
+                        </div>
+                    </div>
+                    <div style="background: #FFFFFF; border: 1.5px solid #E5E1DA; border-radius: 20px; padding: 22px 22px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <span style="font-size: 24px;">🧠</span>
+                            <div style="font-size: 17px; font-weight: 800; color: #141413; letter-spacing: -0.02em;">실적 자산화 &amp; 공공기준 소명</div>
+                        </div>
+                        <div style="font-size: 13.5px; color: #555555; line-height: 1.58;">
+                            광고주 컨펌 완료 견적서를 사내 표준 DB로 자산화하고, <strong>6대 공인 노임·물가 기준</strong>에 기반한 대외 소명 자료와 협상 가이드를 자동 생성합니다.
+                        </div>
                     </div>
                 </div>
-                <span class="mc-pill-chip mc-chip-orange" style="font-size: 12px; font-weight: 700;">● 관리자 승인 필수</span>
+                <div style="background: #141413; color: #FFFFFF; border-radius: 18px; padding: 18px 24px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+                        <div style="font-size: 14px; font-weight: 800; color: #FFFFFF;">
+                            🛡️ 보안 접근통제 안내 — 4단계 회원가입 및 관리자 이메일 승인 절차
+                        </div>
+                        <div style="font-size: 12px; color: #F37338; font-weight: 700;">
+                            승인 요청 자동 수신처: {ADMIN_EMAIL}
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 10px;">
+                        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 11px 14px;">
+                            <div style="font-size: 11px; font-weight: 800; color: #F37338;">STEP 01 · 회원신청</div>
+                            <div style="font-size: 13.5px; font-weight: 800; color: #FFFFFF; margin: 3px 0;">신청인 정보 작성</div>
+                            <div style="font-size: 11.5px; color: #CCCCCC;">성명·소속·직급·연락처·신청사유 입력</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 11px 14px;">
+                            <div style="font-size: 11px; font-weight: 800; color: #F37338;">STEP 02 · 가입신청</div>
+                            <div style="font-size: 13.5px; font-weight: 800; color: #FFFFFF; margin: 3px 0;">관리자 메일 자동 발송</div>
+                            <div style="font-size: 11.5px; color: #CCCCCC;">신청인 정보 + 승인 링크 즉시 전송</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 11px 14px;">
+                            <div style="font-size: 11px; font-weight: 800; color: #F37338;">STEP 03 · 관리자 인증</div>
+                            <div style="font-size: 13.5px; font-weight: 800; color: #FFFFFF; margin: 3px 0;">메일 내 [가입 승인] 클릭</div>
+                            <div style="font-size: 11.5px; color: #CCCCCC;">수신 메일에서 원클릭 즉시 승인</div>
+                        </div>
+                        <div style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.45); border-radius: 12px; padding: 11px 14px;">
+                            <div style="font-size: 11px; font-weight: 800; color: #34D399;">STEP 04 · 사이트 이용</div>
+                            <div style="font-size: 13.5px; font-weight: 800; color: #FFFFFF; margin: 3px 0;">양대 사이트 로그인 접속</div>
+                            <div style="font-size: 11.5px; color: #D1FAE5;">승인 완료 후 전 기능 즉시 활성화</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr)); gap: 12px; margin-top: 14px;">
-                <div style="background: var(--white); border: 1px solid var(--border-stone); border-radius: 16px; padding: 14px 16px;">
-                    <div style="font-size: 11px; font-weight: 700; color: #CF4500;">STEP 01 · 회원신청</div>
-                    <div style="font-size: 14px; font-weight: 700; color: var(--ink-black); margin: 4px 0;">회원 정보 입력</div>
-                    <div style="font-size: 12px; color: var(--slate-gray);">성명, 소속 부서/팀, 이메일, 비밀번호 및 신청 사유 작성</div>
-                </div>
-                <div style="background: var(--white); border: 1px solid var(--border-stone); border-radius: 16px; padding: 14px 16px;">
-                    <div style="font-size: 11px; font-weight: 700; color: #CF4500;">STEP 02 · 가입신청</div>
-                    <div style="font-size: 14px; font-weight: 700; color: var(--ink-black); margin: 4px 0;">관리자 메일 자동 발송</div>
-                    <div style="font-size: 12px; color: var(--slate-gray);"><code>{ADMIN_EMAIL}</code>으로 승인 요청 메일 즉시 자동 전송</div>
-                </div>
-                <div style="background: var(--white); border: 1px solid var(--border-stone); border-radius: 16px; padding: 14px 16px;">
-                    <div style="font-size: 11px; font-weight: 700; color: #CF4500;">STEP 03 · 관리자 인증</div>
-                    <div style="font-size: 14px; font-weight: 700; color: var(--ink-black); margin: 4px 0;">메일 내 [가입 승인] 클릭</div>
-                    <div style="font-size: 12px; color: var(--slate-gray);">관리자가 수신 메일에서 원클릭 승인 버튼 클릭 시 즉시 자격 부여</div>
-                </div>
-                <div style="background: var(--white); border: 1px solid var(--border-stone); border-radius: 16px; padding: 14px 16px;">
-                    <div style="font-size: 11px; font-weight: 700; color: #0E7C57;">STEP 04 · 사이트 이용</div>
-                    <div style="font-size: 14px; font-weight: 700; color: var(--ink-black); margin: 4px 0;">양대 사이트 즉시 접속</div>
-                    <div style="font-size: 12px; color: var(--slate-gray);">승인 완료된 이메일·비밀번호로 로그인하여 전 기능 이용</div>
-                </div>
-            </div>
-        </div>
-        """,
+            """
+        ),
         unsafe_allow_html=True,
     )
 
@@ -348,7 +400,7 @@ def enforce_authentication_gate() -> bool:
     with tab_login:
         col_l, col_r = st.columns([1.15, 0.85], gap="large")
         with col_l:
-            st.markdown("#### 🔐 승인 회원 / 관리자 로그인")
+            st.markdown("#### **🔐 승인 회원 / 관리자 보안 로그인**")
             st.caption("관리자 이메일 승인이 완료된 회원만 로그인이 허용됩니다.")
             with st.form("form_member_login", clear_on_submit=False):
                 login_email = st.text_input(
@@ -373,24 +425,26 @@ def enforce_authentication_gate() -> bool:
 
         with col_r:
             st.markdown(
-                f"""
-                <div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone); padding: 24px;">
-                    <div style="font-size: 13px; font-weight: 700; color: #CF4500; margin-bottom: 8px;">📌 이용 안내 및 보안 정책</div>
-                    <ul style="font-size: 13px; color: var(--slate-gray); line-height: 1.7; padding-left: 18px; margin: 0;">
-                        <li>아직 계정이 없으신 경우 상단 <strong>[📝 신규 회원신청 · 가입신청]</strong> 탭에서 가입을 신청해 주세요.</li>
-                        <li>가입신청 즉시 총괄 관리자(<code>{ADMIN_EMAIL}</code>)에게 <strong>원클릭 승인 버튼이 포함된 이메일</strong>이 발송됩니다.</li>
-                        <li>관리자가 메일에서 <strong>[✅ 가입 즉시 승인]</strong>을 클릭하면 그 즉시 로그인이 활성화됩니다.</li>
-                        <li><strong>총괄 관리자 계정:</strong> <code>{ADMIN_EMAIL}</code> 로 로그인 시 좌측 사이드바에서 대기 회원 관리 및 메일 설정도 가능합니다.</li>
-                    </ul>
-                </div>
-                """,
+                _clean_html(
+                    f"""
+                    <div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone); padding: 24px;">
+                        <div style="font-size: 15px; font-weight: 800; color: #141413; margin-bottom: 10px;">📌 회원제 이용 안내 및 보안 정책</div>
+                        <ul style="font-size: 13px; color: var(--slate-gray); line-height: 1.75; padding-left: 18px; margin: 0;">
+                            <li>본 사이트는 <strong>대외비 실행예산 및 협력사 단가 보호</strong>를 위해 사전 승인된 회원만 접근할 수 있습니다.</li>
+                            <li>신규 이용자는 상단 <strong>[📝 신규 회원신청 · 가입신청]</strong> 탭에서 신청서를 제출해 주세요.</li>
+                            <li>가입신청 즉시 관리자(<code>{ADMIN_EMAIL}</code>)에게 <strong>신청인 작성 정보와 [✅ 가입 승인하기] 버튼이 담긴 이메일</strong>이 발송됩니다.</li>
+                            <li>관리자가 메일에서 승인 버튼을 클릭하면 두 공식 도메인(<a href="{SITE_DOMAINS[0]}" target="_blank" style="color:#0066CC; font-weight:700;">Director</a> · <a href="{SITE_DOMAINS[1]}" target="_blank" style="color:#0066CC; font-weight:700;">Supervisor</a>) 모두 즉시 이용 가능합니다.</li>
+                        </ul>
+                    </div>
+                    """
+                ),
                 unsafe_allow_html=True,
             )
 
     with tab_signup:
-        st.markdown("#### 📝 신규 회원신청 → 가입신청서 제출")
+        st.markdown("#### **📝 신규 회원신청 → 가입신청서 제출**")
         st.caption(
-            f"아래 양식을 작성하여 제출하면 `{ADMIN_EMAIL}` 주소로 가입신청 내역과 관리자 전용 [원클릭 가입 승인] 링크가 자동 발송됩니다."
+            f"아래 양식을 작성하여 제출하면 신청인이 작성한 모든 항목과 관리자 전용 [원클릭 가입 승인] 링크가 `{ADMIN_EMAIL}` 주소로 자동 발송됩니다."
         )
 
         with st.form("form_member_signup", clear_on_submit=False):
@@ -443,7 +497,6 @@ def enforce_authentication_gate() -> bool:
                 else:
                     st.error(msg_reg)
 
-        # 방금 신청한 경우 보조 메일 발송 버튼(클라우드 방화벽 대비 100% 도달 보장용) 함께 제공
         last_su = st.session_state.get("last_signup_info")
         if last_su and isinstance(last_su, dict):
             user_rec = last_su.get("user", {})
@@ -473,32 +526,34 @@ def enforce_authentication_gate() -> bool:
             mailto_href = f"mailto:{ADMIN_EMAIL}?subject={mail_subj}&body={mail_body}"
 
             st.markdown(
-                f"""
-                <div style="background: #F4FBF7; border: 1.5px solid #0E7C57; border-radius: 18px; padding: 20px 24px; margin-top: 14px;">
-                    <div style="font-size: 15px; font-weight: 700; color: #0E7C57; margin-bottom: 8px;">
-                        ✅ 가입신청 접수 및 메일 발송 완료 — 관리자({ADMIN_EMAIL}) 승인 대기 중
+                _clean_html(
+                    f"""
+                    <div style="background: #F4FBF7; border: 1.5px solid #0E7C57; border-radius: 18px; padding: 20px 24px; margin-top: 14px;">
+                        <div style="font-size: 15px; font-weight: 800; color: #0E7C57; margin-bottom: 8px;">
+                            ✅ 가입신청 접수 및 메일 발송 완료 — 관리자({ADMIN_EMAIL}) 승인 대기 중
+                        </div>
+                        <div style="font-size: 13px; color: var(--ink-black); line-height: 1.7; margin-bottom: 12px; background: #FFFFFF; padding: 12px 16px; border-radius: 12px; border: 1px solid #D5EDE0;">
+                            <strong>[관리자 메일(<code>{ADMIN_EMAIL}</code>)로 전송된 신청인 작성 정보]</strong><br/>
+                            • <strong>성명 / 직급:</strong> {user_rec.get('name')} ({user_rec.get('position', '-')})<br/>
+                            • <strong>소속 부서/팀:</strong> {user_rec.get('department')}<br/>
+                            • <strong>연락처:</strong> {user_rec.get('phone', '-')}<br/>
+                            • <strong>이메일(로그인 ID):</strong> <code>{user_rec.get('email')}</code><br/>
+                            • <strong>가입 신청 사유:</strong> {user_rec.get('reason')}<br/>
+                            • <strong>신청 일시:</strong> {user_rec.get('created_at')}
+                        </div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="{mailto_href}" style="display: inline-block; background: #03C75A; color: #FFFFFF; text-decoration: none; padding: 9px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 700;">
+                                📧 내 메일앱으로 관리자({ADMIN_EMAIL})에게 승인링크 직접 발송 (즉시도달 보조)
+                            </a>
+                        </div>
                     </div>
-                    <div style="font-size: 13px; color: var(--ink-black); line-height: 1.7; margin-bottom: 12px; background: #FFFFFF; padding: 12px 16px; border-radius: 12px; border: 1px solid #D5EDE0;">
-                        <strong>[관리자 메일(<code>{ADMIN_EMAIL}</code>)로 전송된 신청인 작성 정보]</strong><br/>
-                        • <strong>성명 / 직급:</strong> {user_rec.get('name')} ({user_rec.get('position', '-')})<br/>
-                        • <strong>소속 부서/팀:</strong> {user_rec.get('department')}<br/>
-                        • <strong>연락처:</strong> {user_rec.get('phone', '-')}<br/>
-                        • <strong>이메일(로그인 ID):</strong> <code>{user_rec.get('email')}</code><br/>
-                        • <strong>가입 신청 사유:</strong> {user_rec.get('reason')}<br/>
-                        • <strong>신청 일시:</strong> {user_rec.get('created_at')}
-                    </div>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <a href="{mailto_href}" style="display: inline-block; background: #03C75A; color: #FFFFFF; text-decoration: none; padding: 9px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 700;">
-                            📧 내 메일앱으로 관리자({ADMIN_EMAIL})에게 승인링크 직접 발송 (즉시도달 보조)
-                        </a>
-                    </div>
-                </div>
-                """,
+                    """
+                ),
                 unsafe_allow_html=True,
             )
 
     with tab_status:
-        st.markdown("#### 🔎 내 가입신청 승인 상태 실시간 조회")
+        st.markdown("#### **🔎 내 가입신청 승인 상태 실시간 조회**")
         st.caption("가입신청 시 입력한 이메일 주소를 입력하면 관리자 승인 여부를 즉시 확인할 수 있습니다.")
         chk_col1, chk_col2 = st.columns([3, 1])
         with chk_col1:
