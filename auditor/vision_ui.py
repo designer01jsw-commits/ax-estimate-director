@@ -27,18 +27,36 @@ from auditor.diagnostics import (
     diagnose_estimate_item,
     OFFICIAL_BENCHMARKS
 )
+from auditor.mogam_theme import clean_html, get_asset_data_uri
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 IMAGES_DIR = DATA_DIR / "learned_images"
 
 def render_vision_estimator_ui(currency: str = "KRW"):
     """비전 AI 이미지 기반 예상 견적 산출기 전체 UI를 렌더링합니다."""
-    st.markdown("### 📷 비전 AI 이미지 기반 전시·키트 예상 견적 산출기")
+    uri_vis = get_asset_data_uri("service_vision.jpg")
     st.markdown(
-        "전시 부스, 팝업스토어, 체험 키트의 **현장 사진, 3D 렌더링 또는 실제 제작 키트 도면**을 분석하여 "
-        "**실제 44개 프로젝트 백데이터(키트_견적산출_백데이터_v2.xlsx)** 및 "
-        "**6대 공공 기준(KIDP, KOSA, KENCA, KBIZ, 근로기준법, 조달청)**에 부합하는 "
-        "정밀 항목별 예상 견적서(XLSX)와 **실제 실적 벤치마크 비교**를 즉시 자동 생성합니다."
+        clean_html(
+            f"""
+            <div style="display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 36px; align-items: center; padding: 28px 0 36px 0; border-bottom: 1px solid #E5E8EB; margin-bottom: 28px;">
+                <div>
+                    <span class="mogam-sec-num">CORE ENGINE 02 · VISION AI ESTIMATOR</span>
+                    <h2 class="mogam-sec-title" style="font-size: clamp(1.5rem, 2.3vw, 2.1rem) !important; margin-bottom: 14px !important;">
+                        비전 AI 이미지 기반 전시·키트 예상 견적 산출기
+                    </h2>
+                    <p style="font-size: 14.5px; color: #374151; line-height: 1.75; margin: 0;">
+                        전시 부스, 팝업스토어, 체험 키트의 <strong>현장 사진, 3D 렌더링 또는 실제 제작 키트 도면</strong>을 분석하여
+                        <strong>실제 44개 프로젝트 백데이터</strong> 및 <strong>6대 공공 기준(KIDP, KOSA, KENCA, KBIZ, 근로기준법, 조달청)</strong>에 부합하는
+                        항목별 예상 견적서(XLSX)와 실적 벤치마크 비교표를 즉시 자동 생성합니다.
+                    </p>
+                </div>
+                <div class="mogam-img-frame" style="aspect-ratio: 16 / 9;">
+                    <img src="{uri_vis}" alt="Vision AI Spatial Estimator" />
+                </div>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
     )
 
     tab_estimator, tab_library = st.tabs([

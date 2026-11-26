@@ -18,16 +18,33 @@ from auditor.learning_engine import (
     IMAGES_DIR
 )
 from auditor.vision_estimator import generate_preset_sample_image
+from auditor.mogam_theme import clean_html, get_asset_data_uri
 
 def render_learning_studio_ui(currency: str = "KRW"):
     """과거 실적 학습 및 자산화 스튜디오 화면을 렌더링합니다."""
-    st.markdown("### 🧠 과거 실적 자산화 & AI 학습 스튜디오 (AI Learning Studio)")
+    uri_ast = get_asset_data_uri("service_asset.jpg")
     st.markdown(
-        "기존에 성공적으로 제작 및 정산이 완료된 **전시 부스 및 키트 실적(확정견적서 XLSX, 현장 사진, 최종 계약금액, 세부 사양)**을 "
-        "에이전트에 직접 학습시켜 **제일기획 고유의 견적 인텔리전스(Data Flywheel)**를 구축합니다.<br>"
-        "학습된 실적은 좌측 사이드바의 **[1단계: 기준 견적서 데이터셋 선택]**에 새로운 공인 기준으로 영구 등록되어 "
-        "신규 견적서와의 정밀 비교·감리에 즉시 활용됩니다.",
-        unsafe_allow_html=True
+        clean_html(
+            f"""
+            <div style="display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 36px; align-items: center; padding: 28px 0 36px 0; border-bottom: 1px solid #E5E8EB; margin-bottom: 28px;">
+                <div>
+                    <span class="mogam-sec-num">CORE ENGINE 03 · DATA FLYWHEEL STUDIO</span>
+                    <h2 class="mogam-sec-title" style="font-size: clamp(1.5rem, 2.3vw, 2.1rem) !important; margin-bottom: 14px !important;">
+                        과거 실적 자산화 &amp; AI 학습 스튜디오
+                    </h2>
+                    <p style="font-size: 14.5px; color: #374151; line-height: 1.75; margin: 0;">
+                        기존에 성공적으로 제작 및 정산이 완료된 <strong>전시 부스 및 키트 실적(확정견적서 XLSX, 현장 사진, 최종 계약금액, 세부 사양)</strong>을
+                        에이전트에 직접 학습시켜 <strong>제일기획 고유의 견적 인텔리전스(Data Flywheel)</strong>를 구축합니다.
+                        학습된 실적은 좌측 사이드바의 <strong>[1단계: 기준 견적서 데이터셋 선택]</strong>에 새로운 공인 기준으로 영구 등록됩니다.
+                    </p>
+                </div>
+                <div class="mogam-img-frame" style="aspect-ratio: 16 / 9;">
+                    <img src="{uri_ast}" alt="AI Learning Studio Archive" />
+                </div>
+            </div>
+            """
+        ),
+        unsafe_allow_html=True,
     )
 
     stats = get_learning_statistics()

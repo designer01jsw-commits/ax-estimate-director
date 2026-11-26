@@ -51,6 +51,13 @@ from auditor.diagnostics import (
 from auditor.vision_ui import render_vision_estimator_ui
 from auditor.learning_ui import render_learning_studio_ui
 from auditor.auth_ui import enforce_authentication_gate
+from auditor.mogam_theme import (
+    clean_html,
+    get_mogam_global_css,
+    get_asset_data_uri,
+    render_mogam_full_landing_sections,
+    render_mogam_footer,
+)
 from auditor.schema import (
     MATCH_CONFIRMED,
     MATCH_NEEDS_CONFIRM,
@@ -62,544 +69,15 @@ from auditor.schema import (
 # 페이지 설정 (로그인 전에는 내부 시스템 타이틀 및 사이드바 비노출)
 _is_authed = bool(isinstance(st.session_state.get("authenticated_user"), dict) and st.session_state.get("authenticated_user", {}).get("status") == "approved")
 st.set_page_config(
-    page_title="제일기획 AX 견적감독관 — 동일 시트명 자동 대조 감리" if _is_authed else "🔒 보안 로그인 · 회원가입 승인 게이트",
-    page_icon="⚖️" if _is_authed else "🔒",
+    page_title="CHEIL AX · AI 견적감독관 — Enterprise Cost Governance" if _is_authed else "CHEIL AX · AI 견적감독관 (MOGAM Corporate Edition)",
+    page_icon="🏛️",
     layout="wide",
     initial_sidebar_state="expanded" if _is_authed else "collapsed"
 )
 
 
-# Mastercard Inspired Design System Styling
-st.markdown("""
-<style>
-    /* ==========================================================================
-       Samsung Typography System:
-       - English: Samsung Sharp Sans (Bold, Medium, Regular)
-       - Korean: Samsung SS Head KR (Bold, Medium, Regular, Light)
-       ========================================================================== */
-
-    /* 1. English Font: Samsung Sharp Sans */
-    @font-face {
-        font-family: 'SamsungSharpSans';
-        src: local('SamsungSharpSans-Regular'), local('Samsung Sharp Sans Regular'), local('Samsung Sharp Sans'),
-             url('/app/static/fonts/SamsungSharpSans-Regular.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSharpSans-Regular.ttf') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'SamsungSharpSans';
-        src: local('SamsungSharpSans-Medium'), local('Samsung Sharp Sans Medium'),
-             url('/app/static/fonts/SamsungSharpSans-Medium.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSharpSans-Medium.ttf') format('truetype');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'SamsungSharpSans';
-        src: local('SamsungSharpSans-Bold'), local('Samsung Sharp Sans Bold'),
-             url('/app/static/fonts/SamsungSharpSans-Bold.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSharpSans-Bold.ttf') format('truetype');
-        font-weight: 700;
-        font-weight: 800;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    /* 2. Korean Font: Samsung SS Head KR */
-    @font-face {
-        font-family: 'SamsungSSHeadKR';
-        src: local('SamsungSSHeadKR-Light'), local('Samsung SS Head KR Light'),
-             url('/app/static/fonts/SamsungSSHeadKR-Light.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSSHeadKR-Light.ttf') format('truetype');
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'SamsungSSHeadKR';
-        src: local('SamsungSSHeadKR-Regular'), local('Samsung SS Head KR Regular'), local('Samsung SS Head KR'),
-             url('/app/static/fonts/SamsungSSHeadKR-Regular.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSSHeadKR-Regular.ttf') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'SamsungSSHeadKR';
-        src: local('SamsungSSHeadKR-Medium'), local('Samsung SS Head KR Medium'),
-             url('/app/static/fonts/SamsungSSHeadKR-Medium.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSSHeadKR-Medium.ttf') format('truetype');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    @font-face {
-        font-family: 'SamsungSSHeadKR';
-        src: local('SamsungSSHeadKR-Bold'), local('Samsung SS Head KR Bold'),
-             url('/app/static/fonts/SamsungSSHeadKR-Bold.ttf') format('truetype'),
-             url('app/static/fonts/SamsungSSHeadKR-Bold.ttf') format('truetype');
-        font-weight: 700;
-        font-weight: 800;
-        font-style: normal;
-        font-display: swap;
-    }
-
-    :root {
-        --canvas-cream: #F5F7FB;
-        --canvas-stone: #F1F5F9;
-        --lifted-cream: #FFFFFF;
-        --surface-lifted: #FFFFFF;
-        --white: #FFFFFF;
-        --soft-bone: #F8FAFC;
-        --ink-black: #0F172A;
-        --charcoal: #1E293B;
-        --slate-gray: #475569;
-        --granite: #334155;
-        --dust-taupe: #E2E8F0;
-        --border-stone: #E2E8F0;
-        --imweb-blue: #1A6DFF;
-        --imweb-blue-dark: #1557D0;
-        --imweb-blue-soft: #EFF6FF;
-        --imweb-violet: #6366F1;
-        --imweb-violet-soft: #EEF2FF;
-        --imweb-mint: #10B981;
-        --imweb-mint-soft: #ECFDF5;
-        --signal-orange: #FF5A36;
-        --light-signal-orange: #FF7A5C;
-        --clay-brown: #EA580C;
-        --link-blue: #1A6DFF;
-        --semantic-success: #10B981;
-        --semantic-danger: #E11D48;
-        --semantic-warning: #F59E0B;
-
-        --radius-pill: 999px;
-        --radius-stadium: 32px;
-        --radius-card: 20px;
-        --radius-button: 16px;
-        --radius-circle: 50%;
-
-        --shadow-nav: rgba(15, 23, 42, 0.05) 0px 4px 20px 0px;
-        --shadow-cushion: rgba(15, 23, 42, 0.07) 0px 16px 40px 0px;
-        --shadow-card: rgba(15, 23, 42, 0.04) 0px 6px 20px 0px;
-    }
-
-    /* 1. Global Font Stack & Crisp Imweb Cool-Snow Background */
-    html, body, [data-testid="stAppViewContainer"], .stApp {
-        background-color: var(--canvas-cream) !important;
-        color: var(--ink-black) !important;
-        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-        font-weight: 400 !important;
-        line-height: 1.55 !important;
-        -webkit-font-smoothing: antialiased !important;
-    }
-
-    /* 2. Sidebar: Crisp Pure White with Cool Slate Hairline */
-    [data-testid="stSidebar"] {
-        background-color: var(--white) !important;
-        border-right: 1.5px solid var(--border-stone) !important;
-    }
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3 {
-        color: var(--imweb-blue) !important;
-        font-size: 13px !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.01em !important;
-        margin-top: 16px !important;
-        margin-bottom: 8px !important;
-    }
-
-    /* 3. High-Visibility Bold Typography Headings */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', sans-serif !important;
-        color: var(--ink-black) !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.025em !important;
-    }
-    h2 {
-        font-size: 23px !important;
-        font-weight: 800 !important;
-        margin-top: 28px !important;
-        margin-bottom: 14px !important;
-    }
-    h3 {
-        font-size: 18.5px !important;
-        font-weight: 800 !important;
-    }
-
-    /* 4. Primary Button: Imweb Vivid Electric Blue Pill with White Bold Text */
-    button[kind="primary"], .stButton > button[kind="primary"], div[data-testid="stButton"] > button[kind="primary"],
-    [data-testid="stFormSubmitButton"] > button[kind="primary"], [data-testid="stFormSubmitButton"] > button {
-        background: linear-gradient(135deg, #1A6DFF 0%, #2563EB 100%) !important;
-        color: #FFFFFF !important;
-        border-radius: var(--radius-button) !important;
-        padding: 10px 24px !important;
-        font-size: 14.5px !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.2px !important;
-        border: 1.5px solid #1A6DFF !important;
-        box-shadow: 0 6px 18px rgba(26, 109, 255, 0.25) !important;
-        transition: all 0.16s ease-in-out !important;
-    }
-    button[kind="primary"]:hover, .stButton > button[kind="primary"]:hover,
-    [data-testid="stFormSubmitButton"] > button:hover {
-        background: linear-gradient(135deg, #1557D0 0%, #1D4ED8 100%) !important;
-        color: #FFFFFF !important;
-        transform: translateY(-1px) !important;
-        box-shadow: 0 8px 22px rgba(26, 109, 255, 0.35) !important;
-    }
-
-    /* 5. Secondary Button: Pure White with Crisp Slate Border & Blue Hover */
-    button[kind="secondary"], .stButton > button, div[data-testid="stButton"] > button, .stDownloadButton > button {
-        background-color: var(--white) !important;
-        color: var(--ink-black) !important;
-        border-radius: var(--radius-button) !important;
-        padding: 9px 22px !important;
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.2px !important;
-        border: 1.5px solid #CBD5E1 !important;
-        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03) !important;
-        transition: all 0.15s ease-in-out !important;
-    }
-    button[kind="secondary"]:hover, .stButton > button:hover, .stDownloadButton > button:hover {
-        background-color: #EFF6FF !important;
-        color: #1A6DFF !important;
-        border-color: #1A6DFF !important;
-        transform: translateY(-1px) !important;
-    }
-
-    /* 6. Metric Blocks (Pure White with Electric Blue Top Accent Bar) */
-    div[data-testid="stMetric"] {
-        background-color: var(--white) !important;
-        border: 1.5px solid var(--border-stone) !important;
-        border-top: 4px solid var(--imweb-blue) !important;
-        border-radius: var(--radius-card) !important;
-        padding: 20px 22px !important;
-        box-shadow: var(--shadow-card) !important;
-        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-    }
-    div[data-testid="stMetric"]:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: var(--shadow-cushion) !important;
-    }
-    div[data-testid="stMetricLabel"] {
-        font-size: 12.5px !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.02em !important;
-        color: var(--slate-gray) !important;
-        margin-bottom: 6px !important;
-    }
-    div[data-testid="stMetricValue"] {
-        font-size: 26px !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.025em !important;
-        color: var(--ink-black) !important;
-        line-height: 1.15 !important;
-    }
-    div[data-testid="stMetricDelta"] {
-        font-size: 12.5px !important;
-        font-weight: 700 !important;
-    }
-
-    /* 7. Tabs Navigation: Imweb Colorful Pill Switcher */
-    .stTabs [data-baseweb="tab-list"] {
-        background-color: var(--white) !important;
-        border: 1.5px solid var(--border-stone) !important;
-        border-radius: var(--radius-pill) !important;
-        padding: 6px !important;
-        gap: 6px !important;
-        display: inline-flex !important;
-        box-shadow: var(--shadow-card) !important;
-        max-width: 100% !important;
-        overflow-x: auto !important;
-    }
-    .stTabs [data-baseweb="tab"] {
-        border-radius: var(--radius-pill) !important;
-        padding: 9px 20px !important;
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        color: var(--slate-gray) !important;
-        background-color: transparent !important;
-        border: none !important;
-        transition: all 0.15s ease-in-out !important;
-        white-space: nowrap !important;
-    }
-    .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #1A6DFF 0%, #2563EB 100%) !important;
-        color: #FFFFFF !important;
-        font-weight: 800 !important;
-        box-shadow: 0 4px 14px rgba(26, 109, 255, 0.28) !important;
-    }
-    .stTabs [data-baseweb="tab-border"], .stTabs [data-baseweb="tab-highlight"] {
-        display: none !important;
-    }
-
-    /* 8. Inputs, Selectboxes, Textareas (14px radius & Electric Blue Focus Ring) */
-    div[data-baseweb="select"] > div,
-    div[data-baseweb="input"] > div,
-    div[data-baseweb="textarea"] > div,
-    input, textarea {
-        background-color: var(--white) !important;
-        border: 1.5px solid #CBD5E1 !important;
-        color: var(--ink-black) !important;
-        border-radius: 14px !important;
-        font-size: 14px !important;
-    }
-    div[data-baseweb="select"] > div:focus-within,
-    div[data-baseweb="input"] > div:focus-within,
-    div[data-baseweb="textarea"] > div:focus-within,
-    input:focus, textarea:focus {
-        border-color: var(--imweb-blue) !important;
-        box-shadow: 0 0 0 3px rgba(26, 109, 255, 0.15) !important;
-    }
-
-    /* 9. Expanders */
-    div[data-testid="stExpander"] {
-        background-color: var(--white) !important;
-        border: 1.5px solid var(--border-stone) !important;
-        border-radius: var(--radius-card) !important;
-        box-shadow: var(--shadow-card) !important;
-        margin-bottom: 16px !important;
-    }
-    div[data-testid="stExpander"] summary {
-        font-size: 14.5px !important;
-        font-weight: 700 !important;
-        color: var(--ink-black) !important;
-        padding: 16px 22px !important;
-    }
-
-    /* 10. Dataframe Tables */
-    [data-testid="stDataFrame"] {
-        border: 1.5px solid var(--border-stone) !important;
-        border-radius: var(--radius-card) !important;
-        background-color: var(--white) !important;
-        box-shadow: var(--shadow-card) !important;
-        overflow: hidden !important;
-    }
-
-    /* 11. Alerts & Info */
-    div[data-testid="stAlert"] {
-        background-color: var(--white) !important;
-        border: 1.5px solid var(--border-stone) !important;
-        border-left: 5px solid var(--imweb-blue) !important;
-        border-radius: 16px !important;
-        color: var(--ink-black) !important;
-    }
-
-    /* 12. Links */
-    a {
-        color: var(--imweb-blue) !important;
-        text-decoration: none !important;
-    }
-    a:hover {
-        text-decoration: underline !important;
-    }
-
-    /* 13. Imweb Floating GNB Pill */
-    .mc-floating-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: var(--white);
-        border-radius: var(--radius-pill);
-        padding: 12px 28px;
-        margin: 4px 0 20px 0;
-        box-shadow: var(--shadow-nav);
-        border: 1.5px solid var(--border-stone);
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    /* 14. Imweb Hero Stadium Frame (32px radius with soft color aura) */
-    .mc-hero-stadium {
-        background: radial-gradient(circle at 95% 12%, rgba(26, 109, 255, 0.08), transparent 42%),
-                    radial-gradient(circle at 6% 88%, rgba(16, 185, 129, 0.07), transparent 40%),
-                    var(--white);
-        border-radius: var(--radius-stadium);
-        padding: 38px 44px;
-        margin-bottom: 26px;
-        position: relative;
-        border: 1.5px solid var(--border-stone);
-        border-top: 6px solid var(--imweb-blue);
-        box-shadow: var(--shadow-cushion);
-        overflow: hidden;
-    }
-    .mc-orbital-arc {
-        position: absolute;
-        top: -70px;
-        right: -70px;
-        width: 260px;
-        height: 260px;
-        background: radial-gradient(circle, rgba(26, 109, 255, 0.12) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-    }
-    .mc-eyebrow {
-        font-size: 12px !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.04em !important;
-        text-transform: uppercase !important;
-        color: var(--imweb-blue) !important;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 10px;
-    }
-    .mc-eyebrow-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background-color: var(--imweb-blue);
-        display: inline-block;
-    }
-    .mc-hero-title {
-        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', sans-serif !important;
-        font-size: 36px !important;
-        font-weight: 900 !important;
-        line-height: 1.2 !important;
-        letter-spacing: -0.03em !important;
-        color: var(--ink-black) !important;
-        margin: 0 0 10px 0 !important;
-    }
-    .mc-hero-subhead {
-        font-size: 15.5px !important;
-        font-weight: 500 !important;
-        line-height: 1.6 !important;
-        color: var(--slate-gray) !important;
-        margin-bottom: 20px !important;
-        max-width: 880px;
-    }
-    .mc-domain-pill {
-        display: inline-flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        background-color: #F8FAFC;
-        border-radius: var(--radius-pill);
-        padding: 7px 18px;
-        font-size: 13px;
-        color: var(--slate-gray);
-        border: 1.5px solid var(--border-stone);
-    }
-    .mc-domain-pill a {
-        color: var(--imweb-blue) !important;
-        font-weight: 700;
-    }
-
-    /* 15. Imweb Bento Cards & Color-Coded Pill Chips */
-    .mc-stadium-card {
-        background-color: var(--white);
-        border-radius: var(--radius-stadium);
-        padding: 32px 38px;
-        margin-bottom: 26px;
-        border: 1.5px solid var(--border-stone);
-        box-shadow: var(--shadow-cushion);
-        position: relative;
-        overflow: hidden;
-    }
-    .mc-card-20 {
-        background-color: var(--white);
-        border-radius: var(--radius-card);
-        padding: 24px 26px;
-        border: 1.5px solid var(--border-stone);
-        box-shadow: var(--shadow-card);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .mc-card-20:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-cushion);
-    }
-    .mc-pill-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border-radius: var(--radius-pill);
-        padding: 5px 14px;
-        font-size: 12px;
-        font-weight: 700;
-    }
-    .mc-chip-ink, .mc-chip-black {
-        background-color: #EFF6FF;
-        color: #1A6DFF;
-        border: 1px solid #BFDBFE;
-    }
-    .mc-chip-blue {
-        background-color: #EFF6FF;
-        color: #1A6DFF;
-        border: 1px solid #BFDBFE;
-    }
-    .mc-chip-violet {
-        background-color: #EEF2FF;
-        color: #4F46E5;
-        border: 1px solid #C7D2FE;
-    }
-    .mc-chip-orange {
-        background-color: #FFF5F2;
-        color: #EA580C;
-        border: 1px solid #FED7AA;
-    }
-    .mc-chip-green {
-        background-color: #ECFDF5;
-        color: #059669;
-        border: 1px solid #A7F3D0;
-    }
-    .mc-chip-gray {
-        background-color: #F8FAFC;
-        color: #475569;
-        border: 1px solid #E2E8F0;
-    }
-    .mc-satellite-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background-color: var(--white);
-        border-radius: var(--radius-pill);
-        padding: 6px 16px;
-        box-shadow: var(--shadow-card);
-        border: 1px solid var(--border-stone);
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--ink-black);
-    }
-    .mc-satellite-arrow {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: var(--imweb-blue);
-        color: #FFFFFF;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        font-weight: 800;
-    }
-
-    /* 16. Deep Navy Footer */
-    .mc-footer {
-        background-color: var(--ink-black);
-        color: var(--white);
-        border-radius: 32px 32px 0 0;
-        padding: 48px 56px 38px 56px;
-        margin-top: 56px;
-    }
-    .mc-footer-title {
-        font-family: 'SamsungSharpSans', 'SamsungSSHeadKR', sans-serif !important;
-        font-size: 22px !important;
-        font-weight: 800 !important;
-        letter-spacing: -0.02em !important;
-        color: var(--white) !important;
-        margin-bottom: 14px !important;
-    }
-</style>
-""", unsafe_allow_html=True)
+# MOGAM Corporate Minimalist Design System
+st.markdown(get_mogam_global_css(), unsafe_allow_html=True)
 
 
 def format_currency(val: float, currency: str = "KRW") -> str:
@@ -621,46 +99,45 @@ def get_workbook_sheet_names(file_path: str):
         return []
 
 def main():
-    # 0. 최상단 보안 접근통제 게이트 (로그인 및 관리자 승인 완료 전에는 사이트 헤더/본문 일절 비노출)
+    # 0. 최상단 보안 접근통제 게이트 (미인증 시 MOGAM 6대 섹션 공식 랜딩 페이지 + 로그인/가입승인 게이트 렌더링)
     if not enforce_authentication_gate():
         return
 
-    st.markdown("""
-    <div class="mc-floating-nav">
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <span style="background: linear-gradient(135deg, #1A6DFF 0%, #4F46E5 100%); color: #FFFFFF; width: 32px; height: 32px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800;">⚖️</span>
-            <span style="font-size: 16px; font-weight: 800; letter-spacing: -0.02em; color: #0F172A;">제일기획 AI 견적감독관</span>
-            <span class="mc-pill-chip mc-chip-blue" style="font-size: 11px;">AX ENTERPRISE v2.0</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-            <span class="mc-pill-chip mc-chip-green" style="font-size: 12px;">● 24/7 AI 감리 엔진 가동 중</span>
-            <span class="mc-pill-chip mc-chip-violet" style="font-size: 12px;">✨ 승인 정회원 보안 세션</span>
-        </div>
-    </div>
-    <div class="mc-hero-stadium">
-        <div class="mc-orbital-arc"></div>
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: #EFF6FF; border: 1px solid #BFDBFE; color: #1A6DFF; padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 800; margin-bottom: 14px;">
-            <span>✨ 견적서 파일 하나로 3초 만에 정밀 감리 시작</span>
-        </div>
-        <h1 class="mc-hero-title">제일기획 <span style="color: #1A6DFF;">AI 견적감독관</span></h1>
-        <div class="mc-hero-subhead">
-            양식초월 7대 공종 자동분해 · 정부 공인 6대 물가·노임 소명 · 25.6억 44종 키트 벤치마크 · 비전 AI 실시간 감리 플랫폼
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
-            <span style="background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; padding: 6px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 800;">🔵 7대 공종 양식초월 정규화</span>
-            <span style="background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; padding: 6px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 800;">🟢 6대 공공기준(KIDP·KOSA·시중노임) 대조</span>
-            <span style="background: #EEF2FF; color: #4338CA; border: 1px solid #C7D2FE; padding: 6px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 800;">🟣 비전 AI 3D 투시도 견적</span>
-            <span style="background: #FFF7ED; color: #C2410C; border: 1px solid #FED7AA; padding: 6px 14px; border-radius: 10px; font-size: 12.5px; font-weight: 800;">🟠 3단계 신호등(🟢·🟡·🔴) 리스크 판정</span>
-        </div>
-        <div class="mc-domain-pill">
-            <span style="color: #0F172A; font-weight: 700;">🌐 공식 서비스 도메인:</span>
-            <a href="https://ax-estimate-director.onrender.com" target="_blank">https://ax-estimate-director.onrender.com</a>
-            <span style="color: #CBD5E1;">|</span>
-            <a href="https://ax-estimate-supervisor.onrender.com" target="_blank">https://ax-estimate-supervisor.onrender.com</a>
-            <span class="mc-satellite-arrow" style="margin-left: 4px;">↗</span>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    uri_hero = get_asset_data_uri("hero_main.jpg")
+    st.markdown(
+        clean_html(
+            f"""
+            <header class="mogam-header" style="margin-bottom: 0;">
+                <div class="mogam-logo-group">
+                    <span class="mogam-logo-mark"></span>
+                    <span class="mogam-logo-title">CHEIL AX</span>
+                    <span class="mogam-logo-sub">AI ESTIMATE SUPERVISOR · WORKSPACE</span>
+                </div>
+                <div class="mogam-nav-links">
+                    <span style="font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0052CC;">● VERIFIED ENTERPRISE SESSION</span>
+                    <a href="https://ax-estimate-director.onrender.com" target="_blank" class="mogam-nav-item">DIRECTOR ↗</a>
+                    <a href="https://ax-estimate-supervisor.onrender.com" target="_blank" class="mogam-nav-item">SUPERVISOR ↗</a>
+                </div>
+            </header>
+            <section style="position: relative; overflow: hidden; background: #071A33; padding: clamp(36px, 5vw, 60px) clamp(28px, 4.5vw, 60px); margin-bottom: 36px;">
+                <div style="position: absolute; inset: 0; background-image: url('{uri_hero}'); background-size: cover; background-position: center; opacity: 0.34; animation: mogamHeroZoom 20s ease-out forwards;"></div>
+                <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,26,51,0.92) 0%, rgba(0,44,95,0.68) 100%);"></div>
+                <div style="position: relative; z-index: 2; max-width: 960px;">
+                    <div style="font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.2em; color: #7CC4FA; margin-bottom: 12px;">
+                        BEYOND ESTIMATE, AI GOVERNANCE WORKSPACE
+                    </div>
+                    <h1 style="color: #FFFFFF !important; font-size: clamp(1.85rem, 3.2vw, 2.85rem) !important; font-weight: 800 !important; margin: 0 0 14px 0 !important; letter-spacing: -0.03em !important;">
+                        제일기획 AI 견적감독관 — 통합 감리 워크스페이스
+                    </h1>
+                    <p style="color: rgba(255,255,255,0.82); font-size: 15px; line-height: 1.68; margin: 0;">
+                        7대 표준 공종 양식초월 자동분해 · 정부 공인 6대 물가·노임 소명 · 25.6억 44종 실물 키트 벤치마크 · 비전 AI 공간 예상견적 시스템
+                    </p>
+                </div>
+            </section>
+            """
+        ),
+        unsafe_allow_html=True,
+    )
 
     # 1. 프로젝트 목록 로드
     projects, prj_warnings = load_projects()
@@ -935,7 +412,7 @@ def main():
             main_title = "광고주 컨펌 기준가이드 준비 완료"
             sub_title = "대조할 신규 견적서를 공급하시면 7대 공종 양식초월 정규화 및 실시간 단가·인건비 대조가 즉시 시작됩니다."
 
-        st.markdown(f"""<div class="mc-stadium-card" style="padding: 32px 36px; margin: 18px 0 28px 0; border: 1.5px solid #BFDBFE; border-left: 6px solid #1A6DFF; background: #FFFFFF; box-shadow: var(--shadow-cushion);">
+        st.markdown(f"""<div class="mc-stadium-card" style="padding: 32px 36px; margin: 18px 0 28px 0; border: 1.5px solid rgba(207, 69, 0, 0.3); background: var(--surface-lifted); box-shadow: var(--shadow-cushion);">
 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
 <div style="display: flex; align-items: center; gap: 14px;">
 <span style="font-size: 30px;">⚖️</span>
@@ -957,95 +434,65 @@ def main():
 </div>
 </div>""", unsafe_allow_html=True)
 
-        # 3단계 프로세스 안내 카드
-        st.markdown("""<div style="margin-bottom: 28px;">
-<div class="mc-eyebrow" style="margin-bottom: 6px;"><span class="mc-eyebrow-dot"></span><span>AUDIT EXECUTION WORKFLOW</span></div>
-<h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 700; color: var(--ink-black);">🚀 견적감독관 3단계 정밀 감리 프로세스</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-<span class="mc-pill-chip mc-chip-black" style="font-size: 11px; font-weight: 700;">STEP 01</span>
-<span class="mc-pill-chip mc-chip-green" style="font-size: 11px;">장착 완료 ✅</span>
-</div>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black); margin-bottom: 6px;">기준 가이드 확정</div>
-<div style="font-size: 12px; color: var(--signal-orange); font-weight: 600; margin-bottom: 8px;">📍 좌측 사이드바 [1단계]</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.5;">에이전트 DB에 등록된 광고주 승인 프로젝트 또는 실적 자산화 데이터를 대조의 표준 잣대로 선택합니다.</div>
-</div>
-<div class="mc-card-20" style="background: var(--surface-lifted); border: 2px solid #1A6DFF; background: #EFF6FF; box-shadow: 0 8px 24px rgba(26, 109, 255, 0.10);">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-<span class="mc-pill-chip mc-chip-orange" style="font-size: 11px; font-weight: 700;">STEP 02</span>
-<span class="mc-pill-chip mc-chip-orange" style="font-size: 11px;">좌측 바 업로드 대기 👈</span>
-</div>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black); margin-bottom: 6px;">신규 견적서 공급</div>
-<div style="font-size: 12px; color: var(--signal-orange); font-weight: 600; margin-bottom: 8px;">📍 좌측 사이드바 [2단계]</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.5;">진단받을 신규 견적서(.xlsx)를 좌측 바에서 업로드하거나, 준비된 실적 샘플로 즉시 체험할 수 있습니다.</div>
-</div>
-<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-<span class="mc-pill-chip mc-chip-black" style="font-size: 11px; font-weight: 700;">STEP 03</span>
-<span class="mc-pill-chip mc-chip-gray" style="font-size: 11px;">자동 가동 대기 ⚡</span>
-</div>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black); margin-bottom: 6px;">AI 양식초월 정밀 감리</div>
-<div style="font-size: 12px; color: var(--signal-orange); font-weight: 600; margin-bottom: 8px;">📍 중앙 메인 화면</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.5;">7대 공종 자동 분해, 6대 공공 기준 단가 대조, 신호등 적정성 진단 및 과다 청구액 소견 리포트가 즉시 도출됩니다.</div>
-</div>
-</div>
-</div>""", unsafe_allow_html=True)
-
-        # 핵심 감리 방법론 및 대조 원리 카드
-        st.markdown("""<div style="margin-bottom: 28px;">
-<div class="mc-eyebrow" style="margin-bottom: 6px;"><span class="mc-eyebrow-dot"></span><span>CORE AUDIT METHODOLOGY</span></div>
-<h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 700; color: var(--ink-black);">🔬 견적 대조 원리 및 핵심 감리 방법론</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-<span style="font-size: 22px;">🧩</span>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">1. 7대 공종 양식초월 정규화</div>
-</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.55; margin-bottom: 12px;">
-프로젝트마다 상이한 시트 구조와 계정 과목을 <strong>[목공사, 금속·유리, 전기·조명, 도장·필름, 사인·그래픽, 집기·설치, 현장경비·이윤]</strong>의 7대 표준 체계로 지능형 재분류하여 1:1 비교를 실현합니다.
-</div>
-<div style="background: var(--canvas-stone); padding: 8px 12px; border-radius: 12px; font-size: 12px; color: var(--ink-black); font-weight: 500;">
-💡 양식이 달라도 공종별 비중(%)과 투입 단가를 정밀 대조
-</div>
-</div>
-<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-<span style="font-size: 22px;">🏛️</span>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">2. 6대 공공 기준 벤치마킹</div>
-</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.55; margin-bottom: 12px;">
-산업통상자원부 산업디자인(<strong>KIDP</strong>), 한국SW산업협회(<strong>KOSA</strong>), 엔지니어링(<strong>KENCA</strong>), 중기중앙회 시중노임(<strong>KBIZ</strong>), 조달청(<strong>G2B</strong>) 가격정보 및 에이전트 실적 빅데이터와 실시간 교차 검증합니다.
-</div>
-<div style="background: var(--canvas-stone); padding: 8px 12px; border-radius: 12px; font-size: 12px; color: var(--ink-black); font-weight: 500;">
-💡 정부 공인 노임 및 물가정보 기반 법적 소명력 확보
-</div>
-</div>
-<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone);">
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-<span style="font-size: 22px;">🚦</span>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">3. 3단계 신호등 판정 & 삭감 산출</div>
-</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); line-height: 1.55; margin-bottom: 12px;">
-기준 단가 대비 변동폭과 공공 기준 부합성을 검증하여 <strong>🟢 적정 (인정)</strong>, <strong>🟡 주의 (소명 요청)</strong>, <strong>🔴 비적합 (과다 청구)</strong>으로 명확히 구분하고 삭감 권고액을 계산합니다.
-</div>
-<div style="background: var(--canvas-stone); padding: 8px 12px; border-radius: 12px; font-size: 12px; color: var(--ink-black); font-weight: 500;">
-💡 단가 25% 이상 초과 항목 즉시 감액 청구액 자동 산출
-</div>
-</div>
-</div>
-</div>""", unsafe_allow_html=True)
-
-        # 빠른 샘플 체험 가이드 카드
-        st.markdown("""<div class="mc-card-20" style="background: var(--white); border: 1.5px solid var(--border-stone); padding: 24px 28px; margin-bottom: 20px;">
-<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-<div>
-<div class="mc-eyebrow" style="margin-bottom: 4px;"><span class="mc-eyebrow-dot"></span><span>QUICK START EXPERIENCE</span></div>
-<div style="font-size: 16px; font-weight: 700; color: var(--ink-black);">📋 테스트용 신규 견적서 파일이 없으신가요?</div>
-<div style="font-size: 13.5px; color: var(--slate-gray); margin-top: 4px;">사전에 준비된 실제 홍대점 전시 변경 내역서 샘플을 즉시 불러와 9대 정밀 진단실과 신호등 감리를 1초 만에 체험해 보세요.</div>
-</div>
-</div>
-</div>""", unsafe_allow_html=True)
+        # MOGAM 스타일 코퍼레이트 비주얼 쇼케이스 (SECTION 02 ~ SECTION 05)
+        uri_intro = get_asset_data_uri("brand_intro.jpg")
+        uri_audit = get_asset_data_uri("service_audit.jpg")
+        uri_vision = get_asset_data_uri("service_vision.jpg")
+        uri_asset = get_asset_data_uri("service_asset.jpg")
+        st.markdown(
+            clean_html(
+                f"""
+                <section class="mogam-section" style="padding-top: 28px;">
+                    <span class="mogam-sec-num">AUDIT EXECUTION ARCHITECTURE</span>
+                    <h2 class="mogam-sec-title">3단계 엔드투엔드(E2E) 정밀 감리 프로세스 및 방법론</h2>
+                    <div class="mogam-service-grid" style="margin-top: 32px;">
+                        <div class="mogam-service-item">
+                            <div class="mogam-img-frame" style="aspect-ratio: 4 / 3; margin-bottom: 20px;">
+                                <img src="{uri_audit}" alt="Step 01 Baseline & 7-Category Normalization" />
+                            </div>
+                            <span class="mogam-service-idx">STEP 01 · BASELINE &amp; 7-CATEGORY</span>
+                            <div class="mogam-service-name">기준 가이드 확정 및 7대 공종 정규화</div>
+                            <p class="mogam-service-desc">
+                                좌측 사이드바 [1단계]에서 광고주 컨펌 완료 프로젝트를 선택하고, 상이한 시트 구조를 목공사·금속·전기·도장·사인·집기·경비의 7대 표준 체계로 정규화합니다.
+                            </p>
+                        </div>
+                        <div class="mogam-service-item">
+                            <div class="mogam-img-frame" style="aspect-ratio: 4 / 3; margin-bottom: 20px;">
+                                <img src="{uri_vision}" alt="Step 02 Target Estimate Supply & Vision AI" />
+                            </div>
+                            <span class="mogam-service-idx">STEP 02 · ESTIMATE SUPPLY &amp; BENCHMARK</span>
+                            <div class="mogam-service-name">신규 견적서 공급 및 6대 공인기준 대조</div>
+                            <p class="mogam-service-desc">
+                                좌측 사이드바 [2단계]에서 진단받을 신규 견적서(.xlsx)를 업로드하면 KIDP·KOSA·KENCA·KBIZ·조달청·근로기준법 및 44종 키트 실적 DB와 실시간 교차 검증합니다.
+                            </p>
+                        </div>
+                        <div class="mogam-service-item">
+                            <div class="mogam-img-frame" style="aspect-ratio: 4 / 3; margin-bottom: 20px;">
+                                <img src="{uri_asset}" alt="Step 03 Traffic Light Judgment & Report" />
+                            </div>
+                            <span class="mogam-service-idx">STEP 03 · AI DIAGNOSTICS &amp; GOVERNANCE</span>
+                            <div class="mogam-service-name">3단계 신호등 판정 및 공식 소명서 발행</div>
+                            <p class="mogam-service-desc">
+                                수량·단가 효과 요인 분해, 투입률 100% 초과 인력 탐지, 과다 청구 삭감 권고액 산출 및 91종 FAQ 기반 공문형 감리 진단서를 즉시 생성합니다.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <div style="background: #F8F9FB; border-top: 2px solid #002C5F; border-bottom: 1px solid #E5E8EB; padding: 28px 32px; margin: 28px 0 20px 0;">
+                    <div style="font-family: 'Inter', sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; color: #0052CC; margin-bottom: 6px;">
+                        QUICK START EXPERIENCE
+                    </div>
+                    <div style="font-size: 18px; font-weight: 800; color: #111827; margin-bottom: 6px;">
+                        테스트용 신규 견적서 파일 없이 지금 즉시 9대 정밀 감리 모듈을 체험해 보십시오.
+                    </div>
+                    <div style="font-size: 14px; color: #4B5563;">
+                        아래 버튼을 클릭하면 실제 홍대점 전시 공사 변경 내역서 샘플이 즉시 로드되어 AI 감리 리포트가 가동됩니다.
+                    </div>
+                </div>
+                """
+            ),
+            unsafe_allow_html=True,
+        )
 
         if st.button("⚡ 홍대점 전시 샘플 견적서로 지금 즉시 감리 체험하기", type="primary", use_container_width=True, key="btn_quick_sample_experience"):
             st.session_state["use_sample_change"] = True
@@ -1766,29 +1213,8 @@ def main():
             st.code(traceback.format_exc())
 
 
-    # Mastercard Warm Dark Footer
-    st.markdown("""
-    <div class="mc-footer">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 32px;">
-            <div>
-                <div class="mc-footer-title">We're always here when you need rigorous estimate governance.</div>
-                <div style="color: #999999; font-size: 14px; max-width: 620px; line-height: 1.5;">
-                    제일기획 AX 견적감독관은 6대 공공기준(KIDP, KOSA, KENCA, KBIZ, 근로기준법, 나라장터) 및 25.6억 44종 키트 빅데이터를 기반으로 최상의 객관적 감리 소견을 제공합니다.
-                </div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); padding: 8px 20px; border-radius: 999px;">
-                <span style="font-size: 16px;">🏛️</span>
-                <span style="font-size: 12px; font-weight: 600; color: #FFFFFF;">CHEIL AX ESTIMATE SUPERVISOR</span>
-            </div>
-        </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #888888;">
-            <div>© 2026 CHEIL WORLDWIDE AX ESTIMATE GOVERNANCE. ALL RIGHTS RESERVED.</div>
-            <div>
-                <a href="https://ax-estimate-director.onrender.com" target="_blank" style="color: #BBBBBB;">공식 도메인 (24/7 무중단 가동) ↗</a>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    # MOGAM Corporate Footer
+    render_mogam_footer()
 
 if __name__ == "__main__":
     main()
